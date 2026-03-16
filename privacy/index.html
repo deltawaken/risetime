@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Risetime</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1a2e;
+      --accent: #e8a87c;
+      --text: #e8e8e8;
+      --muted: #9a9a9a;
+      --border: #2a2a3e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+
+    header {
+      max-width: 680px;
+      margin: 3rem auto 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    header .wordmark {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 0.4rem;
+      color: var(--text);
+    }
+
+    header .meta {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    ul li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wordmark">Risetime</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: 2026-03-20 &nbsp;·&nbsp; Publisher: A. Deltawaken</p>
+  </header>
+
+  <main>
+
+    <div class="highlight-box">
+      <p>Risetime does not collect, transmit, or share any personal data. Your information never leaves your device.</p>
+    </div>
+
+    <section>
+      <h2>What Risetime Does Not Do</h2>
+      <ul>
+        <li>Does not collect any personal data</li>
+        <li>Does not connect to the internet</li>
+        <li>Does not transmit your location to any server</li>
+        <li>Does not use analytics, crash reporting, or telemetry</li>
+        <li>Does not contain advertisements</li>
+        <li>Does not track you across apps or websites</li>
+        <li>Does not share any data with third parties</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Stored Locally on Your Device</h2>
+      <p>Risetime stores the following data <strong>exclusively on your device</strong>, never transmitted:</p>
+      <ul>
+        <li><strong>Alarm configuration</strong> — your alarm times, labels, recurrence settings, and anchor types (e.g. sunrise, sunset). Stored in a local Room database.</li>
+        <li><strong>Location</strong> — the city or GPS coordinates you set for celestial calculations (sunrise and sunset times). Used only for local computation. Never transmitted.</li>
+        <li><strong>App preferences</strong> — settings such as your subscription status and app configuration. Stored in local DataStore.</li>
+      </ul>
+      <p>All data is removed when you uninstall the app.</p>
+    </section>
+
+    <section>
+      <h2>Location Permission</h2>
+      <p>Risetime requests <strong>coarse location permission</strong> (<code>ACCESS_COARSE_LOCATION</code>) solely to calculate local sunrise and sunset times. Your location is processed on-device by an ephemeris engine and is never sent to any external service or server.</p>
+      <p>You may also manually set your city in Settings, in which case GPS is not used.</p>
+    </section>
+
+    <section>
+      <h2>Internet Permission</h2>
+      <p>Risetime does <strong>not</strong> declare the <code>INTERNET</code> permission and makes no network requests. The app operates fully offline.</p>
+      <p>The optional in-app subscription uses Google Play Billing, which communicates with Google Play Services via interprocess communication (IPC) on your device — not via a network call made by Risetime. This IPC call is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    </section>
+
+    <section>
+      <h2>In-App Subscriptions</h2>
+      <p>Risetime offers an optional "Risetime Supporter" subscription. Subscription purchases are processed entirely by Google Play. Risetime does not receive, store, or process any payment information. Subscription status is stored locally on your device only.</p>
+    </section>
+
+    <section>
+      <h2>Children's Privacy</h2>
+      <p>Risetime does not knowingly collect any information from anyone, including children under the age of 13. Because no data is collected at all, Risetime is compliant with COPPA and similar regulations by design.</p>
+    </section>
+
+    <section>
+      <h2>Changes to This Policy</h2>
+      <p>If this privacy policy changes, the updated version will be published at this URL with a revised effective date. Because no data is collected, changes are unlikely to affect your privacy in practice.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions about this privacy policy can be directed to the publisher via the Google Play Store listing for Risetime.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Risetime &nbsp;·&nbsp; A. Deltawaken &nbsp;·&nbsp; <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime">Google Play</a></p>
+  </footer>
+
+</body>
+</html>
