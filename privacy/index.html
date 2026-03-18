@@ -3,67 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for Risetime, the celestial alarm clock. Risetime does not collect, transmit, or share any personal data.">
+  <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
   <title>Privacy Policy — Risetime</title>
   <style>
+    /* ============================================
+       RISETIME DESIGN SYSTEM
+       ============================================ */
+
     :root {
-      --bg: #0f1117;
-      --surface: #1a1a2e;
-      --accent: #e8a87c;
-      --text: #e8e8e8;
-      --muted: #9a9a9a;
-      --border: #2a2a3e;
+      /* Shared tokens */
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --max-width: 680px;
+      --max-width-wide: 960px;
+      --base-font: 1rem;
+      --line-height: 1.7;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-xxl: 6rem;
+      --focus-offset: 2px;
+
+      /* Default: light theme */
+      --bg: #faf8f5;
+      --bg-elevated: #ffffff;
+      --surface: #f0ede8;
+      --accent: #c0753a;
+      --accent-hover: #a86330;
+      --accent-muted: #c0753a1a;
+      --text: #2c2c2c;
+      --text-strong: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #d9d4cc;
+      --border-accent: #c0753a40;
+      --code-bg: #eae6e0;
     }
 
-    * {
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --bg-elevated: #161824;
+        --surface: #1a1a2e;
+        --accent: #e8a87c;
+        --accent-hover: #f0b88e;
+        --accent-muted: #e8a87c33;
+        --text: #e8e8e8;
+        --text-strong: #ffffff;
+        --muted: #9a9a9a;
+        --border: #2a2a3e;
+        --border-accent: #e8a87c40;
+        --code-bg: #1e1e32;
+      }
+    }
+
+    /* ---- RESET ---- */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* ---- BASE ---- */
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      padding: 0 1rem;
+      font-family: var(--font-stack);
+      font-size: var(--base-font);
+      line-height: var(--line-height);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    header {
-      max-width: 680px;
-      margin: 3rem auto 2rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.5rem;
+    /* ---- SKIP LINK ---- */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--accent);
+      color: var(--bg);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--space-sm);
     }
 
-    header .wordmark {
+    /* ---- FOCUS ---- */
+    *:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: var(--focus-offset);
+    }
+
+    /* ---- REDUCED MOTION ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    /* ---- HEADER / NAV ---- */
+    .site-header {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-sm);
+    }
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      width: 100%;
+    }
+    .wordmark {
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--accent);
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      text-decoration: none;
+      margin-right: auto;
+    }
+    .site-header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .site-header nav a:hover {
+      color: var(--accent);
     }
 
-    header h1 {
+    /* ---- CONTENT ---- */
+    .page-header {
+      max-width: var(--max-width);
+      margin: var(--space-lg) auto var(--space-md);
+      padding: 0 var(--space-sm);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: var(--space-md);
+    }
+    .page-header h1 {
       font-size: 1.8rem;
       font-weight: 700;
+      color: var(--text-strong);
       margin-top: 0.4rem;
-      color: var(--text);
     }
-
-    header .meta {
+    .page-header .meta {
       font-size: 0.875rem;
       color: var(--muted);
       margin-top: 0.4rem;
     }
 
     main {
-      max-width: 680px;
-      margin: 0 auto 4rem;
+      max-width: var(--max-width);
+      margin: 0 auto var(--space-xl);
+      padding: 0 var(--space-sm);
     }
 
     section {
-      margin-top: 2.5rem;
+      margin-top: var(--space-lg);
     }
 
     h2 {
@@ -93,19 +198,19 @@
     }
 
     ul li::before {
-      content: "•";
+      content: "\2022";
       position: absolute;
       left: 0;
       color: var(--accent);
     }
 
     .highlight-box {
-      background: var(--surface);
+      background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
+      border-radius: var(--radius-sm);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
     }
 
     .highlight-box p {
@@ -120,34 +225,63 @@
 
     a:hover {
       text-decoration: underline;
+      color: var(--accent-hover);
     }
 
-    footer {
-      max-width: 680px;
-      margin: 0 auto 3rem;
+    code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      max-width: var(--max-width);
+      margin: 0 auto var(--space-lg);
+      padding: var(--space-md) var(--space-sm) 0;
       border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
+      text-align: center;
       font-size: 0.875rem;
       color: var(--muted);
+    }
+    .site-footer nav {
+      margin-top: var(--space-xs);
+    }
+    .site-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="wordmark">Risetime</div>
-    <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 2026-03-20 &nbsp;·&nbsp; Publisher: A. Deltawaken</p>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav aria-label="Main navigation">
+      <a href="../" class="wordmark">Risetime</a>
+      <a href="../">Home</a>
+    </nav>
   </header>
 
-  <main>
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: 2026-03-20 &middot; Publisher: A. Deltawaken</p>
+  </div>
+
+  <main id="main-content">
 
     <div class="highlight-box">
       <p>Risetime does not collect, transmit, or share any personal data. Your information never leaves your device.</p>
     </div>
 
-    <section>
-      <h2>What Risetime Does Not Do</h2>
+    <section aria-labelledby="section-not-do">
+      <h2 id="section-not-do">What Risetime Does Not Do</h2>
       <ul>
         <li>Does not collect any personal data</li>
         <li>Does not connect to the internet</li>
@@ -159,8 +293,8 @@
       </ul>
     </section>
 
-    <section>
-      <h2>Data Stored Locally on Your Device</h2>
+    <section aria-labelledby="section-local-data">
+      <h2 id="section-local-data">Data Stored Locally on Your Device</h2>
       <p>Risetime stores the following data <strong>exclusively on your device</strong>, never transmitted:</p>
       <ul>
         <li><strong>Alarm configuration</strong> — your alarm times, labels, recurrence settings, and anchor types (e.g. sunrise, sunset). Stored in a local Room database.</li>
@@ -170,42 +304,47 @@
       <p>All data is removed when you uninstall the app.</p>
     </section>
 
-    <section>
-      <h2>Location Permission</h2>
+    <section aria-labelledby="section-location">
+      <h2 id="section-location">Location Permission</h2>
       <p>Risetime requests <strong>coarse location permission</strong> (<code>ACCESS_COARSE_LOCATION</code>) solely to calculate local sunrise and sunset times. Your location is processed on-device by an ephemeris engine and is never sent to any external service or server.</p>
       <p>You may also manually set your city in Settings, in which case GPS is not used.</p>
     </section>
 
-    <section>
-      <h2>Internet Permission</h2>
+    <section aria-labelledby="section-internet">
+      <h2 id="section-internet">Internet Permission</h2>
       <p>Risetime does <strong>not</strong> declare the <code>INTERNET</code> permission and makes no network requests. The app operates fully offline.</p>
       <p>The optional in-app subscription uses Google Play Billing, which communicates with Google Play Services via interprocess communication (IPC) on your device — not via a network call made by Risetime. This IPC call is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </section>
 
-    <section>
-      <h2>In-App Subscriptions</h2>
+    <section aria-labelledby="section-subscriptions">
+      <h2 id="section-subscriptions">In-App Subscriptions</h2>
       <p>Risetime offers an optional "Risetime Supporter" subscription. Subscription purchases are processed entirely by Google Play. Risetime does not receive, store, or process any payment information. Subscription status is stored locally on your device only.</p>
     </section>
 
-    <section>
-      <h2>Children's Privacy</h2>
+    <section aria-labelledby="section-children">
+      <h2 id="section-children">Children's Privacy</h2>
       <p>Risetime does not knowingly collect any information from anyone, including children under the age of 13. Because no data is collected at all, Risetime is compliant with COPPA and similar regulations by design.</p>
     </section>
 
-    <section>
-      <h2>Changes to This Policy</h2>
+    <section aria-labelledby="section-changes">
+      <h2 id="section-changes">Changes to This Policy</h2>
       <p>If this privacy policy changes, the updated version will be published at this URL with a revised effective date. Because no data is collected, changes are unlikely to affect your privacy in practice.</p>
     </section>
 
-    <section>
-      <h2>Contact</h2>
+    <section aria-labelledby="section-contact">
+      <h2 id="section-contact">Contact</h2>
       <p>Questions about this privacy policy can be directed to the publisher via the Google Play Store listing for Risetime.</p>
     </section>
 
   </main>
 
-  <footer>
-    <p>Risetime &nbsp;·&nbsp; A. Deltawaken &nbsp;·&nbsp; <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime">Google Play</a></p>
+  <footer class="site-footer" role="contentinfo">
+    <p>Risetime &middot; A. Deltawaken</p>
+    <nav aria-label="Footer navigation">
+      <a href="../">Home</a>
+      &middot;
+      <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime">Google Play</a>
+    </nav>
   </footer>
 
 </body>
