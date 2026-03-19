@@ -152,6 +152,31 @@
   margin-bottom: var(--space-md);
 }
 
+/* ---- CONTENT SCREENSHOT ---- */
+.content-screenshot {
+  text-align: center;
+  margin: var(--space-lg) 0;
+}
+.content-screenshot img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  .content-screenshot img {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+.content-screenshot figcaption {
+  margin-top: var(--space-xs);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
 /* ---- CONTENT LINK ---- */
 .content-link {
   color: var(--accent);
