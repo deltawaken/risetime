@@ -167,6 +167,13 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* Inline links inside body text must be underlined for accessibility */
+p a, li a, dd a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
 /* ---- CODE ---- */
 code {
   background: var(--code-bg);
