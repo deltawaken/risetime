@@ -32,11 +32,10 @@
   max-width: var(--max-width-wide);
 }
 .hero-brand {
-  font-size: clamp(2.8rem, 7vw, 4.5rem);
-  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
   color: var(--accent);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   line-height: 1.1;
 }
 .hero-celestial {
