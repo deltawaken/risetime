@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
   <meta property="og:title" content="How to Set a Sunrise Alarm on Android — Risetime">
-  <meta property="og:description" content="Set your alarm to sunrise, sunset, or solar noon. It shifts every day automatically. Four steps, then you never touch it again.">
+  <meta property="og:description" content="Set your alarm to sunrise, sunset, or noon. It recalculates every day automatically. Four steps, then you never touch it again.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://risetime.app/how-it-works/">
   <link rel="canonical" href="https://risetime.app/how-it-works/">
@@ -36,13 +36,13 @@
         "@type": "HowToStep",
         "position": 2,
         "name": "Pick your celestial anchor",
-        "text": "Tap the plus button to create a new alarm. Choose a celestial anchor: sunrise, sunset, solar noon, or midnight. This anchor is the reference point your alarm will track. As that event shifts through the seasons, your alarm shifts with it."
+        "text": "Tap the plus button to create a new alarm. Choose a celestial anchor: sunrise, sunset, noon, or nadir. This anchor is the reference point your alarm will track. As that event drifts through the seasons, your alarm follows it."
       },
       {
         "@type": "HowToStep",
         "position": 3,
         "name": "Set your offset",
-        "text": "Set how many minutes before or after your anchor you want the alarm to fire. For example, 30 minutes before sunrise gives you time to wake and see the sunrise. 15 minutes after sunset catches the last light. The offset stays fixed while the anchor time shifts every day."
+        "text": "Set how many minutes before or after your anchor you want the alarm to fire. For example, 30 minutes before sunrise gives you time to wake and see the sunrise. 15 minutes after sunset catches the last light. The offset stays fixed while the anchor time recalculates daily."
       },
       {
         "@type": "HowToStep",
@@ -84,8 +84,8 @@
   <main id="main-content" class="content-main">
 
     <section aria-labelledby="section-intro">
-      <h2 id="section-intro" class="sr-only">What makes Risetime different from other sunrise alarm apps</h2>
-      <p>Most "sunrise alarm" apps are light simulators — they gradually brighten your screen before a fixed wake time. That's a nightlight, not a sunrise alarm. Risetime is different. It calculates the actual astronomical sunrise for your location every day and sets a real Android alarm to that time. When the sun moves, your alarm moves with it.</p>
+      <h2 id="section-intro" class="sr-only">What Risetime does — simply and accurately</h2>
+      <p>Risetime does one thing: it calculates the real astronomical sunrise for your location every day and sets a system-level Android alarm to that time. When sunrise drifts with the seasons, your alarm drifts with it — automatically, silently, in the background.</p>
       <p>Setting it up takes about two minutes. Here's how.</p>
     </section>
 
@@ -104,11 +104,11 @@
         <ul>
           <li><strong>Sunrise</strong> — the moment the sun's upper edge clears the horizon</li>
           <li><strong>Sunset</strong> — the moment the sun's upper edge drops below the horizon</li>
-          <li><strong>Solar noon</strong> — when the sun reaches its highest point in the sky</li>
-          <li><strong>Midnight</strong> — solar midnight, the sun's lowest point (not necessarily 00:00)</li>
+          <li><strong>Noon</strong> — solar noon, when the sun reaches its highest point in the sky</li>
+          <li><strong>Nadir</strong> — solar midnight, the sun's lowest point (not necessarily 00:00)</li>
           <li><strong>Clock</strong> — a standard fixed-time alarm, if you need one</li>
         </ul>
-        <p>Your anchor is the celestial event your alarm tracks. As that event shifts through the seasons — and it shifts by up to two hours across the year in most latitudes — your alarm shifts with it automatically.</p>
+        <p>Your anchor is the celestial event your alarm tracks. In most latitudes, sunrise drifts by up to two hours across the year — your alarm follows it automatically.</p>
       </div>
 
       <div class="step step-3">
@@ -118,9 +118,9 @@
           <li><strong>Sunrise, no offset</strong> — alarm fires exactly at sunrise</li>
           <li><strong>30 minutes before sunrise</strong> — wake up in pre-dawn light, be ready for the sunrise</li>
           <li><strong>15 minutes after sunset</strong> — catch the blue hour</li>
-          <li><strong>1 hour before solar noon</strong> — a mid-morning reminder that tracks the actual middle of the day</li>
+          <li><strong>1 hour before noon</strong> — a mid-morning reminder that tracks the actual middle of the day</li>
         </ul>
-        <p>The offset stays fixed. The anchor time shifts every day. Your alarm is always exactly where you want it relative to the sun.</p>
+        <p>The offset stays fixed. The anchor recalculates daily. Your alarm is always exactly where you want it relative to the sun.</p>
       </div>
 
       <div class="step step-4">
@@ -132,7 +132,7 @@
 
     <section aria-labelledby="section-what-happens">
       <h2 id="section-what-happens">What Happens Next</h2>
-      <p>Once your alarm is set, Risetime runs a lightweight background worker every day. This worker recalculates the exact sunrise (or sunset, or solar noon) time for your location on the upcoming day, applies your offset, and schedules the alarm with Android's system alarm clock API — the same one used by your built-in clock app.</p>
+      <p>Once your alarm is set, Risetime runs a lightweight background worker every day. This worker recalculates the exact sunrise (or sunset, or noon) time for your location on the upcoming day, applies your offset, and schedules the alarm with Android's system alarm clock API — the same one used by your built-in clock app.</p>
       <p>You don't need to open the app. You don't need to be connected to the internet. The recalculation happens automatically, even if you haven't opened Risetime in weeks.</p>
 
       <div class="highlight-box">
@@ -145,14 +145,14 @@
     <section aria-labelledby="section-how-calculation">
       <h2 id="section-how-calculation">How Risetime Calculates Sunrise Times</h2>
       <p>This is where Risetime differs from every sunrise alarm app that looks up times from a web API.</p>
-      <p>Risetime includes an embedded astronomical calculation engine — a library called <em>commons-suncalc</em> — that computes celestial event times using the same orbital mechanics models used by observatories and maritime navigation. Given your latitude, longitude, and the date, it calculates the sun's position and derives exact event times for sunrise, sunset, solar noon, and solar midnight.</p>
+      <p>Risetime includes an embedded astronomical calculation engine — a library called <em>commons-suncalc</em> — that computes celestial event times using the same orbital mechanics models used by observatories and maritime navigation. Given your latitude, longitude, and the date, it calculates the sun's position and derives exact event times for sunrise, sunset, noon, and nadir.</p>
       <p>All of this math runs on your phone. There's no API call, no server lookup, no internet connection involved. This isn't a fallback or an offline cache — it's the primary and only method. Risetime doesn't have internet permission, so there's no network path even if it wanted one.</p>
 
       <div class="highlight-box">
-        <p>This means Risetime works in a cabin in the mountains, on a camping trip with no signal, or on a plane in airplane mode. Anywhere your phone goes, your sunrise alarm works.</p>
+        <p>This means Risetime works in a cabin in the mountains, on a camping trip with no signal, or in the middle of the Pacific on a cargo boat. Anywhere your phone goes, your sunrise alarm works.</p>
       </div>
 
-      <p>The calculations account for atmospheric refraction — the bending of light near the horizon that makes the sun appear to rise slightly before it geometrically clears the horizon. This is the same correction used by nautical almanacs. The times Risetime calculates match what you see with your eyes.</p>
+      <p>The underlying algorithms — based on Jean Meeus' <em>Astronomical Algorithms</em> — account for standard atmospheric refraction, the bending of light near the horizon that makes the sun appear to rise slightly before it geometrically clears the horizon. The result is accurate to about a minute, which is what you'd see with your eyes.</p>
       <p>Because the computation is deterministic — same coordinates, same date, same result — there's no variation between runs and no dependency on an external service staying online. Your alarm is as reliable as the math that predicts where the sun will be tomorrow. And that math has been reliable for a few centuries now.</p>
     </section>
 
@@ -161,8 +161,8 @@
       <ul>
         <li><strong>Check your alarm reliability.</strong> Open Settings and look at the Alarm Reliability section. Green checkmarks mean Android has all the permissions it needs to fire your alarm reliably. If anything is yellow or red, Risetime tells you exactly what to fix.</li>
         <li><strong>You can mix alarm types.</strong> Risetime handles both celestial and standard fixed-time alarms. No need to keep a second clock app for your 9 AM Monday meeting.</li>
-        <li><strong>Set multiple celestial alarms.</strong> A sunrise alarm to wake up, a sunset alarm to remind you to step outside for golden hour, a solar noon alarm for a midday break — they all shift independently.</li>
-        <li><strong>Moving to a new city?</strong> Update your location in Settings. All your celestial alarms recalculate automatically for the new position.</li>
+        <li><strong>Set multiple celestial alarms.</strong> A sunrise alarm to wake up, a sunset alarm to remind you to step outside for golden hour, a noon alarm for a midday break — they all recalculate independently.</li>
+        <li><strong>Moving to a new city?</strong> Update your location in Settings, or enable automatic location updates. All your celestial alarms recalculate for the new position.</li>
       </ul>
     </section>
 

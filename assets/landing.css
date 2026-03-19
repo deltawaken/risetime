@@ -38,6 +38,13 @@
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
+.hero-celestial {
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-xs);
+}
 .hero-sub {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: var(--muted);

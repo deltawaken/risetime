@@ -44,7 +44,7 @@
       "https://risetime.app/assets/screenshots/settings-screen.png"
     ],
     "featureList": [
-      "Alarms anchored to sunrise, sunset, solar noon, or midnight",
+      "Alarms anchored to sunrise, sunset, noon, or nadir",
       "Automatic daily recalculation as sun times shift",
       "Works fully offline — no internet permission",
       "No analytics, no tracking, no data collection",
@@ -65,10 +65,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How is Risetime different from other sunrise alarm apps?",
+        "name": "What does Risetime actually do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most \"sunrise alarm\" apps simulate sunrise by gradually brightening your screen. Risetime is different — it actually changes when your alarm goes off based on the real sunrise time at your location. Set \"30 minutes before sunrise\" once, and the alarm shifts every day as the seasons change. No manual adjustment needed."
+          "text": "Risetime is an alarm clock that ties your wake-up time to a real celestial event. Set \"30 minutes before sunrise\" once, and the alarm recalculates every day to match the actual sunrise at your location. No manual adjustment needed — one setup, accurate all year."
         }
       },
       {
@@ -81,10 +81,10 @@
       },
       {
         "@type": "Question",
-        "name": "Can I use Risetime as my only alarm clock app?",
+        "name": "Does Risetime also handle normal fixed-time alarms?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, solar noon, or midnight) and standard fixed-time alarms. You can replace your default Android clock entirely."
+          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. World clock, timers, and more are on the way."
         }
       },
       {
@@ -133,6 +133,7 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-heading">
       <h1 id="hero-heading">Sunrise alarm app for Android.</h1>
+      <h2 class="hero-celestial">Your celestial alarm clock.</h2>
       <p class="hero-sub">Set your alarm to the sun. It shifts every day so you don't have to.</p>
       <div class="hero-screenshot">
         <picture>
@@ -159,7 +160,7 @@
       <ol class="steps" role="list">
         <li>
           <strong>Pick your anchor</strong>
-          <span>Choose a celestial event: sunrise, solar noon, sunset, or midnight. This is the reference point your alarm tracks.</span>
+          <span>Choose a celestial event: sunrise, noon, sunset, or nadir. This is the reference point your alarm tracks.</span>
         </li>
         <li>
           <strong>Set your offset</strong>
@@ -167,7 +168,7 @@
         </li>
         <li>
           <strong>That's it</strong>
-          <span>Risetime recalculates the exact alarm time every day as the sun's schedule shifts. You never adjust it.</span>
+          <span>Risetime recalculates the exact alarm time every day. Sunrise drifts with the seasons — your alarm follows. You never adjust it.</span>
         </li>
       </ol>
     </section>
@@ -178,11 +179,7 @@
       <div class="feature-grid">
         <article class="feature-card">
           <h3>Anchored to the sky</h3>
-          <p>Set alarms relative to sunrise, solar noon, sunset, or midnight. Choose an offset and the alarm time adjusts every day as the sun's schedule shifts with the seasons. Define it once. It stays right all year.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Full clock replacement</h3>
-          <p>Risetime handles both celestial and fixed-time alarms. No need to keep your native clock app around for the standard ones. One app, all your alarms.</p>
+          <p>Set alarms relative to sunrise, noon, sunset, or nadir. Choose an offset — the alarm recalculates daily to stay in sync with the real sky. Define it once. It stays right all year.</p>
         </article>
         <article class="feature-card">
           <h3>Offline and private by design</h3>
@@ -203,10 +200,10 @@
     <section class="use-cases" aria-labelledby="use-cases-heading">
       <h2 id="use-cases-heading">Who uses a sunrise alarm app?</h2>
       <ul class="use-case-list">
-        <li><strong>Biohackers and circadian rhythm optimisers</strong> — set one alarm at sunrise to wake, another 8 hours before sunrise to wind down. Both shift automatically as the sun moves through the seasons.</li>
+        <li><strong>Biohackers and circadian rhythm optimisers</strong> — set one alarm at sunrise to wake, another 8 hours before sunrise to wind down. Both recalculate daily as daylight hours change. <a href="./circadian-rhythm-alarm/">Read more</a></li>
         <li><strong>Dawn meditators and yoga practitioners</strong> — set your practice alarm to sunrise once, and it follows the seasons without any adjustment.</li>
-        <li><strong>Photographers chasing golden and blue hour</strong> — "30 minutes before sunset" for golden hour, "20 minutes after sunset" for blue hour. Both shift automatically as the seasons move the sun. Works offline in the field with no cell service.</li>
-        <li><strong>Muslim users for Fajr and Suhoor</strong> — Risetime is not a muslim alarm clock app with prayer times or Azan, but its sunrise-relative alarms are precise enough for Fajr timing. Set "45 minutes before sunrise" once; the alarm shifts every day through Ramadan and all year.</li>
+        <li><strong>Photographers chasing golden and blue hour</strong> — "30 minutes before sunset" for golden hour, "20 minutes after sunset" for blue hour. Both stay accurate all year. Works offline in the field with no cell service. <a href="./golden-hour-alarm/">Read more</a></li>
+        <li><strong>Muslim users for Fajr and Suhoor</strong> — Risetime is not a Muslim alarm clock app with prayer times or Azan, but its sunrise-relative alarms are precise enough for Fajr timing. Set "45 minutes before sunrise" once; the alarm tracks the real dawn through Ramadan and all year.</li>
         <li><strong>Outdoor workers, dog walkers, farmers</strong> — if your day starts with daylight, your alarm should too.</li>
         <li><strong>Anyone tired of adjusting throughout the year</strong> — set it once. It stays right.</li>
       </ul>
@@ -267,10 +264,10 @@
 
     <!-- SUPPORT -->
     <section class="support" aria-labelledby="support-heading">
-      <h2 id="support-heading">Free with three alarms. More if you want.</h2>
+      <h2 id="support-heading">Free to start. Unlimited for a small contribution.</h2>
       <div class="callout-box" style="border-left-color: var(--muted);">
-        <p>Risetime is free to use with up to three alarms — celestial or fixed-time, your choice. If you need more than three, you'll need to support the app.</p>
-        <p style="margin-bottom: 0;">Supporting Risetime unlocks unlimited alarms. You can find that option in Settings. No nag screens, no countdowns, no "upgrade to continue" prompts — just an honest option when you're ready.</p>
+        <p>Risetime is free with up to three alarms — celestial or fixed-time, your choice. Need more? Unlimited alarms are unlocked with a small, optional contribution you'll find in Settings.</p>
+        <p style="margin-bottom: 0;">No nag screens, no countdowns, no "upgrade to continue" prompts. Just an honest option when you're ready.</p>
       </div>
     </section>
 
@@ -278,14 +275,14 @@
     <section class="faq" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
       <dl class="faq-list">
-        <dt>How is Risetime different from other sunrise alarm apps?</dt>
-        <dd>Most "sunrise alarm" apps simulate sunrise by gradually brightening your screen. Risetime is different — it actually changes <em>when</em> your alarm goes off based on the real sunrise time at your location. Set "30 minutes before sunrise" once, and the alarm shifts every day as the seasons change. No manual adjustment needed.</dd>
+        <dt>What does Risetime actually do?</dt>
+        <dd>Risetime is an alarm clock that ties your wake-up time to a real celestial event. Set "30 minutes before sunrise" once, and the alarm recalculates every day to match the actual sunrise at your location. No manual adjustment needed — one setup, accurate all year.</dd>
 
         <dt>Does Risetime need an internet connection?</dt>
         <dd>No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere.</dd>
 
-        <dt>Can I use Risetime as my only alarm clock app?</dt>
-        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, solar noon, or midnight) and standard fixed-time alarms. You can replace your default Android clock entirely.</dd>
+        <dt>Does Risetime also handle normal fixed-time alarms?</dt>
+        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. World clock, timers, and more are on the way.</dd>
 
         <dt>Is Risetime accurate for Fajr prayer times?</dt>
         <dd>Risetime is not a dedicated Islamic prayer time app, but its sunrise-relative alarms are astronomically precise. Setting an alarm to "45 minutes before sunrise" will track Fajr timing accurately throughout the year, including during Ramadan as sunrise times shift.</dd>
