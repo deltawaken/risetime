@@ -10,102 +10,28 @@
   <link rel="stylesheet" href="../assets/risetime.css">
   <title>Privacy Policy — Risetime Sunrise Alarm Clock</title>
   <style>
-    /* ---- PRIVACY PAGE: narrow layout overrides ---- */
-    .site-header {
-      max-width: var(--max-width);
-    }
-    .site-footer {
-      max-width: var(--max-width);
-      margin-bottom: var(--space-lg);
-      padding-bottom: 0;
-    }
-
-    /* ---- CONTENT ---- */
-    .page-header {
-      max-width: var(--max-width);
-      margin: var(--space-lg) auto var(--space-md);
-      padding: 0 var(--space-sm);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: var(--space-md);
-    }
-    .page-header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--text-strong);
-      margin-top: 0.4rem;
-    }
-    .page-header .meta {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto var(--space-xl);
-      padding: 0 var(--space-sm);
-    }
-
-    section {
-      margin-top: var(--space-lg);
-    }
-
-    h2 {
+    /* ---- PRIVACY PAGE: section heading style override ---- */
+    .content-main h2 {
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 0.75rem;
     }
-
-    p {
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 0.75rem;
-    }
-
-    ul li {
-      padding: 0.3rem 0 0.3rem 1.4rem;
-      position: relative;
-      color: var(--text);
-    }
-
-    ul li::before {
-      content: "\2022";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .highlight-box {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: var(--space-sm) var(--space-md);
-      margin: var(--space-md) 0;
-    }
-
     .highlight-box p {
-      margin: 0;
       font-weight: 500;
     }
   </style>
 </head>
-<body>
+<body class="layout-narrow">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
     <nav aria-label="Main navigation">
       <a href="../" class="wordmark">Risetime</a>
-      <a href="../">Home</a>
+      <a href="../how-it-works/">How It Works</a>
+      <a href="../privacy/">Privacy</a>
     </nav>
   </header>
 
@@ -114,7 +40,7 @@
     <p class="meta">Effective date: 2026-03-20 &middot; Publisher: A. Deltawaken</p>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="content-main">
 
     <div class="highlight-box">
       <p>Risetime does not collect, transmit, or share any personal data. Your information never leaves your device.</p>
@@ -182,6 +108,10 @@
     <p>Risetime &middot; A. Deltawaken</p>
     <nav aria-label="Footer navigation">
       <a href="../">Home</a>
+      &middot;
+      <a href="../how-it-works/">How It Works</a>
+      &middot;
+      <a href="../privacy/">Privacy</a>
       &middot;
       <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime&utm_source=website&utm_medium=organic&utm_campaign=footer">Google Play</a>
     </nav>

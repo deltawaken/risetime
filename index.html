@@ -6,13 +6,113 @@
   <meta name="description" content="Sunrise alarm clock app for Android. Set your alarm relative to sunrise, sunset, or solar noon — it shifts automatically every day. No wifi, no internet, no data collection.">
   <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
-  <meta property="og:title" content="Risetime — Your Celestial Alarm Clock">
+  <meta property="og:title" content="Risetime — Sunrise Alarm App for Android">
   <meta property="og:description" content="Set your alarm to sunrise. Once. It shifts every day automatically. No wifi required.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://risetime.app/">
+  <meta property="og:image" content="https://risetime.app/assets/screenshots/alarm-list.png">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="854">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Risetime — Sunrise Alarm App for Android">
+  <meta name="twitter:description" content="Set your alarm to sunrise. Once. It shifts every day automatically. No wifi required.">
+  <meta name="twitter:image" content="https://risetime.app/assets/screenshots/alarm-list.png">
   <link rel="canonical" href="https://risetime.app/">
   <link rel="stylesheet" href="assets/risetime.css">
-  <title>Risetime — Your Celestial Alarm Clock · Sunrise Alarm App for Android</title>
+  <title>Risetime — Sunrise Alarm App for Android · Celestial Alarm Clock</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Risetime",
+    "alternateName": "Risetime Sunrise Alarm Clock",
+    "description": "Sunrise alarm clock app for Android. Set your alarm relative to sunrise, sunset, or solar noon — it shifts automatically every day. Works fully offline with no internet permission.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "url": "https://risetime.app/",
+    "installUrl": "https://play.google.com/store/apps/details?id=com.deltawaken.risetime",
+    "screenshot": [
+      "https://risetime.app/assets/screenshots/alarm-list.png",
+      "https://risetime.app/assets/screenshots/alarm-picker.png",
+      "https://risetime.app/assets/screenshots/dismiss-screen.png",
+      "https://risetime.app/assets/screenshots/settings-screen.png"
+    ],
+    "featureList": [
+      "Alarms anchored to sunrise, sunset, solar noon, or midnight",
+      "Automatic daily recalculation as sun times shift",
+      "Works fully offline — no internet permission",
+      "No analytics, no tracking, no data collection",
+      "Supports both celestial and fixed-time alarms",
+      "OS-level alarm API — survives Doze mode and restarts"
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "Deltawaken",
+      "url": "https://risetime.app/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is Risetime different from other sunrise alarm apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most \"sunrise alarm\" apps simulate sunrise by gradually brightening your screen. Risetime is different — it actually changes when your alarm goes off based on the real sunrise time at your location. Set \"30 minutes before sunrise\" once, and the alarm shifts every day as the seasons change. No manual adjustment needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Risetime need an internet connection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Risetime as my only alarm clock app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, solar noon, or midnight) and standard fixed-time alarms. You can replace your default Android clock entirely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Risetime accurate for Fajr prayer times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Risetime is not a dedicated Islamic prayer time app, but its sunrise-relative alarms are astronomically precise. Setting an alarm to \"45 minutes before sunrise\" will track Fajr timing accurately throughout the year, including during Ramadan as sunrise times shift."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the alarm still go off if my phone is in Doze mode or Battery Saver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Risetime uses Android's setAlarmClock API — the same system-level alarm mechanism used by your built-in clock app. It survives Doze mode, battery optimization, and device restarts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I set an alarm for golden hour or blue hour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Set an alarm to \"30 minutes before sunset\" for golden hour, or \"20 minutes after sunset\" for blue hour. Both shift automatically as sunset times change through the seasons — perfect for photographers who need to be on location at the right time."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     /* ---- SECTIONS (shared) ---- */
     section {
@@ -69,31 +169,6 @@
     /* ---- CTA ---- */
     .cta-group {
       margin-top: var(--space-md);
-    }
-    .play-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      background: var(--text-strong);
-      color: var(--bg);
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      min-height: 44px;
-      min-width: 44px;
-      transition: opacity 0.15s ease;
-    }
-    .play-badge:hover {
-      opacity: 0.85;
-      text-decoration: none;
-      color: var(--bg);
-    }
-    .play-badge svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
     }
 
     /* ---- HOW IT WORKS ---- */
@@ -309,6 +384,15 @@
       margin-bottom: var(--space-md);
     }
 
+    /* ---- FAQ ---- */
+    .faq h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--text-strong);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
     /* ---- RESPONSIVE: TABLET+ ---- */
     @media (min-width: 640px) {
       .feature-grid {
@@ -343,6 +427,7 @@
   <header class="site-header" role="banner">
     <nav aria-label="Main navigation">
       <a href="./" class="wordmark">Risetime</a>
+      <a href="./how-it-works/">How It Works</a>
       <a href="./privacy/">Privacy</a>
     </nav>
   </header>
@@ -351,7 +436,7 @@
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-heading">
-      <h1 id="hero-heading">Your celestial alarm clock.</h1>
+      <h1 id="hero-heading">Sunrise alarm app for Android.</h1>
       <p class="hero-sub">Set your alarm to the sun. It shifts every day so you don't have to.</p>
       <div class="hero-screenshot">
         <picture>
@@ -374,7 +459,7 @@
 
     <!-- HOW IT WORKS -->
     <section class="how-it-works" aria-labelledby="how-heading">
-      <h2 id="how-heading">Set your alarm to the sun. Once.</h2>
+      <h2 id="how-heading">How the sunrise alarm works</h2>
       <ol class="steps" role="list">
         <li>
           <strong>Pick your anchor</strong>
@@ -393,7 +478,7 @@
 
     <!-- FEATURES -->
     <section class="features" aria-labelledby="features-heading">
-      <h2 id="features-heading">Built for people who just want it to work.</h2>
+      <h2 id="features-heading">Features of the Risetime sunrise alarm app</h2>
       <div class="feature-grid">
         <article class="feature-card">
           <h3>Anchored to the sky</h3>
@@ -420,7 +505,7 @@
 
     <!-- WHO IT'S FOR -->
     <section class="use-cases" aria-labelledby="use-cases-heading">
-      <h2 id="use-cases-heading">Who uses Risetime</h2>
+      <h2 id="use-cases-heading">Who uses a sunrise alarm app?</h2>
       <ul class="use-case-list">
         <li><strong>Biohackers and circadian rhythm optimisers</strong> — set one alarm at sunrise to wake, another 8 hours before sunrise to wind down. Both shift automatically as the sun moves through the seasons.</li>
         <li><strong>Dawn meditators and yoga practitioners</strong> — set your practice alarm to sunrise once, and it follows the seasons without any adjustment.</li>
@@ -433,13 +518,13 @@
 
     <!-- SCREENSHOT SHOWCASE -->
     <section class="screenshots" aria-labelledby="screenshots-heading">
-      <h2 id="screenshots-heading">What you'll see</h2>
+      <h2 id="screenshots-heading">Screenshots — sunrise alarm app for Android</h2>
       <div class="screenshot-row">
         <figure>
           <picture>
             <source srcset="assets/screenshots/alarm-picker--dark.png" media="(prefers-color-scheme: dark)">
             <img src="assets/screenshots/alarm-picker.png"
-                 alt="Alarm picker dialog showing the five anchor chips (clock, sunrise, noon, sunset, midnight) with Noon selected. An offset of minus 1 hour is set, resolving to 12:07. A circular hour dial is visible below."
+                 alt="Risetime alarm picker dialog showing the five anchor chips (clock, sunrise, noon, sunset, midnight) with Noon selected. An offset of minus 1 hour is set, resolving to 12:07. A circular hour dial is visible below."
                  width="480" height="854"
                  loading="lazy">
           </picture>
@@ -449,7 +534,7 @@
           <picture>
             <source srcset="assets/screenshots/dismiss-screen--dark.png" media="(prefers-color-scheme: dark)">
             <img src="assets/screenshots/dismiss-screen.png"
-                 alt="Alarm dismiss screen with a sunset-toned background showing the time 18:00, the date Wednesday March 18, a large circular Snooze button, and a Dismiss text below."
+                 alt="Risetime alarm dismiss screen with a sunset-toned background showing the time 18:00, the date Wednesday March 18, a large circular Snooze button, and a Dismiss text below."
                  width="480" height="854"
                  loading="lazy">
           </picture>
@@ -459,7 +544,7 @@
           <picture>
             <source srcset="assets/screenshots/settings-screen--dark.png" media="(prefers-color-scheme: dark)">
             <img src="assets/screenshots/settings-screen.png"
-                 alt="Settings screen showing Alarm Behaviour, Celestial events location, and Alarm reliability section with five green checkmarks for all permissions. A Supporting Risetime section is visible at the bottom."
+                 alt="Risetime settings screen showing Alarm Behaviour, Celestial events location, and Alarm reliability section with five green checkmarks for all permissions. A Supporting Risetime section is visible at the bottom."
                  width="480" height="854"
                  loading="lazy">
           </picture>
@@ -470,7 +555,7 @@
 
     <!-- PRIVACY COMMITMENT -->
     <section class="privacy-callout" aria-labelledby="privacy-heading">
-      <h2 id="privacy-heading">Your data stays on your phone. Period.</h2>
+      <h2 id="privacy-heading">Offline sunrise alarm — no internet, no tracking</h2>
       <div class="callout-box">
         <p>Risetime does not request internet permission. There is no server. There is no account to create. There is no analytics SDK measuring how you use the app.</p>
         <ul>
@@ -493,6 +578,30 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+      <dl class="faq-list">
+        <dt>How is Risetime different from other sunrise alarm apps?</dt>
+        <dd>Most "sunrise alarm" apps simulate sunrise by gradually brightening your screen. Risetime is different — it actually changes <em>when</em> your alarm goes off based on the real sunrise time at your location. Set "30 minutes before sunrise" once, and the alarm shifts every day as the seasons change. No manual adjustment needed.</dd>
+
+        <dt>Does Risetime need an internet connection?</dt>
+        <dd>No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere.</dd>
+
+        <dt>Can I use Risetime as my only alarm clock app?</dt>
+        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, solar noon, or midnight) and standard fixed-time alarms. You can replace your default Android clock entirely.</dd>
+
+        <dt>Is Risetime accurate for Fajr prayer times?</dt>
+        <dd>Risetime is not a dedicated Islamic prayer time app, but its sunrise-relative alarms are astronomically precise. Setting an alarm to "45 minutes before sunrise" will track Fajr timing accurately throughout the year, including during Ramadan as sunrise times shift.</dd>
+
+        <dt>Does the alarm still go off if my phone is in Doze mode or Battery Saver?</dt>
+        <dd>Yes. Risetime uses Android's setAlarmClock API — the same system-level alarm mechanism used by your built-in clock app. It survives Doze mode, battery optimization, and device restarts.</dd>
+
+        <dt>Can I set an alarm for golden hour or blue hour?</dt>
+        <dd>Yes. Set an alarm to "30 minutes before sunset" for golden hour, or "20 minutes after sunset" for blue hour. Both shift automatically as sunset times change through the seasons — perfect for photographers who need to be on location at the right time.</dd>
+      </dl>
+    </section>
+
     <!-- FINAL CTA -->
     <section class="final-cta" aria-labelledby="cta-heading">
       <h2 id="cta-heading">Ready to rise with the sun?</h2>
@@ -509,7 +618,11 @@
   <footer class="site-footer" role="contentinfo">
     <p>Risetime &middot; A. Deltawaken</p>
     <nav aria-label="Footer navigation">
-      <a href="./privacy/">Privacy Policy</a>
+      <a href="./">Home</a>
+      &middot;
+      <a href="./how-it-works/">How It Works</a>
+      &middot;
+      <a href="./privacy/">Privacy</a>
       &middot;
       <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime&utm_source=website&utm_medium=organic&utm_campaign=footer">Google Play</a>
     </nav>

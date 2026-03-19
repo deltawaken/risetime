@@ -1,0 +1,28 @@
+# Risetime
+
+> Sunrise alarm clock app for Android. Set your alarm relative to sunrise, sunset, or solar noon — it shifts automatically every day as the sun's schedule changes with the seasons. Works fully offline with no internet permission. No analytics, no tracking, no data collection.
+
+Risetime calculates astronomical sunrise and sunset times on-device using an embedded ephemeris engine (commons-suncalc). No API calls, no server, no internet connection. Your location stays on your phone.
+
+Risetime supports both celestial alarms (anchored to sunrise, sunset, solar noon, or midnight with an offset) and standard fixed-time alarms. It uses Android's setAlarmClock API — the same system-level alarm mechanism as the built-in clock app.
+
+Free with up to three alarms. Optional "Risetime Supporter" subscription unlocks unlimited alarms.
+
+## Links
+
+- [Homepage](https://risetime.app/)
+- [How It Works](https://risetime.app/how-it-works/)
+- [Golden Hour Alarm for Photographers](https://risetime.app/golden-hour-alarm/)
+- [Circadian Rhythm Alarm](https://risetime.app/circadian-rhythm-alarm/)
+- [Privacy Policy](https://risetime.app/privacy/)
+- [Google Play](https://play.google.com/store/apps/details?id=com.deltawaken.risetime)
+
+## Key Facts
+
+- Platform: Android (API 33+)
+- Developer: A. Deltawaken
+- No INTERNET permission — the app cannot connect to the internet
+- No analytics, crash reporting, or telemetry
+- No accounts, no cloud sync
+- Location used only for on-device sunrise/sunset calculation
+- Alarm times stored as UTC epoch millis, recalculated daily by a background worker
