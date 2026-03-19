@@ -1,5 +1,5 @@
 /* ============================================
-   RISETIME DESIGN SYSTEM — shared stylesheet
+   RISETIME DESIGN SYSTEM — tokens, reset, base
    ============================================ */
 
 :root {
@@ -175,165 +175,7 @@ code {
   font-size: 0.9em;
 }
 
-/* ============================================
-   CONTENT PAGE COMPONENTS — shared across
-   sub-pages (how-it-works, golden-hour, etc.)
-   ============================================ */
-
-/* ---- NARROW LAYOUT (content pages) ---- */
-.layout-narrow .site-header {
-  max-width: var(--max-width);
-}
-.layout-narrow .site-footer {
-  max-width: var(--max-width);
-  margin-bottom: var(--space-lg);
-  padding-bottom: 0;
-}
-
-/* ---- PAGE HEADER ---- */
-.page-header {
-  max-width: var(--max-width);
-  margin: var(--space-lg) auto var(--space-md);
-  padding: 0 var(--space-sm);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: var(--space-md);
-}
-.page-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-strong);
-  margin-top: 0.4rem;
-  line-height: 1.2;
-}
-.page-header .subtitle {
-  font-size: 1.05rem;
-  color: var(--muted);
-  margin-top: 0.5rem;
-}
-.page-header .meta {
-  font-size: 0.875rem;
-  color: var(--muted);
-  margin-top: 0.4rem;
-}
-
-/* ---- CONTENT MAIN ---- */
-.content-main {
-  max-width: var(--max-width);
-  margin: 0 auto var(--space-xl);
-  padding: 0 var(--space-sm);
-}
-.content-main section {
-  margin-top: var(--space-lg);
-}
-.content-main h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-strong);
-  margin-bottom: 0.75rem;
-}
-.content-main h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-.content-main p {
-  color: var(--text);
-  margin-bottom: 0.75rem;
-}
-
-/* ---- CONTENT LISTS ---- */
-.content-main ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0.75rem;
-}
-.content-main ul li {
-  padding: 0.3rem 0 0.3rem 1.4rem;
-  position: relative;
-  color: var(--text);
-}
-.content-main ul li::before {
-  content: "\2022";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-/* ---- HIGHLIGHT BOX ---- */
-.highlight-box {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: var(--space-sm) var(--space-md);
-  margin: var(--space-md) 0;
-}
-.highlight-box p {
-  margin: 0;
-}
-.highlight-box p + p {
-  margin-top: 0.5rem;
-}
-
-/* ---- NUMBERED STEPS ---- */
-.step {
-  margin-top: var(--space-md);
-  padding-left: 3.5rem;
-  position: relative;
-}
-.step::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--accent-muted);
-  color: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-.step-1::before { content: "1"; }
-.step-2::before { content: "2"; }
-.step-3::before { content: "3"; }
-.step-4::before { content: "4"; }
-.step h3 {
-  margin-top: 0.15rem;
-}
-
-/* ---- TIMING TABLE ---- */
-.timing-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--space-md) 0;
-  font-size: 0.95rem;
-}
-.timing-table th,
-.timing-table td {
-  text-align: left;
-  padding: 0.6rem 0.75rem;
-  border-bottom: 1px solid var(--border);
-}
-.timing-table th {
-  color: var(--text-strong);
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.timing-table td {
-  color: var(--text);
-}
-.timing-table td:first-child {
-  color: var(--accent);
-  font-weight: 500;
-}
-
-/* ---- PLAY BADGE (CTA button) ---- */
+/* ---- PLAY BADGE (CTA button — used everywhere) ---- */
 .play-badge {
   display: inline-flex;
   align-items: center;
@@ -360,26 +202,20 @@ code {
   flex-shrink: 0;
 }
 
-/* ---- CTA SECTION ---- */
-.cta-section {
-  text-align: center;
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
-  border-top: 1px solid var(--border);
+/* ---- HIGHLIGHT BOX (used on content + privacy pages) ---- */
+.highlight-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
 }
-.cta-section h2 {
-  margin-bottom: var(--space-md);
+.highlight-box p {
+  margin: 0;
 }
-
-/* ---- CONTENT LINK ---- */
-.content-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-.content-link:hover {
-  text-decoration: underline;
-  color: var(--accent-hover);
+.highlight-box p + p {
+  margin-top: 0.5rem;
 }
 
 /* ---- SCREEN READER ONLY ---- */
@@ -393,18 +229,4 @@ code {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* ---- FAQ (homepage) ---- */
-.faq-list dt {
-  font-weight: 600;
-  color: var(--text-strong);
-  margin-top: var(--space-md);
-  font-size: 1.05rem;
-}
-.faq-list dd {
-  color: var(--text);
-  margin-top: var(--space-xs);
-  margin-bottom: 0;
-  padding-left: 0;
 }

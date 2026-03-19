@@ -1,0 +1,164 @@
+/* ============================================
+   CONTENT PAGES — narrow-layout article pages
+   Loaded by: how-it-works, golden-hour-alarm,
+   circadian-rhythm-alarm, privacy
+   ============================================ */
+
+/* ---- NARROW LAYOUT ---- */
+.layout-narrow .site-header {
+  max-width: var(--max-width);
+}
+.layout-narrow .site-footer {
+  max-width: var(--max-width);
+  margin-bottom: var(--space-lg);
+  padding-bottom: 0;
+}
+
+/* ---- PAGE HEADER ---- */
+.page-header {
+  max-width: var(--max-width);
+  margin: var(--space-lg) auto var(--space-md);
+  padding: 0 var(--space-sm);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-md);
+}
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-top: 0.4rem;
+  line-height: 1.2;
+}
+.page-header .subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.page-header .meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+/* ---- CONTENT MAIN ---- */
+.content-main {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-sm);
+}
+.content-main section {
+  margin-top: var(--space-lg);
+}
+.content-main h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.75rem;
+}
+.content-main h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.content-main p {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* ---- CONTENT LISTS ---- */
+.content-main ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+.content-main ul li {
+  padding: 0.3rem 0 0.3rem 1.4rem;
+  position: relative;
+  color: var(--text);
+}
+.content-main ul li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ---- NUMBERED STEPS (how-it-works detail page) ---- */
+.step {
+  margin-top: var(--space-md);
+  padding-left: 3.5rem;
+  position: relative;
+}
+.step::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.step-1::before { content: "1"; }
+.step-2::before { content: "2"; }
+.step-3::before { content: "3"; }
+.step-4::before { content: "4"; }
+.step h3 {
+  margin-top: 0.15rem;
+}
+
+/* ---- TIMING TABLE (golden-hour page) ---- */
+.timing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-size: 0.95rem;
+}
+.timing-table th,
+.timing-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.timing-table th {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.timing-table td {
+  color: var(--text);
+}
+.timing-table td:first-child {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---- CTA SECTION (bottom of content pages) ---- */
+.cta-section {
+  text-align: center;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+.cta-section h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* ---- CONTENT LINK ---- */
+.content-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.content-link:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
