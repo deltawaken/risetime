@@ -10,8 +10,13 @@
   <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="canonical" href="https://risetime.app/privacy/">
-  <link rel="stylesheet" href="../assets/risetime.css">
-  <link rel="stylesheet" href="../assets/content.css">
+  <style>
+    html { background: var(--bg, #faf8f5) }
+    @media (prefers-color-scheme: dark) { html { --bg: #0f1117 } }
+    body.not-ready > * { opacity: 0 }
+  </style>
+  <link rel="stylesheet" href="../assets/risetime.css" media="print" onload="this.media='all'; document.body.classList.remove('not-ready')">
+  <noscript><link rel="stylesheet" href="../assets/risetime.css"></noscript>
   <title>Privacy Policy — Risetime Sunrise Alarm Clock</title>
   <style>
     /* ---- PRIVACY PAGE: section heading style override ---- */
@@ -27,7 +32,7 @@
     }
   </style>
 </head>
-<body class="layout-narrow">
+<body class="not-ready layout-narrow">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -121,5 +126,6 @@
     </nav>
   </footer>
 
+  <script>setTimeout(function(){document.body.classList.remove('not-ready')},2000)</script>
 </body>
 </html>

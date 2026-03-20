@@ -21,8 +21,13 @@
   <meta name="twitter:description" content="Set your alarm to sunrise. Once. It shifts every day automatically. No wifi required.">
   <meta name="twitter:image" content="https://risetime.app/assets/screenshots/alarm-list.png">
   <link rel="canonical" href="https://risetime.app/">
-  <link rel="stylesheet" href="assets/risetime.css">
-  <link rel="stylesheet" href="assets/landing.css">
+  <style>
+    html { background: var(--bg, #faf8f5) }
+    @media (prefers-color-scheme: dark) { html { --bg: #0f1117 } }
+    body.not-ready > * { opacity: 0 }
+  </style>
+  <link rel="stylesheet" href="assets/risetime.css" media="print" onload="this.media='all'; document.body.classList.remove('not-ready')">
+  <noscript><link rel="stylesheet" href="assets/risetime.css"></noscript>
   <title>Risetime — Sunrise Alarm App for Android · Celestial Alarm Clock</title>
   <script type="application/ld+json">
   {
@@ -118,7 +123,7 @@
   </script>
 
 </head>
-<body class="landing">
+<body class="not-ready landing">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -334,5 +339,6 @@
     </nav>
   </footer>
 
+  <script>setTimeout(function(){document.body.classList.remove('not-ready')},2000)</script>
 </body>
 </html>

@@ -14,8 +14,13 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://risetime.app/circadian-rhythm-alarm/">
   <link rel="canonical" href="https://risetime.app/circadian-rhythm-alarm/">
-  <link rel="stylesheet" href="../assets/risetime.css">
-  <link rel="stylesheet" href="../assets/content.css">
+  <style>
+    html { background: var(--bg, #faf8f5) }
+    @media (prefers-color-scheme: dark) { html { --bg: #0f1117 } }
+    body.not-ready > * { opacity: 0 }
+  </style>
+  <link rel="stylesheet" href="../assets/risetime.css" media="print" onload="this.media='all'; document.body.classList.remove('not-ready')">
+  <noscript><link rel="stylesheet" href="../assets/risetime.css"></noscript>
   <title>Circadian Rhythm Alarm App — Wake with the Sun — Risetime</title>
   <script type="application/ld+json">
   {
@@ -46,7 +51,7 @@
   }
   </script>
 </head>
-<body class="layout-narrow">
+<body class="not-ready layout-narrow">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -161,5 +166,6 @@
     </nav>
   </footer>
 
+  <script>setTimeout(function(){document.body.classList.remove('not-ready')},2000)</script>
 </body>
 </html>
