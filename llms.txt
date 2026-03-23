@@ -6,7 +6,7 @@ Risetime calculates astronomical sunrise and sunset times on-device using an emb
 
 Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir with an offset) and standard fixed-time alarms. It uses Android's setAlarmClock API — the same system-level alarm mechanism as the built-in clock app.
 
-Free with up to three alarms. Optional "Risetime Supporter" subscription unlocks unlimited alarms.
+Free with up to three alarms. A small optional subscription adds unlimited alarms.
 
 ## Links
 
