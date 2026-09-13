@@ -34,7 +34,6 @@
   --code-bg: #eae6e0;
   --screenshot-bg: #f0ede8;
   --screenshot-border: #d9d4cc;
-  --badge-coming-soon: #706660;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,7 +52,6 @@
     --code-bg: #1e1e32;
     --screenshot-bg: #1a1a2e;
     --screenshot-border: #2a2a3e;
-    --badge-coming-soon: #8e8e9a;
   }
 }
 
@@ -186,11 +184,12 @@ code {
 /* ---- PLAY BADGE (CTA button — used everywhere) ---- */
 .play-badge {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 0.15rem;
   background: var(--text-strong);
   color: var(--bg);
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-weight: 600;
@@ -209,30 +208,16 @@ code {
   height: 20px;
   flex-shrink: 0;
 }
-.play-badge--coming-soon {
-  background: var(--surface);
-  color: var(--badge-coming-soon);
-  cursor: default;
-  pointer-events: none;
-  flex-direction: column;
-  gap: 0.15rem;
-  padding: 0.65rem 1.5rem;
-}
-.play-badge--coming-soon .badge-sub {
+.play-badge .badge-sub {
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.play-badge--coming-soon .badge-main {
+.play-badge .badge-main {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-}
-.footer-coming-soon {
-  color: var(--muted);
-  font-size: inherit;
-  cursor: default;
 }
 
 /* ---- HIGHLIGHT BOX (used on content + privacy pages) ---- */

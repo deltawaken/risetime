@@ -20,6 +20,7 @@ Free with up to three alarms. A small optional subscription adds unlimited alarm
 ## Key Facts
 
 - Platform: Android (API 33+)
+- Distribution: Google Play, open testing track — anyone can join, no invitation needed
 - Developer: A. Deltawaken
 - No INTERNET permission — the app cannot connect to the internet
 - No analytics, crash reporting, or telemetry
