@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An Android countdown timer that survives a reboot, keeps counting in the notification with no app running, and repeats without drifting. No ads, no internet.">
+  <meta name="description" content="A countdown timer that starts itself again — for intervals, workouts and study blocks — plus everything a clock app timer already does. No ads, no internet.">
   <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-  <meta property="og:title" content="A Countdown Timer That Survives a Reboot — Risetime">
-  <meta property="og:description" content="Type the duration. It rings when it says it will — and restarting the phone doesn't lose it.">
+  <meta property="og:title" content="Countdown Timers That Repeat Themselves — Risetime">
+  <meta property="og:description" content="Set the interval once and it keeps the rhythm. Everything a clock app timer does, and one that repeats.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://risetime.app/timers/">
   <link rel="canonical" href="https://risetime.app/timers/">
@@ -21,13 +21,13 @@
   </style>
   <link rel="stylesheet" href="../assets/risetime.css" media="print" onload="this.media='all'; document.body.classList.remove('not-ready')">
   <noscript><link rel="stylesheet" href="../assets/risetime.css"></noscript>
-  <title>Android Countdown Timer That Survives a Reboot — Risetime</title>
+  <title>Repeating Countdown Timer for Android — Risetime</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "A Countdown Timer That Survives a Reboot",
-    "description": "How the countdown timer in Risetime works on Android: six-digit keypad entry, repeat cycles that stay in phase, a notification that keeps counting with no app process, and an exact alarm that is re-armed after a restart.",
+    "headline": "Countdown Timers That Repeat Themselves",
+    "description": "The countdown timers in Risetime: the ordinary ones every clock app has, and a repeat mode whose cycles stay in phase for intervals, workouts and study blocks.",
     "author": {
       "@type": "Organization",
       "name": "A. Deltawaken"
@@ -64,16 +64,16 @@
   </header>
 
   <div class="page-header">
-    <h1>A Countdown Timer That Survives a Reboot</h1>
-    <p class="subtitle">Type the duration. It rings when it says it will.</p>
+    <h1>Countdown Timers That Repeat Themselves</h1>
+    <p class="subtitle">For intervals, workouts and study blocks — plus everything a clock app's timer already does.</p>
   </div>
 
   <main id="main-content" class="content-main">
 
     <section aria-labelledby="section-what-it-is">
-      <h2 id="section-what-it-is">One screen, one keypad</h2>
-      <p>Risetime has a Timers tab beside its alarms. Tap the plus and you get a full-screen keypad, not a dial: type the digits and they fill from the right, the way a microwave does. Four, zero, zero gives you four minutes. The keypad takes six digits, so you can dial anything from a single second to just over a hundred hours.</p>
-      <p>Running timers sit in a list sorted by how long they were set for, shortest first, rather than by the order you made them. Your five-minute timer is where it was yesterday and where it will be tomorrow, so you stop hunting for it.</p>
+      <h2 id="section-what-it-is">The ordinary part first</h2>
+      <p>A clock app needs timers, so Risetime has them, in a tab beside its alarms. Nothing here should surprise you — that is rather the point. Tap the plus and you get a full-screen keypad rather than a dial: type the digits and they fill from the right, the way a microwave does. Four, zero, zero gives you four minutes, and six digits let you dial anything up to a hundred hours.</p>
+      <p>Timers sit in a list sorted by how long they were set for, shortest first, rather than by the order you made them. Yours is where it was yesterday, so you stop hunting for it.</p>
 
       <figure class="content-screenshot">
         <picture>
@@ -93,7 +93,7 @@
 
     <section aria-labelledby="section-repeat">
       <h2 id="section-repeat">Repeat, without the drift</h2>
-      <p>Turn repeat on and the timer starts itself again every time it finishes: stretches, intervals, steeping tea, a reminder to look away from the screen.</p>
+      <p>This is the part your phone's clock app probably does not do. Turn repeat on and the timer starts itself again every time it finishes — for the round you are on, the set you are doing, the twenty-five minutes you are giving to one chapter. Rest periods, drills, revision blocks, stretches, a reminder to look away from the screen.</p>
       <p>The cycles are anchored to when each one was <em>due</em>, not to when you silenced it. Thirty minutes repeated twice is sixty minutes, not sixty-one. Otherwise every cycle would inherit the length of the last bell you ignored, and by evening the thing would need resetting.</p>
 
       <div class="highlight-box">
@@ -105,8 +105,8 @@
 
     <section aria-labelledby="section-reboot">
       <h2 id="section-reboot">What happens when the phone restarts</h2>
-      <p>Most countdown timers are a number held in a running app: restart the phone and the number is gone. Risetime schedules each one as an exact alarm with the operating system, and re-arms it when the phone comes back up. A timer with time left on it keeps counting from where the clock says it should be — not from where the app last saw it.</p>
-      <p>A timer whose moment passed while the phone was off is marked finished, with a notification, and <strong>without ringing</strong>. Sounding an alarm at boot would be telling you the pasta is ready now when it was ready forty minutes ago. The honest answer is a record, not a bell.</p>
+      <p>Most countdown timers are a number held in a running app: restart the phone and the number is gone. Risetime schedules each one as an exact alarm with the operating system and re-arms it at boot, so a timer with time left keeps counting from where the clock says it should be.</p>
+      <p>One whose moment passed while the phone was off is marked finished, with a notification, and <strong>without ringing</strong> — a bell at boot would be telling you the pasta is ready now when it was ready forty minutes ago.</p>
       <p>One limit worth stating plainly: an exact alarm does not survive a <em>force-stop</em> — yours, or one issued by an aggressive battery manager. That is the same constraint alarms live with, and Risetime's reliability screen walks you through the settings your particular phone needs. The <a href="../how-it-works/" class="content-link">setup guide</a> covers it.</p>
     </section>
 
@@ -136,7 +136,7 @@
     </section>
 
     <div class="cta-section">
-      <h2>A timer that is still right after a restart.</h2>
+      <h2>Set the interval once. It keeps the rhythm.</h2>
       <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Risetime on Google Play — open testing">
         <span class="badge-main">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
