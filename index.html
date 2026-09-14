@@ -56,7 +56,8 @@
       "Works fully offline — no internet permission",
       "No analytics, no tracking, no data collection",
       "Supports both celestial and fixed-time alarms",
-      "OS-level alarm API — survives Doze mode and restarts"
+      "OS-level alarm API — survives Doze mode and restarts",
+      "Countdown timers with repeat cycles, re-armed after a restart"
     ],
     "author": {
       "@type": "Organization",
@@ -91,7 +92,7 @@
         "name": "Does Risetime also handle normal fixed-time alarms?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. World clock, timers, and more are on the way."
+          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. Countdown timers have their own tab, with their own sound and volume settings."
         }
       },
       {
@@ -204,6 +205,10 @@
           <h3>Real alarms, not notifications</h3>
           <p>Risetime uses the same OS-level alarm API as your built-in Android clock. Your alarm survives Doze mode, battery optimization, and device restarts. When it is time to wake up, your phone rings.</p>
         </article>
+        <article class="feature-card">
+          <h3>Countdown timers, in the same app</h3>
+          <p>A keypad, a list sorted by duration, and a repeat mode whose cycles stay in phase. Each timer is an exact alarm, so a restart does not lose it. <a href="./timers/">Timers guide</a></p>
+        </article>
       </div>
     </section>
 
@@ -299,7 +304,7 @@
         <dd>No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere.</dd>
 
         <dt>Does Risetime also handle normal fixed-time alarms?</dt>
-        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. World clock, timers, and more are on the way.</dd>
+        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. Countdown timers have their own tab, with their own sound and volume settings.</dd>
 
         <dt>Can I set an alarm for dawn or first light?</dt>
         <dd>Yes — as a time around an event, not as an angle. Set "45 minutes before sunrise" and the alarm fires 45 minutes before the real sunrise, every day, wherever you are. How long before sunrise first light reaches you depends on your latitude and the season, so pick the gap that fits where you live. The alarm keeps it from there.</dd>

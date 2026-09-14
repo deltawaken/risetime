@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An Android countdown timer that survives a reboot, keeps counting in the notification with no app running, and repeats without drifting. No ads, no internet.">
+  <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta property="og:title" content="A Countdown Timer That Survives a Reboot — Risetime">
+  <meta property="og:description" content="Type the duration. It rings when it says it will — and restarting the phone doesn't lose it.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://risetime.app/timers/">
+  <link rel="canonical" href="https://risetime.app/timers/">
+  <style>
+    html { background: var(--bg, #faf8f5) }
+    @media (prefers-color-scheme: dark) { html { --bg: #0f1117 } }
+    body.not-ready > * { opacity: 0 }
+  </style>
+  <link rel="stylesheet" href="../assets/risetime.css" media="print" onload="this.media='all'; document.body.classList.remove('not-ready')">
+  <noscript><link rel="stylesheet" href="../assets/risetime.css"></noscript>
+  <title>Android Countdown Timer That Survives a Reboot — Risetime</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A Countdown Timer That Survives a Reboot",
+    "description": "How the countdown timer in Risetime works on Android: six-digit keypad entry, repeat cycles that stay in phase, a notification that keeps counting with no app process, and an exact alarm that is re-armed after a restart.",
+    "author": {
+      "@type": "Organization",
+      "name": "A. Deltawaken"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Risetime",
+      "url": "https://risetime.app/"
+    },
+    "mainEntityOfPage": "https://risetime.app/timers/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Risetime", "item": "https://risetime.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Timers", "item": "https://risetime.app/timers/" }
+    ]
+  }
+  </script>
+</head>
+<body class="not-ready layout-narrow">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav aria-label="Main navigation">
+      <a href="../" class="wordmark">Risetime</a>
+      <a href="../how-it-works/">How It Works</a>
+      <a href="../privacy/">Privacy</a>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <h1>A Countdown Timer That Survives a Reboot</h1>
+    <p class="subtitle">Type the duration. It rings when it says it will.</p>
+  </div>
+
+  <main id="main-content" class="content-main">
+
+    <section aria-labelledby="section-what-it-is">
+      <h2 id="section-what-it-is">One screen, one keypad</h2>
+      <p>Risetime has a Timers tab beside its alarms. Tap the plus and you get a full-screen keypad, not a dial: type the digits and they fill from the right, the way a microwave does. Four, zero, zero gives you four minutes. The keypad takes six digits, so you can dial anything from a single second to just over a hundred hours.</p>
+      <p>Running timers sit in a list sorted by how long they were set for, shortest first, rather than by the order you made them. Your five-minute timer is where it was yesterday and where it will be tomorrow, so you stop hunting for it.</p>
+
+      <figure class="content-screenshot">
+        <picture>
+          <source srcset="../assets/screenshots/timer-list--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
+          <source srcset="../assets/screenshots/timer-list.webp" type="image/webp">
+          <source srcset="../assets/screenshots/timer-list--dark.png" media="(prefers-color-scheme: dark)">
+          <img src="../assets/screenshots/timer-list.png"
+               alt="Risetime timers list showing three countdowns: 3:30 running, 9:26 paused with a reset button, and 23:35 running with a pink repeat badge. Each row has a chevron, a play or pause button, and a plus one minute button."
+               width="480" height="854"
+               loading="lazy">
+        </picture>
+        <figcaption>Three timers, sorted by duration. The pink badge marks the one set to repeat.</figcaption>
+      </figure>
+
+      <p>Each row carries what you need while it counts: pause, and a <strong>+1:00</strong> button that adds time to whatever is left — a minute unless you change it in Settings. Pause a timer and that button becomes a reset. The chevron opens the row for the two things you need less often — the repeat switch, and delete.</p>
+    </section>
+
+    <section aria-labelledby="section-repeat">
+      <h2 id="section-repeat">Repeat, without the drift</h2>
+      <p>Turn repeat on and the timer starts itself again every time it finishes: stretches, intervals, steeping tea, a reminder to look away from the screen.</p>
+      <p>The cycles are anchored to when each one was <em>due</em>, not to when you silenced it. Thirty minutes repeated twice is sixty minutes, not sixty-one. Otherwise every cycle would inherit the length of the last bell you ignored, and by evening the thing would need resetting.</p>
+
+      <div class="highlight-box">
+        <p>A repeating timer rings for thirty seconds by default, then moves to the next cycle. There is no "never" option for that window — a bell with no end would stall the loop it belongs to.</p>
+      </div>
+
+      <p>One-shot timers work the other way round: they ring for ten minutes by default, and "never" <em>is</em> available if you want one that waits for you however long that takes.</p>
+    </section>
+
+    <section aria-labelledby="section-reboot">
+      <h2 id="section-reboot">What happens when the phone restarts</h2>
+      <p>Most countdown timers are a number held in a running app: restart the phone and the number is gone. Risetime schedules each one as an exact alarm with the operating system, and re-arms it when the phone comes back up. A timer with time left on it keeps counting from where the clock says it should be — not from where the app last saw it.</p>
+      <p>A timer whose moment passed while the phone was off is marked finished, with a notification, and <strong>without ringing</strong>. Sounding an alarm at boot would be telling you the pasta is ready now when it was ready forty minutes ago. The honest answer is a record, not a bell.</p>
+      <p>One limit worth stating plainly: an exact alarm does not survive a <em>force-stop</em> — yours, or one issued by an aggressive battery manager. That is the same constraint alarms live with, and Risetime's reliability screen walks you through the settings your particular phone needs. The <a href="../how-it-works/" class="content-link">setup guide</a> covers it.</p>
+    </section>
+
+    <section aria-labelledby="section-notification">
+      <h2 id="section-notification">The notification counts on its own</h2>
+      <p>The countdown in your notification shade is drawn by Android itself rather than repainted by the app. It keeps ticking with no Risetime process alive at all: swipe the app out of recents and the number in your shade carries on.</p>
+      <p>There is one card for whatever is running or paused, and one for whatever is ringing — not one card per timer stacking up in the shade.</p>
+      <p>Swiping that card away stops nothing. It dismisses a piece of paper: the card comes straight back from live state, and a ringing timer keeps ringing. Stopping is always a deliberate button, so a stray thumb never silences something you needed.</p>
+    </section>
+
+    <section aria-labelledby="section-settings">
+      <h2 id="section-settings">Its own sound, its own volume</h2>
+      <p>Timers do not borrow your alarm's settings, and repeating timers do not borrow the one-shot ones — sensible, given a bell you hear once an hour should rarely be the one that drags you out of sleep. Each of the two carries its own:</p>
+      <ul>
+        <li>Sound, chosen from your system sounds or a file of your own — Risetime ships no audio of its own</li>
+        <li>Volume, either the system level or a level you set for timers alone</li>
+        <li>How long it rings before giving up, and an optional gradual fade-in</li>
+      </ul>
+      <p>Two things are shared rather than doubled: whether timers vibrate, and what the hardware volume keys do while a finished timer's full-screen alert is on your display — change the volume, add time, stop it, or nothing at all.</p>
+    </section>
+
+    <section aria-labelledby="section-setup">
+      <h2 id="section-setup">Setting one up</h2>
+      <p>Open the Timers tab, tap the plus, type the duration, press play. That is the whole thing — there is nothing to name and nothing to file.</p>
+      <p>To make it repeat, open the row with the chevron and tick Repeat. One thing to know before you rely on it: the repeat setting is read once per cycle, at the moment the bell starts. Untick it while a timer is ringing and you get one more cycle before it stops.</p>
+      <p>The free version holds three timers, the same count as its alarms. Reach it and the add button is simply absent — no dialog, no padlock, no banner naming what you are missing. If a contribution lapses nothing is deleted: every timer you made keeps working, you just cannot add another. The <a href="../how-it-works/" class="content-link">setup guide</a> covers the alarms, which share the same reliability settings.</p>
+    </section>
+
+    <div class="cta-section">
+      <h2>A timer that is still right after a restart.</h2>
+      <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Risetime on Google Play — open testing">
+        <span class="badge-main">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
+          Google Play
+        </span>
+        <span class="badge-sub">Open testing</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Risetime &middot; A. Deltawaken</p>
+    <nav aria-label="Footer navigation">
+      <a href="../">Home</a>
+      &middot;
+      <a href="../how-it-works/">How It Works</a>
+      &middot;
+      <a href="../privacy/">Privacy</a>
+      &middot;
+      <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener">Google Play</a>
+    </nav>
+  </footer>
+
+  <script>setTimeout(function(){document.body.classList.remove('not-ready')},2000)</script>
+</body>
+</html>

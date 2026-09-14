@@ -14,6 +14,7 @@ Free with up to three alarms. A small optional subscription adds unlimited alarm
 - [How It Works](https://risetime.app/how-it-works/)
 - [Golden Hour Alarm for Photographers](https://risetime.app/golden-hour-alarm/)
 - [Circadian Rhythm Alarm](https://risetime.app/circadian-rhythm-alarm/)
+- [Countdown Timers](https://risetime.app/timers/)
 - [Privacy Policy](https://risetime.app/privacy/)
 - [Google Play](https://play.google.com/store/apps/details?id=com.deltawaken.risetime)
 
