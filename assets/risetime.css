@@ -220,6 +220,16 @@ code {
   gap: var(--space-xs);
 }
 
+/* ---- CTA NOTE (explains the open-testing opt-in under each badge) ---- */
+.cta-note {
+  margin-top: var(--space-sm);
+  margin-inline: auto;
+  max-width: 34rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 /* ---- HIGHLIGHT BOX (used on content + privacy pages) ---- */
 .highlight-box {
   background: var(--bg-elevated);
