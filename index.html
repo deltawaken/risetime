@@ -51,7 +51,9 @@
       "https://risetime.app/assets/screenshots/settings-screen.png"
     ],
     "featureList": [
-      "Alarms anchored to sunrise, sunset, noon, or nadir",
+      "Alarms anchored to sunrise, sunset, solar noon or nadir",
+      "Custom anchors: a solar angle, a shadow length, a fraction of the day or night",
+      "Anchor calibration, to match a published timetable",
       "Automatic daily recalculation as sun times shift",
       "Works fully offline — no internet permission",
       "No analytics, no tracking, no data collection",
@@ -76,7 +78,7 @@
         "name": "What does Risetime actually do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Risetime is an alarm clock that ties your wake-up time to a real celestial event. Set \"30 minutes before sunrise\" once, and the alarm recalculates every day to match the actual sunrise at your location. No manual adjustment needed — one setup, accurate all year."
+          "text": "Risetime is an alarm clock that can tie an alarm to a moment of the sun. Set “30 minutes before sunrise” once and the alarm recalculates every day for your location, so it follows the sun through the year. It also does ordinary fixed-time alarms and countdown timers."
         }
       },
       {
@@ -84,7 +86,7 @@
         "name": "Does Risetime need an internet connection?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere."
+          "text": "No. Risetime has no internet permission at all — it cannot connect, even if it wanted to. Sunrise and sunset times are computed on your device. It works in airplane mode, in the field, anywhere."
         }
       },
       {
@@ -92,31 +94,31 @@
         "name": "Does Risetime also handle normal fixed-time alarms?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. Countdown timers have their own tab, with their own sound and volume settings."
+          "text": "Yes. Ordinary clock alarms and sun-anchored alarms live in the same list, and countdown timers have their own tab, with their own sound and volume settings."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I set an alarm for dawn or first light?",
+        "name": "Can I set an alarm for dawn, golden hour or the dark of night?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — as a time around an event, not as an angle. Set \"45 minutes before sunrise\" and the alarm fires 45 minutes before the real sunrise, every day, wherever you are. How long before sunrise first light reaches you depends on your latitude and the season, so pick the gap that fits where you live. The alarm keeps it from there."
+          "text": "Yes, by the angle of the sun. Create an anchor at −6° for civil dawn, +6° in the evening for golden hour, −18° for astronomical night, and set alarms on them. Where an angle is never reached for part of the year, the app says so and the alarm skips those days rather than ring at an invented time."
         }
       },
       {
         "@type": "Question",
-        "name": "Does the alarm still go off if my phone is in Doze mode or Battery Saver?",
+        "name": "Does the alarm still go off in Doze mode or Battery Saver?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Risetime uses Android's setAlarmClock API — the same system-level alarm mechanism used by your built-in clock app. It survives Doze mode, battery optimization, and device restarts."
+          "text": "Yes. Risetime uses Android’s setAlarmClock API — the same system-level mechanism as your built-in clock app — and a Reliability screen checks the permissions your phone needs. Alarms ring even before the first unlock after a restart."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I set an alarm for golden hour or blue hour?",
+        "name": "Is Risetime free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. \"30 minutes before sunset\" for golden hour. For blue hour, set 15 to 25 minutes after sunset depending on where you live — nearer 15 in the tropics, nearer 25 around the latitude of Paris, later further north. Both follow sunset every day once set."
+          "text": "Free for up to three alarms and three timers, for good. Need more? Use those three first, and see if it’s worth your support: supporters get unlimited alarms and timers, yearly or once."
         }
       }
     ]
@@ -133,6 +135,7 @@
       <a href="./" class="wordmark">Risetime</a>
       <a href="./alarms/">Alarms</a>
       <a href="./timers/">Timers</a>
+      <a href="./#uses">Uses</a>
       <a href="./privacy/">Privacy</a>
     </nav>
   </header>
@@ -215,15 +218,17 @@
     </section>
 
     <!-- WHO IT'S FOR -->
-    <section class="use-cases" aria-labelledby="use-cases-heading">
-      <h2 id="use-cases-heading">Who uses a sunrise alarm app?</h2>
+    <section class="use-cases" id="uses" aria-labelledby="use-cases-heading">
+      <h2 id="use-cases-heading">What more you can do with Risetime</h2>
+      <p>Who uses a sunrise alarm app, and what they set:</p>
       <ul class="use-case-list">
-        <li><strong>Biohackers and circadian rhythm optimisers</strong> — set one alarm at sunrise to wake, another 8 hours before sunrise to wind down. Both recalculate daily as daylight hours change. <a href="./circadian-rhythm-alarm/">Circadian rhythm alarm guide</a></li>
-        <li><strong>Dawn meditators and yoga practitioners</strong> — set your practice alarm to sunrise once, and it follows the seasons without any adjustment.</li>
-        <li><strong>Photographers chasing golden and blue hour</strong> — "30 minutes before sunset" for golden hour, 15 to 25 minutes after for blue hour depending on your latitude. Both follow sunset every day of the year. Works offline in the field with no cell service. <a href="./golden-hour-alarm/">Golden hour alarm guide</a></li>
-        <li><strong>Pre-dawn risers</strong> — in Ramadan and out of it, set your offset before sunrise once and it tracks sunrise every day. Check your own timetable for the exact moment; the alarm is the part that never drifts.</li>
+        <li><strong>A day that follows the sun</strong> — wake at sunrise, wind down before it, and keep clock alarms for the hours other people expect of you. <a href="./circadian-rhythm-alarm/">Circadian rhythm alarm for Android</a></li>
+        <li><strong>Photographers and astronomers</strong> — golden hour, blue hour and astronomical night are angles of the sun, not fixed times. Set the angle once; it holds at every latitude and season, offline in the field. <a href="./golden-hour-alarm/">Golden hour, blue hour and night sky alarms</a></li>
+        <li><strong>Sun salutation, dawn patrol, first light</strong> — yoga on the mat as the light arrives, or out in the water before it. Anchor on sunrise, or on civil dawn a little earlier. <a href="./alarms/#section-custom">Custom sun angles and twilight anchors</a></li>
+        <li><strong>Pre-dawn risers</strong> — set your offset before sunrise once and it tracks sunrise every day. Check your own timetable for the exact moment; the alarm is the part that never drifts.</li>
         <li><strong>Outdoor workers, dog walkers, farmers</strong> — if your day starts with daylight, your alarm should too.</li>
-        <li><strong>Anyone tired of adjusting throughout the year</strong> — set it once. It stays right.</li>
+        <li><strong>Intervals, workouts, study blocks</strong> — countdown timers that restart themselves, in the same app. <a href="./timers/">Repeating countdown timers</a></li>
+        <li><strong>Anyone tired of adjusting throughout the year</strong> — set it once. It stays right. <a href="./alarms/">How to set a sunrise or sunset alarm on Android</a></li>
       </ul>
     </section>
 
@@ -300,22 +305,17 @@
       <h2 id="faq-heading">Frequently asked questions</h2>
       <dl class="faq-list">
         <dt>What does Risetime actually do?</dt>
-        <dd>Risetime is an alarm clock that ties your wake-up time to a real celestial event. Set "30 minutes before sunrise" once, and the alarm recalculates every day to match the actual sunrise at your location. No manual adjustment needed — one setup, accurate all year.</dd>
-
+        <dd>Risetime is an alarm clock that can tie an alarm to a moment of the sun. Set “30 minutes before sunrise” once and the alarm recalculates every day for your location, so it follows the sun through the year. It also does ordinary fixed-time alarms and countdown timers.</dd>
         <dt>Does Risetime need an internet connection?</dt>
-        <dd>No. Risetime has no internet permission at all — it cannot connect to the internet even if it wanted to. Sunrise and sunset times are calculated on your device using astronomical math. It works in airplane mode, in the field, anywhere.</dd>
-
+        <dd>No. Risetime has no internet permission at all — it cannot connect, even if it wanted to. Sunrise and sunset times are computed on your device. It works in airplane mode, in the field, anywhere.</dd>
         <dt>Does Risetime also handle normal fixed-time alarms?</dt>
-        <dd>Yes. Risetime supports both celestial alarms (anchored to sunrise, sunset, noon, or nadir) and standard fixed-time alarms. Countdown timers have their own tab, with their own sound and volume settings.</dd>
-
-        <dt>Can I set an alarm for dawn or first light?</dt>
-        <dd>Yes — as a time around an event, not as an angle. Set "45 minutes before sunrise" and the alarm fires 45 minutes before the real sunrise, every day, wherever you are. How long before sunrise first light reaches you depends on your latitude and the season, so pick the gap that fits where you live. The alarm keeps it from there.</dd>
-
-        <dt>Does the alarm still go off if my phone is in Doze mode or Battery Saver?</dt>
-        <dd>Yes. Risetime uses Android's setAlarmClock API — the same system-level alarm mechanism used by your built-in clock app. It survives Doze mode, battery optimization, and device restarts.</dd>
-
-        <dt>Can I set an alarm for golden hour or blue hour?</dt>
-        <dd>Yes. "30 minutes before sunset" for golden hour. For blue hour, set 15 to 25 minutes after sunset depending on where you live — nearer 15 in the tropics, nearer 25 around the latitude of Paris, later further north. Both follow sunset every day once set.</dd>
+        <dd>Yes. Ordinary clock alarms and sun-anchored alarms live in the same list, and countdown timers have their own tab, with their own sound and volume settings.</dd>
+        <dt>Can I set an alarm for dawn, golden hour or the dark of night?</dt>
+        <dd>Yes, by the angle of the sun. Create an anchor at −6° for civil dawn, +6° in the evening for golden hour, −18° for astronomical night, and set alarms on them. Where an angle is never reached for part of the year, the app says so and the alarm skips those days rather than ring at an invented time.</dd>
+        <dt>Does the alarm still go off in Doze mode or Battery Saver?</dt>
+        <dd>Yes. Risetime uses Android’s setAlarmClock API — the same system-level mechanism as your built-in clock app — and a Reliability screen checks the permissions your phone needs. Alarms ring even before the first unlock after a restart.</dd>
+        <dt>Is Risetime free?</dt>
+        <dd>Free for up to three alarms and three timers, for good. Need more? Use those three first, and see if it’s worth your support: supporters get unlimited alarms and timers, yearly or once.</dd>
       </dl>
     </section>
 
