@@ -638,33 +638,47 @@ code {
   color: var(--accent);
 }
 
-/* ---- NUMBERED STEPS (how-it-works detail page) ---- */
-.step {
-  margin-top: var(--space-md);
-  padding-left: 3.5rem;
-  position: relative;
+/* Ordered steps: a real <ol>, so the steps stay a list for search engines */
+.content-main ol {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin-bottom: 0.75rem;
 }
-.step::before {
+.content-main ol > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0.3rem 0 0.3rem 2.25rem;
+  color: var(--text);
+}
+.content-main ol > li::before {
+  content: counter(step);
   position: absolute;
   left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
+  top: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
   background: var(--accent-muted);
   color: var(--accent);
-  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
 }
-.step-1::before { content: "1"; }
-.step-2::before { content: "2"; }
-.step-3::before { content: "3"; }
-.step-4::before { content: "4"; }
-.step h3 {
-  margin-top: 0.15rem;
+
+/* ---- DISCLOSURE ---- */
+.content-main details {
+  margin: 0.4rem 0 0.25rem;
+}
+.content-main summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 500;
+}
+.content-main details[open] summary {
+  margin-bottom: 0.4rem;
 }
 
 /* ---- TIMING TABLE (golden-hour page) ---- */
