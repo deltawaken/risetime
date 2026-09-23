@@ -269,7 +269,7 @@ export default function HomePage() {
           {/* SUPPORT */}
           <section className="support" aria-labelledby="support-heading">
             <h2 id="support-heading">Free for up to three alarms. Unlimited as a supporter.</h2>
-            <div className="callout-box" style={{"borderLeftColor": "var(--muted)"}}>
+            <div className="callout-box" style={{"borderInlineStartColor": "var(--muted)"}}>
               <p>Risetime is free for up to three alarms and three timers — for good. <br />Need more? Use those three first, and see if it's worth your support: supporters get unlimited alarms and timers, yearly or once. If not, I'll be happy to <a href="mailto:contact@risetime.app">hear you out</a>. You'll find it in Settings.</p>
               <p style={{"marginBottom": "0"}}>No nag screens, no countdowns, no "upgrade to continue" prompts. Just an honest option when you're ready.</p>
             </div>

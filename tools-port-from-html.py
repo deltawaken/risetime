@@ -46,6 +46,19 @@ def note(page, what):
     CHANGES.append((page, what))
 
 
+# Les styles inline directionnels suivent la même règle que la feuille de style :
+# logiques, pour que le RTL fonctionne sans réécriture (story 9-31).
+LOGICAL = {
+    "border-left": "border-inline-start", "border-right": "border-inline-end",
+    "border-left-color": "border-inline-start-color",
+    "border-right-color": "border-inline-end-color",
+    "border-left-width": "border-inline-start-width",
+    "border-right-width": "border-inline-end-width",
+    "margin-left": "margin-inline-start", "margin-right": "margin-inline-end",
+    "padding-left": "padding-inline-start", "padding-right": "padding-inline-end",
+}
+
+
 def style_to_jsx(value):
     out = {}
     for decl in value.split(";"):
@@ -56,6 +69,7 @@ def style_to_jsx(value):
         if not prop:
             continue
         # --custom-prop reste tel quel ; sinon kebab -> camel
+        prop = LOGICAL.get(prop, prop)
         key = prop if prop.startswith("--") else re.sub(
             r"-([a-z])", lambda m: m.group(1).upper(), prop)
         out[key] = val

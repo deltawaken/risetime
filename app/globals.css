@@ -77,7 +77,7 @@ body {
 .skip-link {
   position: absolute;
   top: -100%;
-  left: var(--space-sm);
+  inset-inline-start: var(--space-sm);
   background: var(--accent);
   color: var(--bg);
   padding: var(--space-xs) var(--space-sm);
@@ -122,7 +122,7 @@ body {
   color: var(--accent);
   letter-spacing: 0.04em;
   text-decoration: none;
-  margin-right: auto;
+  margin-inline-end: auto;
 }
 .site-header nav a {
   color: var(--muted);
@@ -234,7 +234,7 @@ code {
 .highlight-box {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
+  border-inline-start: 3px solid var(--accent);
   border-radius: var(--radius-sm);
   padding: var(--space-sm) var(--space-md);
   margin: var(--space-md) 0;
@@ -269,8 +269,7 @@ code {
 }
 .landing section > * {
   max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 /* ---- SECTION HEADING (reusable) ---- */
@@ -318,8 +317,7 @@ code {
   color: var(--muted);
   margin-top: var(--space-sm);
   max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 .hero-screenshot {
   margin-top: var(--space-lg);
@@ -356,12 +354,12 @@ code {
 .steps li {
   counter-increment: step-counter;
   position: relative;
-  padding-left: 3.5rem;
+  padding-inline-start: 3.5rem;
 }
 .steps li::before {
   content: counter(step-counter);
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   width: 2.5rem;
   height: 2.5rem;
@@ -471,7 +469,7 @@ code {
 .callout-box {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
+  border-inline-start: 4px solid var(--accent);
   border-radius: var(--radius-md);
   padding: var(--space-md);
 }
@@ -485,14 +483,15 @@ code {
   margin-bottom: var(--space-sm);
 }
 .callout-box li {
-  padding: 0.4rem 0 0.4rem 1.6rem;
+  padding-block: 0.4rem;
+  padding-inline: 1.6rem 0;
   position: relative;
   color: var(--text);
 }
 .callout-box li::before {
   content: "\2713";
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   color: var(--accent);
   font-weight: 700;
 }
@@ -519,7 +518,7 @@ code {
   color: var(--text);
   margin-top: var(--space-xs);
   margin-bottom: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 /* ---- FINAL CTA ---- */
@@ -544,10 +543,13 @@ code {
   }
   .steps li {
     text-align: center;
-    padding-left: 0;
+    padding-inline-start: 0;
     padding-top: 3.5rem;
   }
   .steps li::before {
+    /* CENTRAGE, pas une direction : left 50% + translateX(-50%) centre
+       identiquement en LTR et en RTL. Le passer en inset-inline-start le
+       casserait en RTL, la translation restant physique. Ne pas « corriger ». */
     left: 50%;
     transform: translateX(-50%);
     top: 0;
@@ -627,14 +629,15 @@ code {
   margin-bottom: 0.75rem;
 }
 .content-main ul li {
-  padding: 0.3rem 0 0.3rem 1.4rem;
+  padding-block: 0.3rem;
+  padding-inline: 1.4rem 0;
   position: relative;
   color: var(--text);
 }
 .content-main ul li::before {
   content: "\2022";
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   color: var(--accent);
 }
 
@@ -648,13 +651,14 @@ code {
 .content-main ol > li {
   counter-increment: step;
   position: relative;
-  padding: 0.3rem 0 0.3rem 2.25rem;
+  padding-block: 0.3rem;
+  padding-inline: 2.25rem 0;
   color: var(--text);
 }
 .content-main ol > li::before {
   content: counter(step);
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -690,7 +694,7 @@ code {
 }
 .timing-table th,
 .timing-table td {
-  text-align: left;
+  text-align: start;
   padding: 0.6rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }

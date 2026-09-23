@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node tools-strip-runtime.mjs",
     "start": "next start",
-    "serve": "npx --yes serve out"
+    "serve": "npx --yes serve out",
+    "build:raw": "next build"
   },
   "dependencies": {
     "next": "^15",
