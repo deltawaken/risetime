@@ -1,21 +1,32 @@
 import type { Metadata } from 'next'
 
-// Porté depuis timers/index.html (commit 967c17d) — recopie, pas réécriture.
-// Voir le rapport de portage : references/nextjs-port-report.md
+// 9-24 — la page minuteurs ouvre sur la répétition. Réécriture sur site/nextjs
+// (main est gelée). L'URL /timers/ ne bouge pas : elle est indexée.
+//
+// Vocabulaire tranché par la story, et vérifiable au grep (AC 4, 5, 6) :
+//  - « loop timer » : OUI, c'est le nom de la chose.
+//  - « interval » : OUI, en nom commun seulement. La LOCUTION avec « timer »
+//    accolé est INTERDITE partout dans ce fichier — elle désigne dans l'usage
+//    courant deux phases alternées, que l'app ne sait pas faire.
+//  - « Repeat » : le nom exact de la case. « Stop loop » : celui du bouton.
+//  - Deux autres mots sont proscrits par l'AC 5 (la tomate italienne du
+//    découpage travail/pause, et le terme interne pour la cloche brève). Ils
+//    ne sont pas écrits ici non plus : l'AC grepe le fichier entier, commentaire
+//    compris.
 
 export const metadata: Metadata = {
-  title: "Repeating Countdown Timer for Android — Risetime",
-  description: "A countdown timer that starts itself again — for intervals, workouts and study blocks — plus everything a clock app timer already does. No ads, no internet.",
+  title: "Loop Timer for Android — Repeating Countdown | Risetime",
+  description: "A loop timer for Android: set one duration and it restarts itself at a fixed interval until you stop it. Plus the ordinary countdowns. No ads, no internet.",
   alternates: { canonical: "/timers/" },
-  openGraph: { title: "Countdown Timers That Repeat Themselves — Risetime", description: "Set the interval once and it keeps the rhythm. Everything a clock app timer does, and one that repeats.", type: "article", url: "/timers/" },
+  openGraph: { title: "A Timer That Starts Itself Again — Risetime", description: "Tick Repeat and the countdown restarts itself, cycle after cycle, on the interval you set — until you stop the loop.", type: "article", url: "/timers/" },
 }
 
 const jsonLd = [
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Countdown Timers That Repeat Themselves",
-  "description": "The countdown timers in Risetime: the ordinary ones every clock app has, and a repeat mode whose cycles stay in phase for intervals, workouts and study blocks.",
+  "headline": "A Timer That Starts Itself Again",
+  "description": "The loop timer in Risetime: one duration, restarted at a fixed interval whose cycles stay in phase, with a Stop loop button to end it — plus the ordinary countdowns every clock app has.",
   "author": {
     "@type": "Organization",
     "name": "A. Deltawaken"
@@ -70,16 +81,20 @@ export default function TimersPage() {
         </header>
 
         <div className="page-header">
-          <h1>Countdown Timers That Repeat Themselves</h1>
-          <p className="subtitle">For intervals, workouts and study blocks — plus everything a clock app's timer already does.</p>
+          <h1>A Timer That Starts Itself Again</h1>
+          <p className="subtitle">Set the interval once and it keeps going — plus everything a clock app's timer already does.</p>
         </div>
 
         <main id="main-content" className="content-main">
 
-          <section aria-labelledby="section-what-it-is">
-            <h2 id="section-what-it-is">The ordinary part first</h2>
-            <p>A clock app needs timers, so Risetime has them, in a tab beside its alarms. Nothing here should surprise you — that is rather the point. Tap the plus and you get a full-screen keypad rather than a dial: type the digits and they fill from the right, the way a microwave does. Four, zero, zero gives you four minutes, and six digits let you dial anything up to a hundred hours.</p>
-            <p>Timers sit in a list sorted by how long they were set for, shortest first, rather than by the order you made them. Yours is where it was yesterday, so you stop hunting for it.</p>
+          <section aria-labelledby="section-loop">
+            <h2 id="section-loop">It starts itself again</h2>
+            <p>This is the part your phone's clock app probably does not do. Open a timer's row with the chevron and tick <strong>Repeat</strong>, and it becomes a <strong>loop timer</strong>: it reaches zero, rings briefly, then starts again for the same duration, until you stop the loop. What you set once is the <strong>interval</strong>.</p>
+            <p>The cycles are anchored to when each one was <em>due</em>, not to when you silenced it: thirty minutes repeated twice is sixty minutes, not sixty-one. Otherwise every bell you let run would stretch the rest of the day.</p>
+
+            <div className="highlight-box">
+              <p>By default a cycle rings for <strong>five seconds</strong>, with your system's notification sound rather than an alarm sound. Both are yours to change. There is no &ldquo;never&rdquo; option for that window — a bell with no end would stall the loop at its first cycle.</p>
+            </div>
 
             <figure className="content-screenshot">
               <picture>
@@ -90,46 +105,56 @@ export default function TimersPage() {
               </picture>
               <figcaption>Three timers, sorted by duration. The pink badge marks the one set to repeat.</figcaption>
             </figure>
-
-            <p>Each row carries what you need while it counts: pause, and a <strong>+1:00</strong> button that adds time to whatever is left — a minute unless you change it in Settings. Pause a timer and that button becomes a reset. The chevron opens the row for the two things you need less often — the repeat switch, and delete.</p>
           </section>
 
-          <section aria-labelledby="section-repeat">
-            <h2 id="section-repeat">Repeat, without the drift</h2>
-            <p>This is the part your phone's clock app probably does not do. Turn repeat on and the timer starts itself again every time it finishes — for the round you are on, the set you are doing, the twenty-five minutes you are giving to one chapter. Rest periods, drills, revision blocks, stretches, a reminder to look away from the screen.</p>
-            <p>The cycles are anchored to when each one was <em>due</em>, not to when you silenced it. Thirty minutes repeated twice is sixty minutes, not sixty-one. Otherwise every cycle would inherit the length of the last bell you ignored, and by evening the thing would need resetting.</p>
-
-            <div className="highlight-box">
-              <p>A repeating timer rings for five seconds by default, with a short notification tone rather than an alarm, then moves to the next cycle. There is no "never" option for that window — a bell with no end would stall the loop it belongs to.</p>
-            </div>
-
-            <p>One-shot timers work the other way round: they ring for ten minutes by default, and "never" <em>is</em> available if you want one that waits for you however long that takes.</p>
+          <section aria-labelledby="section-ending">
+            <h2 id="section-ending">Ending the loop</h2>
+            <p>A loop ends on a button called <strong>Stop loop</strong>: on the ringing screen, and on the ringing notification too, beside <strong>Continue</strong> and the button that adds time.</p>
+            <p>Unticking <strong>Repeat</strong> while a timer is ringing gives you one more cycle before it stops: the setting is read once per cycle, at the moment the bell starts.</p>
+            <p>The ringing screen comes up at every cycle and goes away by itself when the five seconds are over — nothing to tap, nothing to dismiss between cycles.</p>
           </section>
 
+          <section aria-labelledby="section-ordinary">
+            <h2 id="section-ordinary">And the ordinary countdowns</h2>
+            <p>The rest is what a clock app's timer already does. Tap the plus and you get a full-screen keypad rather than a dial: type the digits and they fill from the right, the way a microwave does. Four, zero, zero gives you four minutes, and six digits take you up to <strong>ninety-nine hours</strong>.</p>
+            <p>Timers sit in a list sorted by how long they were set for, shortest first, rather than by the order you made them. They run in parallel — several independent countdowns at once, looping or not.</p>
+            <p>Each row carries pause, and a <strong>+1:00</strong> button that adds time to whatever is left — a minute unless you change it in Settings. Pause a timer and that button becomes a reset. The chevron opens the row for <strong>Repeat</strong> and delete.</p>
+          </section>
 
           <section aria-labelledby="section-notification">
             <h2 id="section-notification">The notification counts on its own</h2>
-            <p>The countdown in your notification shade is drawn by Android itself rather than repainted by the app. It keeps ticking with no Risetime process alive at all: swipe the app out of recents and the number in your shade carries on.</p>
-            <p>There is one card for whatever is running or paused, and one for whatever is ringing — not one card per timer stacking up in the shade.</p>
-            <p>Swiping that card away stops nothing. It dismisses a piece of paper: the card comes straight back from live state, and a ringing timer keeps ringing. Stopping is always a deliberate button, so a stray thumb never silences something you needed.</p>
+            <p>The countdown in your notification shade is drawn by Android itself rather than repainted by the app. It keeps ticking with no Risetime process alive at all.</p>
+            <p>There is one card for whatever is running or paused, and one for whatever is ringing — exactly two, never one per timer stacking up in the shade.</p>
+            <p>Swiping that card away stops nothing: it comes straight back from live state, and a ringing timer keeps ringing. Stopping is always a deliberate button.</p>
           </section>
 
           <section aria-labelledby="section-settings">
             <h2 id="section-settings">Its own sound, its own volume</h2>
-            <p>Timers do not borrow your alarm's settings, and repeating timers do not borrow the one-shot ones — sensible, given a bell you hear once an hour should rarely be the one that drags you out of sleep. Each of the two carries its own:</p>
+            <p>Timers do not borrow your alarm's settings, and a looping timer does not borrow the one-shot one either: two profiles, picked on whether Repeat is on. Each carries its own sound, volume, ring length and optional fade-in.</p>
+            <p>The two ring lengths are on deliberately different scales. In a loop: <strong>5, 10, 15, 30, 60 or 120 seconds</strong>. For a one-shot timer: <strong>1, 5, 10, 15, 20 or 25 minutes, or never</strong>.</p>
+            <p>No audio ships with the app: the sounds are your system's, or a file of your own. Two settings stay shared rather than doubled — whether timers vibrate, and what the volume keys do while a timer is ringing.</p>
+          </section>
+
+          <section aria-labelledby="section-not">
+            <h2 id="section-not">What it will not do</h2>
+            <p>It is a countdown timer and a loop, nothing more:</p>
             <ul>
-              <li>Sound, chosen from your system sounds or a file of your own — Risetime ships no audio of its own</li>
-              <li>Volume, either the system level or a level you set for timers alone</li>
-              <li>How long it rings before giving up, and an optional gradual fade-in</li>
+              <li><strong>No work/rest alternation.</strong> A loop has one duration; thirty seconds on and thirty seconds off is two, and no screen builds a timer out of several.</li>
+              <li><strong>No chime partway through a session</strong> — a thirty-minute sit cannot sound at ten and at twenty.</li>
+              <li><strong>No time window, no quiet hours.</strong> A loop runs until you stop it.</li>
+              <li><strong>No chime on the hour.</strong> The interval runs from the moment you started it.</li>
             </ul>
-            <p>Two things are shared rather than doubled: whether timers vibrate, and what the hardware volume keys do while a finished timer's full-screen alert is on your display — change the volume, add time, stop it, or nothing at all.</p>
           </section>
 
           <section aria-labelledby="section-setup">
             <h2 id="section-setup">Setting one up</h2>
-            <p>Open the Timers tab, tap the plus, type the duration, press play. That is the whole thing — there is nothing to name and nothing to file.</p>
-            <p>To make it repeat, open the row with the chevron and tick Repeat. One thing to know before you rely on it: the repeat setting is read once per cycle, at the moment the bell starts. Untick it while a timer is ringing and you get one more cycle before it stops. To end the loop at once, press Stop loop on the ringing screen.</p>
-            <p>Risetime is free for up to three timers, the same count as its alarms — for good. Reach it and the add button is simply absent — no dialog, no padlock, no banner naming what you are missing. If your support lapses nothing is deleted: every timer you made keeps working, you just cannot add another. Need more than three? See if it's worth your support — if not, I'll be happy to <a href="mailto:contact@risetime.app">hear you out</a>. The <a href="/alarms/" className="content-link">alarms guide</a> covers the alarms, which share the same reliability settings.</p>
+            <p>Open the Timers tab, tap the plus, type the duration. It starts on its own — there is nothing to name and nothing to file. To make it loop, tick <strong>Repeat</strong> behind the chevron.</p>
+            <p>The <a href="/alarms/" className="content-link">alarms guide</a> covers the alarms, which share the same reliability settings.</p>
+          </section>
+
+          <section aria-labelledby="section-price">
+            <h2 id="section-price" className="sr-only">What it costs</h2>
+            <p>Risetime is free for up to three timers, the same count as its alarms — for good. Reach it and the add button is simply absent: no dialog, no padlock, no banner naming what you are missing. If your support lapses nothing is deleted: every timer you made keeps working, you just cannot add another. Need more than three? See if it's worth your support — if not, I'll be happy to <a href="mailto:contact@risetime.app">hear you out</a>.</p>
           </section>
 
           <div className="cta-section">
