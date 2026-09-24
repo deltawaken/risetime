@@ -115,7 +115,7 @@ export default function CircadianRhythmAlarmPage() {
                 <source srcSet="/assets/screenshots/circadian-list--dark.webp 1x, /assets/screenshots/circadian-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-list.webp 1x, /assets/screenshots/circadian-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-list.png" alt="Risetime alarm list with three alarms, all repeating every day: 06:43 at sunrise, 21:06 two hours after sunset, and 22:43 eight hours before sunrise." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/circadian-list.png" alt="Risetime alarm list with three alarms, all repeating every day: 07:02 at Sunrise, 20:38 two hours after Sunset, and 23:02 eight hours before Sunrise." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Alarms anchored to sunrise and sunset, each repeating every day.</figcaption>
             </figure>
@@ -155,7 +155,7 @@ export default function CircadianRhythmAlarmPage() {
                 <source srcSet="/assets/screenshots/circadian-offset--dark.webp 1x, /assets/screenshots/circadian-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-offset.webp 1x, /assets/screenshots/circadian-offset@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-offset.png" alt="The alarm dialog set on Sunrise with an offset of minus 8:00, showing the line Today: 22:43." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/circadian-offset.png" alt="The new-alarm dialog set on Sunrise with an offset of eight hours before, showing the line Today: 23:02." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Any distance from the anchor, before or after, up to 11 h 59 min.</figcaption>
             </figure>

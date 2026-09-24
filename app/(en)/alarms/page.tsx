@@ -85,7 +85,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-list--dark.webp 1x, /assets/screenshots/alarms-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-list.webp 1x, /assets/screenshots/alarms-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-list.png" alt="Risetime alarm list with five alarms: 04:48 on Saturday at a custom anchor of −18° in the morning, 06:43 tomorrow at sunrise, 07:00 Monday to Friday, 18:03 Monday to Friday one hour before sunset, and 22:43 eight hours before sunrise, switched off." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-list.png" alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Regular alarms and sun alarms, in one list.</figcaption>
             </figure>
@@ -132,7 +132,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-anchor-menu--dark.webp 1x, /assets/screenshots/alarms-anchor-menu--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-menu.webp 1x, /assets/screenshots/alarms-anchor-menu@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-menu--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchor-menu.png" alt="The new-alarm dialog with its menu open: Absolute, a custom anchor named −18.0° morning, Sunrise, Noon, Sunset and Nadir." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-anchor-menu.png" alt="The new-alarm dialog with its anchor menu open: Absolute, Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>The menu at the top of the alarm dialog: a clock time, or a moment of the sun.</figcaption>
             </figure>
@@ -154,7 +154,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-offset--dark.webp 1x, /assets/screenshots/alarms-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-offset.webp 1x, /assets/screenshots/alarms-offset@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-offset.png" alt="The alarm dialog set on Sunset with an offset of minus 1:00, the dial pointing at 1, and the line Tomorrow: 18:03." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-offset.png" alt="The new-alarm dialog set on Sunset with an offset of one hour before, the hours dial on 1 and the minutes on 00, and the line Today: 17:38." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>One hour before sunset. The line under the offset says when it rings next.</figcaption>
             </figure>
@@ -169,7 +169,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-card--dark.webp 1x, /assets/screenshots/alarms-card--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-card.webp 1x, /assets/screenshots/alarms-card@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-card--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-card.png" alt="An open alarm card for 18:03, Monday to Friday, 1h before Sunset: a Label field, Repeat ticked with Monday to Friday selected, then Sound, Vibrate, Snooze, Dismiss image and Delete." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-card.png" alt="An open alarm card for 17:38, Monday to Friday, 1 hr before Sunset: an empty Label field, Repeat with Monday to Friday selected, Sound set to Phone default, and Vibrate on. The card carries on below the edge of the image." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>An open alarm card: repeat days and everything else about the alarm.</figcaption>
             </figure>
@@ -198,7 +198,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-anchors--dark.webp 1x, /assets/screenshots/alarms-anchors--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchors.webp 1x, /assets/screenshots/alarms-anchors@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchors--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchors.png" alt="Settings, Anchors section: Sunrise, Noon, a custom anchor named Golden hour with edit and delete buttons, Sunset and Nadir, each with a visibility switch." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-anchors.png" alt="Settings, Anchors section: two custom anchors, Astronomical dawn and Golden hour, each with an edit and a delete button, among the factory anchors Sunrise, Noon, Sunset and Nadir. Every row carries a visibility switch, all of them on." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>A custom anchor takes its place among the others, in the order of the day.</figcaption>
             </figure>
@@ -211,7 +211,7 @@ export default function AlarmsPage() {
                 <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.webp 1x, /assets/screenshots/alarms-anchor-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-editor.webp 1x, /assets/screenshots/alarms-anchor-editor@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchor-editor.png" alt="The anchor editor on A solar angle, set to −18.0° in the morning on a half-circle dial, with the warning Not reached every day at this latitude, and the preview: Next 04:48. The sun does not reach this angle here from 23 May 2027 to 21 July 2027." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-anchor-editor.png" alt="The anchor editor on A solar angle, set to −18.0° in the morning, named Astronomical dawn, with the preview: Next: 05:10. The sun does not reach this angle here from May 23, 2027 to July 21, 2027." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>−18° in the morning, set for London: the editor names the weeks it never happens.</figcaption>
             </figure>

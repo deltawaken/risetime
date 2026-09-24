@@ -99,7 +99,7 @@ export default function GoldenHourAlarmPage() {
                 <source srcSet="/assets/screenshots/sky-menu--dark.webp 1x, /assets/screenshots/sky-menu--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-menu.webp 1x, /assets/screenshots/sky-menu@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-menu--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-menu.png" alt="The new-alarm dialog with its anchor menu open, listing Absolute, Sunrise, Golden hour, Sunset, Blue hour and Night sky." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/sky-menu.png" alt="The new-alarm dialog with its anchor menu open, listing Absolute, Sunrise, Noon, Golden hour, Sunset, Blue hour, Night sky and Nadir." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Your own anchors sit beside sunrise and sunset, in the order of the day.</figcaption>
             </figure>
@@ -119,7 +119,7 @@ export default function GoldenHourAlarmPage() {
                 <source srcSet="/assets/screenshots/sky-list--dark.webp 1x, /assets/screenshots/sky-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-list.webp 1x, /assets/screenshots/sky-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-list.png" alt="The Risetime alarm list with five alarms: 06:45 and 08:10 on weekdays, 17:49 thirty minutes before Golden hour at the weekend, 19:24 Blue hour at the weekend, and 21:00 Night sky on Friday and Saturday." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/sky-list.png" alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:24 on Sunday and Saturday, 30 min before Golden hour; 18:58 on Sunday and Saturday at Blue hour; and 20:30 on Friday and Saturday at Night sky." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Clock alarms for the week, sun alarms for the light.</figcaption>
             </figure>
@@ -159,7 +159,7 @@ export default function GoldenHourAlarmPage() {
                 <source srcSet="/assets/screenshots/sky-night-editor--dark.webp 1x, /assets/screenshots/sky-night-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-night-editor.webp 1x, /assets/screenshots/sky-night-editor@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/sky-night-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-night-editor.png" alt="The anchor editor set to minus 18 degrees in the evening, named Night sky, warning that the angle is not reached every day at this latitude, with the dates it is missing in London." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/sky-night-editor.png" alt="The anchor editor on A solar angle, set to −18.0° in the evening, named Night sky, with the preview: Next: 20:30. The sun does not reach this angle here from May 23, 2027 to July 21, 2027." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>An angle of −18° in the evening, and the weeks it never happens.</figcaption>
             </figure>

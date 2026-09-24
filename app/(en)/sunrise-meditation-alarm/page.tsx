@@ -96,7 +96,15 @@ export default function SunriseMeditationAlarmPage() {
               </tbody>
             </table>
             <p>Definitions vary; these are the common ones. The app holds the one you set at every latitude and season — which a fixed &ldquo;forty-five minutes before sunrise&rdquo; cannot, the length of twilight changing with both.</p>
-            {/* Screenshot slot 1 — the alarm list. No image until the text has been reviewed. */}
+                        <figure className="content-screenshot">
+              <picture>
+                <source srcSet="/assets/screenshots/practice-list--dark.webp 1x, /assets/screenshots/practice-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-list.webp 1x, /assets/screenshots/practice-list@2x.webp 2x" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-list--dark.png" media="(prefers-color-scheme: dark)" />
+                <img src="/assets/screenshots/practice-list.png" alt="Risetime alarm list with four alarms, all repeating every day: 05:29 on Last part of the night, 05:50 on Nautical dawn, 06:29 on Civil dawn, and 07:02 at Sunrise." width="360" height="706" loading="lazy" />
+              </picture>
+              <figcaption>The four rows of the table, each as its own alarm.</figcaption>
+            </figure>
           </section>
 
           <section aria-labelledby="s-sunrise">
@@ -119,7 +127,15 @@ export default function SunriseMeditationAlarmPage() {
               <li>On the <strong>Alarms</strong> tab, put an alarm on it.</li>
             </ol>
             <p>Far north or south, the sun never gets that low for part of the year. The editor says so as you create the anchor — <em>&ldquo;The sun does not reach this angle here from X to Y&rdquo;</em>, with your own dates — and on those days the alarm stays silent rather than ring at a moment the sky never produced. Nothing is invented.</p>
-            {/* Screenshot slot 2 — the anchor editor on −6° morning. */}
+                        <figure className="content-screenshot">
+              <picture>
+                <source srcSet="/assets/screenshots/practice-angle-editor--dark.webp 1x, /assets/screenshots/practice-angle-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-angle-editor.webp 1x, /assets/screenshots/practice-angle-editor@2x.webp 2x" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-angle-editor--dark.png" media="(prefers-color-scheme: dark)" />
+                <img src="/assets/screenshots/practice-angle-editor.png" alt="The anchor editor on A solar angle, set to −6.0° in the morning, named Civil dawn, with the preview: Next: 06:29." width="360" height="706" loading="lazy" />
+              </picture>
+              <figcaption>Civil dawn as an angle: six degrees below the horizon, in the morning.</figcaption>
+            </figure>
           </section>
 
           <section aria-labelledby="s-night">
@@ -132,7 +148,15 @@ export default function SunriseMeditationAlarmPage() {
               <li>Put an alarm on it.</li>
             </ol>
             <p>The night here is exactly one thing: <strong>from a sunset to the following sunrise</strong>, split evenly. Inside the polar circles such a night may not exist; the anchor then has nothing to divide, and the app says so — without the dated range the angle form gives, which this shape has not. Matching a published timetable? <strong>Advanced → Shift by N minutes</strong> moves an anchor you made by up to thirty minutes either way.</p>
-            {/* Screenshot slot 3 — the anchor editor on the Division shape, Night scope. */}
+                        <figure className="content-screenshot">
+              <picture>
+                <source srcSet="/assets/screenshots/practice-division-editor--dark.webp 1x, /assets/screenshots/practice-division-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-division-editor.webp 1x, /assets/screenshots/practice-division-editor@2x.webp 2x" type="image/webp" />
+                <source srcSet="/assets/screenshots/practice-division-editor--dark.png" media="(prefers-color-scheme: dark)" />
+                <img src="/assets/screenshots/practice-division-editor.png" alt="The anchor editor on A fraction of the day or night, with Night selected, Number of parts set to 8 and Position on 7/8, named Last part of the night, with the preview: Next: 05:29." width="360" height="706" loading="lazy" />
+              </picture>
+              <figcaption>The night split into eight parts, the alarm on the last of them.</figcaption>
+            </figure>
           </section>
 
           <section aria-labelledby="s-not">
