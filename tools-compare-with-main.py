@@ -31,10 +31,10 @@ WAIVED={
   "timers/index.html":{
     "fields":{"texte","title","description","og:title","JSON-LD"},
     "story":"9-24 — la page minuteurs ouvre sur la répétition",
-    # Dernier SHA où /timers/ sortait « OK » face à main. ⚠️ À REMPLACER par le
-    # SHA du commit de réécriture dès qu'il existe : la story ne commite pas,
-    # donc ce SHA-là n'était pas connaissable au moment de l'écriture.
-    "since":"ce5e871",
+    # Le commit de réécriture lui-même. Une dispense doit dater de ce qu'elle
+    # dispense, pas d'avant : sinon elle couvre aussi ce qui a divergé entre les
+    # deux, sans que personne ne l'ait voulu ni relu.
+    "since":"963b5c8",
   },
   # L'accueil a divergé de main avec la page 4 de 9-17 : un paragraphe réécrit
   # (il promettait deux fois la même chose) et un lien AJOUTÉ vers la nouvelle
