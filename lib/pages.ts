@@ -21,6 +21,7 @@ export const PAGES: Page[] = [
   { path: '/alarms/',                 updated: '2026-09-19', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/golden-hour-alarm/',      updated: '2026-09-20', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/circadian-rhythm-alarm/', updated: '2026-09-20', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/sunrise-meditation-alarm/', updated: '2026-09-24', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/timers/',                 updated: '2026-09-19', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/privacy/',                updated: '2026-09-19', changeFrequency: 'yearly',  priority: 0.3 },
 ]

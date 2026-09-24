@@ -208,7 +208,8 @@ export default function HomePage() {
             <ul className="use-case-list">
               <li><strong>A day that follows the sun</strong> — wake at sunrise, wind down before it, and keep clock alarms for the hours other people expect of you. <a href="/circadian-rhythm-alarm/">Circadian rhythm alarm for Android</a></li>
               <li><strong>Photographers and astronomers</strong> — golden hour, blue hour and astronomical night are angles of the sun, not fixed times. Set the angle once; it holds at every latitude and season, offline in the field. <a href="/golden-hour-alarm/">Golden hour, blue hour and night sky alarms</a></li>
-              <li><strong>Sun salutation, dawn patrol, first light</strong> — yoga on the mat as the light arrives, or out in the water before it. Anchor on sunrise, or on civil dawn a little earlier. <a href="/alarms/#section-custom">Custom sun angles and twilight anchors</a></li>
+              <li><strong>Meditation, yoga and a practice at first light</strong> — the sun salutation as the light arrives, or a sit before it. Anchor on sunrise, on civil dawn by its angle, or on a fraction of the night. <a href="/sunrise-meditation-alarm/">Sunrise meditation and yoga alarm</a></li>
+              <li><strong>Dawn patrol</strong> — out in the water before the light, on an alarm that moves with first light instead of a time you reset every few weeks.</li>
               <li><strong>Pre-dawn risers</strong> — set your offset before sunrise once and it tracks sunrise every day. Check your own timetable for the exact moment; the alarm is the part that never drifts.</li>
               <li><strong>Outdoor workers, dog walkers, farmers</strong> — if your day starts with daylight, your alarm should too.</li>
               <li><strong>Intervals, workouts, study blocks</strong> — countdown timers that restart themselves, in the same app. <a href="/timers/">Repeating countdown timers</a></li>
