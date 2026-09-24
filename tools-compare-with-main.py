@@ -1,10 +1,39 @@
-import html,re,sys,difflib,json,subprocess
-PAGES=[("index.html","out/index.html","/"),
-       ("alarms/index.html","out/alarms/index.html","/alarms/"),
-       ("golden-hour-alarm/index.html","out/golden-hour-alarm/index.html","/golden-hour-alarm/"),
-       ("circadian-rhythm-alarm/index.html","out/circadian-rhythm-alarm/index.html","/circadian-rhythm-alarm/"),
-       ("timers/index.html","out/timers/index.html","/timers/"),
-       ("privacy/index.html","out/privacy/index.html","/privacy/")]
+import html,re,sys,difflib,json,subprocess,os
+import xml.etree.ElementTree as ET
+
+# 9-21 — LA LISTE DES PAGES N'EST PLUS CODÉE EN DUR.
+#
+# Elle l'était : six tuples écrits ici, et cette liste n'a JAMAIS contenu
+# `sunrise-meditation-alarm/`. La page a été créée le 2026-09-23, cet outil a
+# continué à imprimer « RECOPIE CONFORME sur les 6 pages », et ce « conforme »
+# a failli être cité comme preuve que la page neuve allait bien. Il ne prouvait
+# rien à son sujet : il ne l'avait pas ouverte.
+#
+# La liste vient donc de `out/sitemap.xml`, généré depuis `PAGES` de
+# `lib/pages.ts` — la même source que `tools-check-metadata.py`.
+#
+# Une page du sitemap SANS fichier source à la racine du dépôt n'est pas une
+# erreur : c'est une page née sur `site/nextjs`, qui n'a pas d'équivalent sur
+# `main` à comparer. Mais elle est alors NOMMÉE, explicitement, dans le rapport
+# et dans la ligne de verdict — pour qu'un « conforme » ne puisse plus jamais
+# être lu comme « toutes les pages ».
+_SITEMAP="out/sitemap.xml"
+if not os.path.isfile(_SITEMAP):
+    sys.exit(f"REFUSÉ : {_SITEMAP} absent — le build a-t-il tourné ? (npm run build)")
+_NS="{http://www.sitemaps.org/schemas/sitemap/0.9}"
+PAGES=[]; UNCOMPARED=[]
+for _loc in ET.parse(_SITEMAP).getroot().iter(_NS+"loc"):
+    _u=re.sub(r"^https?://[^/]+","",(_loc.text or "").strip()) or "/"
+    _src="index.html" if _u=="/" else _u.strip("/")+"/index.html"
+    _dst="out/index.html" if _u=="/" else "out/"+_u.strip("/")+"/index.html"
+    if not os.path.isfile(_dst):
+        sys.exit(f"REFUSÉ : {_u} est dans le sitemap mais {_dst} n'existe pas.")
+    if os.path.isfile(_src):
+        PAGES.append((_src,_dst,_u))
+    else:
+        UNCOMPARED.append((_u,_src))
+if not PAGES:
+    sys.exit("REFUSÉ : aucune page du sitemap n'a de source à comparer.")
 NOISE=re.compile(r"^/_next/")
 
 # Champs délibérément réécrits par une story, page par page. Tout ce qui n'est PAS
@@ -135,7 +164,11 @@ for src,dst,url in PAGES:
             print(f"    {k}: manquant {sorted(a-b)[:4]} | en trop {sorted(b-a)[:4]}")
         else:
             print(f"    {k}:\n      avant {a!r}\n      après {b!r}")
-print("\n"+("RECOPIE CONFORME sur les 6 pages" if not bad else f"{bad} page(s) en écart"))
+print("\n"+(f"RECOPIE CONFORME sur les {len(PAGES)} page(s) COMPARÉES"
+            if not bad else f"{bad} page(s) en écart sur {len(PAGES)} comparée(s)"))
+for _u,_src in UNCOMPARED:
+    print(f"✱ {_u} NON COMPARÉE — aucun {_src} à la racine : page née sur site/nextjs, "
+          f"sans équivalent sur main. Rien ici ne dit quoi que ce soit à son sujet.")
 if waived_total:
     print(f"{waived_total} champ(s) DISPENSÉ(S) : plus comparés à main, donc plus "
           f"vérifiés par rien. Relecture humaine obligatoire.")

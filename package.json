@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node tools-strip-runtime.mjs",
+    "build": "next build && node tools-strip-runtime.mjs && python3 tools-check-metadata.py",
+    "check:metadata": "python3 tools-check-metadata.py",
     "start": "next start",
     "serve": "npx --yes serve out",
     "build:raw": "next build"
