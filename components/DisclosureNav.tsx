@@ -1,0 +1,109 @@
+// 9-31 — LE composant de liste de liens repliable. Un seul, pour deux usages.
+//
+// Usage 1 (livré ici) : le menu « Uses » de l'en-tête, qui donne accès aux pages
+//   d'usage depuis n'importe quelle page. Avant lui, `/golden-hour-alarm/` et ses
+//   sœurs n'étaient atteignables QUE depuis l'accueil : quelqu'un qui y arrivait
+//   par Google n'avait aucun chemin vers les autres.
+// Usage 2 (spécifié par 9-31 § ⟶ 2026-09-25 §1, PAS implémenté ici) : le sélecteur
+//   de langue du pied de page. Il appellera ce même composant avec
+//   `inlineMax={SELECTOR_INLINE_MAX /* 3 */}`, ce qui lui rend le comportement que
+//   sa spec décrit — à plat de 1 à 3 langues, replié à 4 et plus — SANS qu'une
+//   seconde implémentation existe.
+//
+// ⚠️ `inlineMax` vit chez l'APPELANT, pas ici. 9-31 nomme son seuil de 3 comme un
+// jugement sur la largeur du pied de page ; ce jugement ne vaut pas pour un menu
+// d'en-tête, qui doit rester replié même à trois entrées. Un seuil unique codé
+// dans le composant aurait forcé l'un des deux usages à mentir.
+//
+// ⛔ Aucun `"use client"` : `tools-strip-runtime.mjs` refuse de s'exécuter s'il en
+// trouve un, et le JavaScript retiré par le portage reviendrait. `<details>`
+// s'ouvre et se ferme nativement ; le script inline que 9-31 §1 prévoit (Échap,
+// clic extérieur, retour arrière) AMÉLIORE, il ne conditionne pas.
+//
+// ⛔ Ni `role="menu"`, ni `menuitem`, ni `aria-haspopup`, ni `aria-expanded` écrits
+// à la main : 9-31 § « Clavier et lecteur d'écran » tranche le point. `<details>`
+// est un widget de divulgation, les navigateurs exposent son état, et
+// `role="menuitem"` retirerait la sémantique de lien aux entrées.
+
+export type DisclosureEntry = {
+  href: string
+  label: string
+  /** Attributs d'internationalisation — utilisés par le sélecteur de langue
+   *  (9-31 §1 : « chaque <a> porte hreflang, lang et dir »), inutiles ici. */
+  hrefLang?: string
+  lang?: string
+  dir?: 'ltr' | 'rtl'
+}
+
+export type DisclosureNavProps = {
+  /** Libellé du <summary>, quand la liste est repliée. */
+  label: string
+  /** Complément visuellement masqué : un <summary> qui ne lit que « Uses » se
+   *  présente comme une étiquette, pas comme un contrôle qui ouvre quelque chose. */
+  hint: string
+  entries: DisclosureEntry[]
+  /** Chemin de la page courante. `aria-current="page"` en est DÉDUIT, jamais écrit
+   *  à la main — c'est ce qui rend les en-têtes identiques d'une page à l'autre. */
+  current: string
+  /** Au-delà de ce nombre d'entrées, la liste est enveloppée dans <details>.
+   *  0 = toujours repliée. */
+  inlineMax?: number
+  /** Si fourni, la liste est enveloppée dans un <nav> qui la nomme comme repère.
+   *  À omettre quand le composant est DÉJÀ dans un <nav> (cas du menu d'en-tête) :
+   *  un <nav> imbriqué ajouterait un repère pour rien. */
+  ariaLabel?: string
+  className?: string
+}
+
+export default function DisclosureNav({
+  label,
+  hint,
+  entries,
+  current,
+  inlineMax = 0,
+  ariaLabel,
+  className,
+}: DisclosureNavProps) {
+  // 9-31 §1 : « Si cette liste est vide, il ne rend rien. » Ce n'est pas un cas
+  // particulier à retirer un jour : c'est le comportement normal sur une entrée
+  // vide, et c'est ce qui fera que `LOCALES = []` ne produit aucun sélecteur.
+  if (entries.length === 0) return null
+
+  const list = (
+    <ul className="disclosure-nav__list">
+      {entries.map((e) => (
+        <li key={e.href}>
+          <a
+            href={e.href}
+            hrefLang={e.hrefLang}
+            lang={e.lang}
+            dir={e.dir}
+            {...(e.href === current ? { 'aria-current': 'page' as const } : {})}
+          >
+            {e.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+
+  const body =
+    entries.length <= inlineMax ? (
+      list
+    ) : (
+      <details className="disclosure-nav">
+        <summary>
+          {label}
+          {/* `hint` porte son espace initial : deux nœuds de texte voisins dans
+              un même élément feraient émettre à React un séparateur `<!-- -->`
+              dans le HTML statique. */}
+          <span className="sr-only">{hint}</span>
+        </summary>
+        {list}
+      </details>
+    )
+
+  const wrapped = className ? <div className={className}>{body}</div> : body
+
+  return ariaLabel ? <nav aria-label={ariaLabel}>{wrapped}</nav> : wrapped
+}

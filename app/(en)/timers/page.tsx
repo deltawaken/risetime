@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import SiteHeader from '../../../components/SiteHeader'
+import SiteFooter from '../../../components/SiteFooter'
 
 // 9-24 — la page minuteurs ouvre sur la répétition. Réécriture sur site/nextjs
 // (main est gelée). L'URL /timers/ ne bouge pas : elle est indexée.
@@ -71,14 +73,7 @@ export default function TimersPage() {
 
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
-        <header className="site-header" role="banner">
-          <nav aria-label="Main navigation">
-            <a href="/" className="wordmark">Risetime</a>
-            <a href="/alarms/">Alarms</a>
-            <a href="/timers/" aria-current="page">Timers</a>
-            <a href="/privacy/">Privacy</a>
-          </nav>
-        </header>
+        <SiteHeader current="/timers/" />
 
         <div className="page-header">
           <h1>A Timer That Starts Itself Again</h1>
@@ -171,20 +166,7 @@ export default function TimersPage() {
 
         </main>
 
-        <footer className="site-footer" role="contentinfo">
-          <p>Risetime &middot; A. Deltawaken</p>
-          <nav aria-label="Footer navigation">
-            <a href="/">Home</a>
-            &middot;
-            <a href="/alarms/">Alarms</a>
-            &middot;
-            <a href="/timers/">Timers</a>
-            &middot;
-            <a href="/privacy/">Privacy</a>
-            &middot;
-            <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener">Google Play</a>
-          </nav>
-        </footer>
+        <SiteFooter />
     </div>
   )
 }

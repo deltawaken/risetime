@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import SiteHeader from '../components/SiteHeader'
+import SiteFooter from '../components/SiteFooter'
 
 // Porté depuis 404.html (commit 967c17d) — recopie, pas réécriture.
 // Comme 404.html, cette page ne doit pas être indexée.
@@ -12,14 +14,7 @@ export default function NotFound() {
     <div className="layout-narrow">
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
-      <header className="site-header" role="banner">
-        <nav aria-label="Main navigation">
-          <a href="/" className="wordmark">Risetime</a>
-          <a href="/alarms/">Alarms</a>
-          <a href="/timers/">Timers</a>
-          <a href="/privacy/">Privacy</a>
-        </nav>
-      </header>
+      <SiteHeader current="" />
 
       <main id="main-content">
         <div className="page-header">
@@ -31,18 +26,7 @@ export default function NotFound() {
         </div>
       </main>
 
-      <footer className="site-footer" role="contentinfo">
-        <p>Risetime &middot; A. Deltawaken</p>
-        <nav aria-label="Footer navigation">
-          <a href="/">Home</a>
-          &middot;
-          <a href="/alarms/">Alarms</a>
-          &middot;
-          <a href="/timers/">Timers</a>
-          &middot;
-          <a href="/privacy/">Privacy</a>
-        </nav>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

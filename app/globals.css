@@ -134,6 +134,65 @@ body {
   color: var(--accent);
 }
 
+/* ---- DISCLOSURE NAV ----
+   9-31 — la liste de liens repliable. Sert aujourd'hui au menu « Uses » de
+   l'en-tête ; servira au sélecteur de langue du pied (9-31 § ⟶ 2026-09-25 §1)
+   sans nouvelle classe. Toutes les propriétés sont LOGIQUES : ce bloc doit
+   survivre tel quel à l'arrivée d'une langue RTL. */
+.disclosure-nav {
+  position: relative;
+}
+.disclosure-nav > summary {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none; /* le marqueur natif est remplacé par le chevron ci-dessous */
+}
+.disclosure-nav > summary::-webkit-details-marker {
+  display: none;
+}
+.disclosure-nav > summary::after {
+  /* ▾ / ▴ — glyphes de l'axe de BLOC, donc justes en RTL comme en LTR.
+     ⛔ Ni « → » ni « ▸ » : ce sont des glyphes d'axe inline (9-31 §1). */
+  content: '\25BE';
+  margin-inline-start: 0.35em;
+  font-size: 0.8em;
+}
+.disclosure-nav[open] > summary::after {
+  content: '\25B4';
+}
+.disclosure-nav > summary:hover {
+  color: var(--accent);
+}
+.disclosure-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Le panneau du menu d'en-tête flotte au-dessus du contenu plutôt que de le
+   pousser : ouvert dans le flux, il décalerait toute la page d'un cran.
+   ⚠️ Ce choix vaut POUR L'EN-TÊTE seulement. Le sélecteur de langue, lui, reste
+   dans le flux (9-31 §1 : « le <details> étant dans le flux et en fin de page,
+   la page elle-même défile ») — d'où la portée `.site-header` sur cette règle. */
+.site-header .disclosure-nav__list {
+  position: absolute;
+  inset-block-start: calc(100% + var(--space-xs));
+  inset-inline-start: 0;
+  z-index: 10;
+  min-width: max-content;
+  padding: var(--space-xs);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.site-header .disclosure-nav__list li + li {
+  margin-block-start: var(--space-xs);
+}
+.site-header .disclosure-nav__list a {
+  display: block;
+}
+
 /* ---- FOOTER ---- */
 .site-footer {
   max-width: var(--max-width-wide);

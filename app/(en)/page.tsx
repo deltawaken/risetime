@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import SiteHeader from '../../components/SiteHeader'
+import SiteFooter from '../../components/SiteFooter'
 
 // Porté depuis index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
@@ -118,15 +120,7 @@ export default function HomePage() {
 
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
-        <header className="site-header" role="banner">
-          <nav aria-label="Main navigation">
-            <a href="/" className="wordmark">Risetime</a>
-            <a href="/alarms/">Alarms</a>
-            <a href="/timers/">Timers</a>
-            <a href="/#uses">Uses</a>
-            <a href="/privacy/">Privacy</a>
-          </nav>
-        </header>
+        <SiteHeader current="/" />
 
         <main id="main-content">
 
@@ -310,20 +304,7 @@ export default function HomePage() {
 
         </main>
 
-        <footer className="site-footer" role="contentinfo">
-          <p>Risetime &middot; A. Deltawaken</p>
-          <nav aria-label="Footer navigation">
-            <a href="/">Home</a>
-            &middot;
-            <a href="/alarms/">Alarms</a>
-            &middot;
-            <a href="/timers/">Timers</a>
-            &middot;
-            <a href="/privacy/">Privacy</a>
-            &middot;
-            <a href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener">Google Play</a>
-          </nav>
-        </footer>
+        <SiteFooter />
     </div>
   )
 }
