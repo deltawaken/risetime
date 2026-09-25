@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis privacy/index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Risetime Sunrise Alarm Clock",
-  description: "Privacy Policy for Risetime, the sunrise alarm clock app for Android. Risetime does not collect, transmit, or share any personal data.",
-  alternates: { canonical: "/privacy/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/privacy.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/privacy/')
 
 export default function PrivacyPage() {
   return (
@@ -87,7 +88,7 @@ export default function PrivacyPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/privacy/" />
     </div>
   )
 }

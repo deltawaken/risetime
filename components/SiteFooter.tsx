@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { navGroup } from '../lib/pages'
+import LanguageSelector from './LanguageSelector'
 
 // 9-31 (2026-09-25) — le pied de page, factorisé. Deux empreintes distinctes sur
 // 7 pages : le commun, et /alarms/ dont l'entrée « Alarms » pointait href="/" —
@@ -17,7 +18,7 @@ import { navGroup } from '../lib/pages'
 // ⛔ Pas de « Uses » ici : le menu d'usages vit dans l'en-tête, et le dupliquer en
 // pied ferait deux navigations à tenir en phase.
 
-export default function SiteFooter() {
+export default function SiteFooter({ lang = 'en', page = '' }: { lang?: string; page?: string }) {
   return (
     <footer className="site-footer" role="contentinfo">
       <p>Risetime &middot; A. Deltawaken</p>
@@ -41,35 +42,19 @@ export default function SiteFooter() {
         </a>
       </nav>
 
-      {/* ⟶ POINT D'INSERTION DU SÉLECTEUR DE LANGUE (9-31 § ⟶ 2026-09-25 §1).
-          Il vient ICI : après la nav du pied, dernier élément de la page.
-          Les trois raisons y sont écrites — le clavier (30 entrées avant le
-          contenu si on le met en en-tête ; fermé, un <details> ne coûte qu'un
-          arrêt de tabulation), la poussée (un <details> ouvert est dans le flux,
-          et en pied il n'y a rien après), et la découverte (elle passe par le
-          bandeau, pas par le pied).
+      {/* 9-31 §1 — LE SÉLECTEUR DE LANGUE, ici et pas en en-tête. Trois raisons,
+          toutes écrites dans la story : le CLAVIER (30 entrées avant le contenu si
+          on le met en haut ; fermé, un <details> ne coûte qu'un arrêt de
+          tabulation, son contenu replié n'étant pas focusable), la POUSSÉE (un
+          <details> ouvert est dans le flux — en pied il n'y a rien après), et la
+          DÉCOUVERTE, qui passe par le bandeau et non par le pied : le sélecteur est
+          le chemin délibéré, le bandeau le chemin subi.
 
-          Il s'écrira :
-              <DisclosureNav
-                label={endonymeDeLaPageCourante}
-                hint="— choose a language"
-                entries={…}            // (['en'] ∪ LOCALES) \ { langue courante },
-                                       // triées par Intl.Collator AU BUILD, chaque
-                                       // entrée portant hrefLang / lang / dir
-                current=""             // aucune entrée n'est la page courante :
-                                       // la langue courante est exclue de la liste
-                inlineMax={SELECTOR_INLINE_MAX}   // 3 : à plat jusqu'à 3 langues
-                ariaLabel="Language"   // ici le <nav> est utile : on n'est dans
-                                       // aucun autre repère
-              />
-          `DisclosureNav` retourne déjà `null` sur une liste vide : avec
-          `LOCALES = []` il ne rend RIEN, sans cas particulier à retirer.
-
-          ⚠️ RÉSERVE À PORTER AU PORTEUR : la règle L7 que 9-31 §5 prévoit pour
-          `tools-check-langs.py` — « LOCALES vide ⇒ zéro <details> […] dans tout
-          l'export » — est désormais FAUSSE telle qu'écrite : le menu « Uses » est
-          un <details>, et il est sur les sept pages. L7 doit viser le CONTENEUR DU
-          SÉLECTEUR (son <nav aria-label="Language">), pas la balise <details>. */}
+          Avec `LOCALES = []` il ne rend RIEN — pas une balise, pas une mention — et
+          sans qu'aucune condition ne le masque ici : `DisclosureNav` retourne
+          `null` sur liste vide. Il n'y a donc aucun cas particulier à penser à
+          retirer le jour où une langue arrive. */}
+      <LanguageSelector lang={lang} page={page} />
     </footer>
   )
 }

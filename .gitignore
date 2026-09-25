@@ -10,3 +10,8 @@
 next-env.d.ts
 /.vercel
 *.tsbuildinfo
+
+# 9-31 — artefact de build : app/[lang]/ est matérialisée par tools-lang-routes.mjs
+# depuis lang-routes/, et seulement quand il y a une langue à rendre. La SOURCE
+# versionnée est lang-routes/.
+/app/\[lang\]/

@@ -1,11 +1,15 @@
 // 9-31 — le registre des pages. Une seule source de vérité pour le sitemap,
 // et plus tard pour les hreflang et le contrôle de retard entre langues.
 //
-// ⚠️ `updated` est saisi À LA MAIN, volontairement. Ni la date de modification
-// du fichier (en CI c'est l'heure du checkout, identique partout), ni `git log`
-// (les clones de CI sont superficiels) ne donnent la bonne valeur. Le
-// 2026-09-22, le sitemap écrit à la main annonçait encore mars pour trois pages
-// réécrites la veille : c'est ce défaut que ce champ corrige.
+// ⚠️ `updated` A DÉMÉNAGÉ, 9-31 (2026-09-25) : il vit désormais dans l'en-tête de
+// `content/en/<slug>.md`, et non plus ici. La raison est celle de toute cette
+// story — DEUX SOURCES DIVERGENT EN SILENCE : une date de traduction se compare à
+// la date anglaise (§6), et si la date anglaise vit ici pendant que celle du
+// français vit dans son en-tête, le contrôle de retard compare deux registres que
+// rien ne tient en phase. Elle reste saisie à la main, pour la raison d'origine :
+// ni `mtime` (en CI c'est l'heure du checkout, identique partout) ni `git log`
+// (clones superficiels) ne donnent la bonne valeur. Le 2026-09-22, le sitemap
+// écrit à la main annonçait encore mars pour trois pages réécrites la veille.
 
 // 9-31 (2026-09-25) — CHAMP AJOUTÉ, et il n'est pas cosmétique : signalé au porteur.
 //
@@ -38,7 +42,6 @@ export type NavEntry = {
 
 export type Page = {
   path: string
-  updated: string
   changeFrequency: 'weekly' | 'monthly' | 'yearly'
   priority: number
   nav?: NavEntry
@@ -47,18 +50,18 @@ export type Page = {
 // Valeurs reprises telles quelles du sitemap.xml de main (commit 967c17d),
 // conservé à côté sous public/sitemap.xml.orig-967c17d pour comparaison.
 export const PAGES: Page[] = [
-  { path: '/',                        updated: '2026-09-20', changeFrequency: 'weekly',  priority: 1.0 },
-  { path: '/alarms/',                 updated: '2026-09-19', changeFrequency: 'monthly', priority: 0.8,
+  { path: '/', changeFrequency: 'weekly',  priority: 1.0 },
+  { path: '/alarms/', changeFrequency: 'monthly', priority: 0.8,
     nav: { group: 'main', label: 'Alarms' } },
-  { path: '/golden-hour-alarm/',      updated: '2026-09-20', changeFrequency: 'monthly', priority: 0.7,
+  { path: '/golden-hour-alarm/', changeFrequency: 'monthly', priority: 0.7,
     nav: { group: 'uses', label: 'Golden hour and night sky' } },
-  { path: '/circadian-rhythm-alarm/', updated: '2026-09-20', changeFrequency: 'monthly', priority: 0.7,
+  { path: '/circadian-rhythm-alarm/', changeFrequency: 'monthly', priority: 0.7,
     nav: { group: 'uses', label: 'Circadian rhythm' } },
-  { path: '/sunrise-meditation-alarm/', updated: '2026-09-24', changeFrequency: 'monthly', priority: 0.7,
+  { path: '/sunrise-meditation-alarm/', changeFrequency: 'monthly', priority: 0.7,
     nav: { group: 'uses', label: 'Meditation and yoga' } },
-  { path: '/timers/',                 updated: '2026-09-24', changeFrequency: 'monthly', priority: 0.7,
+  { path: '/timers/', changeFrequency: 'monthly', priority: 0.7,
     nav: { group: 'main', label: 'Timers' } },
-  { path: '/privacy/',                updated: '2026-09-19', changeFrequency: 'yearly',  priority: 0.3,
+  { path: '/privacy/', changeFrequency: 'yearly',  priority: 0.3,
     nav: { group: 'legal', label: 'Privacy' } },
 ]
 

@@ -132,3 +132,69 @@ pour afficher une phrase.
 `public/assets/risetime.css` a été **supprimé** : le CSS vit désormais dans
 `app/globals.css`, et garder une copie figée à l'ancienne adresse aurait créé un
 doublon qui diverge en silence. Rien dans le site n'y faisait référence.
+
+## Le mécanisme multilingue (9-31, seconde moitié — 2026-09-25)
+
+`LOCALES` sort de cette passe **toujours vide**, et c'est la propriété livrée : avec une
+table vide, l'export ne contient **aucun sélecteur de langue, aucun `hreflang`, aucune
+entrée de sitemap en langue** — non pas parce qu'une condition les masque, mais parce
+qu'il n'y a rien à rendre (`DisclosureNav` retourne `null` sur liste vide).
+
+**Chiffres RÉELS, imprimés par les outils, pas estimés :**
+
+| Mesure | Valeur | Qui l'imprime |
+|---|---|---|
+| Bloc `<script>` inline, par page | **1 187 o** — et c'est le **cliquet**, pas les 1 200 déclarés : geler sur le plafond laisserait 13 octets dériver en silence | `tools-check-langs.py` (L11) |
+| Blocs inline non-JSON-LD par page | **1** | idem |
+| Fichiers JavaScript servis | **0** — 22 chunks orphelins supprimés | `tools-strip-runtime.mjs` |
+| Charges utiles RSC `*/index.txt` | **0** — 7 fichiers, 184 Ko, supprimés | idem |
+| Empreinte CSP du bloc | générée à chaque build → `out/csp-script-src.txt` | idem |
+
+⚠️ Le coût du sélecteur à 30 entrées **n'est pas mesuré** : aucune langue n'existe. Le
+chiffre entrera ici quand il y en aura une, depuis l'octetage réel — pas depuis une
+arithmétique de dos d'enveloppe.
+
+### Deux contraintes de Next découvertes en construisant le cas, pas en relisant
+
+`node_modules/next/dist/build/index.js:1243` : en `output: 'export'`, une route dynamique
+qui produit **zéro** page fait échouer le build, et Next ne distingue pas « pas de
+`generateStaticParams` » de « la fonction a rendu une liste vide ». Conséquences :
+
+1. `app/[lang]/` ne peut pas exister tant que `LOCALES` est vide. Elle est donc un
+   **artefact de build**, matérialisé par `tools-lang-routes.mjs` depuis `lang-routes/`
+   (versionné) et gitignorée. Une langue qui entre ne demande toujours qu'une ligne dans
+   la table.
+2. Même chose un cran plus bas : une langue qui n'a **que son accueil** ne produit aucun
+   couple `(langue, slug)`, donc la sous-route `[slug]` n'est créée que s'il y a au moins
+   une page à slug.
+
+### L'export n'est pas reproductible au bit près, et ce n'est pas nous
+
+Next insère dans chaque HTML un commentaire `<!--<buildId>-->` **tiré au hasard à chaque
+build**. Deux builds du même source diffèrent donc toujours. Toute comparaison d'arbres
+doit neutraliser ce seul jeton — constaté en comparant deux builds consécutifs, pas supposé.
+
+### Trois régressions trouvées en revue, et ce qu'elles ont appris
+
+1. **`out/404.html` était le stub par défaut de Next** — `<html>` sans `lang`, sans marque,
+   sans lien de retour — et le build était **vert**. L'option que le §3 préférait (un
+   `not-found.tsx` par groupe racine) **ne produit pas le 404 de l'export** : un `not-found`
+   dans un groupe ne sert que les `notFound()` de son segment. La seconde issue du §3 est
+   donc la bonne : `app/global-not-found.tsx` + `experimental.globalNotFound`. Le 404 est
+   désormais **contrôlé** (`tools-check-langs.py`, §404 : `lang`, `noindex`, pied de page),
+   et `out/404/` — une **URL neuve** née de `trailingSlash`, absente de `main` — est retirée.
+
+2. **Deux faux verts de même nature** : le bloc inline retiré de *toutes* les pages, et le
+   conteneur du sélecteur retiré de *toutes* les pages, laissaient L1–L13 **vertes**. Les
+   règles s'accrochaient au marqueur qu'elles cherchaient.
+   ⚠️ **La leçon de `L7`, poussée d'un cran, et elle vaut pour tout contrôle de ce dépôt :
+   une règle qui vérifie « tous ceux qui existent sont corrects » ne dit rien quand il n'en
+   existe plus aucun.** Le test à passer à chaque règle : *que verrait-elle si son objet
+   avait entièrement disparu ?* L'effectif **attendu** se dérive désormais de la vérité
+   (`lib/pages.ts` + `content/`), jamais de l'export.
+
+3. **Une page sans `reviewed` était construite en production.** Le build finissait rouge,
+   mais **par les contrôles en aval, pas par la construction**. Corrigé aux trois niveaux :
+   `generateStaticParams` filtre sur `builtPages`, `tools-lang-routes.mjs` **refuse** une
+   langue publiée dont l'accueil n'est pas relu (avec le bon message, au lieu de l'erreur
+   opaque de Next), et `tools-strip-runtime.mjs` porte le **refus n°2** qu'AC22 exigeait.

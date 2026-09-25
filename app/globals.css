@@ -818,3 +818,49 @@ code {
   text-decoration: underline;
   color: var(--accent-hover);
 }
+
+/* 9-31 §8 — le sélecteur de langue et le bandeau.
+   ⛔ AUCUNE déclaration directionnelle physique ici : ni margin-left/right, ni
+   padding-left/right, ni left/right, ni border-left/right, ni text-align: left.
+   Tout est en propriétés logiques, pour que l'arabe et le malais ne demandent pas
+   de rouvrir ce fichier. */
+
+#rt-banner[hidden] { display: none; }
+/* ⚠️ Le conteneur du bandeau n'a AUCUNE hauteur réservée tant qu'il est `hidden` :
+   JavaScript absent, il ne coûte pas un pixel et l'AC6 reste vraie. */
+#rt-banner {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-block-end: 1px solid var(--border, #d8d2c8);
+  text-align: start;
+}
+
+.lang-selector { margin-block-start: 1rem; }
+
+/* Des COLONNES, pas un défilement interne : le nombre de colonnes suit la largeur
+   disponible sans point de rupture écrit à la main, et le sens de remplissage suit
+   `direction` — donc RTL gratuit. Trente entrées sur trois colonnes font dix lignes.
+   ⛔ Aucun conteneur à défilement interne : ce serait un piège au clavier et à la
+   molette. Le <details> est dans le flux et en fin de page — c'est la PAGE qui
+   défile. */
+.lang-selector .disclosure-nav__list {
+  columns: 1;
+  column-width: 10rem;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+  padding-inline: 0;
+  margin-block: 0.5rem;
+  text-align: start;
+}
+
+/* `unicode-bidi: isolate` + le `dir` porté par chaque <a> : un endonyme RTL ne peut
+   pas désordonner la liste autour de lui. */
+.lang-selector .disclosure-nav__list a { unicode-bidi: isolate; }
+
+/* Le marqueur de divulgation est sur l'axe de BLOC. ⛔ Ni `→` ni `▸` : ce sont des
+   glyphes d'axe inline, faux en RTL. Le chevron natif du <summary> convient. */
+.lang-selector summary { cursor: pointer; }

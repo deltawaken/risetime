@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis alarms/index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
 
-export const metadata: Metadata = {
-  title: "How to Set a Sunrise or Sunset Alarm on Android | Risetime",
-  description: "Set an Android alarm for sunrise, sunset or solar noon — or 1 hour before sunset. It shifts with the sun every day, by itself. Works offline, no ads.",
-  alternates: { canonical: "/alarms/" },
-  openGraph: { title: "How to Set a Sunrise or Sunset Alarm on Android", description: "Set an alarm on sunrise, sunset or any moment of the sun, with an offset like \"1 hour before sunset\". It follows the sun every day, offline.", type: "article", url: "/alarms/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/alarms.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/alarms/')
 
 const jsonLd = [
 {
@@ -252,7 +252,7 @@ export default function AlarmsPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/alarms/" />
     </div>
   )
 }

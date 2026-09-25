@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis golden-hour-alarm/index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
 
-export const metadata: Metadata = {
-  title: "Golden Hour & Blue Hour Alarm for Android — and the Night Sky | Risetime",
-  description: "Alarms for golden hour, blue hour and astronomical night, set by the sun's angle. They follow the light all year, offline in the field.",
-  alternates: { canonical: "/golden-hour-alarm/" },
-  openGraph: { title: "Golden Hour, Blue Hour and Night Sky Alarms for Android", description: "Set the sun's angle once; the alarm tracks the light through the year. Works offline in the field, with no internet permission.", type: "article", url: "/golden-hour-alarm/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/golden-hour-alarm.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/golden-hour-alarm/')
 
 const jsonLd = [
 {
@@ -180,7 +180,7 @@ export default function GoldenHourAlarmPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/golden-hour-alarm/" />
     </div>
   )
 }

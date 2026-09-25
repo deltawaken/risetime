@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
@@ -7,12 +8,11 @@ import SiteFooter from '../../../components/SiteFooter'
 // Three screenshot slots are marked by a comment; no image ships until the owner
 // has reviewed the text.
 
-export const metadata: Metadata = {
-  title: "Sunrise Meditation & Yoga Alarm for Android | Risetime",
-  description: "Start your meditation or yoga practice with first light: an Android alarm anchored to sunrise, or to a fraction of the night. Offline, no tracking, no ads.",
-  alternates: { canonical: "/sunrise-meditation-alarm/" },
-  openGraph: { title: "Sunrise Meditation and Yoga Alarm for Android", description: "Anchor the alarm to sunrise, to civil dawn by its angle, or to a fraction of the night. It follows the light all year, offline.", type: "article", url: "/sunrise-meditation-alarm/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/sunrise-meditation-alarm.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/sunrise-meditation-alarm/')
 
 const jsonLd = [
 {
@@ -185,7 +185,7 @@ export default function SunriseMeditationAlarmPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/sunrise-meditation-alarm/" />
     </div>
   )
 }

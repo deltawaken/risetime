@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis circadian-rhythm-alarm/index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
 
-export const metadata: Metadata = {
-  title: "Circadian Rhythm Alarm Clock App for Android | Risetime",
-  description: "Set an Android alarm on sunrise, and the rest of your day around the sun. It shifts with the seasons by itself. Offline, no tracking, no ads.",
-  alternates: { canonical: "/circadian-rhythm-alarm/" },
-  openGraph: { title: "Circadian Rhythm Alarm for Android — Anchored to Sunrise", description: "An alarm tied to the sun rather than to the clock: it shifts with the seasons by itself. Offline, no tracking, no ads.", type: "article", url: "/circadian-rhythm-alarm/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/circadian-rhythm-alarm.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/circadian-rhythm-alarm/')
 
 const jsonLd = [
 {
@@ -176,7 +176,7 @@ export default function CircadianRhythmAlarmPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/circadian-rhythm-alarm/" />
     </div>
   )
 }

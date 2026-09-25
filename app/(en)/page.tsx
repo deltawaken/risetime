@@ -1,17 +1,16 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../lib/metadata'
 import SiteHeader from '../../components/SiteHeader'
 import SiteFooter from '../../components/SiteFooter'
 
 // Porté depuis index.html (commit 967c17d) — recopie, pas réécriture.
 // Voir le rapport de portage : references/nextjs-port-report.md
 
-export const metadata: Metadata = {
-  title: "Risetime — Sunrise Alarm App for Android · Celestial Alarm Clock",
-  description: "Sunrise alarm clock app for Android. Set your alarm relative to sunrise, sunset, or solar noon — it shifts automatically every day. No wifi, no internet, no data collection.",
-  alternates: { canonical: "/" },
-  openGraph: { title: "Risetime — Sunrise Alarm App for Android", description: "Set your alarm to sunrise. Once. It shifts every day automatically. No wifi required.", type: "website", url: "/", images: [{ url: "https://risetime.app/assets/screenshots/landscape-alarm-list.webp", width: 854, height: 480 }] },
-  twitter: { card: "summary_large_image", title: "Risetime — Sunrise Alarm App for Android", description: "Set your alarm to sunrise. Once. It shifts every day automatically. No wifi required.", images: ["https://risetime.app/assets/screenshots/landscape-alarm-list.webp"] },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/home.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/')
 
 const jsonLd = [
 {
@@ -304,7 +303,7 @@ export default function HomePage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/" />
     </div>
   )
 }

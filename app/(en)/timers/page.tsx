@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
 import SiteFooter from '../../../components/SiteFooter'
 
@@ -16,12 +17,11 @@ import SiteFooter from '../../../components/SiteFooter'
 //    ne sont pas écrits ici non plus : l'AC grepe le fichier entier, commentaire
 //    compris.
 
-export const metadata: Metadata = {
-  title: "Loop Timer for Android — Repeating Countdown | Risetime",
-  description: "A loop timer for Android: set one duration and it restarts itself at a fixed interval until you stop it. Plus the ordinary countdowns. No ads, no internet.",
-  alternates: { canonical: "/timers/" },
-  openGraph: { title: "A Timer That Starts Itself Again — Risetime", description: "Tick Repeat and the countdown restarts itself, cycle after cycle, on the interval you set — until you stop the loop.", type: "article", url: "/timers/" },
-}
+// 9-31 — les chaînes de cette page vivent dans content/en/timers.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/timers/')
 
 const jsonLd = [
 {
@@ -166,7 +166,7 @@ export default function TimersPage() {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter page="/timers/" />
     </div>
   )
 }

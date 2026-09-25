@@ -4,11 +4,11 @@
 //   d'usage depuis n'importe quelle page. Avant lui, `/golden-hour-alarm/` et ses
 //   sœurs n'étaient atteignables QUE depuis l'accueil : quelqu'un qui y arrivait
 //   par Google n'avait aucun chemin vers les autres.
-// Usage 2 (spécifié par 9-31 § ⟶ 2026-09-25 §1, PAS implémenté ici) : le sélecteur
-//   de langue du pied de page. Il appellera ce même composant avec
-//   `inlineMax={SELECTOR_INLINE_MAX /* 3 */}`, ce qui lui rend le comportement que
-//   sa spec décrit — à plat de 1 à 3 langues, replié à 4 et plus — SANS qu'une
-//   seconde implémentation existe.
+// Usage 2 (LIVRÉ le 2026-09-25) : le sélecteur de langue du pied de page, via
+//   `components/LanguageSelector.tsx`, qui appelle ce même composant avec
+//   `inlineMax={SELECTOR_INLINE_MAX /* 3 */}` — à plat de 1 à 3 langues, replié à 4 et
+//   plus. ⛔ Il n'existe donc AUCUNE seconde implémentation de la <ul>, des <li><a> ni
+//   de l'enveloppe <details> : le sélecteur ne peut pas diverger du menu « Uses ».
 //
 // ⚠️ `inlineMax` vit chez l'APPELANT, pas ici. 9-31 nomme son seuil de 3 comme un
 // jugement sur la largeur du pied de page ; ce jugement ne vaut pas pour un menu
@@ -52,6 +52,10 @@ export type DisclosureNavProps = {
    *  À omettre quand le composant est DÉJÀ dans un <nav> (cas du menu d'en-tête) :
    *  un <nav> imbriqué ajouterait un repère pour rien. */
   ariaLabel?: string
+  /** Attributs supplémentaires posés sur le <nav> — l'accroche `data-rt-langs` du
+   *  sélecteur de langue, que le script inline et la règle L7 cherchent. Ignoré
+   *  quand `ariaLabel` est absent, puisqu'il n'y a alors pas de <nav>. */
+  navProps?: Record<string, string>
   className?: string
 }
 
@@ -62,6 +66,7 @@ export default function DisclosureNav({
   current,
   inlineMax = 0,
   ariaLabel,
+  navProps,
   className,
 }: DisclosureNavProps) {
   // 9-31 §1 : « Si cette liste est vide, il ne rend rien. » Ce n'est pas un cas
@@ -105,5 +110,11 @@ export default function DisclosureNav({
 
   const wrapped = className ? <div className={className}>{body}</div> : body
 
-  return ariaLabel ? <nav aria-label={ariaLabel}>{wrapped}</nav> : wrapped
+  return ariaLabel ? (
+    <nav aria-label={ariaLabel} {...navProps}>
+      {wrapped}
+    </nav>
+  ) : (
+    wrapped
+  )
 }
