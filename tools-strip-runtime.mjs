@@ -10,9 +10,9 @@
 //
 // CE N'EST PAS UN BRICOLAGE SILENCIEUX. Elle REFUSE de s'exécuter dès qu'un
 // composant client apparaît dans l'arbre : à ce moment-là le JavaScript devient
-// nécessaire, et c'est une décision à prendre, pas à subir. Le jour où le bandeau
-// de langue arrivera, il s'écrira en script inline de quelques lignes dans le
-// layout — pas en composant React.
+// nécessaire, et c'est une décision à prendre, pas à subir. Le peu de JavaScript
+// que ce site a — les trois améliorations du sélecteur de langue — s'écrit en
+// script inline de quelques lignes dans le layout, pas en composant React.
 
 import { readdir, readFile, writeFile, stat, rm } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
@@ -56,7 +56,7 @@ if (clientFiles.length) {
   console.error(
     "\nCes composants ont besoin de JavaScript pour fonctionner. Retirer le runtime\n" +
       "les casserait en silence. Deux issues : réécrire le besoin en script inline\n" +
-      "(voir le bandeau de langue), ou assumer le poids et retirer cette étape du build.\n",
+      "(voir lib/inlineScript.ts), ou assumer le poids et retirer cette étape du build.\n",
   )
   process.exit(1)
 }
@@ -157,12 +157,13 @@ for (const page of pages) {
   //
   // Formulation par liste BLANCHE et non par interdits : un script inconnu échoue
   // par défaut, au lieu de passer parce qu'on n'a pas pensé à l'interdire.
-  // Les trois seules sortes admises : le JSON-LD, le bloc JSON des langues, et
-  // l'UNIQUE bloc inline du bandeau et du sélecteur.
+  // ⚠️ DEUX sortes admises depuis le 2026-09-25, et non plus trois : le JSON-LD, et
+  // l'UNIQUE bloc inline du sélecteur. La dispense `id="rt-langs"` est RETIRÉE avec
+  // le bandeau qui la justifiait — et son retrait est un garde : si ce bloc JSON
+  // revenait un jour dans l'export, il échouerait ici au lieu de passer.
   for (const tag of out.match(/<script\b[^>]*>/g) || []) {
     const ok =
       /type="application\/ld\+json"/.test(tag) ||
-      /id="rt-langs"/.test(tag) ||
       /^<script>$/.test(tag)
     if (!ok) {
       console.error(`⛔ ${page} : <script> hors liste blanche — ${tag.slice(0, 120)}`)
@@ -209,13 +210,13 @@ await rm(join(OUT, '404'), { recursive: true, force: true })
 
 const withScripts = report.filter(([, k]) => k > 0)
 // ⚠️ LIBELLÉ CORRIGÉ (9-31 §10, constat 2). L'ancienne ligne affirmait « le
-// JSON-LD est un <script> et doit rester » alors qu'il y a désormais TROIS sortes
-// de <script> légitimes. Un verdict qui nomme mal ce qu'il compte est exactement
+// JSON-LD est un <script> et doit rester » alors qu'il y a DEUX sortes de
+// <script> légitimes (trois jusqu'au retrait du bandeau, le 2026-09-25). Un verdict qui nomme mal ce qu'il compte est exactement
 // le défaut que la ligne finale de tools-check-metadata.py documente déjà.
 console.log(
   `  scripts restants : ${withScripts.length ? withScripts.map(([p, k]) => `${p} (${k})`).join(', ') : 'aucun'}` +
-    ' — trois sortes admises : JSON-LD, bloc JSON des langues (#rt-langs),' +
-    ' et l’unique bloc inline du bandeau et du sélecteur.',
+    ' — deux sortes admises : JSON-LD, et l’unique bloc inline du sélecteur' +
+    ' (le bloc JSON des langues est parti avec le bandeau, 2026-09-25).',
 )
 console.log(`  ${orphans.length} .js orphelin(s) et ${payloads.length} charge(s) RSC index.txt supprimé(s) ; out/404/ retiré.`)
 

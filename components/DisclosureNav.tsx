@@ -6,14 +6,14 @@
 //   par Google n'avait aucun chemin vers les autres.
 // Usage 2 (LIVRÉ le 2026-09-25) : le sélecteur de langue du pied de page, via
 //   `components/LanguageSelector.tsx`, qui appelle ce même composant avec
-//   `inlineMax={SELECTOR_INLINE_MAX /* 3 */}` — à plat de 1 à 3 langues, replié à 4 et
-//   plus. ⛔ Il n'existe donc AUCUNE seconde implémentation de la <ul>, des <li><a> ni
-//   de l'enveloppe <details> : le sélecteur ne peut pas diverger du menu « Uses ».
+//   `inlineMax={SELECTOR_INLINE_MAX}`. ⛔ Il n'existe donc AUCUNE seconde
+//   implémentation de la <ul>, des <li><a> ni de l'enveloppe <details> : le
+//   sélecteur ne peut pas diverger du menu « Uses ».
 //
-// ⚠️ `inlineMax` vit chez l'APPELANT, pas ici. 9-31 nomme son seuil de 3 comme un
-// jugement sur la largeur du pied de page ; ce jugement ne vaut pas pour un menu
-// d'en-tête, qui doit rester replié même à trois entrées. Un seuil unique codé
-// dans le composant aurait forcé l'un des deux usages à mentir.
+// ⚠️ `inlineMax` vit chez l'APPELANT, pas ici, et les deux usages valent désormais
+// 0 (toujours replié) — pour des raisons DIFFÉRENTES, écrites chacune chez son
+// appelant. Un seuil unique codé dans le composant les confondrait, et le jour où
+// l'un des deux rebouge on ne saurait plus lequel le nombre servait.
 //
 // ⛔ Aucun `"use client"` : `tools-strip-runtime.mjs` refuse de s'exécuter s'il en
 // trouve un, et le JavaScript retiré par le portage reviendrait. `<details>`
@@ -24,6 +24,8 @@
 // à la main : 9-31 § « Clavier et lecteur d'écran » tranche le point. `<details>`
 // est un widget de divulgation, les navigateurs exposent son état, et
 // `role="menuitem"` retirerait la sémantique de lien aux entrées.
+
+import type { ReactNode } from 'react'
 
 export type DisclosureEntry = {
   href: string
@@ -36,8 +38,12 @@ export type DisclosureEntry = {
 }
 
 export type DisclosureNavProps = {
-  /** Libellé du <summary>, quand la liste est repliée. */
-  label: string
+  /** Libellé du <summary>, quand la liste est repliée. `ReactNode` et non `string` :
+   *  le sélecteur de langue y met un globe SVG `aria-hidden` SUIVI de l'endonyme de
+   *  la langue courante (décision du porteur, 2026-09-25 — ⛔ jamais un drapeau, la
+   *  raison est dans `LanguageSelector.tsx`). Le menu « Uses » passe une chaîne ;
+   *  les deux cas traversent le même code. */
+  label: ReactNode
   /** Complément visuellement masqué : un <summary> qui ne lit que « Uses » se
    *  présente comme une étiquette, pas comme un contrôle qui ouvre quelque chose. */
   hint: string

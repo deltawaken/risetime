@@ -11,6 +11,5 @@ og_image_height: 480
 updated: 2026-09-20
 lang_endonym: English
 lang_dir: ltr
-lang_banner: This site is also available in English →
 lang_home_suffix: (home)
 ---

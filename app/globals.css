@@ -864,3 +864,15 @@ code {
 /* Le marqueur de divulgation est sur l'axe de BLOC. ⛔ Ni `→` ni `▸` : ce sont des
    glyphes d'axe inline, faux en RTL. Le chevron natif du <summary> convient. */
 .lang-selector summary { cursor: pointer; }
+
+/* LE GLOBE du déclencheur (décision du porteur, 2026-09-25 — ⛔ jamais un drapeau :
+   un drapeau désigne un pays, pas une langue). SVG inline, donc `currentColor` le
+   teinte comme le texte et `1em` le dimensionne comme lui.
+   ⛔ AUCUNE déclaration directionnelle physique : `margin-inline-end` seule. Le
+   globe est le premier enfant inline du <summary> — en RTL le flux le place donc à
+   DROITE du texte, et sa marge logique bascule avec lui, sans une ligne de plus.
+   `vertical-align: -0.12em` : optique, pour aligner le cercle sur la hauteur d'x. */
+.lang-selector__globe {
+  margin-inline-end: 0.4em;
+  vertical-align: -0.12em;
+}

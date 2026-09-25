@@ -1,9 +1,20 @@
 // 9-31 §10 — L'UNIQUE bloc `<script>` inline du site. Un seul, pas deux.
 //
+// ⚠️ DÉCISION DU PORTEUR, 2026-09-25 : **le bandeau de langue est supprimé.**
+// « This site is also available in English → ça sert probablement à rien. Pour
+// lecteur d'écran pourquoi pas. Pour les voyants. Un menu avec un drapeau suffit. »
+// Ce bloc ne porte donc plus QUE les trois améliorations du sélecteur. Ce qui est
+// parti avec le bandeau : la lecture de `navigator.languages`, le bloc JSON
+// `#rt-langs` qui le nourrissait, le conteneur `#rt-banner`, le drapeau
+// `localStorage` qui retenait le rejet, et la phrase `lang_banner` du contenu.
+// ⛔ Ne pas le réintroduire sans une décision écrite : avec une seule langue il
+// annonçait une disponibilité qui n'existe pas.
+//
 // ⚠️ « pas de bundle » n'est pas « pas de JavaScript ». Ce que le portage a retiré,
 // ce sont 138 Ko de React et d'hydratation pour un site sans interactivité — pas
-// « du JavaScript ». Ce bloc pèse moins de 1 % de ce qui a été retiré, et il a un
-// budget déclaré (≤ 1 200 octets, cliquet, L11) que `tools-check-langs.py` imprime.
+// « du JavaScript ». Ce bloc a un budget déclaré (≤ 1 200 octets) et un CLIQUET
+// constaté, plus bas depuis la suppression du bandeau, que `tools-check-langs.py`
+// imprime à chaque build (L11).
 //
 // ⛔ UN BLOC, PAS UN ATTRIBUT `onkeydown=`. La raison est la CSP, pas le style : un
 // gestionnaire en attribut exige `script-src 'unsafe-hashes'`, qui affaiblit la
@@ -19,34 +30,18 @@
 // extérieur disparaissent (AC12, AC26).
 //
 // ⚠️ DÉLÉGATION SUR `document`, et ce n'est pas un détail de style : le bloc est le
-// deuxième enfant de `<body>`, donc il s'exécute AVANT que le pied de page — où vit
+// premier enfant de `<body>`, donc il s'exécute AVANT que le pied de page — où vit
 // le sélecteur — soit analysé. Chercher l'élément à l'exécution ne trouverait rien.
 // Les trois écouteurs interrogent le DOM au moment de l'ÉVÉNEMENT, jamais au
-// moment du chargement ; aucun `DOMContentLoaded` n'est donc nécessaire, et le
-// bandeau reste affiché avant que le reste du corps ne provoque un saut visible.
+// moment du chargement ; aucun `DOMContentLoaded` n'est donc nécessaire.
 //
-// ⛔ Rien n'est envoyé, rien n'est mesuré, aucun cookie n'est posé. `localStorage`
-// et non un cookie : il n'y a pas de serveur pour le lire, et un cookie ouvrirait
-// une question de consentement pour rien. Tout accès est sous `try/catch` — en
-// navigation privée la lecture peut lever.
-//
-// ⚠️ La flèche appartient à la PHRASE (`lang_banner`), jamais au script : en arabe
-// un `→` concaténé ici pointerait du mauvais côté. Rien n'est concaténé.
+// ⛔ Rien n'est envoyé, rien n'est mesuré, aucun cookie ni `localStorage` : le seul
+// accès au stockage qu'il y ait jamais eu appartenait au bandeau, et il est parti
+// avec lui.
 
 const SEL = "nav[data-rt-langs] details[open]"
 
 export const INLINE_SCRIPT = `(function(){var D=function(){return document.querySelector('${SEL}')};
 addEventListener('keydown',function(e){if(e.key!='Escape')return;var d=D();if(d){d.open=false;d.querySelector('summary').focus()}});
 addEventListener('click',function(e){var d=D();if(d&&!d.contains(e.target))d.open=false});
-addEventListener('pageshow',function(e){if(e.persisted){var d=D();if(d)d.open=false}});
-var b=document.getElementById('rt-banner'),s=document.getElementById('rt-langs');
-if(!b||!s||b.firstChild)return;
-try{if(localStorage.getItem('rt-lang-hint'))return}catch(e){}
-var m=JSON.parse(s.textContent),c=document.documentElement.lang,L=navigator.languages||[navigator.language],o,k;
-for(var i=0;i<L.length;i++){k=L[i].split('-')[0];if(m[k]&&k!=c){o=m[k];break}}
-if(!o)return;
-var seen=function(){try{localStorage.setItem('rt-lang-hint','1')}catch(e){}};
-var a=document.createElement('a');a.href=o.href;a.textContent=o.label;a.lang=k;a.dir=o.dir;a.onclick=seen;
-var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','Dismiss');
-x.onclick=function(){seen();b.hidden=true};
-b.appendChild(a);b.appendChild(x);b.hidden=false})();`
+addEventListener('pageshow',function(e){if(e.persisted){var d=D();if(d)d.open=false}})})();`

@@ -2,8 +2,10 @@
 //
 // LA PROPRIÉTÉ CENTRALE, écrite une fois ici pour n'être réécrite nulle part :
 // aucune liste de langues n'existe à la main. Le sélecteur, les `hreflang`, le
-// sitemap, le bloc JSON du bandeau et les routes `/xx/` sortent TOUS des fonctions
-// de ce fichier, qui ne lisent que `LOCALES` (lib/pages.ts) et `content/`.
+// sitemap et les routes `/xx/` sortent TOUS des fonctions de ce fichier, qui ne
+// lisent que `LOCALES` (lib/pages.ts) et `content/`.
+// (Le bloc JSON du bandeau figurait dans cette liste ; le bandeau est supprimé
+// depuis le 2026-09-25 — voir plus bas, là où `bannerData()` se trouvait.)
 //
 // ⚠️ TROIS ensembles différents, qu'il ne faut jamais confondre — c'est la
 // confusion qui produirait un `hreflang` vers une page inexistante :
@@ -22,10 +24,29 @@
 import { LOCALES, SITE_URL } from './pages'
 import { allContent, contentFor, contentLocales, urlFor } from './content'
 
-/** 9-31 §1 — jugement, PAS une mesure : le pied porte déjà 5 liens, en ajouter
- *  jusqu'à 3 reste une ligne. ⚠️ Se rejuge à l'œil sur la preview de la PR de la
- *  deuxième langue. Personne ne doit le citer comme mesuré. */
-export const SELECTOR_INLINE_MAX = 3
+/** Au-delà de ce nombre d'entrées, la liste passe sous `<details>`. **0 = toujours
+ *  repliée, donc toujours un déclencheur.**
+ *
+ *  ⚠️ VALEUR CHANGÉE le 2026-09-25 (3 → 0), et c'est une conséquence directe des
+ *  deux décisions du porteur du jour, pas une préférence :
+ *
+ *   · le bandeau est SUPPRIMÉ. Le §1 justifiait le pied de page en disant que « la
+ *     découverte passe par le bandeau, le sélecteur est le chemin délibéré ». Ce
+ *     chemin-là n'existe plus : le sélecteur est désormais le SEUL. Un lien nu
+ *     « Français » perdu au milieu des six liens du pied n'est pas découvrable ;
+ *   · le déclencheur est « globe + endonyme de la langue COURANTE ». À plat il n'y
+ *     a pas de `<summary>`, donc ni globe ni endonyme courant — la décision du
+ *     porteur ne serait tenue qu'à partir de quatre langues, c'est-à-dire pas à la
+ *     première.
+ *
+ *  🔸 À SIGNALER, PAS À MASQUER : 9-31 §1 et AC11 décrivent TROIS états (0 / 1-3 à
+ *  plat / 4+ replié). Il n'en reste que deux : 0 ⇒ rien, 1+ ⇒ replié. Aucun AC
+ *  n'est modifié ici ; l'écart est porté au rapport et à PORTAGE.md. Les décisions
+ *  du 2026-09-25 sont postérieures au §1.
+ *
+ *  ⛔ Ce que ça NE change PAS : `LOCALES = []` ⇒ zéro entrée ⇒ `DisclosureNav`
+ *  retourne `null` ⇒ rien du tout. 0 entrée n'est pas « repliée », c'est absente. */
+export const SELECTOR_INLINE_MAX = 0
 
 /** ⚠️ Le défaut est la PRODUCTION. Une preview se demande explicitement ; l'oubli
  *  ne peut donc produire qu'un site trop pauvre, jamais un site qui publie du non
@@ -124,15 +145,10 @@ export function selectorEntries(currentLang: string, currentPage: string): Selec
   )
 }
 
-/** Le bloc JSON inerte que lit le script du bandeau. Ses clés sont `['en'] ∪ LOCALES`
- *  (L10) et ses phrases sont écrites par les traducteurs — ⚠️ la flèche appartient à
- *  la phrase, jamais au script : en arabe un `→` concaténé pointerait à l'envers. */
-export function bannerData(): Record<string, { label: string; href: string; dir: string }> {
-  const out: Record<string, { label: string; href: string; dir: string }> = {}
-  for (const l of ['en', ...LOCALES]) {
-    const href = urlFor(l, '/')
-    const label = contentFor(l, '/')?.data.lang_banner
-    if (href && label) out[l] = { label, href, dir: dirOf(l) }
-  }
-  return out
-}
+/* ⛔ `bannerData()` A ÉTÉ SUPPRIMÉE le 2026-09-25 avec le bandeau lui-même
+ *    (décision du porteur). Elle produisait le bloc JSON `#rt-langs`, que SEUL le
+ *    script du bandeau lisait. Le sélecteur n'en a jamais eu besoin : ses entrées
+ *    sortent de `selectorEntries()` AU BUILD et sont dans le HTML. Il ne reste donc
+ *    aucune donnée de langue inerte dans les pages — plus un seul bloc JSON hors
+ *    JSON-LD. ⛔ Ne pas la ressusciter « au cas où » : avec une seule langue elle
+ *    affirmait une disponibilité qui n'existe pas. */

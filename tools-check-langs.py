@@ -55,13 +55,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 # ⚠️ DEUX NOMBRES, ET ILS NE SONT PAS DE MÊME NATURE.
 #   · BUDGET_DECLARE = 1200 o : le plafond ÉCRIT dans la story (§4, §10). Jugement, pas mesure.
-#   · BUDGET_INLINE  = 1187 o : la valeur CONSTATÉE quand le bloc a existé pour la première
-#     fois (2026-09-25). C'est elle qui fait CLIQUET, sur le modèle de METADATA-BUDGET.md :
-#     geler sur les 1 200 déclarés laisserait 13 octets dériver en silence. Le jour où le
-#     bloc grossit pour une bonne raison, on remonte CE nombre — à la main, et ça se voit
-#     dans le diff. C'est tout l'intérêt.
+#   · BUDGET_INLINE  =  412 o : la valeur CONSTATÉE, et c'est elle qui fait CLIQUET, sur le
+#     modèle de METADATA-BUDGET.md : geler sur le plafond déclaré laisserait 788 octets
+#     dériver en silence. Le jour où le bloc grossit pour une bonne raison, on remonte CE
+#     nombre — à la main, et ça se voit dans le diff. C'est tout l'intérêt.
+#
+#     ⚠️ DESCENDU DE 1187 À 412 le 2026-09-25 : le porteur a supprimé le bandeau de langue,
+#     et les deux tiers du bloc étaient à lui (lecture de `navigator.languages`, `JSON.parse`
+#     du bloc `#rt-langs`, drapeau `localStorage`, construction du lien et du bouton de
+#     rejet). Il ne reste que les trois améliorations du sélecteur. ⛔ Le cliquet se REGÈLE
+#     sur la valeur constatée chaque fois qu'il DESCEND, sinon la place libérée se
+#     reprendrait sans que rien ne le dise.
 BUDGET_DECLARE = 1200
-BUDGET_INLINE = 1187
+BUDGET_INLINE = 412
 
 fails: list[str] = []
 notes: list[str] = []
@@ -77,7 +83,6 @@ ALT = re.compile(r'<link[^>]+rel="alternate"[^>]*>', re.I)
 NAV = re.compile(r"<nav\b[^>]*\bdata-rt-langs\b[^>]*>(.*?)</nav>", re.S | re.I)
 A = re.compile(r"<a\b([^>]*)>", re.I)
 ATTR = re.compile(r'([\w:-]+)="([^"]*)"')
-JSONBLOCK = re.compile(r'<script[^>]+id="rt-langs"[^>]*>(.*?)</script>', re.S | re.I)
 SCRIPT = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.S | re.I)
 LOC = re.compile(r"<loc>([^<]+)</loc>")
 
@@ -117,12 +122,12 @@ class Export:
     def entries(self, block: str) -> list[dict]:
         return [attrs(a) for a in A.findall(block)]
 
-    def banner(self, html: str):
-        m = JSONBLOCK.search(html)
-        return json.loads(m.group(1)) if m else None
-
     def inline_scripts(self, html: str) -> list[str]:
-        """Les blocs inline NON-JSON-LD et non-JSON de langues — au sens de L11."""
+        """Les blocs inline NON-JSON-LD — au sens de L11.
+
+        ⚠️ Le filtre `type="application/…"` reste, bien qu'il n'y ait PLUS AUCUN bloc JSON
+        de données dans l'export depuis le retrait du bandeau (2026-09-25) : le JSON-LD,
+        lui, est toujours là et c'est lui que cette ligne écarte."""
         out = []
         for a, body in SCRIPT.findall(html):
             at = attrs(a)
@@ -138,8 +143,6 @@ class Export:
         for a, _ in SCRIPT.findall(html):
             at = attrs(a)
             if at.get("type") == "application/ld+json":
-                continue
-            if at.get("id") == "rt-langs":
                 continue
             if not a.strip():
                 continue
@@ -367,20 +370,17 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
         fail("L8", f"{len(with_selector)}/{total} page(s) portent un sélecteur — manquantes : "
                    + ", ".join(manquantes[:5]))
 
-    # ---- L10 : le bloc JSON du bandeau ---------------------------------------------------------
-    for name, html in exp.content_pages().items():
-        data = exp.banner(html)
-        if data is None:
-            fail("L10", f"{name} : aucun bloc JSON #rt-langs")
-            continue
-        if set(data) != expected_selector:
-            fail("L10", f"{name} : clés du bandeau {sorted(data)} ≠ {sorted(expected_selector)}")
-        for lg, v in data.items():
-            if not v.get("label"):
-                fail("L10", f"{name} : bandeau {lg} sans label (lang_banner manquant ?)")
-            if site + v.get("href", "") not in exp.locs:
-                fail("L10", f"{name} : bandeau {lg} → {v.get('href')} absent du sitemap")
-
+    # ---- L10 : SUPPRIMÉE le 2026-09-25 avec le bandeau -----------------------------------------
+    #
+    # Elle vérifiait le bloc JSON `#rt-langs` : ses clés = ['en'] ∪ LOCALES, un label par
+    # langue, un href présent au sitemap. Le porteur a supprimé le bandeau ; ce bloc était
+    # sa SEULE donnée (le sélecteur est rendu au build, ses entrées sont dans le HTML) et
+    # il est parti avec lui. Une règle sans objet ne se garde pas « au cas où » : elle
+    # rougirait sur tout l'export ou, pire, resterait verte sur rien du tout — c'est
+    # exactement le faux vert que cet outil documente plus haut.
+    # ⛔ Ce que L10 protégeait n'est pas perdu : que ce bloc ne REVIENNE pas est désormais
+    # tenu par L12 et par la liste blanche de tools-strip-runtime.mjs, dont la dispense
+    # `id="rt-langs"` a été retirée le même jour.
     # ---- L11 : le budget du bloc inline, et UN SEUL bloc ---------------------------------------
     for name, html in sorted(exp.content_pages().items()):
         blocks = exp.inline_scripts(html)
@@ -392,7 +392,7 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
         # qu'AC27 exige « exactement un ».
         if len(blocks) == 0:
             fail("L11", f"{name} : AUCUN bloc inline — AC27 en exige EXACTEMENT UN "
-                        "(bandeau + améliorations du sélecteur)")
+                        "(les trois améliorations du sélecteur : Échap, clic extérieur, retour arrière)")
         elif len(blocks) > 1:
             fail("L11", f"{name} : {len(blocks)} blocs inline non-JSON-LD — il n'en faut qu'UN "
                         "(une seconde empreinte, c'est une seconde ligne de CSP)")
@@ -643,7 +643,8 @@ def main() -> int:
         for f in fails:
             print(f"  {f}")
         return 1
-    print("\n✓ L1–L13 vertes, et le contenu est cohérent avec LOCALES.")
+    print("\n✓ L1–L13 vertes (L10 retirée le 2026-09-25 avec le bandeau), "
+          "et le contenu est cohérent avec LOCALES.")
     return 0
 
 

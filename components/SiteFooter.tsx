@@ -47,8 +47,14 @@ export default function SiteFooter({ lang = 'en', page = '' }: { lang?: string; 
           on le met en haut ; fermé, un <details> ne coûte qu'un arrêt de
           tabulation, son contenu replié n'étant pas focusable), la POUSSÉE (un
           <details> ouvert est dans le flux — en pied il n'y a rien après), et la
-          DÉCOUVERTE, qui passe par le bandeau et non par le pied : le sélecteur est
-          le chemin délibéré, le bandeau le chemin subi.
+          DÉCOUVERTE.
+          ⚠️ Ce troisième argument a CHANGÉ le 2026-09-25 : le §1 disait « la
+          découverte passe par le bandeau, le sélecteur est le chemin délibéré » —
+          or le porteur a SUPPRIMÉ le bandeau. Le sélecteur est donc le seul chemin,
+          et c'est ce qui lui vaut son déclencheur permanent (globe + endonyme
+          courant, `SELECTOR_INLINE_MAX = 0`) plutôt qu'un lien nu au milieu des six
+          liens du pied. L'emplacement, lui, ne change pas : les deux premiers
+          arguments (clavier, poussée) tiennent seuls.
 
           Avec `LOCALES = []` il ne rend RIEN — pas une balise, pas une mention — et
           sans qu'aucune condition ne le masque ici : `DisclosureNav` retourne

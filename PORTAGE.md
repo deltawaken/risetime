@@ -109,15 +109,16 @@ JavaScript**. Les seuls `<script>` restants sont les JSON-LD, qui doivent rester
 
 `npm run build:raw` conserve le build Next sans cette étape, pour comparer.
 
-⚠️ Le jour où le **bandeau de langue** arrivera, il s'écrira en **script inline de
-quelques lignes** dans le layout — pas en composant React, sinon on réimporte les 138 Ko
-pour afficher une phrase.
+⚠️ Le peu de JavaScript de ce site — les trois améliorations du sélecteur de langue —
+s'écrit en **script inline de quelques lignes** dans le layout, pas en composant React :
+sinon on réimporte les 138 Ko. (Cette ligne parlait du *bandeau de langue* ; il est
+supprimé, voir plus bas.)
 
 ## Ce qui reste à faire (et n'est pas fait)
 
-- Le **bandeau de langue**, le **sélecteur** tenant à 30 langues, les **hreflang**, le
-  contenu en **Markdown par langue** et le **contrôle de retard** : rien de tout ça n'est
-  commencé.
+- ⛔ Le **bandeau de langue** n'arrivera pas : il est SUPPRIMÉ (décision du porteur,
+  2026-09-25 — voir plus bas). Le **sélecteur** tenant à 30 langues, les **hreflang**, le
+  contenu en **Markdown par langue** et le **contrôle de retard** sont livrés.
 - `_redirects` et `_headers` appartiennent à `9-30`, pas à cette branche.
 
 ## Les outils
@@ -135,6 +136,67 @@ doublon qui diverge en silence. Rien dans le site n'y faisait référence.
 
 ## Le mécanisme multilingue (9-31, seconde moitié — 2026-09-25)
 
+### ⟶ Deux décisions du porteur, 2026-09-25, appliquées le jour même
+
+**1. Le bandeau de langue est SUPPRIMÉ.** Mot pour mot : *« This site is also available in
+English → ça sert probablement à rien. Pour lecteur d'écran pourquoi pas. Pour les voyants.
+Un menu avec un drapeau suffit. »* Il proposait sa langue à qui arrivait dans une autre ;
+le sélecteur suffit. Et avec **une seule langue** il produisait une absurdité : chaque page
+portait un bloc JSON annonçant « This site is also available in English → » alors qu'il n'y
+avait **rien à proposer**.
+
+Ce qui part avec lui : la phrase (`lang_banner` dans `content/en/home.md`), sa donnée (le
+bloc JSON `#rt-langs`, que **seul** le script du bandeau lisait), le conteneur
+`#rt-banner`, le drapeau `localStorage` qui retenait le rejet, la fonction `bannerData()`,
+la règle **L10** et son cas faux, et la dispense `id="rt-langs"` des deux listes blanches.
+⚠️ Le **script inline reste** : il porte `Échap`, le clic extérieur et le retour arrière,
+et AC27 en exige **exactement un** par page (`L11` rougit sur zéro autant que sur deux).
+
+**Le budget du bloc inline tombe de 1 187 à 412 octets** — mesuré par
+`tools-check-langs.py`, pas estimé — et le **cliquet est regelé à 412** : geler sur le
+plafond déclaré de 1 200 laisserait 788 octets se reprendre en silence. ⛔ Règle générale :
+un cliquet se regèle chaque fois qu'il **descend**.
+
+**Il ne reste AUCUNE donnée de langue inerte dans les pages.** Le sélecteur n'a jamais lu
+le bloc JSON : ses entrées sortent de `selectorEntries()` **au build** et sont dans le
+HTML. Les seuls `<script>` de l'export sont donc les JSON-LD et l'unique bloc inline.
+
+**2. Le déclencheur du menu : un globe suivi de l'endonyme de la langue COURANTE**
+(`◍ English ▾`, le chevron restant le marqueur natif du `<summary>`, sur l'axe de bloc).
+
+⛔⛔ **PAS DE DRAPEAUX — et la raison est écrite pour que personne ne les repropose.** Le
+porteur les proposait, le dev a argumenté, le porteur a tranché pour le globe : **un
+drapeau désigne un pays, pas une langue.** Quel drapeau pour l'anglais — Royaume-Uni ou
+États-Unis ? Pour le français — France, Belgique, Québec, Sénégal ? L'arabe en aurait
+vingt-deux, et un Indonésien ne se reconnaît pas dans le drapeau malaisien. À trente
+entrées, trente rectangles colorés sont illisibles là où trente noms se lisent et se
+trient.
+
+L'icône est un **SVG inline de 367 octets** (octetage du balisage réellement émis par le
+build à une langue — et il ne coûte rien aujourd'hui, puisque sans langue il n'y a pas de
+déclencheur) : ⛔ pas de fichier image, ⛔ pas de police
+d'icônes, et ⛔ **pas un caractère** — les globes d'Unicode (U+1F310, U+1F30D…) ont une
+présentation **emoji** par défaut, donc tombent en pictogramme coloré qui n'hérite ni de
+`currentColor` ni de la taille du texte. ⛔ Aucun arc (`A`) non plus : un `<circle>`, une
+`<ellipse>` et deux `<line>`, c'est-à-dire aucun drapeau `large-arc`/`sweep` à inverser
+([[no-svg-rasterizer-in-this-env]] : un SVG faux s'affiche sans erreur). Vérifié en
+reparsant le SVG **réellement émis** et en le rastérisant avec PIL. `aria-hidden` +
+`focusable="false"` : elle décore, c'est le texte qui informe. Le dessin est symétrique en
+miroir et son côté vient du flux inline ; la seule règle CSS ajoutée est
+`margin-inline-end` — **aucune déclaration directionnelle physique**.
+
+**Conséquence assumée, et signalée : `SELECTOR_INLINE_MAX` passe de 3 à 0.** Il n'y a plus
+que **deux** états (`0 ⇒ rien` · `1+ ⇒ replié`) là où 9-31 §1 et **AC11** en décrivent
+trois. Deux raisons : le §1 justifiait la liste à plat en disant que « la découverte passe
+par le bandeau » — ce chemin n'existe plus ; et à plat il n'y a pas de `<summary>`, donc ni
+globe ni endonyme courant, c'est-à-dire que la décision du porteur ne serait tenue qu'à
+partir de la quatrième langue. ⚠️ Aucun AC n'a été modifié : l'écart est **signalé**, ici
+et dans le rapport.
+
+⛔ **Ce qui ne bouge pas** : `LOCALES = []` ⇒ **rien du tout**. Zéro entrée ⇒
+`DisclosureNav` retourne `null` ⇒ pas de globe, pas de déclencheur, pas une balise — sans
+aucune condition écrite à la main.
+
 `LOCALES` sort de cette passe **toujours vide**, et c'est la propriété livrée : avec une
 table vide, l'export ne contient **aucun sélecteur de langue, aucun `hreflang`, aucune
 entrée de sitemap en langue** — non pas parce qu'une condition les masque, mais parce
@@ -144,7 +206,7 @@ qu'il n'y a rien à rendre (`DisclosureNav` retourne `null` sur liste vide).
 
 | Mesure | Valeur | Qui l'imprime |
 |---|---|---|
-| Bloc `<script>` inline, par page | **1 187 o** — et c'est le **cliquet**, pas les 1 200 déclarés : geler sur le plafond laisserait 13 octets dériver en silence | `tools-check-langs.py` (L11) |
+| Bloc `<script>` inline, par page | **412 o** — et c'est le **cliquet**, pas les 1 200 déclarés. (1 187 o jusqu'au retrait du bandeau, le 2026-09-25 : les deux tiers du bloc étaient à lui.) | `tools-check-langs.py` (L11) |
 | Blocs inline non-JSON-LD par page | **1** | idem |
 | Fichiers JavaScript servis | **0** — 22 chunks orphelins supprimés | `tools-strip-runtime.mjs` |
 | Charges utiles RSC `*/index.txt` | **0** — 7 fichiers, 184 Ko, supprimés | idem |
