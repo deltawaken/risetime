@@ -1,0 +1,58 @@
+# public/_redirects — regles de redirection de Cloudflare Pages.
+#
+# A QUOI CA SERT : reproduire, cote serveur, le comportement HTTP que GitHub Pages
+# servait par artifice, et ouvrir les liens de campagne /go/<canal>.
+# QUELLE STORY : 9-30 « le site passe sur Cloudflare Pages », etape 19 du mode
+# operatoire references/runbook-dns-cloudflare.md.
+#
+# Next recopie public/ tel quel dans out/. Cloudflare lit ce fichier et ne le sert
+# PAS comme asset public.
+#
+# Format : [source] [destination] [code] — une regle par ligne, PREMIERE
+# correspondance gagne. Codes acceptes : 301, 302, 303, 307, 308 (302 par defaut).
+# ⚠ Une ligne mal ecrite est IGNOREE EN SILENCE, jamais signalee. D'ou la
+# verification au curl de l'etape 20, qui est la seule preuve.
+# Limites : 2 000 regles statiques, 100 dynamiques. Ici : 2 statiques, 1 dynamique.
+# Le motif source ne peut pas filtrer sur une chaine de requete ; la destination,
+# elle, peut en porter une (c'est ce dont /go/ a besoin).
+
+# --- /how-it-works : BLOQUANT, pas cosmetique --------------------------------
+# /how-it-works/ repond 200 aujourd'hui (page meta-refresh servie par GitHub Pages,
+# releve au curl le 2026-09-25) et n'existe PAS dans l'export Next out/.
+# Sans ces deux lignes, la bascule fait passer a 404 une URL encore indexee par
+# Google et encore citee par des liens entrants. La bascule et ces lignes partent
+# ensemble ou pas du tout (9-30, section datee du 2026-09-24).
+#
+# LES DEUX FORMES, et ce n'est pas de la ceinture-bretelles : l'ordre entre la
+# normalisation de la barre finale et l'application des redirections n'est pas
+# garanti. On ne parie pas sur un ordre non documente, on couvre les deux.
+/how-it-works       /alarms/   301
+/how-it-works/      /alarms/   301
+
+# --- liens de campagne -------------------------------------------------------
+# 302, et JAMAIS 301. Un 301 est mis en cache definitivement par les navigateurs
+# qui l'ont vu : la cible d'un canal ne pourrait plus jamais changer. Si un outil
+# ou l'interface Cloudflare propose de le « corriger » en 301 : refuser.
+#
+# IDENTIFIANT PLAY — verifie, pas recopie :
+#   com.deltawaken.risetime
+#   Source : projects/risetime/android-app/app/build.gradle.kts, ligne 16,
+#   `applicationId = "com.deltawaken.risetime"` (le build Gradle fait foi).
+# ⚠ Le mode operatoire ecrit `app.risetime` a son etape 19. C'est une SUPPOSITION
+#   qu'il signale lui-meme parmi ses douze points non verifies (point 7 : « J'ai
+#   ecrit id=app.risetime d'apres le nom de l'app, sans l'avoir verifie »).
+#   Elle est FAUSSE. Les sorties attendues des etapes 20 et 26 du mode operatoire
+#   citent `app.risetime` et sont donc a corriger avant d'etre lues comme un vert.
+#
+# CANAUX : regle dynamique a placeholder, elle couvre n'importe quel canal sans
+# avoir a l'enumerer. Le seul canal aujourd'hui en usage dans le depot est
+# `reddit` (_bmad-output/implementation-artifacts/9-5-reddit-posts.md, qui pose
+# utm_source=reddit sur ses liens Play). Aucun autre n'est invente ici.
+# Les `utm_source=copy-link` et `utm_source=native-share-menu` trouves ailleurs
+# dans le depot sont des parametres de SPOTIFY releves par ux-130 : ce ne sont pas
+# nos canaux, ils n'ont rien a faire ici.
+#
+# NON VERIFIE tant que le projet Pages n'existe pas : que `:channel` soit bien
+# substitue dans la destination apres un `%3D`, et que /go/reddit/ (avec barre
+# finale) soit couvert — il ne l'est pas par cette ligne. L'etape 20 tranche.
+/go/:channel   https://play.google.com/store/apps/details?id=com.deltawaken.risetime&referrer=utm_source%3D:channel   302

@@ -1,0 +1,141 @@
+# public/_headers — en-tetes de reponse de Cloudflare Pages.
+#
+# A QUOI CA SERT : poser les en-tetes de securite et de cache que GitHub Pages ne
+# permettait pas, et preparer la CSP redevenue possible depuis 9-31.
+# QUELLE STORY : 9-30 « le site passe sur Cloudflare Pages », etapes 19, 21 et 31
+# du mode operatoire references/runbook-dns-cloudflare.md.
+#
+# Next recopie public/ tel quel dans out/. Cloudflare lit ce fichier et ne le sert
+# PAS comme asset public.
+#
+# FORMAT. Un bloc commence par une URL ou un motif ; les en-tetes suivent, INDENTES,
+# un par ligne, `Nom: valeur`. Les URL absolues sont acceptees (https obligatoire,
+# port interdit) et acceptent les placeholders `:nom`.
+# Limites : 100 regles, 2 000 caracteres par ligne.
+#
+# ⚠ TOUT LE COMMENTAIRE EST ICI, AU-DESSUS, ET AUCUN BLOC NE CONTIENT NI LIGNE VIDE
+#   NI COMMENTAIRE. La doc Cloudflare dit que les en-tetes suivent « on the next
+#   line » et ne documente NULLE PART ce que devient un bloc coupe par une ligne
+#   vide ou un `#`. Comme une regle mal formee est ignoree EN SILENCE et jamais
+#   signalee, on ne parie pas sur un comportement non documente. Si on ajoute un
+#   en-tete plus tard : le coller a la suite, sans ligne vide, et remonter son
+#   explication ici.
+#
+# ⚠ Ces en-tetes ne s'appliquent PAS aux reponses de redirection : les 301 de
+#   _redirects ne les porteront pas. Sans consequence ici, mais a savoir avant de
+#   s'etonner qu'un curl sur /how-it-works/ n'en montre aucun.
+#
+# ---------------------------------------------------------------------------
+# BLOC 1 — /*
+# ---------------------------------------------------------------------------
+# HSTS : pas de includeSubDomains, pas de preload. `preload` est quasi
+# irreversible et on ne le pose pas pendant une migration. On monte a deux ans
+# apres une semaine sans incident. Etape 21 : `preload` ne doit PAS apparaitre.
+#
+# --- LA CSP, EN REPORT-ONLY. Elle ne bloque rien, elle rapporte. ---
+#
+# POURQUOI ELLE EXISTE MAINTENANT. 9-30 l'ecartait au motif que le CSS etait monte
+# par media="print" + onload= inline, qu'une CSP stricte aurait bloque, laissant la
+# page a opacity: 0. 9-31 a SUPPRIME ce montage (PORTAGE.md, § ecarts volontaires,
+# point 2). L'argument est caduc, et 9-30 le dit dans sa section du 2026-09-24.
+#
+# VERIFIE SUR out/ APRES BUILD le 2026-09-25, pas suppose :
+#   - <script> dans les .html : 12, TOUS `type="application/ld+json"`. Zero
+#     <script src>. (Deux <script> existent bien dans out/, mais dans des chunks
+#     .js residuels sous out/_next/static/chunks/ : ce sont des chaines du source
+#     React, aucune page ne les reference.)
+#   - <link rel="stylesheet"> : 9, tous vers /_next/static/css/ — meme origine,
+#     donc couverts par style-src 'self'.
+#   - <style> inline : 9, un par page, les neuf de MEME empreinte.
+#   - attributs onXxx= : AUCUN.
+#   - origines externes chargees : AUCUNE. play.google.com, schema.org, github.com
+#     n'apparaissent que dans des href, du JSON-LD ou des xmlns — jamais dans un
+#     src, un srcset ou un url() CSS. Aucun url() dans le CSS : aucune police
+#     distante. Un .mp4 vit sous /assets/ : c'est ce que couvre media-src 'self'.
+#
+# LES JSON-LD SURVIVENT, et voici pourquoi. Un <script type="application/ld+json">
+# est un bloc de DONNEES, pas du code executable : les navigateurs ne lui
+# appliquent pas script-src. `default-src 'none'` (donc script-src 'none') ne
+# l'efface pas du HTML, et Google continue de le lire. A confirmer quand meme au
+# curl apres deploiement (2 par page) plutot qu'a le croire.
+#
+# LE <style> INLINE DU LAYOUT a son empreinte plutot qu'un 'unsafe-inline'.
+# CALCULEE, PAS DEVINEE, sur out/ apres `npm run build` : sha256 du contenu du
+# <style> (sans les balises), encode en base64 —
+#   re.findall(r'<style[^>]*>(.*?)</style>', html, re.S)
+#   base64.b64encode(hashlib.sha256(m.encode('utf-8')).digest())
+# Contenu hache, identique sur les neuf pages :
+#   html{background:var(--bg,#faf8f5)}@media (prefers-color-scheme:dark){html{--bg:#0f1117}}
+# ⚠ L'EMPREINTE EST LIEE AU CONTENU. Toute retouche de ce <style>, meme d'un
+#   espace, l'invalide. Si la CSP est alors bloquante, la page perd son anti-flash
+#   sans que rien ne le signale : recalculer a chaque modification du layout.
+#
+# PIEGE QUE LE MODE OPERATOIRE NE MENTIONNE PAS : il reste DEUX attributs
+# style="..." dans out/index.html —
+#   style="border-inline-start-color:var(--muted)" et style="margin-bottom:0"
+# Un hash de <style> ne les couvre PAS : les attributs de style relevent de
+# style-src-attr, qui retombe sur style-src en son absence. Une CSP
+# `style-src 'self' 'sha256-...'` seule les bloquerait. D'ou style-src-attr
+# 'unsafe-inline', qui isole la permission aux seuls attributs et ne rouvre rien
+# pour les balises <style>. Les deux valeurs sont cosmetiques (une couleur de
+# bordure, une marge) : meme bloquees, aucune page ne blanchit.
+#   Variante plus stricte si on la prefere un jour, au prix d'un recalcul a chaque
+#   nouvel attribut : 'unsafe-hashes' plus ces deux empreintes —
+#     'sha256-sb5xXuQBEI2P/zNIpqpRYZwHaeoqwfhpDspD8tCed4Y='  border-inline-start-color:var(--muted)
+#     'sha256-+naa4DVyLB6dFJG6pe9ePhWQvc+IemcuXsxc1C9yQdg='  margin-bottom:0
+#
+# PAS DE report-uri NI DE report-to, et il faut le savoir : sans point de collecte,
+# une violation n'apparait QUE dans la console du navigateur de celui qui regarde.
+# Le « aucun rapport de violation » de l'etape 31 n'est donc pas une mesure
+# passive — c'est l'obligation d'ouvrir les six pages, console ouverte. Un point
+# de collecte imposerait un service tiers : hors de question ici.
+#
+# QUAND ET COMMENT LA PASSER EN BLOQUANTE :
+#   1. Apres la bascule, JAMAIS le jour meme. Une page blanche en production pour
+#      un en-tete est la pire facon de finir cette journee-la, et c'est exactement
+#      la classe de panne que 9-31 a supprimee.
+#   2. Apres UNE SEMAINE pleine sans aucune ligne « Refused to » ni « Content
+#      Security Policy » dans la console, sur les six pages, en clair ET en sombre
+#      (le <style> porte une media query prefers-color-scheme).
+#   3. Alors seulement : renommer l'en-tete en `Content-Security-Policy` (retirer
+#      le suffixe `-Report-Only`), pousser, puis rejouer cette verification PLUS
+#      l'etape 26 en entier.
+#   4. Si quoi que ce soit s'affiche mal : remettre le suffixe -Report-Only. Le
+#      retour arriere est un push, il prend des minutes.
+#
+# ---------------------------------------------------------------------------
+# BLOC 2 — /assets/screenshots/*
+# ---------------------------------------------------------------------------
+# Un cache long, mais PAS `immutable`. Les noms ne sont pas haches
+# (alarm-list.webp, pas alarm-list.a3f9.webp) : avec `immutable`, une capture
+# remplacee resterait invisible un an pour tout visiteur deja venu.
+# Etape 21 : `immutable` ne doit PAS apparaitre au curl.
+#
+# ---------------------------------------------------------------------------
+# BLOCS 3 et 4 — les URL .pages.dev
+# ---------------------------------------------------------------------------
+# Elles ne doivent pas entrer dans l'index de Google en doublon de risetime.app :
+# un doublon se repare bien plus mal qu'il ne s'evite.
+# ⚠ Ce n'est PAS redondant avec le defaut de Cloudflare. La doc dit que « every
+#   PREVIEW deployment includes the X-Robots-Tag: noindex header » : cela couvre
+#   les deploiements de preview, PAS le deploiement de PRODUCTION, dont l'alias
+#   risetime-website.pages.dev est justement le doublon qu'on craint. Ces deux
+#   blocs sont la forme documentee par Cloudflare, placeholder compris.
+# L'etape 18 (curl sur le .pages.dev) reste a faire : elle constate l'etat reel,
+# que ces lignes ne dispensent pas de lire.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=86400
+  Content-Security-Policy-Report-Only: default-src 'none'; style-src 'self' 'sha256-esDuOimCKnvALbF1mKGoEEBfTRjum5hMOQQTVJ5NKMQ='; style-src-attr 'unsafe-inline'; img-src 'self'; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+
+/assets/screenshots/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
