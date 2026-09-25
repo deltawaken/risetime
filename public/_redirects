@@ -9,10 +9,15 @@
 # PAS comme asset public.
 #
 # Format : [source] [destination] [code] — une regle par ligne, PREMIERE
-# correspondance gagne. Codes acceptes : 301, 302, 303, 307, 308 (302 par defaut).
+# correspondance gagne. Codes acceptes : 301, 302, 303, 307, 308 (302 par defaut),
+# ET 200, qui n'est PAS une redirection mais une REECRITURE (« proxying ») : le
+# navigateur garde l'URL demandee et Cloudflare sert le contenu de la destination.
+# Verifie le 2026-09-25 sur https://developers.cloudflare.com/pages/configuration/redirects/
+# — « Proxying will only support relative URLs on your site. You cannot proxy
+# external domains. » Notre destination est relative : elle est admise.
 # ⚠ Une ligne mal ecrite est IGNOREE EN SILENCE, jamais signalee. D'ou la
 # verification au curl de l'etape 20, qui est la seule preuve.
-# Limites : 2 000 regles statiques, 100 dynamiques. Ici : 2 statiques, 1 dynamique.
+# Limites : 2 000 regles statiques, 100 dynamiques. Ici : 3 statiques, 1 dynamique.
 # Le motif source ne peut pas filtrer sur une chaine de requete ; la destination,
 # elle, peut en porter une (c'est ce dont /go/ a besoin).
 
@@ -28,6 +33,23 @@
 # garanti. On ne parie pas sur un ordre non documente, on couvre les deux.
 /how-it-works       /alarms/   301
 /how-it-works/      /alarms/   301
+
+# --- /favicon.ico : le repli que les navigateurs demandent d'office -----------
+# Aucune page ne pointe vers /favicon.ico. lib/rootMeta.tsx ne declare que
+# /assets/favicon.svg, /assets/favicon.ico et /assets/apple-touch-icon.png.
+# Mais tout navigateur demande /favicon.ico a la racine sans qu'on le lui dise :
+# l'URL doit repondre 200, pas 404. Jusqu'au 2026-09-25 elle repondait parce
+# qu'un DOUBLON octet pour octet de assets/favicon.ico dormait dans public/.
+# Le doublon est supprime, cette REECRITURE le remplace (200, pas 301 : on ne
+# veut pas d'aller-retour sur une ressource demandee a chaque page vue).
+#
+# ⚠ NON EPROUVEE. Le site est encore servi par GitHub Pages au moment ou cette
+# ligne est ecrite ; GitHub Pages IGNORE _redirects. Tant que la bascule 9-30
+# n'est pas faite, /favicon.ico repond 404 en production. Cette ligne et la
+# bascule partent ensemble ou pas du tout — meme regle que /how-it-works
+# ci-dessus. L'etape 20 (curl) est la seule preuve ; s'y attendre un 200 avec le
+# corps de assets/favicon.ico, et NON une 301.
+/favicon.ico        /assets/favicon.ico   200
 
 # --- liens de campagne -------------------------------------------------------
 # 302, et JAMAIS 301. Un 301 est mis en cache definitivement par les navigateurs
