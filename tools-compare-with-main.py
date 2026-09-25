@@ -56,25 +56,79 @@ NOISE=re.compile(r"^/_next/")
 # échéance est la retraite de l'outil, pas « un jour ». À la bascule, cet outil
 # et cette table partent ensemble — et il faut alors accepter que plus rien ne
 # compare la prose du site à un état de référence.
+# 9-31 (2026-09-25) — LA TABLE PORTE DÉSORMAIS PLUSIEURS DISPENSES PAR PAGE.
+# Elle n'en portait qu'une, avec UNE story et UN since. La factorisation de
+# l'en-tête et du pied touche des pages que 9-17 et 9-24 avaient déjà fait
+# diverger : sans cette forme, il aurait fallu ajouter `liens` aux champs de la
+# dispense 9-24 de /timers/ — c'est-à-dire attribuer à 9-24 un écart qu'elle n'a
+# pas causé, et le couvrir par un `since` antérieur de plusieurs jours à la
+# modification réelle. Une dispense mal attribuée est pire qu'une dispense large :
+# elle est fausse. Chaque entrée garde donc SA story et SON since.
+#
+# Un champ peut figurer dans DEUX entrées de la même page : il diverge alors pour
+# deux raisons distinctes, et les deux s'impriment. C'est le cas de `texte` et
+# `liens` sur l'accueil.
+#
+# ⏳ PENDING_SHA — un since qu'on ne peut pas encore connaître.
+# Une story n'a pas de SHA tant qu'elle n'est pas commitée, et l'agent qui écrit
+# la dispense n'est pas celui qui commite. Écrire ici un SHA existant (HEAD, par
+# exemple) serait un mensonge commode : la dispense prétendrait dater d'un commit
+# qui ne contient pas le changement. Le marqueur est donc explicite ET BLOQUANT —
+# l'outil REFUSE de s'exécuter tant qu'il subsiste, sauf sous
+# `COMPARE_PENDING_OK=1`, qui sert à relire le rapport avant de commiter et
+# n'existe que pour ça. ⛔ Ne jamais mettre cette variable dans un script ou en CI.
+PENDING_SHA="⏳PENDING⏳"  # sentinelle : ne JAMAIS y mettre un vrai SHA
+
+_F=("9-31 — l'en-tête et le pied factorisés (2026-09-25)","3e1aa63")
+
 WAIVED={
-  "timers/index.html":{
-    "fields":{"texte","title","description","og:title","JSON-LD"},
-    "story":"9-24 — la page minuteurs ouvre sur la répétition",
-    # Le commit de réécriture lui-même. Une dispense doit dater de ce qu'elle
-    # dispense, pas d'avant : sinon elle couvre aussi ce qui a divergé entre les
-    # deux, sans que personne ne l'ait voulu ni relu.
-    "since":"963b5c8",
-  },
+  "timers/index.html":[
+    {"fields":{"texte","title","description","og:title","JSON-LD"},
+     "story":"9-24 — la page minuteurs ouvre sur la répétition",
+     # Le commit de réécriture lui-même. Une dispense doit dater de ce qu'elle
+     # dispense, pas d'avant : sinon elle couvre aussi ce qui a divergé entre les
+     # deux, sans que personne ne l'ait voulu ni relu.
+     "since":"963b5c8"},
+    # `liens` SEUL, et pas `texte` : sur /timers/ le texte est déjà dispensé par
+    # 9-24, mais les trois liens du menu « Uses » sont l'ajout de 9-31.
+    {"fields":{"liens"},"story":_F[0],"since":_F[1]},
+  ],
   # L'accueil a divergé de main avec la page 4 de 9-17 : un paragraphe réécrit
   # (il promettait deux fois la même chose) et un lien AJOUTÉ vers la nouvelle
   # page. `liens` est donc dispensé ici, contrairement à /timers/ — c'est assumé
   # et non contagieux : l'ajout du lien EST l'objet de 9-17. La dispense est au
   # nom de 9-17, pas de 9-24, parce que c'est cette story-là qui l'a causée.
-  "index.html":{
-    "fields":{"texte","liens"},
-    "story":"9-17 — la page de la pratique matinale (accueil)",
-    "since":"ce5e871",
-  },
+  "index.html":[
+    {"fields":{"texte","liens"},
+     "story":"9-17 — la page de la pratique matinale (accueil)",
+     "since":"ce5e871"},
+    # 9-31 s'ajoute à 9-17 sur les deux mêmes champs : le libellé « Uses » de
+    # l'accueil devient un menu (texte), et ses trois entrées sont des liens que
+    # l'accueil ne portait pas (liens). Deux causes, deux lignes.
+    {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
+  ],
+  # Les quatre pages ci-dessous ne divergeaient de main sur RIEN avant 9-31.
+  # Leur seul écart est le bloc de navigation :
+  #   texte — le <summary> « Uses » et les trois libellés du menu ;
+  #   liens — les trois pages d'usage, désormais atteignables depuis toute page.
+  # ⛔ Aucun autre champ n'est dispensé : `images`, `canonical`, `title`,
+  # `description`, `og:*` et `JSON-LD` restent comparés et restent bloquants.
+  "alarms/index.html":[
+    # `liens` couvre ici DEUX choses, et la seconde est une RÉPARATION : l'entrée
+    # « Alarms » de l'en-tête ET celle du pied pointaient href="/" — elles
+    # renvoyaient à l'accueil. Elles pointent désormais /alarms/. C'est pour ça
+    # que le comparateur voit « /alarms/ en trop » sur cette page et pas ailleurs.
+    {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
+  ],
+  "golden-hour-alarm/index.html":[
+    {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
+  ],
+  "circadian-rhythm-alarm/index.html":[
+    {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
+  ],
+  "privacy/index.html":[
+    {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
+  ],
 }
 def _is_ancestor(sha):
     try:
@@ -82,16 +136,30 @@ def _is_ancestor(sha):
                               capture_output=True).returncode==0
     except OSError:
         return None  # pas de git sous la main : on ne prétend pas avoir vérifié
-for _src,_w in sorted(WAIVED.items()):
-    if not _w.get("story") or not _w.get("since"):
-        sys.exit(f"REFUSÉ : dispense sans story ni since pour {_src}.")
-    _a=_is_ancestor(_w["since"])
-    if _a is None:
-        print(f"⚠ since de {_src} NON VÉRIFIÉ (git indisponible)")
-    elif not _a:
-        sys.exit(f"REFUSÉ : le since {_w['since']!r} de {_src} n'est pas un ancêtre "
-                 f"de HEAD. Une dispense pointe le commit qui l'a rendue nécessaire ; "
-                 f"un SHA inconnu d'ici est un placeholder qu'on a oublié de remplacer.")
+_pending_ok=os.environ.get("COMPARE_PENDING_OK")=="1"
+_pending=[]
+for _src,_ws in sorted(WAIVED.items()):
+    for _w in _ws:
+        if not _w.get("story") or not _w.get("since") or not _w.get("fields"):
+            sys.exit(f"REFUSÉ : dispense sans story, sans since ou sans champ pour {_src}.")
+        if _w["since"]==PENDING_SHA:
+            _pending.append((_src,_w["story"])); continue
+        _a=_is_ancestor(_w["since"])
+        if _a is None:
+            print(f"⚠ since de {_src} NON VÉRIFIÉ (git indisponible)")
+        elif not _a:
+            sys.exit(f"REFUSÉ : le since {_w['since']!r} de {_src} n'est pas un ancêtre "
+                     f"de HEAD. Une dispense pointe le commit qui l'a rendue nécessaire ; "
+                     f"un SHA inconnu d'ici est un placeholder qu'on a oublié de remplacer.")
+if _pending and not _pending_ok:
+    sys.exit("REFUSÉ : "+str(len(_pending))+" dispense(s) portent encore PENDING_SHA :\n"
+             +"\n".join(f"  {a} — {b}" for a,b in _pending)
+             +"\nRemplacer PENDING_SHA par le SHA du commit qui a causé ces écarts.\n"
+             "Pour relire le rapport AVANT ce commit : COMPARE_PENDING_OK=1 python3 "
+             +sys.argv[0])
+if _pending:
+    print(f"⏳ {len(_pending)} dispense(s) à SHA NON RENSEIGNÉ (COMPARE_PENDING_OK=1) — "
+          f"ce rapport n'est PAS une preuve tant que PENDING_SHA n'est pas remplacé.")
 def body(s):
     m=re.search(r"<body[^>]*>(.*?)</body>",s,re.S); return m.group(1) if m else s
 def head(s):
@@ -140,21 +208,22 @@ for src,dst,url in PAGES:
       "JSON-LD":    (ld(o), ld(n)),
     }
     diffs={k:v for k,v in checks.items() if v[0]!=v[1]}
-    w=WAIVED.get(src)
-    wf=w["fields"] if w else set()
+    ws=WAIVED.get(src,[])
+    wf=set().union(*[w["fields"] for w in ws]) if ws else set()
     fails={k:v for k,v in diffs.items() if k not in wf}
     waived={k:v for k,v in diffs.items() if k in wf}
-    unused=sorted(f for f in wf if f not in diffs)
     # les liens d'icônes viennent du layout : présents des deux côtés mais comptés ici
     print(("ÉCART " if fails else ("~ OK  " if waived else "OK    "))+url)
     if fails: bad+=1
-    for k in sorted(waived):
-        waived_total+=1
-        print(f"    ~ dispensé  {k} — {w['story']} (depuis {w['since']})")
-    for k in unused:
-        warned_total+=1
-        print(f"    ⚠ dispense INUTILISÉE  {k} identique à main — {w['story']} "
-              f"dit qu'il devait être réécrit : la réécriture n'a pas eu lieu")
+    for w in ws:
+        for k in sorted(w["fields"]):
+            if k in diffs:
+                waived_total+=1
+                print(f"    ~ dispensé  {k} — {w['story']} (depuis {w['since']})")
+            else:
+                warned_total+=1
+                print(f"    ⚠ dispense INUTILISÉE  {k} identique à main — {w['story']} "
+                      f"dit qu'il devait être réécrit : la réécriture n'a pas eu lieu")
     for k,(a,b) in fails.items():
         if k=="texte":
             d=[l for l in difflib.unified_diff(a.split(" "),b.split(" "),lineterm="",n=2)
