@@ -234,10 +234,10 @@ export default function HomePage() {
               </figure>
               <figure>
                 <picture>
-                  <source srcSet="/assets/screenshots/settings-screen--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/settings-screen.webp" type="image/webp" />
+                  <source srcSet="/assets/screenshots/settings-screen--dark.webp 1x, /assets/screenshots/settings-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                  <source srcSet="/assets/screenshots/settings-screen.webp 1x, /assets/screenshots/settings-screen@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/settings-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/settings-screen.png" alt="Risetime settings screen showing Alarm Behaviour, Celestial events location, and Alarm reliability section with five green checkmarks for all permissions. A Supporting Risetime section is visible at the bottom." width="480" height="854" loading="lazy" />
+                  <img src="/assets/screenshots/settings-screen.png" alt="Risetime settings screen with rows for Alarms, Anchors, Timers, Phone's settings, and Celestial events location set to London, United Kingdom. The Reliability row reads 8 of 8 checks passing and is open on Checks this phone doesn't have and All good (8). Supporting Risetime sits below, and the footer reads Risetime." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Reliability you can check</figcaption>
               </figure>
