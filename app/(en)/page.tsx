@@ -130,10 +130,10 @@ export default function HomePage() {
             <p className="hero-sub">Set your alarm to the sun. It shifts every day so you don't have to.</p>
             <div className="hero-screenshot">
               <picture>
-                <source srcSet="/assets/screenshots/alarm-list--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarm-list.webp" type="image/webp" />
+                <source srcSet="/assets/screenshots/alarm-list--dark.webp 1x, /assets/screenshots/alarm-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                <source srcSet="/assets/screenshots/alarm-list.webp 1x, /assets/screenshots/alarm-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarm-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarm-list.png" alt="Risetime alarm list showing five alarms: a sunrise alarm at 07:04, an absolute alarm at 09:00, two noon-relative alarms, and a sunset alarm at 18:00. Each alarm has a coloured anchor chip and a toggle switch." width="480" height="854" loading="eager" fetchPriority="high" />
+                <img src="/assets/screenshots/alarm-list.png" alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off." width="360" height="706" loading="eager" fetchPriority="high" />
               </picture>
             </div>
             <div className="cta-group">
@@ -216,19 +216,19 @@ export default function HomePage() {
             <div className="screenshot-row">
               <figure>
                 <picture>
-                  <source srcSet="/assets/screenshots/alarm-picker--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/alarm-picker.webp" type="image/webp" />
+                  <source srcSet="/assets/screenshots/alarm-picker--dark.webp 1x, /assets/screenshots/alarm-picker--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                  <source srcSet="/assets/screenshots/alarm-picker.webp 1x, /assets/screenshots/alarm-picker@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/alarm-picker--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/alarm-picker.png" alt="Risetime alarm picker dialog showing the five anchor chips (clock, sunrise, noon, sunset, nadir) with Noon selected. An offset of minus 1 hour is set, resolving to 12:07. A circular hour dial is visible below." width="480" height="854" loading="lazy" />
+                  <img src="/assets/screenshots/alarm-picker.png" alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes, and the line Tomorrow: 11:49. A circular minutes dial with 00 selected fills the lower half, with Cancel and OK beneath it." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Pick your anchor and offset</figcaption>
               </figure>
               <figure>
                 <picture>
-                  <source srcSet="/assets/screenshots/dismiss-screen--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/dismiss-screen.webp" type="image/webp" />
+                  <source srcSet="/assets/screenshots/dismiss-screen--dark.webp 1x, /assets/screenshots/dismiss-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                  <source srcSet="/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/dismiss-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime alarm dismiss screen with a sunset-toned background showing the time 18:00, the date Wednesday March 18, a large circular Snooze button, and a Dismiss text below." width="480" height="854" loading="lazy" />
+                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Wake gently</figcaption>
               </figure>

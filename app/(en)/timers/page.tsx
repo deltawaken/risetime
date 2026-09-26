@@ -93,10 +93,10 @@ export default function TimersPage() {
 
             <figure className="content-screenshot">
               <picture>
-                <source srcSet="/assets/screenshots/timer-list--dark.webp" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/timer-list.webp" type="image/webp" />
+                <source srcSet="/assets/screenshots/timer-list--dark.webp 1x, /assets/screenshots/timer-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
+                <source srcSet="/assets/screenshots/timer-list.webp 1x, /assets/screenshots/timer-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/timer-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/timer-list.png" alt="Risetime timers list showing three countdowns: 3:30 running, 9:26 paused with a reset button, and 23:35 running with a pink repeat badge. Each row has a chevron, a play or pause button, and a plus one minute button." width="480" height="854" loading="lazy" />
+                <img src="/assets/screenshots/timer-list.png" alt="Risetime timers list with three countdowns: 3:00 and 10:00 both stopped, each with a play button and a reset button, and a longer one still running with a pink repeat badge, a pause button and a +1:00 button. The Alarms, Timers and Settings tabs run along the bottom." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Three timers, sorted by duration. The pink badge marks the one set to repeat.</figcaption>
             </figure>
