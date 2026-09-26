@@ -260,3 +260,27 @@ doit neutraliser ce seul jeton — constaté en comparant deux builds consécuti
    `generateStaticParams` filtre sur `builtPages`, `tools-lang-routes.mjs` **refuse** une
    langue publiée dont l'accueil n'est pas relu (avec le bon message, au lieu de l'erreur
    opaque de Next), et `tools-strip-runtime.mjs` porte le **refus n°2** qu'AC22 exigeait.
+
+## ⟶ 2026-09-26 — `tools-compare-with-main.py` est RETIRÉ
+
+Porteur, le jour de la mise en ligne : **« on vire ce tool. »**
+
+Il comparait chaque page exportée à sa version sur `main`, et c'est lui qui a **prouvé** que le
+portage Next était une recopie et non une réécriture — conforme sur les six pages, sitemap compris.
+Ce travail est fait, et il ne se refera pas.
+
+**Ce qui le condamne :** le site n'est plus servi depuis `main`. L'outil comparerait donc à un site
+fantôme — une référence que plus personne ne sert et que plus personne ne corrige. Il continuerait
+à rendre du vert sans que ce vert ne veuille dire quoi que ce soit, et c'est précisément la sorte
+d'outil qu'on finit par ne plus lire.
+
+Il portait d'ailleurs déjà **18 champs dispensés** : à mesure que les pages divergeaient de `main`,
+ce qu'il comparait encore se réduisait.
+
+⚠️ **Ce qu'on perd, et il faut le savoir :** plus aucun garde ne compare la **prose** du site à une
+référence. Restent `tools-check-metadata.py` (les largeurs), `tools-check-langs.py` (les règles de
+langue) et `scripts/check-alt-contract.py` (les textes alternatifs contre les captures) — trois
+outils qui vérifient des **propriétés**, aucun qui vérifie qu'un paragraphe n'a pas changé par
+accident. C'est désormais la relecture de PR qui en tient lieu.
+
+`public/sitemap.xml.orig-967c17d`, qui n'existait que pour cette comparaison, part avec lui.

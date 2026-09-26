@@ -108,15 +108,6 @@ EXCLUDED_DIRS = {"404"}  # la page 404 n'est ni indexée ni servie comme résult
 # Autrement dit une exemption gèle un défaut connu ; elle n'autorise pas à
 # l'empirer. C'est exactement le trou par lequel 609 px est devenu 669 px.
 WAIVED = {
-    ("/golden-hour-alarm/", "title"): {
-        "story": "9-21 — le site mesure ses métadonnées en pixels",
-        "since": "165b019",
-        "raison": "Seul titre au-dessus de la limite DURE (668,9 px > 600). Sa réécriture "
-                  "est un arbitrage de marque — positionnement, usages nommés à égalité — "
-                  "que 9-21 se refuse explicitement à trancher (AC 12). Gelé ici pour que "
-                  "l'instrument entre en service sans réécrire un libellé.",
-        "frozen": 668.9,
-    },
     ("/", "title"): {
         "story": "9-21 — le site mesure ses métadonnées en pixels",
         "since": "165b019",
