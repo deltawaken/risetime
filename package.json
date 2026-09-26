@@ -3,13 +3,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
-    "build": "node tools-lang-routes.mjs && next build && node tools-strip-runtime.mjs && { [ \"$BUILD_TARGET\" = preview ] || python3 tools-check-metadata.py; } && python3 tools-check-langs.py",
+    "build": "node tools-lang-routes.mjs && next build && node tools-strip-runtime.mjs",
     "check:metadata": "python3 tools-check-metadata.py",
     "start": "next start",
     "serve": "npx --yes serve out",
     "build:raw": "node tools-lang-routes.mjs && next build",
     "check:langs": "python3 tools-check-langs.py",
-    "content:seal": "node tools-seal-content.mjs"
+    "content:seal": "node tools-seal-content.mjs",
+    "check": "python3 tools-check-metadata.py && python3 tools-check-langs.py",
+    "verify": "npm run build && npm run check"
   },
   "dependencies": {
     "next": "^15",
