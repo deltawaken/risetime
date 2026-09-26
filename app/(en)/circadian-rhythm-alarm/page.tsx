@@ -150,7 +150,7 @@ export default function CircadianRhythmAlarmPage() {
                 <source srcSet="/assets/screenshots/circadian-offset--dark.webp 1x, /assets/screenshots/circadian-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-offset.webp 1x, /assets/screenshots/circadian-offset@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/circadian-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-offset.png" alt="The new-alarm dialog set on Sunrise with an offset of eight hours before, showing the line Today: 23:02." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/circadian-offset.png" alt="The new-alarm dialog set on Sunrise with an offset of eight hours before, the hours dial on 8 and the minutes on 00, and the line Today: 23:02." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Any distance from the anchor, before or after, up to 11 h 59 min.</figcaption>
             </figure>
