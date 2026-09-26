@@ -219,7 +219,7 @@ export default function HomePage() {
                   <source srcSet="/assets/screenshots/alarm-picker--dark.webp 1x, /assets/screenshots/alarm-picker--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                   <source srcSet="/assets/screenshots/alarm-picker.webp 1x, /assets/screenshots/alarm-picker@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/alarm-picker--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/alarm-picker.png" alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes, and the line Tomorrow: 11:49. A circular minutes dial with 00 selected fills the lower half, with Cancel and OK beneath it." width="360" height="706" loading="lazy" />
+                  <img src="/assets/screenshots/alarm-picker.png" alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes with the hours field selected, and the line Tomorrow: 11:49. A circular hours dial with 1 selected fills the lower half, with Cancel and OK beneath it." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Pick your anchor and offset</figcaption>
               </figure>
