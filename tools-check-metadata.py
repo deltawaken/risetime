@@ -167,6 +167,13 @@ def resolve_font():
         if not Path(forced).is_file():
             refuse(f"{ENV_FONT}={forced!r} ne désigne aucun fichier.")
         return forced, f"forcée par {ENV_FONT}"
+    # La police VERSIONNÉE d'abord, et c'est délibéré. Une mesure de largeur dépend
+    # entièrement du fichier employé ; dépendre de ce qui est installé sur la machine
+    # rendait le chiffre irreproductible — le même dépôt aurait mesuré autre chose
+    # ailleurs, sans un mot. Voir tools-fonts/LICENSE-LiberationSans.txt.
+    vendored = Path(__file__).parent / "tools-fonts" / "LiberationSans-Regular.ttf"
+    if vendored.is_file():
+        return str(vendored), "Liberation Sans (versionnée dans le dépôt)"
     # fc-match est le chemin PRÉFÉRÉ, pas une dépendance dure : l'outil ne doit
     # exiger que python3, Pillow et une police métriquement compatible Arial.
     # Sans fontconfig, on cherche la police aux emplacements usuels — et le
