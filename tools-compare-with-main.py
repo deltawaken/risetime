@@ -130,10 +130,24 @@ WAIVED={
     {"fields":{"texte","liens"},"story":_F[0],"since":_F[1]},
   ],
 }
+# ── Historique superficiel ──────────────────────────────────────────────────
+# Un clone `--depth 1` — ce que font les hébergeurs — ne contient PAS les commits
+# anciens. `merge-base --is-ancestor` y échoue donc sur un SHA parfaitement
+# légitime, et l'outil accuserait un placeholder là où il n'y a qu'une histoire
+# tronquée. On ne peut pas vérifier : on le DIT, comme quand git est absent.
+def _shallow_repo():
+    try:
+        r = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                           capture_output=True, text=True)
+        return r.returncode == 0 and r.stdout.strip() == "true"
+    except OSError:
+        return False
+
+
 def _is_ancestor(sha):
     try:
         return subprocess.run(["git","merge-base","--is-ancestor",sha,"HEAD"],
-                              capture_output=True).returncode==0
+                              capture_output=True).returncode==0 or (None if _shallow_repo() else False)
     except OSError:
         return None  # pas de git sous la main : on ne prétend pas avoir vérifié
 _pending_ok=os.environ.get("COMPARE_PENDING_OK")=="1"
@@ -146,7 +160,8 @@ for _src,_ws in sorted(WAIVED.items()):
             _pending.append((_src,_w["story"])); continue
         _a=_is_ancestor(_w["since"])
         if _a is None:
-            print(f"⚠ since de {_src} NON VÉRIFIÉ (git indisponible)")
+            print(f"⚠ since de {_src} NON VÉRIFIÉ "
+                  f"({'historique superficiel' if _shallow_repo() else 'git indisponible'})")
         elif not _a:
             sys.exit(f"REFUSÉ : le since {_w['since']!r} de {_src} n'est pas un ancêtre "
                      f"de HEAD. Une dispense pointe le commit qui l'a rendue nécessaire ; "

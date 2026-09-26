@@ -356,11 +356,25 @@ if orphan_files or orphan_locs:
 
 
 # ── Cliquet : validation de la table d'exemptions ───────────────────────────
+# ── Historique superficiel ──────────────────────────────────────────────────
+# Un clone `--depth 1` — ce que font les hébergeurs — ne contient PAS les commits
+# anciens. `merge-base --is-ancestor` y échoue donc sur un SHA parfaitement
+# légitime, et l'outil accuserait un placeholder là où il n'y a qu'une histoire
+# tronquée. On ne peut pas vérifier : on le DIT, comme quand git est absent.
+def _shallow_repo():
+    try:
+        r = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                           capture_output=True, text=True)
+        return r.returncode == 0 and r.stdout.strip() == "true"
+    except OSError:
+        return False
+
+
 def is_ancestor(sha):
     try:
         return subprocess.run(
             ["git", "merge-base", "--is-ancestor", sha, "HEAD"], capture_output=True
-        ).returncode == 0
+        ).returncode == 0 or (None if _shallow_repo() else False)
     except OSError:
         return None  # pas de git sous la main : on ne prétend pas avoir vérifié
 
@@ -376,7 +390,8 @@ for key, w in sorted(WAIVED.items()):
             )
     anc = is_ancestor(w["since"])
     if anc is None:
-        print(f"⚠ since de {page}/{field} NON VÉRIFIÉ (git indisponible)")
+        print(f"⚠ since de {page}/{field} NON VÉRIFIÉ "
+              f"({'historique superficiel' if _shallow_repo() else 'git indisponible'})")
     elif not anc:
         refuse(
             f"le since {w['since']!r} de {page}/{field} n'est pas un ancêtre de HEAD.\n"
