@@ -97,7 +97,6 @@
 #   2. Apres UNE SEMAINE pleine sans aucune ligne « Refused to » ni « Content
 #      Security Policy » dans la console, sur les six pages, en clair ET en sombre
 #      (le <style> porte une media query prefers-color-scheme).
-#   3. Alors seulement : renommer l'en-tete en `Content-Security-Policy` (retirer
 #      le suffixe `-Report-Only`), pousser, puis rejouer cette verification PLUS
 #      l'etape 26 en entier.
 #   4. Si quoi que ce soit s'affiche mal : remettre le suffixe -Report-Only. Le
@@ -129,7 +128,6 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Strict-Transport-Security: max-age=86400
-  Content-Security-Policy-Report-Only: default-src 'none'; script-src 'self' 'sha256-dG9wHQYN6vhbCyKjpaLBAXr/vE91KLXqlNe1ibS2+Uk='; style-src 'self' 'sha256-esDuOimCKnvALbF1mKGoEEBfTRjum5hMOQQTVJ5NKMQ='; style-src-attr 'unsafe-inline'; img-src 'self'; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
 
 /assets/screenshots/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
@@ -140,31 +138,29 @@ https://:project.pages.dev/*
 https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex
 
-# ── ⟶ 2026-09-26 — pourquoi `script-src` existe, et ce qu'elle autorise ────────
+# ── ⟶ 2026-09-26 — la CSP est RETIRÉE, et pourquoi ────────────────────────────
 #
-# Elle a été AJOUTÉE le jour de la mise en ligne, après avoir constaté sur le
-# domaine servi que Cloudflare injecte un script à lui : l'obfuscation des
-# adresses e-mail (Scrape Shield) remplace `contact@risetime.app` par un
-# `__cf_email__` et sert `/cdn-cgi/scripts/…/email-decode.min.js` sur CHAQUE page.
+# Elle a existé ici en `Report-Only` jusqu'au jour de la mise en ligne. Porteur,
+# le même jour, après en avoir mesuré la valeur réelle : **« la retirer
+# entièrement »**. ⛔ Ne pas la reproposer sans relire ce qui suit.
 #
-# ⚠️ Le porteur la GARDE, délibérément : « offusquer l'email, GOOD — seuls les
-# humains y ont accès ». Son adresse est publiée sur le site ET dans la fiche
-# Play, et les moissonneurs sont une nuisance réelle. Ne pas la désactiver sans
-# lui demander.
+# **Elle ne faisait RIEN.** En `Report-Only` sans point de collecte, une
+# violation n'apparaît que dans la console de qui regarde. Ce n'était ni une
+# protection ni une mesure : une décoration qui se lisait comme une garantie.
 #
-# Sans cette directive, les scripts retombaient sur `default-src 'none'`. La CSP
-# étant en Report-Only, rien ne cassait — mais le jour où on la passe bloquante
-# elle aurait refusé DEUX choses : le décodeur de Cloudflare (donc l'adresse de
-# contact serait restée illisible, cette fois définitivement) et NOTRE propre
-# bloc inline, celui du sélecteur de langue.
+# **Ce qu'une version bloquante aurait protégé, ici et seulement ici :** une
+# dépendance compromise qui injecterait au build un script vers un domaine
+# tiers. Réel dans l'écosystème npm, mais c'est le SEUL scénario — ce site n'a
+# ni formulaire, ni session, ni cookie, ni donnée personnelle. Il n'y a rien à
+# exfiltrer. Un défacement ne serait pas empêché, et `frame-ancestors` faisait
+# doublon avec `X-Frame-Options`, qui reste posé.
 #
-# `'self'` couvre `/cdn-cgi/scripts/…` : même origine. L'empreinte est celle du
-# bloc inline, RÉGÉNÉRÉE À CHAQUE BUILD dans `out/csp-script-src.txt` par
-# `tools-strip-runtime.mjs`. ⛔ Ne jamais la recopier à la main : le jour où le
-# script change d'un octet, une empreinte figée le bloque en silence.
+# **Ce qu'elle aurait coûté, et ce n'est pas une hypothèse :** le jour de la
+# bascule, Cloudflare a injecté son décodeur d'adresses e-mail sur chaque page,
+# sans prévenir, parce qu'une option de Scrape Shield était active. Une CSP
+# bloquante l'aurait refusé — et l'adresse de contact serait devenue illisible,
+# EN SILENCE. L'hébergeur peut recommencer : Web Analytics, Rocket Loader.
+# Chaque option qu'on active chez lui serait un piège armé ici.
 #
-# ⚠️ Et une conséquence à connaître sur la garantie « zéro JavaScript servi » :
-# elle reste vraie de CE QUE NOUS PRODUISONS — `tools-strip-runtime.mjs` le
-# vérifie sur `out/`. Elle n'est plus vraie de ce qui ARRIVE au visiteur, parce
-# que l'hébergeur ajoute le sien après nous. La mesure porte sur l'export, pas
-# sur la réponse HTTP.
+# Ce qui protège réellement ce site reste en place au-dessus : `X-Frame-Options`,
+# `nosniff`, HSTS. Ce sont eux qui font le travail.
