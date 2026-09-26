@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
   // racine de l'espace de travail est /home/lazuli/Projects/@deltawaken.
   outputFileTracingRoot: __dirname,
 
+  // 9-31 §3 — le 404 de l'export. Sans ce drapeau, `app/global-not-found.tsx` est
+  // ignoré et Next exporte son stub par défaut, SANS bruit. Le drapeau existe dans la
+  // version installée (15.5.26) : node_modules/next/dist/server/config-schema.js:494.
+  // Le contrôle `tools-check-langs.py` (§404) vérifie le RÉSULTAT et pas le drapeau.
+  experimental: { globalNotFound: true },
+
   poweredByHeader: false,
   reactStrictMode: true,
 }
