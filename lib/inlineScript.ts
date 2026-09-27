@@ -39,9 +39,23 @@
 // accès au stockage qu'il y ait jamais eu appartenait au bandeau, et il est parti
 // avec lui.
 
+// ⚠️ AJOUT DU 2026-09-27 : le thème. Ce bloc est le PREMIER enfant de <body>, donc
+// il pose `data-theme` avant que le corps soit peint — pas de clignotement dans la
+// mauvaise couleur, et sans second bloc (« UN bloc, pas deux »).
+// ⛔ `localStorage` revient ici, alors qu'il était parti avec le bandeau le
+//    2026-09-25. C'est le seul stockage du site, il ne contient qu'une chaîne
+//    (`light` ou `dark`), et il est enveloppé de try/catch : en navigation privée
+//    stricte, l'accès LÈVE — sans la garde, le site entier resterait sans thème.
+// ⛔ `data-js` n'est pas une coquetterie : c'est lui qui RÉVÈLE le bouton. Sans
+//    script, il n'y a pas de bouton du tout, donc pas de contrôle menteur.
 const SEL = "nav[data-rt-langs] details[open]"
 
-export const INLINE_SCRIPT = `(function(){var D=function(){return document.querySelector('${SEL}')};
+export const INLINE_SCRIPT = `(function(){var H=document.documentElement,K='rt-theme',S;
+try{S=localStorage;if(S[K])H.dataset.theme=S[K]}catch(e){}
+H.dataset.js='';
+addEventListener('click',function(e){if(!e.target.closest||!e.target.closest('[data-rt-theme]'))return;
+try{if(S[K]){delete S[K];delete H.dataset.theme}else H.dataset.theme=S[K]=matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'}catch(e){}});
+var D=function(){return document.querySelector('${SEL}')};
 addEventListener('keydown',function(e){if(e.key!='Escape')return;var d=D();if(d){d.open=false;d.querySelector('summary').focus()}});
 addEventListener('click',function(e){var d=D();if(d&&!d.contains(e.target))d.open=false});
 addEventListener('pageshow',function(e){if(e.persisted){var d=D();if(d)d.open=false}})})();`

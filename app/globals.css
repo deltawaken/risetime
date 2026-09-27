@@ -19,41 +19,109 @@
   --space-xxl: 6rem;
   --focus-offset: 2px;
 
-  /* Default: light theme */
-  --bg: #faf8f5;
-  --bg-elevated: #ffffff;
-  --surface: #f0ede8;
-  --accent: #9e5c2c;
-  --accent-hover: #884e24;
-  --accent-muted: #9e5c2c1a;
-  --text: #2c2c2c;
-  --text-strong: #1a1a1a;
-  --muted: #6b6b6b;
-  --border: #d9d4cc;
-  --border-accent: #9e5c2c40;
-  --code-bg: #eae6e0;
-  --screenshot-bg: #f0ede8;
-  --screenshot-border: #d9d4cc;
+  /* ── LES DEUX PALETTES, chacune écrite UNE SEULE FOIS ────────────────────
+     Restructuré le 2026-09-27 pour le sélecteur de thème. Avant, les valeurs
+     sombres vivaient dans un `@media (prefers-color-scheme: dark)` ; permettre
+     un override manuel aurait demandé de les RECOPIER dans un second sélecteur,
+     et deux copies d'une palette dérivent — c'est le mode de panne de ce dépôt.
+     Ici les valeurs sont déclarées une fois ; seule la RÉSOLUTION (quelle palette
+     s'applique) est écrite deux fois, et une erreur y est visible au premier coup
+     d'œil au lieu d'être une teinte fausse quelque part. */
+  --light-bg: #faf8f5;
+  --light-bg-elevated: #ffffff;
+  --light-surface: #f0ede8;
+  --light-accent: #9e5c2c;
+  --light-accent-hover: #884e24;
+  --light-accent-muted: #9e5c2c1a;
+  --light-text: #2c2c2c;
+  --light-text-strong: #1a1a1a;
+  --light-muted: #6b6b6b;
+  --light-border: #d9d4cc;
+  --light-border-accent: #9e5c2c40;
+  --light-code-bg: #eae6e0;
+  --light-screenshot-bg: #f0ede8;
+  --light-screenshot-border: #d9d4cc;
+
+  --dark-bg: #0f1117;
+  --dark-bg-elevated: #161824;
+  --dark-surface: #1a1a2e;
+  --dark-accent: #e8a87c;
+  --dark-accent-hover: #f0b88e;
+  --dark-accent-muted: #e8a87c33;
+  --dark-text: #e8e8e8;
+  --dark-text-strong: #ffffff;
+  --dark-muted: #9a9a9a;
+  --dark-border: #2a2a3e;
+  --dark-border-accent: #e8a87c40;
+  --dark-code-bg: #1e1e32;
+  --dark-screenshot-bg: #1a1a2e;
+  --dark-screenshot-border: #2a2a3e;
+
+  /* Résolution par défaut : clair. `color-scheme` fait suivre les contrôles
+     natifs et les barres de défilement — sans lui, un formulaire reste clair
+     sur une page sombre. */
+  color-scheme: light;
+  --bg: var(--light-bg);
+  --bg-elevated: var(--light-bg-elevated);
+  --surface: var(--light-surface);
+  --accent: var(--light-accent);
+  --accent-hover: var(--light-accent-hover);
+  --accent-muted: var(--light-accent-muted);
+  --text: var(--light-text);
+  --text-strong: var(--light-text-strong);
+  --muted: var(--light-muted);
+  --border: var(--light-border);
+  --border-accent: var(--light-border-accent);
+  --code-bg: var(--light-code-bg);
+  --screenshot-bg: var(--light-screenshot-bg);
+  --screenshot-border: var(--light-screenshot-border);
 }
 
+/* ── RÉSOLUTION DU THÈME ─────────────────────────────────────────────────────
+   Deux chemins vers la palette sombre, et c'est voulu :
+     · le système la demande ET l'utilisateur n'a pas forcé le clair ;
+     · l'utilisateur a forcé le sombre, quel que soit le système.
+   ⛔ `:not([data-theme="light"])` n'est pas décoratif : sans lui, forcer le clair
+      sur un système sombre ne ferait rien. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1117;
-    --bg-elevated: #161824;
-    --surface: #1a1a2e;
-    --accent: #e8a87c;
-    --accent-hover: #f0b88e;
-    --accent-muted: #e8a87c33;
-    --text: #e8e8e8;
-    --text-strong: #ffffff;
-    --muted: #9a9a9a;
-    --border: #2a2a3e;
-    --border-accent: #e8a87c40;
-    --code-bg: #1e1e32;
-    --screenshot-bg: #1a1a2e;
-    --screenshot-border: #2a2a3e;
+  :root:not([data-theme="light"]) {
+    --bg: var(--dark-bg);
+    --bg-elevated: var(--dark-bg-elevated);
+    --surface: var(--dark-surface);
+    --accent: var(--dark-accent);
+    --accent-hover: var(--dark-accent-hover);
+    --accent-muted: var(--dark-accent-muted);
+    --text: var(--dark-text);
+    --text-strong: var(--dark-text-strong);
+    --muted: var(--dark-muted);
+    --border: var(--dark-border);
+    --border-accent: var(--dark-border-accent);
+    --code-bg: var(--dark-code-bg);
+    --screenshot-bg: var(--dark-screenshot-bg);
+    --screenshot-border: var(--dark-screenshot-border);
+    color-scheme: dark;
   }
 }
+
+:root[data-theme="dark"] {
+  --bg: var(--dark-bg);
+  --bg-elevated: var(--dark-bg-elevated);
+  --surface: var(--dark-surface);
+  --accent: var(--dark-accent);
+  --accent-hover: var(--dark-accent-hover);
+  --accent-muted: var(--dark-accent-muted);
+  --text: var(--dark-text);
+  --text-strong: var(--dark-text-strong);
+  --muted: var(--dark-muted);
+  --border: var(--dark-border);
+  --border-accent: var(--dark-border-accent);
+  --code-bg: var(--dark-code-bg);
+  --screenshot-bg: var(--dark-screenshot-bg);
+  --screenshot-border: var(--dark-screenshot-border);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
 
 /* ---- RESET ---- */
 *, *::before, *::after {
@@ -403,10 +471,11 @@ code {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 @media (prefers-color-scheme: dark) {
-  .hero-screenshot img {
+  :root:not([data-theme="light"]) .hero-screenshot img {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 }
+:root[data-theme="dark"] .hero-screenshot img { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
 .cta-group {
   margin-top: var(--space-md);
 }
@@ -526,10 +595,11 @@ code {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 @media (prefers-color-scheme: dark) {
-  .screenshot-row img {
+  :root:not([data-theme="light"]) .screenshot-row img {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] .screenshot-row img { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
 .screenshot-row figcaption {
   margin-top: var(--space-xs);
   color: var(--muted);
@@ -810,10 +880,11 @@ code {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 @media (prefers-color-scheme: dark) {
-  .content-screenshot img {
+  :root:not([data-theme="light"]) .content-screenshot img {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] .content-screenshot img { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
 .content-screenshot figcaption {
   margin-top: var(--space-xs);
   color: var(--muted);
@@ -894,3 +965,39 @@ code {
   margin-inline-end: 0.4em;
   vertical-align: -0.12em;
 }
+
+/* ── LE SÉLECTEUR DE THÈME ───────────────────────────────────────────────────
+   ⛔ INVISIBLE SANS JAVASCRIPT. Le bloc inline pose `data-js` sur <html> ; tant
+   qu'il n'a pas tourné, le bouton n'existe pas à l'écran. Un contrôle affiché qui
+   ne fait rien est un mensonge — et c'est le défaut exact que le portage a
+   supprimé, où l'affichage dépendait du JS pour se RÉVÉLER au lieu de se cacher.
+   Ici l'échec est dans le bon sens : pas de JS ⇒ pas de bouton ⇒ le thème suit le
+   système, ce qui est déjà la bonne réponse pour presque tout le monde. */
+.theme-selector { display: none; }
+:root[data-js] .theme-selector {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-inline-start: 0.5rem;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+:root[data-js] .theme-selector:hover { color: var(--accent); }
+
+/* L'ICÔNE SUIT LE THÈME APPLIQUÉ, par les MÊMES sélecteurs que la palette — pas
+   par une classe que le script poserait. Le bouton ne peut donc pas afficher un
+   soleil sur une page sombre : les deux sortent de la même condition CSS.
+   ⚠️ `display: none` retire aussi du calcul du nom accessible : le lecteur d'écran
+   n'annonce jamais les deux icônes à la fois. */
+.theme-selector__moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-selector__sun { display: none; }
+  :root:not([data-theme="light"]) .theme-selector__moon { display: inline; }
+}
+:root[data-theme="dark"] .theme-selector__sun { display: none; }
+:root[data-theme="dark"] .theme-selector__moon { display: inline; }
+:root[data-theme="light"] .theme-selector__sun { display: inline; }
+:root[data-theme="light"] .theme-selector__moon { display: none; }

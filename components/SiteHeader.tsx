@@ -1,5 +1,6 @@
 import DisclosureNav from './DisclosureNav'
 import LanguageSelector from './LanguageSelector'
+import ThemeSelector from './ThemeSelector'
 import { navGroup } from '../lib/pages'
 
 // 9-31 (2026-09-25) — l'en-tête, factorisé. Décision du porteur, qui INVERSE le
@@ -47,36 +48,6 @@ export default function SiteHeader(
             l'accueil : dans main il ne l'a jamais porté, et l'entrée courante
             reste signalée par la nav elle-même. */}
         <a href="/" className="wordmark">Risetime</a>
-        {/* LE SÉLECTEUR DE LANGUE — ici, EN PREMIER, et dans le DOM autant qu'à
-            l'écran. Déménagé du pied le 2026-09-27 (porteur : « mettons le menu
-            dans le menu du haut »), puis placé avant les pages le même jour.
-
-            ⛔ LE PORTEUR PROPOSAIT `order` EN FLEX pour l'afficher en premier tout
-               en le laissant en dernier dans le DOM, « pour l'a11y ». C'est
-               l'inverse qui se produit, et MDN le dit de la propriété elle-même :
-               « order is only meant to affect the visual order […] not their
-               logical or tab order — it must not be used on non-visual media such
-               as speech », et « using the order property will create a DISCONNECT
-               between the visual presentation of content and DOM order ».
-               Un utilisateur au clavier verrait le focus sauter par-dessus le
-               sélecteur puis y revenir en dernier, sans rien pour l'expliquer.
-            → Le choix est binaire : premier pour TOUT LE MONDE, ou dernier pour
-               tout le monde. Il est premier. Son prix, assumé : il prend le premier
-               arrêt de tabulation après le logotype.
-
-            Les trois raisons de 9-31 §1 qui le plaçaient en PIED, une par une :
-            · DÉCOUVERTE — argument déjà affaibli par la suppression du bandeau le
-              2026-09-25 ; le haut de page la sert mieux. La raison du déménagement.
-            · CLAVIER — « 30 entrées avant le contenu ». ⛔ Faux dans l'état actuel,
-              et le commentaire d'origine le disait : replié, un <details> ne coûte
-              QU'UN arrêt de tabulation, son contenu n'étant pas focusable.
-              `SELECTOR_INLINE_MAX = 0` le garde replié quel que soit le nombre de
-              langues. ⚠️ Cet argument redeviendrait vrai si quelqu'un remontait
-              cette constante — et il serait alors décisif, le sélecteur étant
-              désormais EN TÊTE de la navigation.
-            · POUSSÉE — un <details> ouvert pousse le contenu. Vrai, et déjà le cas
-              du menu « Uses » à côté, accepté. */}
-        <LanguageSelector lang={lang} page={current} />
         {navGroup('main').map((e) => flat(e.href, e.label))}
         <DisclosureNav
           label="Uses"
@@ -92,6 +63,27 @@ export default function SiteHeader(
         />
         {navGroup('legal').map((e) => flat(e.href, e.label))}
 
+        {/* LES DEUX SÉLECTEURS, EN FIN DE NAVIGATION — ordre voulu par le porteur
+            le 2026-09-27 : « menu items - theme-selector - lang-selector ».
+            ⛔ Leur place à l'écran est leur place dans le DOM. Le porteur avait
+               d'abord proposé `order` en flex pour les afficher ailleurs qu'ils ne
+               sont écrits ; MDN l'interdit pour cet usage — « order is only meant
+               to affect the visual order […] not their logical or tab order » et
+               « will create a DISCONNECT between the visual presentation of content
+               and DOM order ». Le focus suit donc exactement ce qu'on voit. */}
+        {/* Le sélecteur de langue a quitté le PIED le 2026-09-27, et les trois
+            raisons de 9-31 §1 qui l'y plaçaient valent d'être relues ici :
+            · DÉCOUVERTE — déjà affaiblie par la suppression du bandeau le 25/09 ;
+              le haut de page la sert mieux. La raison du déménagement.
+            · CLAVIER — « 30 entrées avant le contenu ». ⛔ Faux tel quel, et le
+              commentaire d'origine le disait : replié, un <details> ne coûte QU'UN
+              arrêt de tabulation. `SELECTOR_INLINE_MAX = 0` le garde replié quel
+              que soit le nombre de langues. ⚠️ L'argument redeviendrait vrai si
+              quelqu'un remontait cette constante.
+            · POUSSÉE — un <details> ouvert pousse le contenu. Vrai, et déjà le cas
+              du menu « Uses » à côté, accepté. */}
+        <ThemeSelector />
+        <LanguageSelector lang={lang} page={current} />
       </nav>
     </header>
   )

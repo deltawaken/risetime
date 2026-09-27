@@ -60,6 +60,17 @@ ROOT = Path(__file__).resolve().parent
 #     dériver en silence. Le jour où le bloc grossit pour une bonne raison, on remonte CE
 #     nombre — à la main, et ça se voit dans le diff. C'est tout l'intérêt.
 #
+#     ⭐ REMONTÉ DE 412 À 792 le 2026-09-27 (octetage RÉEL dans le HTML, pas la longueur du source), et c'est une DÉCISION, pas une dérive : le
+#     sélecteur de thème entre dans le bloc (392 o). Le porteur a demandé le contrôle après
+#     discussion des deux articles de Lea Verou ; le coût est ici, visible, dans un nombre
+#     qui a bougé dans le diff — c'est exactement ce à quoi ce cliquet sert.
+#     ⛔ ET C'EST POURQUOI LE CODE RESTE DANS LE BLOC plutôt qu'en attributs `onclick=`,
+#     que le porteur proposait à juste titre comme moins coûteux (≈ 300 o, et la CSP qui
+#     les interdisait a été retirée le 2026-09-26) : des attributs ne RÉDUISENT pas le
+#     JavaScript, ils le SORTENT DE LA MESURE. Ni ce cliquet ni L12 ni la liste blanche de
+#     tools-strip-runtime.mjs ne voient un `onclick=`. On aurait gagné 90 octets affichés
+#     et perdu le seul instrument qui dit quand le JavaScript grossit.
+#
 #     ⚠️ DESCENDU DE 1187 À 412 le 2026-09-25 : le porteur a supprimé le bandeau de langue,
 #     et les deux tiers du bloc étaient à lui (lecture de `navigator.languages`, `JSON.parse`
 #     du bloc `#rt-langs`, drapeau `localStorage`, construction du lien et du bouton de
@@ -67,7 +78,7 @@ ROOT = Path(__file__).resolve().parent
 #     sur la valeur constatée chaque fois qu'il DESCEND, sinon la place libérée se
 #     reprendrait sans que rien ne le dise.
 BUDGET_DECLARE = 1200
-BUDGET_INLINE = 412
+BUDGET_INLINE = 792
 
 fails: list[str] = []
 notes: list[str] = []
