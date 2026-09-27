@@ -354,6 +354,19 @@ code {
   font-size: 0.9em;
 }
 
+/* ---- IMAGES QUI SUIVENT LE THÈME FORCÉ (voir components/ThemedImage.tsx) ---- */
+/* Le <picture> décide seul tant que l'utilisateur n'a rien forcé. Ces deux règles
+   ne s'arment QUE dans les deux cas de désaccord entre le système et le choix
+   explicite — c'est pourquoi elles ne coûtent aucun téléchargement au cas courant.
+   ⛔ Pas d'`image-set()` : il daterait la technique de 2023 (Safari 17), là où
+      `content: url()` sur un élément remplacé remonte à Safari 9 / Firefox 63. */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="light"] .themed-img { content: var(--img-light); }
+}
+@media (prefers-color-scheme: light) {
+  :root[data-theme="dark"] .themed-img { content: var(--img-dark); }
+}
+
 /* ---- PLAY BADGE (CTA button — used everywhere) ---- */
 .play-badge {
   display: inline-flex;

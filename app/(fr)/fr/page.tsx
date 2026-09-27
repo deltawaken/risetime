@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { langMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
+import ThemedImage from '../../../components/ThemedImage'
 import SiteFooter from '../../../components/SiteFooter'
 
 // L'ACCUEIL FRANÇAIS, écrit à la main comme l'anglais (porteur, 2026-09-27).
@@ -105,12 +106,13 @@ export default function AccueilPage() {
             <p className="hero-celestial">Votre réveil céleste.</p>
             <p className="hero-sub">Réglez votre alarme sur le soleil. Elle se décale chaque jour, pour que vous n&rsquo;ayez pas à le faire.</p>
             <div className="hero-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarm-list--dark.webp 1x, /assets/screenshots/alarm-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarm-list.webp 1x, /assets/screenshots/alarm-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarm-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarm-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte." width="360" height="706" loading="eager" fetchPriority="high" />
-              </picture>
+              <ThemedImage
+                base="/assets/screenshots/alarm-list"
+                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
+                width={360}
+                height={706}
+                priority
+              />
             </div>
             <div className="cta-group">
               <PlayBadge />
