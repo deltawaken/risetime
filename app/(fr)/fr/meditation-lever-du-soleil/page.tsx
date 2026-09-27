@@ -34,7 +34,7 @@ const jsonLd = [
   "publisher": {
     "@type": "Organization",
     "name": "Risetime",
-    "url": "https://risetime.app/fr/"
+    "url": "https://risetime.app/"
   },
   "mainEntityOfPage": "https://risetime.app/fr/meditation-lever-du-soleil/"
 },
