@@ -106,8 +106,8 @@ export default function HeureDoreePage() {
             <p>Les définitions varient d&rsquo;un photographe à l&rsquo;autre ; voici les plus courantes. Réglez l&rsquo;angle avec lequel vous travaillez, et l&rsquo;application le tient à toutes les latitudes et à toutes les saisons — ce qu&rsquo;une règle toute faite, « 30 minutes avant le coucher du soleil », ne sait pas faire, parce que la durée du crépuscule change avec les deux. À Londres le 21 juin, +6° tombe à 20:27 et le coucher du soleil à 21:21 : près d&rsquo;une heure d&rsquo;écart. À New York le même soir, 19:49 et 20:30 : quarante minutes.</p>
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/sky-menu"
-                darkBase="/assets/screenshots/sky-menu--dark"
+                lightBase="/assets/screenshots/fr/sky-menu"
+                darkBase="/assets/screenshots/fr/sky-menu--dark"
                 alt="La boîte de création d'alarme, son menu d'ancres ouvert, listant Absolu, Lever du soleil, Midi, Heure dorée, Coucher du soleil, Heure bleue, Ciel nocturne et Nadir."
                 width={360}
                 height={706}
@@ -127,8 +127,8 @@ export default function HeureDoreePage() {
             <p><a href="/fr/alarmes/#section-custom" className="content-link">Comment marchent les ancres et les décalages</a></p>
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/sky-list"
-                darkBase="/assets/screenshots/sky-list--dark"
+                lightBase="/assets/screenshots/fr/sky-list"
+                darkBase="/assets/screenshots/fr/sky-list--dark"
                 alt="La liste d'alarmes de Risetime avec cinq alarmes : 06:45 et 08:10 du lundi au vendredi sur Absolu ; 17:24 le dimanche et le samedi, 30 min avant Heure dorée ; 18:58 le dimanche et le samedi à Heure bleue ; et 20:30 le vendredi et le samedi à Ciel nocturne."
                 width={360}
                 height={706}
@@ -168,8 +168,8 @@ export default function HeureDoreePage() {
             <p>Très au nord ou très au sud, cette fenêtre se ferme pendant une partie de l&rsquo;année : à Londres, le soleil n&rsquo;atteint pas −18° <strong>du 23 mai au 21 juillet</strong>. Risetime le dit au moment où vous créez l&rsquo;ancre, avec les dates de votre propre lieu, et ces nuits-là l&rsquo;alarme reste silencieuse plutôt que de sonner à une heure que le ciel ne produit jamais.</p>
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/sky-night-editor"
-                darkBase="/assets/screenshots/sky-night-editor--dark"
+                lightBase="/assets/screenshots/fr/sky-night-editor"
+                darkBase="/assets/screenshots/fr/sky-night-editor--dark"
                 alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le soir, nommé Ciel nocturne, avec l'aperçu : Prochain : 20:30. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
                 width={360}
                 height={706}

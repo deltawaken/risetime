@@ -102,8 +102,8 @@ export default function MeditationLeverDuSoleilPage() {
             <p>Les définitions varient ; voici les plus courantes. L&rsquo;application tient celle que vous réglez à toutes les latitudes et à toutes les saisons — ce qu&rsquo;un « quarante-cinq minutes avant le lever » fixe ne peut pas faire, la durée de l&rsquo;aube changeant avec l&rsquo;une et avec l&rsquo;autre.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/practice-list"
-                darkBase="/assets/screenshots/practice-list--dark"
+                lightBase="/assets/screenshots/fr/practice-list"
+                darkBase="/assets/screenshots/fr/practice-list--dark"
                 alt="Liste d'alarmes de Risetime avec quatre alarmes, toutes répétées chaque jour : 05:29 sur Dernière partie de la nuit, 05:50 sur Aube nautique, 06:29 sur Aube civile, et 07:02 au Lever du soleil."
                 width={360}
                 height={706}
@@ -134,8 +134,8 @@ export default function MeditationLeverDuSoleilPage() {
             <p>Loin vers le nord ou vers le sud, le soleil ne descend jamais aussi bas pendant une partie de l&rsquo;année. L&rsquo;éditeur le dit au moment où vous créez l&rsquo;ancre — <em>« Le soleil n&rsquo;atteint pas cet angle ici, du X au Y »</em>, avec vos dates à vous — et ces jours-là l&rsquo;alarme reste silencieuse plutôt que de sonner à un moment que le ciel n&rsquo;a jamais produit. Rien n&rsquo;est inventé.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/practice-angle-editor"
-                darkBase="/assets/screenshots/practice-angle-editor--dark"
+                lightBase="/assets/screenshots/fr/practice-angle-editor"
+                darkBase="/assets/screenshots/fr/practice-angle-editor--dark"
                 alt="L'éditeur d'ancre sur Un angle solaire, réglé sur −6,0° le matin, nommé Aube civile, avec l'aperçu : Prochain : 06:29."
                 width={360}
                 height={706}
@@ -156,8 +156,8 @@ export default function MeditationLeverDuSoleilPage() {
             <p>La nuit, ici, est exactement une chose : <strong>d&rsquo;un coucher du soleil au lever suivant</strong>, découpée en parts égales. À l&rsquo;intérieur des cercles polaires, une telle nuit peut ne pas exister ; l&rsquo;ancre n&rsquo;a alors rien à diviser, et l&rsquo;application le dit — sans la plage de dates que donne la forme par angle, que cette forme-ci n&rsquo;a pas. Vous calez sur un horaire publié ? <strong>Avancé → Décaler de N minutes</strong> déplace une ancre que vous avez faite, jusqu&rsquo;à trente minutes d&rsquo;un côté comme de l&rsquo;autre.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/practice-division-editor"
-                darkBase="/assets/screenshots/practice-division-editor--dark"
+                lightBase="/assets/screenshots/fr/practice-division-editor"
+                darkBase="/assets/screenshots/fr/practice-division-editor--dark"
                 alt="L'éditeur d'ancre sur Une fraction du jour ou de la nuit, avec Nuit sélectionné, Nombre de parts réglé sur 8 et Position sur 7/8, nommé Dernière partie de la nuit, avec l'aperçu : Prochain : 05:29."
                 width={360}
                 height={706}

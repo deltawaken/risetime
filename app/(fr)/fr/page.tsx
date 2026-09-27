@@ -107,8 +107,8 @@ export default function AccueilPage() {
             <p className="hero-sub">Réglez votre alarme sur le soleil. Elle se décale chaque jour, pour que vous n&rsquo;ayez pas à le faire.</p>
             <div className="hero-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarm-list"
-                darkBase="/assets/screenshots/alarm-list--dark"
+                lightBase="/assets/screenshots/fr/alarm-list"
+                darkBase="/assets/screenshots/fr/alarm-list--dark"
                 alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
                 width={360}
                 height={706}
@@ -177,8 +177,8 @@ export default function AccueilPage() {
             <div className="screenshot-row">
               <figure>
                 <ThemedPicture
-                  lightBase="/assets/screenshots/alarm-picker"
-                  darkBase="/assets/screenshots/alarm-picker--dark"
+                  lightBase="/assets/screenshots/fr/alarm-picker"
+                  darkBase="/assets/screenshots/fr/alarm-picker--dark"
                   alt="La boîte de création d'alarme de Risetime, ouverte par-dessus la liste : la pastille d'ancre Midi, un décalage de moins 1 heure et 00 minute avec le champ des heures sélectionné, et la ligne Demain : 11:49. Un cadran d'heures circulaire avec 1 sélectionné occupe la moitié basse, avec Annuler et OK en dessous."
                   width={360}
                   height={706}
@@ -187,8 +187,8 @@ export default function AccueilPage() {
               </figure>
               <figure>
                 <ThemedPicture
-                  lightBase="/assets/screenshots/dismiss-screen"
-                  darkBase="/assets/screenshots/dismiss-screen--dark"
+                  lightBase="/assets/screenshots/fr/dismiss-screen"
+                  darkBase="/assets/screenshots/fr/dismiss-screen--dark"
                   alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous."
                   width={360}
                   height={706}
@@ -197,8 +197,8 @@ export default function AccueilPage() {
               </figure>
               <figure>
                 <ThemedPicture
-                  lightBase="/assets/screenshots/settings-screen"
-                  darkBase="/assets/screenshots/settings-screen--dark"
+                  lightBase="/assets/screenshots/fr/settings-screen"
+                  darkBase="/assets/screenshots/fr/settings-screen--dark"
                   alt="L'écran des paramètres de Risetime, avec les lignes Alarmes, Ancres, Minuteurs, Paramètres du téléphone, et Lieu des événements célestes réglé sur Londres, Royaume-Uni. La ligne Fiabilité indique 8 vérifications sur 8 au vert et est ouverte sur Contrôles sans objet sur ce téléphone et Tout va bien (8). Soutenir Risetime figure en dessous, et le pied de page indique Risetime."
                   width={360}
                   height={706}

@@ -96,8 +96,8 @@ export default function MinuteursPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/timer-list"
-                darkBase="/assets/screenshots/timer-list--dark"
+                lightBase="/assets/screenshots/fr/timer-list"
+                darkBase="/assets/screenshots/fr/timer-list--dark"
                 alt="Liste des minuteurs de Risetime avec trois décomptes : 3:00 et 10:00 tous deux à l'arrêt, chacun avec un bouton de lecture et un bouton de remise à zéro, et un plus long encore en cours, avec une pastille rose de répétition, un bouton pause et un bouton +1:00. Les onglets Alarmes, Minuteurs et Paramètres courent en bas de l'écran."
                 width={360}
                 height={706}

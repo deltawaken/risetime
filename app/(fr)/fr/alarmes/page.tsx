@@ -94,8 +94,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-list"
-                darkBase="/assets/screenshots/alarms-list--dark"
+                lightBase="/assets/screenshots/fr/alarms-list"
+                darkBase="/assets/screenshots/fr/alarms-list--dark"
                 alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
                 width={360}
                 height={706}
@@ -125,8 +125,8 @@ export default function AlarmesPage() {
                   <p>Dans <strong>Paramètres → Lieu des événements célestes</strong> : choisissez votre ville dans la liste ; ou utilisez le GPS du téléphone, une fois ; ou activez la <strong>Mise à jour automatique du lieu</strong>, et il vous suit en voyage. Votre position reste sur votre téléphone : Risetime n&rsquo;a aucune permission Internet, il n&rsquo;y a donc nulle part où l&rsquo;envoyer.</p>
                   <figure className="content-screenshot">
                     <ThemedPicture
-                      lightBase="/assets/screenshots/alarms-location"
-                      darkBase="/assets/screenshots/alarms-location--dark"
+                      lightBase="/assets/screenshots/fr/alarms-location"
+                      darkBase="/assets/screenshots/fr/alarms-location--dark"
                       alt="Les paramètres de Risetime, section Lieu des événements célestes ouverte : Londres, Royaume-Uni sélectionné, un bouton GPS, et une case Mise à jour automatique du lieu décochée."
                       width={360}
                       height={706}
@@ -143,8 +143,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-anchor-menu"
-                darkBase="/assets/screenshots/alarms-anchor-menu--dark"
+                lightBase="/assets/screenshots/fr/alarms-anchor-menu"
+                darkBase="/assets/screenshots/fr/alarms-anchor-menu--dark"
                 alt="La boîte de création d'alarme, son menu d'ancres ouvert : Absolu, Aube astronomique, Lever du soleil, Midi, Heure dorée, Coucher du soleil et Nadir."
                 width={360}
                 height={706}
@@ -166,8 +166,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-offset"
-                darkBase="/assets/screenshots/alarms-offset--dark"
+                lightBase="/assets/screenshots/fr/alarms-offset"
+                darkBase="/assets/screenshots/fr/alarms-offset--dark"
                 alt="La boîte de création d'alarme réglée sur le Coucher du soleil avec un décalage d'une heure avant, le cadran des heures sur 1 et celui des minutes sur 00, et la ligne Aujourd'hui : 17:38."
                 width={360}
                 height={706}
@@ -182,8 +182,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-card"
-                darkBase="/assets/screenshots/alarms-card--dark"
+                lightBase="/assets/screenshots/fr/alarms-card"
+                darkBase="/assets/screenshots/fr/alarms-card--dark"
                 alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Par défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image."
                 width={360}
                 height={706}
@@ -212,8 +212,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-anchors"
-                darkBase="/assets/screenshots/alarms-anchors--dark"
+                lightBase="/assets/screenshots/fr/alarms-anchors"
+                darkBase="/assets/screenshots/fr/alarms-anchors--dark"
                 alt="Les paramètres, section Ancres : deux ancres personnalisées, Aube astronomique et Heure dorée, chacune avec un bouton de modification et un bouton de suppression, parmi les ancres d'usine Lever du soleil, Midi, Coucher du soleil et Nadir. Chaque ligne porte un interrupteur de visibilité, tous activés."
                 width={360}
                 height={706}
@@ -226,8 +226,8 @@ export default function AlarmesPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/alarms-anchor-editor"
-                darkBase="/assets/screenshots/alarms-anchor-editor--dark"
+                lightBase="/assets/screenshots/fr/alarms-anchor-editor"
+                darkBase="/assets/screenshots/fr/alarms-anchor-editor--dark"
                 alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
                 width={360}
                 height={706}

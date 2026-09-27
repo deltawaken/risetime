@@ -115,8 +115,8 @@ export default function ReveilRythmeCircadienPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/circadian-list"
-                darkBase="/assets/screenshots/circadian-list--dark"
+                lightBase="/assets/screenshots/fr/circadian-list"
+                darkBase="/assets/screenshots/fr/circadian-list--dark"
                 alt="Liste d'alarmes de Risetime avec trois alarmes, toutes répétées chaque jour : 07:02 au lever du soleil, 20:38 deux heures après le coucher du soleil, et 23:02 huit heures avant le lever du soleil."
                 width={360}
                 height={706}
@@ -156,8 +156,8 @@ export default function ReveilRythmeCircadienPage() {
 
             <figure className="content-screenshot">
               <ThemedPicture
-                lightBase="/assets/screenshots/circadian-offset"
-                darkBase="/assets/screenshots/circadian-offset--dark"
+                lightBase="/assets/screenshots/fr/circadian-offset"
+                darkBase="/assets/screenshots/fr/circadian-offset--dark"
                 alt="La boîte de dialogue de nouvelle alarme réglée sur le lever du soleil avec un décalage de huit heures avant, le cadran des heures sur 8 et celui des minutes sur 00, et la ligne Aujourd'hui : 23:02."
                 width={360}
                 height={706}
