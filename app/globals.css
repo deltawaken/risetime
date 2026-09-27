@@ -360,8 +360,17 @@ code {
   flex-direction: column;
   align-items: center;
   gap: 0.15rem;
-  background: var(--text-strong);
-  color: var(--bg);
+  /* INVERSÉ le 2026-09-27 (porteur : « peut-on inverser les couleurs du bouton
+     Play ? »). Il portait `--text-strong` sur `--bg` : un pavé blanc sur la page
+     sombre, un pavé noir sur la page claire — le bouton était le point le plus
+     contrasté de la page, avant le titre.
+     ⚠️ La bordure n'est pas décorative : sans elle, un fond `--bg-elevated` sur
+        `--bg` ne se distingue que de deux à six points de luminosité, et le bouton
+        cesse de se lire comme un bouton. C'est elle qui porte l'affordance
+        maintenant que le contraste ne la porte plus. */
+  background: var(--bg-elevated);
+  color: var(--text-strong);
+  border: 1px solid var(--border);
   padding: 0.65rem 1.5rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -374,7 +383,8 @@ code {
 .play-badge:hover {
   opacity: 0.85;
   text-decoration: none;
-  color: var(--bg);
+  color: var(--text-strong);
+  border-color: var(--border-accent);
 }
 .play-badge svg {
   width: 20px;
