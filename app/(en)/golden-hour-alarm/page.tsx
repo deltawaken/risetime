@@ -115,7 +115,7 @@ export default function GoldenHourAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/sky-list"
                 darkBase="/assets/screenshots/sky-list--dark"
-                alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:24 on Sunday and Saturday, 30 min before Golden hour; 18:58 on Sunday and Saturday at Blue hour; and 20:30 on Friday and Saturday at Night sky."
+                alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:21 on Saturday and Sunday, 30 min before Golden hour; 18:58 on Saturday and Sunday at Blue hour; and 20:30 on Friday and Saturday at Night sky."
                 width={360}
                 height={706}
               />

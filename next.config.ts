@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   // vivent dans _redirects / _headers (9-30).
   output: 'export',
 
+  // ⛔ LE SERVEUR DE DEV ET LE BUILD NE PARTAGENT PLUS LEUR RÉPERTOIRE.
+  // Le 2026-09-27, un `next build` lancé pendant qu'un `next dev` tournait a
+  // remplacé les modules sous lui : « Cannot find module './124.js' », page morte,
+  // deux fois de suite. Les deux écrivaient dans `.next`.
+  // `npm run dev` pose NEXT_DIST_DIR=.next-dev ; le build garde `.next`.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
+
   // ⚠️ SANS CECI TOUTES LES URL INDEXÉES BOUGENT. /alarms/ doit rester /alarms/.
   trailingSlash: true,
 

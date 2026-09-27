@@ -129,7 +129,7 @@ export default function HeureDoreePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/sky-list"
                 darkBase="/assets/screenshots/fr/sky-list--dark"
-                alt="La liste d'alarmes de Risetime avec cinq alarmes : 06:45 et 08:10 du lundi au vendredi sur Absolu ; 17:24 le dimanche et le samedi, 30 min avant Heure dorée ; 18:58 le dimanche et le samedi à Heure bleue ; et 20:30 le vendredi et le samedi à Ciel nocturne."
+                alt="La liste d'alarmes de Risetime avec cinq alarmes : 06:45 et 08:10 du lundi au vendredi sur Absolu ; 17:21 le samedi et le dimanche, 30 min avant Heure dorée ; 18:58 le samedi et le dimanche à Heure bleue ; et 20:30 le vendredi et le samedi à Ciel nocturne."
                 width={360}
                 height={706}
               />

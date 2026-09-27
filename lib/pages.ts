@@ -79,6 +79,17 @@ export const SITE_URL = 'https://risetime.app'
 // SANS autre modification de code. Aucune pour l'instant : les traductions
 // arrivent une par une, par PR relue sur la preview.
 export const LOCALES: string[] = []
+/* ⛔ REMIS À VIDE le 2026-09-28. Rempli quelques heures plus tôt à la demande du
+ *    porteur pour voir les sept langues, il FAIT ÉCHOUER LE BUILD : le §9 exige
+ *    qu'une langue publiée ait toutes ses pages relues, et aucune ne l'est encore.
+ *    Un build rouge = aucun déploiement Cloudflare = pas de preview à relire.
+ * ⭐ Et ce n'était pas nécessaire : en preview, le sélecteur suit `readableLocales()`,
+ *    qui lit `content/`. Les sept langues s'affichent avec cette liste vide.
+ *    Elle se remplit langue par langue, quand leurs pages portent `reviewed`. */
+/* Rempli le 2026-09-27 à la demande du porteur, pour voir les sept langues.
+ * ⚠️ Une langue listée ici sans page relue ne produit toujours rien : `builtPages`
+ *    la vide en production et `alternatesFor` n'émet un hreflang que pour une page
+ *    qui porte `reviewed`. La branche de production reste `main`. */
 
 /** LES LANGUES DONT LES PAGES SONT ÉCRITES À LA MAIN, comme l'anglais.
  *
@@ -99,4 +110,9 @@ export const LOCALES: string[] = []
  *
  *  Le corps de ses `.md` est donc vide, et c'est normal : la prose vit dans le
  *  JSX, du même côté que l'anglaise. */
-export const STATIC_LOCALES: string[] = ['fr']
+export const STATIC_LOCALES: string[] = ['fr', 'de', 'es', 'it', 'nl', 'pl']
+/* ⚠️ Une langue n'entre ici QUE quand ses pages existent. Y figurer sans pages la
+ *    retire de la route dynamique sans rien mettre à la place : elle DISPARAÎTRAIT
+ *    du sélecteur au lieu d'y apparaître. `readableLocales()` la filtre sur
+ *    `builtPages(l).length > 0`, donc le défaut serait silencieux — raison de plus
+ *    pour tenir cette liste alignée sur `content/`. */

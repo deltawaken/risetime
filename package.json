@@ -2,7 +2,7 @@
   "name": "risetime-website",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "BUILD_TARGET=preview NEXT_DIST_DIR=.next-dev next dev -H 0.0.0.0",
     "build": "node tools-lang-routes.mjs && next build && node tools-strip-runtime.mjs && npm run check",
     "check:metadata": "python3 tools-check-metadata.py",
     "start": "next start",
