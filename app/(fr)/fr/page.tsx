@@ -12,12 +12,47 @@ const jsonLd = [
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Risetime",
+  "alternateName": "Risetime Réveil au lever du soleil",
   "operatingSystem": "Android",
   "applicationCategory": "UtilitiesApplication",
   "inLanguage": "fr",
   "url": "https://risetime.app/fr/",
   "description": "Réveil au lever du soleil pour Android. Réglez votre alarme sur le lever, le coucher ou le midi solaire : elle se décale toute seule, chaque jour. Hors ligne, sans publicité.",
-  "author": { "@type": "Organization", "name": "A. Deltawaken" },
+  /* ⛔ Les quatre mêmes captures que l’anglaise, et ce sont celles que cette
+     page AFFICHE déjà dans son corps. Elles montrent l’app en anglais : le banc de
+     captures ne sait pas encore produire une série par langue. Le jour où il
+     saura, ces quatre URL changent ici ET dans le corps. */
+  "screenshot": [
+    "https://risetime.app/assets/screenshots/alarm-list.png",
+    "https://risetime.app/assets/screenshots/alarm-picker.png",
+    "https://risetime.app/assets/screenshots/dismiss-screen.png",
+    "https://risetime.app/assets/screenshots/settings-screen.png"
+  ],
+  /* Les neuf entrées de l’anglaise, dans le même ordre. ⛔ Les noms de réglages
+     viennent du .po et de nulle part ailleurs — « Un angle solaire », « Une
+     longueur d’ombre », « Une fraction du jour ou de la nuit », « Midi solaire »,
+     « Nadir », « Calibrage » — et « boucle » pour la répétition d’un minuteur.
+     ⚠️ Jamais « répétition » ici : dans l’app, c’est le report d’une alarme. */
+  "featureList": [
+    "Des alarmes ancrées au lever du soleil, au coucher, au midi solaire ou au nadir",
+    "Des ancres sur mesure : un angle solaire, une longueur d’ombre, une fraction du jour ou de la nuit",
+    "Le calibrage d’une ancre, pour coller à un horaire publié",
+    "Un recalcul automatique chaque jour, à mesure que les heures du soleil se décalent",
+    "Fonctionne entièrement hors ligne — aucune permission Internet",
+    "Aucune mesure d’audience, aucun pistage, aucune collecte de données",
+    "Les alarmes célestes et les alarmes à heure fixe, prises en charge ensemble",
+    "L’API d’alarme du système — elle survit au mode Doze et aux redémarrages",
+    "Des minuteurs à rebours dont les boucles restent en phase"
+  ],
+  /* ⛔ « Deltawaken », mot pour mot comme l’anglaise, et l’URL avec : deux noms
+     pour une seule organisation cassent la réconciliation d’entité.
+     ⚠️ Le pied de page garde « A. Deltawaken » — c’est une signature humaine,
+     pas un identifiant d’éditeur. */
+  "author": {
+    "@type": "Organization",
+    "name": "A. Deltawaken",
+    "url": "https://risetime.app/"
+  },
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
 },
 {

@@ -46,7 +46,7 @@ const jsonLd = [
   ],
   "author": {
     "@type": "Organization",
-    "name": "Deltawaken",
+    "name": "A. Deltawaken",
     "url": "https://risetime.app/"
   }
 },
