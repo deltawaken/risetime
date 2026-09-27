@@ -327,6 +327,51 @@ for f in sorted(out.rglob("*.html")):
     exported[url] = f
 
 
+# ── Les pages de langue d'un build de PREVIEW ───────────────────────────────
+#
+# ⚠️ AJOUTÉ le 2026-09-27, parce que le Refus 5 ci-dessous refusait un build
+#    parfaitement conforme. Une langue non relue est exportée en preview ET
+#    volontairement absente du sitemap — c'est la règle de 9-31, pas un trou :
+#    « ⛔ aucune langue non relue » au sitemap, dans les DEUX builds.
+#    Sans cette exception, `npm run build` échoue dès la première page traduite,
+#    donc l'hébergeur ne peut pas construire la preview du tout.
+#
+# ⛔ CE QUE L'EXCEPTION NE FAIT PAS : elle ne relâche rien en production. Elle ne
+#    s'arme que si BUILD_TARGET=preview, et elle ne couvre que les préfixes de
+#    langue RÉELLEMENT présents dans content/ — jamais un motif « deux lettres »,
+#    qui excuserait aussi un répertoire nommé par erreur.
+#
+# ⚠️ ET ELLE VÉRIFIE, au lieu de simplement ignorer : chacune de ces pages DOIT
+#    porter `noindex`. Une exception qui ne peut pas échouer ne vaut rien — c'est
+#    la leçon des faux verts de tools-check-langs.py.
+IS_PREVIEW = os.environ.get("BUILD_TARGET") == "preview"
+content_dir = Path(__file__).resolve().parent / "content"
+LANGS = sorted(
+    d.name for d in content_dir.iterdir()
+    if content_dir.is_dir() and d.is_dir() and d.name != "en"
+) if content_dir.is_dir() else []
+
+preview_pages = {}
+if IS_PREVIEW and LANGS:
+    for url in list(exported):
+        if url.split("/")[1:2] and url.split("/")[1] in LANGS:
+            preview_pages[url] = exported.pop(url)
+    manquants = []
+    for url, f in sorted(preview_pages.items()):
+        # ⚠️ PAS `html` comme nom : le module `html` est importé en tête, et
+        #    l'ombrer casse `html.unescape()` deux cents lignes plus bas.
+        source = f.read_text(encoding="utf8", errors="replace")
+        if "noindex" not in source:
+            manquants.append(url)
+    if manquants:
+        refuse("Build de PREVIEW : des pages de langue ne portent pas `noindex`.\n"
+               + "\n".join(f"   • {u}" for u in manquants)
+               + "\n   Une preview qui s'indexe entre en concurrence avec le site en ligne.")
+    if preview_pages:
+        print(f"ℹ️  build de preview : {len(preview_pages)} page(s) de langue "
+              f"({', '.join(LANGS)}) exportée(s) hors sitemap, toutes en noindex. "
+              f"C'est la règle, pas un trou.")
+
 # ── Refus 5 : fermeture dans les deux sens ──────────────────────────────────
 orphan_files = sorted(set(exported) - set(sitemap_paths))
 orphan_locs = sorted(set(sitemap_paths) - set(exported))
