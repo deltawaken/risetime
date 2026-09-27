@@ -48,7 +48,12 @@
 //    stricte, l'accès LÈVE — sans la garde, le site entier resterait sans thème.
 // ⛔ `data-js` n'est pas une coquetterie : c'est lui qui RÉVÈLE le bouton. Sans
 //    script, il n'y a pas de bouton du tout, donc pas de contrôle menteur.
-const SEL = "nav[data-rt-langs] details[open]"
+// ⚠️ SÉLECTEUR SUR L'ACCROCHE, PAS SUR LA BALISE (2026-09-27) : le <nav> du
+// sélecteur de langue a été retiré, il était imbriqué dans celui de l'en-tête.
+// Viser `[data-rt-langs]` plutôt que `nav[data-rt-langs]` rend ce script
+// indifférent à la balise qui porte l'accroche — c'est le deuxième déménagement
+// de ce sélecteur en trois jours.
+const SEL = "[data-rt-langs] details[open]"
 
 export const INLINE_SCRIPT = `(function(){var H=document.documentElement,K='rt-theme',S;
 try{S=localStorage;if(S[K])H.dataset.theme=S[K]}catch(e){}

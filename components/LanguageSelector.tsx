@@ -78,8 +78,15 @@ export default function LanguageSelector({ lang, page }: { lang: string; page: s
          liste. `current` n'a donc rien à désigner. */
       current=""
       inlineMax={SELECTOR_INLINE_MAX}
-      ariaLabel="Language"
-      navProps={{ 'data-rt-langs': '' }}
+      /* ⛔ PLUS D'`ariaLabel`, donc plus de <nav> — porteur, 2026-09-27 : « il y a
+         une nav de trop, autour du menu lang ». Ce sélecteur vivait en PIED, hors
+         de toute navigation, où son <nav> le nommait comme repère ; depuis qu'il
+         est dans le <nav> de l'en-tête, ce second <nav> est imbriqué et n'apporte
+         rien. La documentation d'`ariaLabel` le disait déjà mot pour mot : « à
+         omettre quand le composant est DÉJÀ dans un <nav> ».
+         ⚠️ Le contrôle reste nommé : le <summary> porte son complément masqué
+         « — choose a language », qui est ce qu'annonce le lecteur d'écran. */
+      wrapperProps={{ 'data-rt-langs': '' }}
       className="lang-selector"
     />
   )

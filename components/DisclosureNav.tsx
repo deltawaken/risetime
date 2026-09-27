@@ -62,6 +62,11 @@ export type DisclosureNavProps = {
    *  sélecteur de langue, que le script inline et la règle L7 cherchent. Ignoré
    *  quand `ariaLabel` est absent, puisqu'il n'y a alors pas de <nav>. */
   navProps?: Record<string, string>
+  /** Attributs posés sur l'enveloppe `.className` — l'accroche `data-rt-langs`
+   *  y a déménagé le 2026-09-27, quand le <nav> du sélecteur de langue a été
+   *  retiré : il était imbriqué dans le <nav> de l'en-tête, donc un repère pour
+   *  rien, ce que la documentation d'`ariaLabel` prévoyait déjà. */
+  wrapperProps?: Record<string, string>
   className?: string
 }
 
@@ -73,6 +78,7 @@ export default function DisclosureNav({
   inlineMax = 0,
   ariaLabel,
   navProps,
+  wrapperProps,
   className,
 }: DisclosureNavProps) {
   // 9-31 §1 : « Si cette liste est vide, il ne rend rien. » Ce n'est pas un cas
@@ -114,7 +120,9 @@ export default function DisclosureNav({
       </details>
     )
 
-  const wrapped = className ? <div className={className}>{body}</div> : body
+  const wrapped = className
+    ? <div className={className} {...wrapperProps}>{body}</div>
+    : body
 
   return ariaLabel ? (
     <nav aria-label={ariaLabel} {...navProps}>

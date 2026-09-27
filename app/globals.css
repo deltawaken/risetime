@@ -240,12 +240,18 @@ body {
 .disclosure-nav > summary::after {
   /* ▾ / ▴ — glyphes de l'axe de BLOC, donc justes en RTL comme en LTR.
      ⛔ Ni « → » ni « ▸ » : ce sont des glyphes d'axe inline (9-31 §1). */
-  content: '\25BE';
+  /* ⚠️ U+25BC (▼) et non U+25BE (▾) depuis le 2026-09-27 — porteur : « le chevron
+     est 10 fois trop petit ». Le glyphe « SMALL » d'Unicode est dessiné petit DANS
+     son cadratin : l'agrandir à la taille du texte ne suffisait pas, il fallait
+     changer de caractère. Les deux sont des glyphes d'axe de BLOC, donc justes en
+     RTL comme en LTR — ⛔ ni « → » ni « ▸ », qui sont d'axe inline. */
+  content: '\25BC';
   margin-inline-start: 0.35em;
-  font-size: 0.8em;
+  font-size: 0.62em;
+  vertical-align: 0.1em;
 }
 .disclosure-nav[open] > summary::after {
-  content: '\25B4';
+  content: '\25B2';
 }
 .disclosure-nav > summary:hover {
   color: var(--accent);
@@ -276,6 +282,17 @@ body {
 }
 .site-header .disclosure-nav__list a {
   display: block;
+  /* ⚠️ AJOUTÉ le 2026-09-27 (porteur : « corrige les marges dans les items, menu
+     ouvert: moche »). Un `display: block` nu donnait un texte collé aux bords du
+     panneau et une cible de clic réduite à la hauteur du texte. Le padding fait
+     les deux : il aère, et il agrandit la zone cliquable au doigt. */
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+}
+.site-header .disclosure-nav__list a:hover,
+.site-header .disclosure-nav__list a:focus-visible {
+  background: var(--accent-muted);
+  color: var(--accent);
 }
 
 /* ---- FOOTER ---- */
@@ -959,13 +976,19 @@ code {
    ⛔ Aucun conteneur à défilement interne : ce serait un piège au clavier et à la
    molette. Le <details> est dans le flux et en fin de page — c'est la PAGE qui
    défile. */
+/* ⛔ LES RÈGLES DE COLONNES SONT PARTIES AVEC LE PIED DE PAGE (2026-09-27).
+   Elles disaient `columns: 1; column-width: 10rem; padding-inline: 0;
+   margin-block: 0.5rem` — écrites quand le sélecteur vivait en pied, sur toute la
+   largeur, et qu'il fallait ranger trente langues en colonnes. Dans un panneau
+   déroulant d'en-tête, elles produisaient exactement ce que le porteur a vu :
+   une boîte de 10 rem pour UNE entrée, avec le texte collé au bord gauche parce
+   que `padding-inline: 0` écrasait le padding du panneau.
+   ⚠️ LE BESOIN D'ORIGINE RESTE ENTIER et n'est pas traité ici : à ~30 langues,
+   une colonne unique fera un panneau plus haut que l'écran. C'est un report daté,
+   pas un oubli — il se rouvrira à la quatrième ou cinquième langue, bien avant la
+   trentième. */
 .lang-selector .disclosure-nav__list {
-  columns: 1;
-  column-width: 10rem;
-  gap: 0.25rem 1.5rem;
   list-style: none;
-  padding-inline: 0;
-  margin-block: 0.5rem;
   text-align: start;
 }
 

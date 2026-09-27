@@ -91,7 +91,13 @@ def fail(rule: str, msg: str) -> None:
 # ── LES MOTIFS : ce que l'export contient réellement ────────────────────────────────────────────
 
 ALT = re.compile(r'<link[^>]+rel="alternate"[^>]*>', re.I)
-NAV = re.compile(r"<nav\b[^>]*\bdata-rt-langs\b[^>]*>(.*?)</nav>", re.S | re.I)
+# ⚠️ L'ACCROCHE, PAS LA BALISE (2026-09-27). Le conteneur du sélecteur était un
+# <nav> ; il est devenu un <div> quand ce <nav>, imbriqué dans celui de l'en-tête,
+# a été retiré. La règle L7 vise « le CONTENEUR DU SÉLECTEUR », et c'est
+# `data-rt-langs` qui le désigne — pas son nom de balise. ⛔ Le contenu ne peut pas
+# contenir de <div> imbriqué (c'est un <details> avec un <summary> et une <ul>),
+# donc la capture non gourmande s'arrête bien à la bonne fermeture.
+NAV = re.compile(r"<(nav|div)\b[^>]*\bdata-rt-langs\b[^>]*>(.*?)</\1>", re.S | re.I)
 A = re.compile(r"<a\b([^>]*)>", re.I)
 ATTR = re.compile(r'([\w:-]+)="([^"]*)"')
 SCRIPT = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.S | re.I)
@@ -128,7 +134,7 @@ class Export:
 
     def selector(self, html: str):
         m = NAV.search(html)
-        return m.group(1) if m else None
+        return m.group(2) if m else None
 
     def entries(self, block: str) -> list[dict]:
         return [attrs(a) for a in A.findall(block)]
