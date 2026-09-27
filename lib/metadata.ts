@@ -67,7 +67,18 @@ function build(data: Record<string, string>, canonical: string, page: string): M
 /** Les métadonnées d'une page ANGLAISE. ⚠️ Les `page.tsx` de `app/(en)/` ne portent
  *  plus leurs chaînes : elles sont dans `content/en/<slug>.md`, en un seul exemplaire.
  *  C'est la migration d'en-tête décrite dans lib/content.ts. */
-export const enMetadata = (page: string): Metadata => build(pageMeta(page), page, page)
+export function enMetadata(page: string): Metadata {
+  const meta = build(pageMeta(page), page, page)
+  // ⚠️ AJOUTÉ le 2026-09-27. La story dit « `robots` : noindex, nofollow sur TOUT »
+  //    en preview ; seules les pages traduites l'appliquaient. Une preview publique
+  //    servait donc sept pages anglaises indexables, identiques à la production.
+  // ⛔ Cloudflare pose bien un en-tête `x-robots-tag: noindex` sur ces déploiements —
+  //    VÉRIFIÉ au curl le 2026-09-27 — mais **c'est une propriété de l'hébergeur, pas
+  //    la nôtre**. Le jour où la preview est servie ailleurs, l'en-tête disparaît sans
+  //    bruit. La garantie doit être dans les pages.
+  if (isPreview()) meta.robots = { index: false, follow: false }
+  return meta
+}
 
 /** Les métadonnées d'une page TRADUITE. ⛔ Une page non relue n'est servie qu'en
  *  preview, et alors en `noindex, nofollow` : rien de non relu n'entre dans un index. */

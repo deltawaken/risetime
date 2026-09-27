@@ -228,6 +228,18 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
     locales = truth["locales"]
     expected_selector = set(["en"] + locales)
 
+    # ⚠️ DEUX ATTENDUS DISTINCTS, et les confondre serait la faute (2026-09-27).
+    #    · `expected_selector` — ce qui a le droit d'apparaître en `hreflang` : `LOCALES`
+    #      SEULE, dans les deux builds. C'est la règle L5, et elle ne bouge pas.
+    #    · `selector_langs`    — ce que le SÉLECTEUR doit lister. En preview il suit les
+    #      langues réellement construites, sans quoi aucune page anglaise ne porte de
+    #      sélecteur et **une page traduite ne s'atteint qu'en tapant son URL**.
+    #    Un sélecteur est un chemin de lecture ; un `hreflang` est une déclaration au
+    #    moteur. Les élargir ensemble laisserait passer un `hreflang` vers du non relu.
+    content_langs = sorted({f["lang"] for f in truth["files"].values()} - {"en"})
+    selector_langs = (expected_selector if production
+                      else set(["en"] + locales + content_langs))
+
     # ---- L1 à L4 : les hreflang, fermés dans les deux sens ------------------------------------
     #
     # L'ATTENDU EST CALCULÉ D'ABORD, depuis la vérité seule : pour chaque page anglaise du
@@ -318,14 +330,14 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
     # ⚠️ L'attendu, là encore, vient de la VÉRITÉ : dès que (['en'] ∪ LOCALES) compte plus
     # d'une langue, CHAQUE page exportée doit porter un sélecteur. Sans ce calcul, retirer
     # le conteneur de toutes les pages donnait 0 écart (faux vert trouvé en revue).
-    selector_expected = len(expected_selector) > 1
+    selector_expected = len(selector_langs) > 1
     with_selector = []
     for name, html in exp.content_pages().items():
         block = exp.selector(html)
         if block is None:
             if selector_expected and production:
                 fail("L8", f"{name} : AUCUN conteneur de sélecteur alors que les langues "
-                           f"disponibles sont {sorted(expected_selector)}")
+                           f"disponibles sont {sorted(selector_langs)}")
             continue
         with_selector.append(name)
         page_lang = re.search(r"<html[^>]+lang=\"([\w-]+)\"", html)
@@ -342,9 +354,9 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
             if "hreflang" in e:
                 got.add(e["hreflang"])
         # L6 — fermeture dans les deux sens avec LOCALES.
-        want = expected_selector - {cur}
+        want = selector_langs - {cur}
         if got != want:
-            fail("L6", f"{name} : entrées {sorted(got)} ≠ (['en'] ∪ LOCALES) \\ {{{cur}}} = {sorted(want)}")
+            fail("L6", f"{name} : entrées {sorted(got)} ≠ {sorted(selector_langs)} \\ {{{cur}}} = {sorted(want)}")
 
     # L7 — LOCALES vide ⇒ AUCUN conteneur de sélecteur dans tout l'export.
     #      ⚠️ La règle vise le CONTENEUR (`<nav data-rt-langs>`), pas la balise `<details>` :

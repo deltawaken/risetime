@@ -131,7 +131,17 @@ export type SelectorEntry = {
  *  Ordre : `Intl.Collator` au build (Node a l'ICU complet). Aucune liste d'ordre
  *  écrite à la main nulle part. */
 export function selectorEntries(currentLang: string, currentPage: string): SelectorEntry[] {
-  const entries = ['en', ...LOCALES]
+  // ⚠️ EN PREVIEW, LE SÉLECTEUR SUIT LES LANGUES CONSTRUITES, pas `LOCALES`.
+  //    Ajouté le 2026-09-27 : sans ça, `LOCALES` étant vide, aucune page anglaise
+  //    de la preview ne portait de sélecteur — et **on ne pouvait atteindre une
+  //    page traduite qu'en tapant son URL à la main**. Or la preview existe
+  //    précisément pour qu'un relecteur lise les vraies pages.
+  // ⛔ CE QUE ÇA NE TOUCHE PAS : `alternatesFor()`, donc les `hreflang` et le
+  //    sitemap, qui restent sur `LOCALES` SEULE dans les deux builds (règle L5).
+  //    Le sélecteur est un chemin de lecture ; le `hreflang` est une déclaration
+  //    au moteur de recherche. Les élargir ensemble serait la faute.
+  const disponibles = isPreview() ? builtLocales() : LOCALES
+  const entries = ['en', ...disponibles]
     .filter((l) => l !== currentLang)
     .map((l) => {
       const here = urlFor(l, currentPage)
