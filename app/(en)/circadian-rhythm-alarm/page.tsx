@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
+import ThemedPicture from '../../../components/ThemedPicture'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis circadian-rhythm-alarm/index.html (commit 967c17d) — recopie, pas réécriture.
@@ -106,12 +107,13 @@ export default function CircadianRhythmAlarmPage() {
             <p>The distance you set never changes. Sunrise does, and the alarm goes with it — through the equinoxes, the solstices and the daylight-saving switch. <a href="/alarms/" className="content-link">How to set a sunrise or sunset alarm on Android</a></p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/circadian-list--dark.webp 1x, /assets/screenshots/circadian-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-list.webp 1x, /assets/screenshots/circadian-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-list.png" alt="Risetime alarm list with three alarms, all repeating every day: 07:02 at Sunrise, 20:38 two hours after Sunset, and 23:02 eight hours before Sunrise." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/circadian-list"
+                darkBase="/assets/screenshots/circadian-list--dark"
+                alt="Risetime alarm list with three alarms, all repeating every day: 07:02 at Sunrise, 20:38 two hours after Sunset, and 23:02 eight hours before Sunrise."
+                width={360}
+                height={706}
+              />
               <figcaption>Alarms anchored to sunrise and sunset, each repeating every day.</figcaption>
             </figure>
           </section>
@@ -146,12 +148,13 @@ export default function CircadianRhythmAlarmPage() {
             </ul>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/circadian-offset--dark.webp 1x, /assets/screenshots/circadian-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-offset.webp 1x, /assets/screenshots/circadian-offset@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-offset.png" alt="The new-alarm dialog set on Sunrise with an offset of eight hours before, the hours dial on 8 and the minutes on 00, and the line Today: 23:02." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/circadian-offset"
+                darkBase="/assets/screenshots/circadian-offset--dark"
+                alt="The new-alarm dialog set on Sunrise with an offset of eight hours before, the hours dial on 8 and the minutes on 00, and the line Today: 23:02."
+                width={360}
+                height={706}
+              />
               <figcaption>Any distance from the anchor, before or after, up to 11 h 59 min.</figcaption>
             </figure>
           </section>

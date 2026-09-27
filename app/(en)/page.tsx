@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { enMetadata } from '../../lib/metadata'
 import SiteHeader from '../../components/SiteHeader'
+import ThemedPicture from '../../components/ThemedPicture'
 import SiteFooter from '../../components/SiteFooter'
 
 // Porté depuis index.html (commit 967c17d) — recopie, pas réécriture.
@@ -129,12 +130,15 @@ export default function HomePage() {
             <p className="hero-celestial">Your celestial alarm clock.</p>
             <p className="hero-sub">Set your alarm to the sun. It shifts every day so you don't have to.</p>
             <div className="hero-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarm-list--dark.webp 1x, /assets/screenshots/alarm-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarm-list.webp 1x, /assets/screenshots/alarm-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarm-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarm-list.png" alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off." width="360" height="706" loading="eager" fetchPriority="high" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarm-list"
+                darkBase="/assets/screenshots/alarm-list--dark"
+                alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off."
+                width={360}
+                height={706}
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
             <div className="cta-group">
               <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
@@ -215,30 +219,33 @@ export default function HomePage() {
             <h2 id="screenshots-heading">Screenshots — sunrise alarm app for Android</h2>
             <div className="screenshot-row">
               <figure>
-                <picture>
-                  <source srcSet="/assets/screenshots/alarm-picker--dark.webp 1x, /assets/screenshots/alarm-picker--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/alarm-picker.webp 1x, /assets/screenshots/alarm-picker@2x.webp 2x" type="image/webp" />
-                  <source srcSet="/assets/screenshots/alarm-picker--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/alarm-picker.png" alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes with the hours field selected, and the line Tomorrow: 11:49. A circular hours dial with 1 selected fills the lower half, with Cancel and OK beneath it." width="360" height="706" loading="lazy" />
-                </picture>
+                <ThemedPicture
+                  lightBase="/assets/screenshots/alarm-picker"
+                  darkBase="/assets/screenshots/alarm-picker--dark"
+                  alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes with the hours field selected, and the line Tomorrow: 11:49. A circular hours dial with 1 selected fills the lower half, with Cancel and OK beneath it."
+                  width={360}
+                  height={706}
+                />
                 <figcaption>Pick your anchor and offset</figcaption>
               </figure>
               <figure>
-                <picture>
-                  <source srcSet="/assets/screenshots/dismiss-screen--dark.webp 1x, /assets/screenshots/dismiss-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x" type="image/webp" />
-                  <source srcSet="/assets/screenshots/dismiss-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width="360" height="706" loading="lazy" />
-                </picture>
+                <ThemedPicture
+                  lightBase="/assets/screenshots/dismiss-screen"
+                  darkBase="/assets/screenshots/dismiss-screen--dark"
+                  alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it."
+                  width={360}
+                  height={706}
+                />
                 <figcaption>Wake gently</figcaption>
               </figure>
               <figure>
-                <picture>
-                  <source srcSet="/assets/screenshots/settings-screen--dark.webp 1x, /assets/screenshots/settings-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                  <source srcSet="/assets/screenshots/settings-screen.webp 1x, /assets/screenshots/settings-screen@2x.webp 2x" type="image/webp" />
-                  <source srcSet="/assets/screenshots/settings-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/settings-screen.png" alt="Risetime settings screen with rows for Alarms, Anchors, Timers, Phone's settings, and Celestial events location set to London, United Kingdom. The Reliability row reads 8 of 8 checks passing and is open on Checks this phone doesn't have and All good (8). Supporting Risetime sits below, and the footer reads Risetime." width="360" height="706" loading="lazy" />
-                </picture>
+                <ThemedPicture
+                  lightBase="/assets/screenshots/settings-screen"
+                  darkBase="/assets/screenshots/settings-screen--dark"
+                  alt="Risetime settings screen with rows for Alarms, Anchors, Timers, Phone's settings, and Celestial events location set to London, United Kingdom. The Reliability row reads 8 of 8 checks passing and is open on Checks this phone doesn't have and All good (8). Supporting Risetime sits below, and the footer reads Risetime."
+                  width={360}
+                  height={706}
+                />
                 <figcaption>Reliability you can check</figcaption>
               </figure>
             </div>

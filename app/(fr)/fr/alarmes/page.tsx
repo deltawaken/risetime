@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { langMetadata } from '../../../../lib/metadata'
 import SiteHeader from '../../../../components/SiteHeader'
+import ThemedPicture from '../../../../components/ThemedPicture'
 import SiteFooter from '../../../../components/SiteFooter'
 
 // LA PAGE FRANÇAISE, ÉCRITE À LA MAIN — décision du porteur du 2026-09-27 :
@@ -92,12 +93,13 @@ export default function AlarmesPage() {
             <p>Au lieu d&rsquo;une heure d&rsquo;horloge, vous pouvez régler une alarme sur un moment du soleil — le lever, le coucher, le midi solaire. L&rsquo;alarme suit ensuite ce moment chaque jour, à mesure que les saisons le déplacent.</p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-list--dark.webp 1x, /assets/screenshots/alarms-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-list.webp 1x, /assets/screenshots/alarms-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-list"
+                darkBase="/assets/screenshots/alarms-list--dark"
+                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
+                width={360}
+                height={706}
+              />
               <figcaption>Alarmes ordinaires et alarmes solaires, dans une seule liste.</figcaption>
             </figure>
           </section>
@@ -122,12 +124,13 @@ export default function AlarmesPage() {
                   <summary>Trois façons de l&rsquo;indiquer</summary>
                   <p>Dans <strong>Paramètres → Lieu des événements célestes</strong> : choisissez votre ville dans la liste ; ou utilisez le GPS du téléphone, une fois ; ou activez la <strong>Mise à jour automatique du lieu</strong>, et il vous suit en voyage. Votre position reste sur votre téléphone : Risetime n&rsquo;a aucune permission Internet, il n&rsquo;y a donc nulle part où l&rsquo;envoyer.</p>
                   <figure className="content-screenshot">
-                    <picture>
-                      <source srcSet="/assets/screenshots/alarms-location--dark.webp 1x, /assets/screenshots/alarms-location--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                      <source srcSet="/assets/screenshots/alarms-location.webp 1x, /assets/screenshots/alarms-location@2x.webp 2x" type="image/webp" />
-                      <source srcSet="/assets/screenshots/alarms-location--dark.png" media="(prefers-color-scheme: dark)" />
-                      <img src="/assets/screenshots/alarms-location.png" alt="Les paramètres de Risetime, section Lieu des événements célestes ouverte : Londres, Royaume-Uni sélectionné, un bouton GPS, et une case Mise à jour automatique du lieu décochée." width="360" height="706" loading="lazy" />
-                    </picture>
+                    <ThemedPicture
+                      lightBase="/assets/screenshots/alarms-location"
+                      darkBase="/assets/screenshots/alarms-location--dark"
+                      alt="Les paramètres de Risetime, section Lieu des événements célestes ouverte : Londres, Royaume-Uni sélectionné, un bouton GPS, et une case Mise à jour automatique du lieu décochée."
+                      width={360}
+                      height={706}
+                    />
                     <figcaption>Le réglage du lieu, avec son bouton GPS et sa case de mise à jour automatique.</figcaption>
                   </figure>
                 </details>
@@ -139,12 +142,13 @@ export default function AlarmesPage() {
             </ol>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-anchor-menu--dark.webp 1x, /assets/screenshots/alarms-anchor-menu--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchor-menu.webp 1x, /assets/screenshots/alarms-anchor-menu@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchor-menu--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchor-menu.png" alt="La boîte de création d'alarme, son menu d'ancres ouvert : Absolu, Aube astronomique, Lever du soleil, Midi, Heure dorée, Coucher du soleil et Nadir." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchor-menu"
+                darkBase="/assets/screenshots/alarms-anchor-menu--dark"
+                alt="La boîte de création d'alarme, son menu d'ancres ouvert : Absolu, Aube astronomique, Lever du soleil, Midi, Heure dorée, Coucher du soleil et Nadir."
+                width={360}
+                height={706}
+              />
               <figcaption>Le menu en haut de la boîte de l&rsquo;alarme : une heure d&rsquo;horloge, ou un moment du soleil.</figcaption>
             </figure>
           </section>
@@ -161,12 +165,13 @@ export default function AlarmesPage() {
             <p>Une ligne sous le cadran annonce la prochaine sonnerie, par exemple <em>Demain : 18:03</em>.</p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-offset--dark.webp 1x, /assets/screenshots/alarms-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-offset.webp 1x, /assets/screenshots/alarms-offset@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-offset.png" alt="La boîte de création d'alarme réglée sur le Coucher du soleil avec un décalage d'une heure avant, le cadran des heures sur 1 et celui des minutes sur 00, et la ligne Aujourd'hui : 17:38." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-offset"
+                darkBase="/assets/screenshots/alarms-offset--dark"
+                alt="La boîte de création d'alarme réglée sur le Coucher du soleil avec un décalage d'une heure avant, le cadran des heures sur 1 et celui des minutes sur 00, et la ligne Aujourd'hui : 17:38."
+                width={360}
+                height={706}
+              />
               <figcaption>Une heure avant le coucher du soleil. La ligne sous le décalage dit quand elle sonnera.</figcaption>
             </figure>
           </section>
@@ -176,12 +181,13 @@ export default function AlarmesPage() {
             <p>Ouvrez la carte de l&rsquo;alarme dans la liste. Cochez <strong>Répéter</strong> et choisissez vos jours : la carte se lit alors comme vous le diriez — <em>Lundi–vendredi, 1 h avant le Coucher du soleil</em>. La même carte porte le libellé, le son, la vibration, la durée de répétition et l&rsquo;image affichée pendant la sonnerie. L&rsquo;interrupteur a trois positions : celle du milieu ignore la seule prochaine sonnerie — pour un jour de congé — et laisse l&rsquo;alarme active.</p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-card--dark.webp 1x, /assets/screenshots/alarms-card--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-card.webp 1x, /assets/screenshots/alarms-card@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-card--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-card.png" alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Par défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-card"
+                darkBase="/assets/screenshots/alarms-card--dark"
+                alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Par défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image."
+                width={360}
+                height={706}
+              />
               <figcaption>Une carte d&rsquo;alarme ouverte : les jours de répétition, et tout le reste de l&rsquo;alarme.</figcaption>
             </figure>
           </section>
@@ -205,12 +211,13 @@ export default function AlarmesPage() {
             <p>Elle figure désormais dans la boîte de l&rsquo;alarme, à côté du lever et du coucher, et prend un décalage comme n&rsquo;importe quelle autre. Un interrupteur dans la liste des ancres retire de ce menu celles dont vous ne vous servez pas.</p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-anchors--dark.webp 1x, /assets/screenshots/alarms-anchors--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchors.webp 1x, /assets/screenshots/alarms-anchors@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchors--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchors.png" alt="Les paramètres, section Ancres : deux ancres personnalisées, Aube astronomique et Heure dorée, chacune avec un bouton de modification et un bouton de suppression, parmi les ancres d'usine Lever du soleil, Midi, Coucher du soleil et Nadir. Chaque ligne porte un interrupteur de visibilité, tous activés." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchors"
+                darkBase="/assets/screenshots/alarms-anchors--dark"
+                alt="Les paramètres, section Ancres : deux ancres personnalisées, Aube astronomique et Heure dorée, chacune avec un bouton de modification et un bouton de suppression, parmi les ancres d'usine Lever du soleil, Midi, Coucher du soleil et Nadir. Chaque ligne porte un interrupteur de visibilité, tous activés."
+                width={360}
+                height={706}
+              />
               <figcaption>Une ancre personnalisée prend sa place parmi les autres, dans l&rsquo;ordre de la journée.</figcaption>
             </figure>
 
@@ -218,12 +225,13 @@ export default function AlarmesPage() {
             <p>Loin de l&rsquo;équateur, certains angles ne sont jamais atteints pendant une partie de l&rsquo;année. L&rsquo;éditeur vous en donne les dates — à Londres, le soleil ne descend pas à −18° de fin mai à fin juillet — et ces jours-là, l&rsquo;alarme reste silencieuse plutôt que de sonner à une heure inventée.</p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.webp 1x, /assets/screenshots/alarms-anchor-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchor-editor.webp 1x, /assets/screenshots/alarms-anchor-editor@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchor-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchor-editor"
+                darkBase="/assets/screenshots/alarms-anchor-editor--dark"
+                alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
+                width={360}
+                height={706}
+              />
               <figcaption>−18° le matin, réglé pour Londres : l&rsquo;éditeur nomme les semaines où cela n&rsquo;arrive jamais.</figcaption>
             </figure>
           </section>

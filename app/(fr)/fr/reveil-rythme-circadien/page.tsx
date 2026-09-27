@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { langMetadata } from '../../../../lib/metadata'
 import SiteHeader from '../../../../components/SiteHeader'
+import ThemedPicture from '../../../../components/ThemedPicture'
 import SiteFooter from '../../../../components/SiteFooter'
 
 // LA PAGE FRANÇAISE, ÉCRITE À LA MAIN — décision du porteur du 2026-09-27 :
@@ -113,12 +114,13 @@ export default function ReveilRythmeCircadienPage() {
             <p>La distance que vous réglez ne change jamais. Le lever du soleil, lui, change, et l&rsquo;alarme va avec — à travers les équinoxes, les solstices et le passage à l&rsquo;heure d&rsquo;été. <a href="/fr/alarmes/" className="content-link">Régler une alarme au lever ou au coucher du soleil</a></p>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/circadian-list--dark.webp 1x, /assets/screenshots/circadian-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-list.webp 1x, /assets/screenshots/circadian-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-list.png" alt="Liste d'alarmes de Risetime avec trois alarmes, toutes répétées chaque jour : 07:02 au lever du soleil, 20:38 deux heures après le coucher du soleil, et 23:02 huit heures avant le lever du soleil." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/circadian-list"
+                darkBase="/assets/screenshots/circadian-list--dark"
+                alt="Liste d'alarmes de Risetime avec trois alarmes, toutes répétées chaque jour : 07:02 au lever du soleil, 20:38 deux heures après le coucher du soleil, et 23:02 huit heures avant le lever du soleil."
+                width={360}
+                height={706}
+              />
               <figcaption>Des alarmes ancrées au lever et au coucher du soleil, répétées chaque jour.</figcaption>
             </figure>
           </section>
@@ -153,12 +155,13 @@ export default function ReveilRythmeCircadienPage() {
             </ul>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/circadian-offset--dark.webp 1x, /assets/screenshots/circadian-offset--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-offset.webp 1x, /assets/screenshots/circadian-offset@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/circadian-offset--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/circadian-offset.png" alt="La boîte de dialogue de nouvelle alarme réglée sur le lever du soleil avec un décalage de huit heures avant, le cadran des heures sur 8 et celui des minutes sur 00, et la ligne Aujourd'hui : 23:02." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/circadian-offset"
+                darkBase="/assets/screenshots/circadian-offset--dark"
+                alt="La boîte de dialogue de nouvelle alarme réglée sur le lever du soleil avec un décalage de huit heures avant, le cadran des heures sur 8 et celui des minutes sur 00, et la ligne Aujourd'hui : 23:02."
+                width={360}
+                height={706}
+              />
               <figcaption>N&rsquo;importe quelle distance par rapport à l&rsquo;ancre, avant ou après, jusqu&rsquo;à 11 h 59 min.</figcaption>
             </figure>
           </section>

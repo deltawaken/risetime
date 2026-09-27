@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { langMetadata } from '../../../../lib/metadata'
 import SiteHeader from '../../../../components/SiteHeader'
+import ThemedPicture from '../../../../components/ThemedPicture'
 import SiteFooter from '../../../../components/SiteFooter'
 
 // LA PAGE FRANÇAISE, ÉCRITE À LA MAIN — décision du porteur du 2026-09-27 :
@@ -104,12 +105,13 @@ export default function HeureDoreePage() {
             </table>
             <p>Les définitions varient d&rsquo;un photographe à l&rsquo;autre ; voici les plus courantes. Réglez l&rsquo;angle avec lequel vous travaillez, et l&rsquo;application le tient à toutes les latitudes et à toutes les saisons — ce qu&rsquo;une règle toute faite, « 30 minutes avant le coucher du soleil », ne sait pas faire, parce que la durée du crépuscule change avec les deux. À Londres le 21 juin, +6° tombe à 20:27 et le coucher du soleil à 21:21 : près d&rsquo;une heure d&rsquo;écart. À New York le même soir, 19:49 et 20:30 : quarante minutes.</p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-menu--dark.webp 1x, /assets/screenshots/sky-menu--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-menu.webp 1x, /assets/screenshots/sky-menu@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-menu--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-menu.png" alt="La boîte de création d'alarme, son menu d'ancres ouvert, listant Absolu, Lever du soleil, Midi, Heure dorée, Coucher du soleil, Heure bleue, Ciel nocturne et Nadir." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-menu"
+                darkBase="/assets/screenshots/sky-menu--dark"
+                alt="La boîte de création d'alarme, son menu d'ancres ouvert, listant Absolu, Lever du soleil, Midi, Heure dorée, Coucher du soleil, Heure bleue, Ciel nocturne et Nadir."
+                width={360}
+                height={706}
+              />
               <figcaption>Vos propres ancres prennent place à côté du lever et du coucher du soleil, dans l&rsquo;ordre de la journée.</figcaption>
             </figure>
           </section>
@@ -124,12 +126,13 @@ export default function HeureDoreePage() {
             </ol>
             <p><a href="/fr/alarmes/#section-custom" className="content-link">Comment marchent les ancres et les décalages</a></p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-list--dark.webp 1x, /assets/screenshots/sky-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-list.webp 1x, /assets/screenshots/sky-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-list.png" alt="La liste d'alarmes de Risetime avec cinq alarmes : 06:45 et 08:10 du lundi au vendredi sur Absolu ; 17:24 le dimanche et le samedi, 30 min avant Heure dorée ; 18:58 le dimanche et le samedi à Heure bleue ; et 20:30 le vendredi et le samedi à Ciel nocturne." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-list"
+                darkBase="/assets/screenshots/sky-list--dark"
+                alt="La liste d'alarmes de Risetime avec cinq alarmes : 06:45 et 08:10 du lundi au vendredi sur Absolu ; 17:24 le dimanche et le samedi, 30 min avant Heure dorée ; 18:58 le dimanche et le samedi à Heure bleue ; et 20:30 le vendredi et le samedi à Ciel nocturne."
+                width={360}
+                height={706}
+              />
               <figcaption>Des alarmes d&rsquo;horloge pour la semaine, des alarmes solaires pour la lumière.</figcaption>
             </figure>
           </section>
@@ -164,12 +167,13 @@ export default function HeureDoreePage() {
             <p>La nuit astronomique est la fenêtre entre le moment du soir et le moment du matin où le soleil est à 18° sous l&rsquo;horizon. Posez une ancre sur chacun des deux, et vous tenez les deux bouts de l&rsquo;obscurité.</p>
             <p>Très au nord ou très au sud, cette fenêtre se ferme pendant une partie de l&rsquo;année : à Londres, le soleil n&rsquo;atteint pas −18° <strong>du 23 mai au 21 juillet</strong>. Risetime le dit au moment où vous créez l&rsquo;ancre, avec les dates de votre propre lieu, et ces nuits-là l&rsquo;alarme reste silencieuse plutôt que de sonner à une heure que le ciel ne produit jamais.</p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-night-editor--dark.webp 1x, /assets/screenshots/sky-night-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-night-editor.webp 1x, /assets/screenshots/sky-night-editor@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-night-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-night-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le soir, nommé Ciel nocturne, avec l'aperçu : Prochain : 20:30. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-night-editor"
+                darkBase="/assets/screenshots/sky-night-editor--dark"
+                alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le soir, nommé Ciel nocturne, avec l'aperçu : Prochain : 20:30. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
+                width={360}
+                height={706}
+              />
               <figcaption>Un angle de −18° le soir, et les semaines où il n&rsquo;arrive jamais.</figcaption>
             </figure>
             <p><strong>Ce que Risetime ne fait pas : la Lune.</strong> Pas de lever de lune, pas de phase, pas de calendrier lunaire — l&rsquo;application ne vous dira pas quand une pleine Lune efface la Voie lactée. Elle fait le soleil, et elle le fait hors ligne.</p>

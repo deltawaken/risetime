@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { langMetadata } from '../../../../lib/metadata'
 import SiteHeader from '../../../../components/SiteHeader'
+import ThemedPicture from '../../../../components/ThemedPicture'
 import SiteFooter from '../../../../components/SiteFooter'
 
 // LA PAGE MINUTEURS FRANÇAISE, ÉCRITE À LA MAIN — décision du porteur du
@@ -94,12 +95,13 @@ export default function MinuteursPage() {
             </div>
 
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/timer-list--dark.webp 1x, /assets/screenshots/timer-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/timer-list.webp 1x, /assets/screenshots/timer-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/timer-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/timer-list.png" alt="Liste des minuteurs de Risetime avec trois décomptes : 3:00 et 10:00 tous deux à l'arrêt, chacun avec un bouton de lecture et un bouton de remise à zéro, et un plus long encore en cours, avec une pastille rose de répétition, un bouton pause et un bouton +1:00. Les onglets Alarmes, Minuteurs et Paramètres courent en bas de l'écran." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/timer-list"
+                darkBase="/assets/screenshots/timer-list--dark"
+                alt="Liste des minuteurs de Risetime avec trois décomptes : 3:00 et 10:00 tous deux à l'arrêt, chacun avec un bouton de lecture et un bouton de remise à zéro, et un plus long encore en cours, avec une pastille rose de répétition, un bouton pause et un bouton +1:00. Les onglets Alarmes, Minuteurs et Paramètres courent en bas de l'écran."
+                width={360}
+                height={706}
+              />
               <figcaption>Trois minuteurs, triés par durée. La pastille rose signale celui qui est réglé pour se répéter.</figcaption>
             </figure>
           </section>

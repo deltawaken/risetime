@@ -47,23 +47,27 @@ import type { ImgHTMLAttributes } from 'react'
  *     une icône ou une bannière dont les fichiers ne s'appellent pas ainsi n'avaient
  *     aucun moyen d'entrer. Le composant est agnostique, donc les chemins s'écrivent. */
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'> & {
-  lightSrc: string
-  darkSrc: string
-  /** Les variantes de densité et de format, une par thème. Facultatives : sans
-   *  elles, le `<source>` est omis et le navigateur sert directement `*Src`. */
-  lightSrcSet?: string
-  darkSrcSet?: string
-  /** Le type MIME du `srcSet`, quand il en porte un. */
-  srcSetType?: string
+  /** Le chemin du fichier SANS extension ni suffixe de densité — les trois
+   *  variantes s'en déduisent : `.png`, `.webp`, `@2x.webp`.
+   *  ⛔ DEUX bases, et pas une seule dont on dériverait la sombre : une version
+   *     antérieure collait `--dark` à la base claire, et n'acceptait donc QUE nos
+   *     captures. Une bannière ou un schéma nommés autrement n'avaient aucun moyen
+   *     d'entrer. Les deux thèmes s'écrivent, la convention de nom ne se devine pas. */
+  lightBase: string
+  darkBase: string
   alt: string
 }
 
+/** Les trois fichiers d'une base. ⚠️ Cette convention d'extensions est la SEULE
+ *  que le composant suppose encore, et elle est vérifiée au build : `tools-check-
+ *  assets.py` refuse une image référencée dont un fichier manque. Sans ce
+ *  contrôle, un `@2x.webp` absent ne casserait rien de visible — le navigateur
+ *  retomberait en silence sur une autre densité, et personne ne le saurait. */
+const srcSetOf = (base: string) => `${base}.webp 1x, ${base}@2x.webp 2x`
+
 export default function ThemedPicture({
-  lightSrc,
-  darkSrc,
-  lightSrcSet,
-  darkSrcSet,
-  srcSetType = 'image/webp',
+  lightBase,
+  darkBase,
   ...imgProps
 }: Props) {
   /** ⚠️ Le MÊME `alt` sur les deux, et ce n'est pas un doublon pour un lecteur
@@ -71,9 +75,9 @@ export default function ThemedPicture({
    *  n'en est annoncé qu'un — celui qu'on voit. Et si le CSS ne s'appliquait pas du
    *  tout, la page resterait lisible avec deux images au lieu d'une : c'est le bon
    *  sens d'échec. */
-  const one = (theme: 'light' | 'dark', src: string, srcSet?: string) => (
+  const one = (theme: 'light' | 'dark', base: string) => (
     <picture className={`themed-img themed-img--${theme}`}>
-      {srcSet ? <source srcSet={srcSet} type={srcSetType} /> : null}
+      <source srcSet={srcSetOf(base)} type="image/webp" />
       {/* ⭐ `lazy` PAR DÉFAUT (porteur, 2026-09-27), et c'est ce qui rend la forme
           à deux <picture> gratuite : l'image masquée n'a pas de boîte de rendu,
           n'entre donc jamais dans le viewport, et n'est pas chargée — puis elle
@@ -81,14 +85,14 @@ export default function ThemedPicture({
           ⚠️ AVANT le spread, jamais après : un appelant qui écrit `loading="eager"`
              doit gagner. C'est le cas du seul héros de chaque page, qui ne peut pas
              être lazy sans abîmer le LCP — et qui part donc avec DEUX images. */}
-      <img src={src} loading="lazy" decoding="async" {...imgProps} />
+      <img src={`${base}.png`} loading="lazy" decoding="async" {...imgProps} />
     </picture>
   )
 
   return (
     <>
-      {one('light', lightSrc, lightSrcSet)}
-      {one('dark', darkSrc, darkSrcSet)}
+      {one('light', lightBase)}
+      {one('dark', darkBase)}
     </>
   )
 }

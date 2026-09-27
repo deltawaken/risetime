@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { enMetadata } from '../../../lib/metadata'
 import SiteHeader from '../../../components/SiteHeader'
+import ThemedPicture from '../../../components/ThemedPicture'
 import SiteFooter from '../../../components/SiteFooter'
 
 // Porté depuis golden-hour-alarm/index.html (commit 967c17d) — recopie, pas réécriture.
@@ -90,12 +91,13 @@ export default function GoldenHourAlarmPage() {
             </table>
             <p>Definitions vary between photographers; these are the common ones. Set the angle you work with and the app holds it at every latitude and season — which a "30 minutes before sunset" rule of thumb cannot do, because the length of twilight changes with both. In London on 21 June, +6° falls at 20:27 and sunset at 21:21: nearly an hour apart. In New York the same evening, 19:49 and 20:30: forty minutes.</p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-menu--dark.webp 1x, /assets/screenshots/sky-menu--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-menu.webp 1x, /assets/screenshots/sky-menu@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-menu--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-menu.png" alt="The new-alarm dialog with its anchor menu open, listing Absolute, Sunrise, Noon, Golden hour, Sunset, Blue hour, Night sky and Nadir." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-menu"
+                darkBase="/assets/screenshots/sky-menu--dark"
+                alt="The new-alarm dialog with its anchor menu open, listing Absolute, Sunrise, Noon, Golden hour, Sunset, Blue hour, Night sky and Nadir."
+                width={360}
+                height={706}
+              />
               <figcaption>Your own anchors sit beside sunrise and sunset, in the order of the day.</figcaption>
             </figure>
           </section>
@@ -110,12 +112,13 @@ export default function GoldenHourAlarmPage() {
             </ol>
             <p><a href="/alarms/#section-custom" className="content-link">How anchors and offsets work</a></p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-list--dark.webp 1x, /assets/screenshots/sky-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-list.webp 1x, /assets/screenshots/sky-list@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-list.png" alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:24 on Sunday and Saturday, 30 min before Golden hour; 18:58 on Sunday and Saturday at Blue hour; and 20:30 on Friday and Saturday at Night sky." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-list"
+                darkBase="/assets/screenshots/sky-list--dark"
+                alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:24 on Sunday and Saturday, 30 min before Golden hour; 18:58 on Sunday and Saturday at Blue hour; and 20:30 on Friday and Saturday at Night sky."
+                width={360}
+                height={706}
+              />
               <figcaption>Clock alarms for the week, sun alarms for the light.</figcaption>
             </figure>
           </section>
@@ -150,12 +153,13 @@ export default function GoldenHourAlarmPage() {
             <p>Astronomical night is the window between the evening and the morning moments when the sun is 18° below the horizon. Set an anchor at each and you hold both ends of the dark.</p>
             <p>Far north or far south, that window closes for part of the year: in London the sun does not reach −18° <strong>from 23 May to 21 July</strong>. Risetime says so when you create the anchor, with the dates for your own location, and on those nights the alarm stays silent rather than ring at a time the sky never produces.</p>
             <figure className="content-screenshot">
-              <picture>
-                <source srcSet="/assets/screenshots/sky-night-editor--dark.webp 1x, /assets/screenshots/sky-night-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-night-editor.webp 1x, /assets/screenshots/sky-night-editor@2x.webp 2x" type="image/webp" />
-                <source srcSet="/assets/screenshots/sky-night-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/sky-night-editor.png" alt="The anchor editor on A solar angle, set to −18.0° in the evening, named Night sky, with the preview: Next: 20:30. The sun does not reach this angle here from May 23, 2027 to July 21, 2027." width="360" height="706" loading="lazy" />
-              </picture>
+              <ThemedPicture
+                lightBase="/assets/screenshots/sky-night-editor"
+                darkBase="/assets/screenshots/sky-night-editor--dark"
+                alt="The anchor editor on A solar angle, set to −18.0° in the evening, named Night sky, with the preview: Next: 20:30. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
+                width={360}
+                height={706}
+              />
               <figcaption>An angle of −18° in the evening, and the weeks it never happens.</figcaption>
             </figure>
             <p><strong>What Risetime does not do: the Moon.</strong> No moonrise, no phase, no lunar calendar — the app will not tell you when a full Moon washes out the Milky Way. It does the sun, and it does it offline.</p>
