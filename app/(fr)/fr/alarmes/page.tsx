@@ -180,7 +180,7 @@ export default function AlarmesPage() {
                 <source srcSet="/assets/screenshots/alarms-card--dark.webp 1x, /assets/screenshots/alarms-card--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-card.webp 1x, /assets/screenshots/alarms-card@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-card--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-card.png" alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-card.png" alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Par défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Une carte d&rsquo;alarme ouverte : les jours de répétition, et tout le reste de l&rsquo;alarme.</figcaption>
             </figure>
@@ -222,7 +222,7 @@ export default function AlarmesPage() {
                 <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.webp 1x, /assets/screenshots/alarms-anchor-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-editor.webp 1x, /assets/screenshots/alarms-anchor-editor@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarms-anchor-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarms-anchor-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Suivant : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/alarms-anchor-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>−18° le matin, réglé pour Londres : l&rsquo;éditeur nomme les semaines où cela n&rsquo;arrive jamais.</figcaption>
             </figure>

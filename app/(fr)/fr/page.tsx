@@ -74,7 +74,7 @@ export default function AccueilPage() {
                 <source srcSet="/assets/screenshots/alarm-list--dark.webp 1x, /assets/screenshots/alarm-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarm-list.webp 1x, /assets/screenshots/alarm-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarm-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarm-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher ; et 23:02 aujourd'hui, 8 h avant le Lever, éteinte." width="360" height="706" loading="eager" fetchPriority="high" />
+                <img src="/assets/screenshots/alarm-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte." width="360" height="706" loading="eager" fetchPriority="high" />
               </picture>
             </div>
             <div className="cta-group">
@@ -141,7 +141,7 @@ export default function AccueilPage() {
                   <source srcSet="/assets/screenshots/alarm-picker--dark.webp 1x, /assets/screenshots/alarm-picker--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                   <source srcSet="/assets/screenshots/alarm-picker.webp 1x, /assets/screenshots/alarm-picker@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/alarm-picker--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/alarm-picker.png" alt="La boîte de création d'alarme de Risetime, ouverte par-dessus la liste : la pastille d'ancre Midi solaire, un décalage de moins 1 heure et 00 minute avec le champ des heures sélectionné, et la ligne Demain : 11:49. Un cadran d'heures circulaire avec 1 sélectionné occupe la moitié basse, avec Annuler et OK en dessous." width="360" height="706" loading="lazy" />
+                  <img src="/assets/screenshots/alarm-picker.png" alt="La boîte de création d'alarme de Risetime, ouverte par-dessus la liste : la pastille d'ancre Midi, un décalage de moins 1 heure et 00 minute avec le champ des heures sélectionné, et la ligne Demain : 11:49. Un cadran d'heures circulaire avec 1 sélectionné occupe la moitié basse, avec Annuler et OK en dessous." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Choisissez l&rsquo;ancre et le décalage</figcaption>
               </figure>
@@ -150,7 +150,7 @@ export default function AccueilPage() {
                   <source srcSet="/assets/screenshots/dismiss-screen--dark.webp 1x, /assets/screenshots/dismiss-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                   <source srcSet="/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/dismiss-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/dismiss-screen.png" alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et ARRÊTER en dessous." width="360" height="706" loading="lazy" />
+                  <img src="/assets/screenshots/dismiss-screen.png" alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Un réveil en douceur</figcaption>
               </figure>
@@ -159,7 +159,7 @@ export default function AccueilPage() {
                   <source srcSet="/assets/screenshots/settings-screen--dark.webp 1x, /assets/screenshots/settings-screen--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                   <source srcSet="/assets/screenshots/settings-screen.webp 1x, /assets/screenshots/settings-screen@2x.webp 2x" type="image/webp" />
                   <source srcSet="/assets/screenshots/settings-screen--dark.png" media="(prefers-color-scheme: dark)" />
-                  <img src="/assets/screenshots/settings-screen.png" alt="L'écran des réglages de Risetime, avec les lignes Alarmes, Ancres, Minuteurs, Réglages du téléphone, et Lieu des événements célestes réglé sur Londres, Royaume-Uni. La ligne Fiabilité indique 8 vérifications sur 8 au vert et est ouverte sur Vérifications que ce téléphone n'a pas et Tout va bien (8). Soutenir Risetime figure en dessous, et le pied de page indique Risetime." width="360" height="706" loading="lazy" />
+                  <img src="/assets/screenshots/settings-screen.png" alt="L'écran des paramètres de Risetime, avec les lignes Alarmes, Ancres, Minuteurs, Paramètres du téléphone, et Lieu des événements célestes réglé sur Londres, Royaume-Uni. La ligne Fiabilité indique 8 vérifications sur 8 au vert et est ouverte sur Contrôles sans objet sur ce téléphone et Tout va bien (8). Soutenir Risetime figure en dessous, et le pied de page indique Risetime." width="360" height="706" loading="lazy" />
                 </picture>
                 <figcaption>Une fiabilité que vous pouvez vérifier</figcaption>
               </figure>
@@ -184,7 +184,7 @@ export default function AccueilPage() {
           <section className="support" aria-labelledby="support-heading">
             <h2 id="support-heading">Gratuite jusqu&rsquo;à trois alarmes. Illimitée en soutenant.</h2>
             <div className="callout-box" style={{"borderInlineStartColor": "var(--muted)"}}>
-              <p>Risetime est gratuite jusqu&rsquo;à trois alarmes et trois minuteurs — pour toujours. <br />Il vous en faut plus ? Servez-vous d&rsquo;abord de ces trois-là, et voyez si ça vaut votre soutien : les soutiens ont les alarmes et les minuteurs sans limite, à l&rsquo;année ou une fois pour toutes. Sinon, je serai heureux de <a href="mailto:contact@risetime.app">vous lire</a>. Ça se trouve dans les Réglages.</p>
+              <p>Risetime est gratuite jusqu&rsquo;à trois alarmes et trois minuteurs — pour toujours. <br />Il vous en faut plus ? Servez-vous d&rsquo;abord de ces trois-là, et voyez si ça vaut votre soutien : les soutiens ont les alarmes et les minuteurs sans limite, à l&rsquo;année ou une fois pour toutes. Sinon, je serai heureux de <a href="mailto:contact@risetime.app">vous lire</a>. Ça se trouve dans les Paramètres.</p>
               <p style={{"marginBottom": "0"}}>Aucun écran de relance, aucun compte à rebours, aucun « passez à la version supérieure ». Juste une proposition honnête, quand vous serez prêt.</p>
             </div>
           </section>

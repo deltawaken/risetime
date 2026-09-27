@@ -135,7 +135,7 @@ export default function MeditationLeverDuSoleilPage() {
                 <source srcSet="/assets/screenshots/practice-angle-editor--dark.webp 1x, /assets/screenshots/practice-angle-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/practice-angle-editor.webp 1x, /assets/screenshots/practice-angle-editor@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/practice-angle-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/practice-angle-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé sur −6,0° le matin, nommé Aube civile, avec l'aperçu : Prochaine : 06:29." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/practice-angle-editor.png" alt="L'éditeur d'ancre sur Un angle solaire, réglé sur −6,0° le matin, nommé Aube civile, avec l'aperçu : Prochain : 06:29." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>L&rsquo;aube civile comme un angle : six degrés sous l&rsquo;horizon, le matin.</figcaption>
             </figure>
@@ -145,8 +145,8 @@ export default function MeditationLeverDuSoleilPage() {
             <h2 id="s-night">Une fraction de la nuit</h2>
             <p>Vous pouvez caler le matin sur la nuit plutôt que sur l&rsquo;aube : un point situé à une part donnée de l&rsquo;obscurité.</p>
             <ol>
-              <li><strong>Paramètres → Ancres → +</strong>, et basculez la forme sur <strong>Division</strong>.</li>
-              <li>Portée <strong>Nuit</strong>, puis le <strong>nombre de parties</strong> et la <strong>position</strong> — de 2 à 48 parties, n&rsquo;importe quelle limite à l&rsquo;intérieur.</li>
+              <li><strong>Paramètres → Ancres → +</strong>, et basculez la forme sur <strong>Une fraction du jour ou de la nuit</strong>.</li>
+              <li>Portée <strong>Nuit</strong>, puis le <strong>Nombre de parts</strong> et la <strong>position</strong> — de 2 à 48 parties, n&rsquo;importe quelle limite à l&rsquo;intérieur.</li>
               <li>Nommez-la, choisissez une couleur, enregistrez. Un brouillon neuf s&rsquo;intitule <strong>Nuit · 1/15</strong> ; il suit ce que vous réglez.</li>
               <li>Posez une alarme dessus.</li>
             </ol>
@@ -156,7 +156,7 @@ export default function MeditationLeverDuSoleilPage() {
                 <source srcSet="/assets/screenshots/practice-division-editor--dark.webp 1x, /assets/screenshots/practice-division-editor--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/practice-division-editor.webp 1x, /assets/screenshots/practice-division-editor@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/practice-division-editor--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/practice-division-editor.png" alt="L'éditeur d'ancre sur Une fraction du jour ou de la nuit, avec Nuit sélectionné, Nombre de parts réglé sur 8 et Position sur 7/8, nommé Dernière partie de la nuit, avec l'aperçu : Prochaine : 05:29." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/practice-division-editor.png" alt="L'éditeur d'ancre sur Une fraction du jour ou de la nuit, avec Nuit sélectionné, Nombre de parts réglé sur 8 et Position sur 7/8, nommé Dernière partie de la nuit, avec l'aperçu : Prochain : 05:29." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>La nuit découpée en huit parties, l&rsquo;alarme sur la dernière.</figcaption>
             </figure>

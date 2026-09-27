@@ -63,7 +63,7 @@ export default function ConfidentialitePage() {
           <section aria-labelledby="section-location">
             <h2 id="section-location">L&rsquo;autorisation de localisation</h2>
             <p>Risetime demande l&rsquo;autorisation de <strong>localisation approximative</strong> (<code>ACCESS_COARSE_LOCATION</code>) dans le seul but de calculer les heures locales de lever et de coucher du soleil. Votre position est traitée sur l&rsquo;appareil par un moteur d&rsquo;éphémérides, et n&rsquo;est jamais envoyée à un service ou à un serveur extérieur.</p>
-            <p>Vous pouvez aussi saisir votre ville à la main dans les Réglages : le GPS n&rsquo;est alors pas utilisé.</p>
+            <p>Vous pouvez aussi saisir votre ville à la main dans les Paramètres : le GPS n&rsquo;est alors pas utilisé.</p>
           </section>
 
           <section aria-labelledby="section-internet">

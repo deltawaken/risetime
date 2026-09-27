@@ -98,7 +98,7 @@ export default function MinuteursPage() {
                 <source srcSet="/assets/screenshots/timer-list--dark.webp 1x, /assets/screenshots/timer-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/timer-list.webp 1x, /assets/screenshots/timer-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/timer-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/timer-list.png" alt="Liste des minuteurs de Risetime avec trois décomptes : 3:00 et 10:00 tous deux à l'arrêt, chacun avec un bouton de lecture et un bouton de remise à zéro, et un plus long encore en cours, avec une pastille rose de répétition, un bouton pause et un bouton +1:00. Les onglets Alarmes, Minuteurs et Réglages courent en bas de l'écran." width="360" height="706" loading="lazy" />
+                <img src="/assets/screenshots/timer-list.png" alt="Liste des minuteurs de Risetime avec trois décomptes : 3:00 et 10:00 tous deux à l'arrêt, chacun avec un bouton de lecture et un bouton de remise à zéro, et un plus long encore en cours, avec une pastille rose de répétition, un bouton pause et un bouton +1:00. Les onglets Alarmes, Minuteurs et Paramètres courent en bas de l'écran." width="360" height="706" loading="lazy" />
               </picture>
               <figcaption>Trois minuteurs, triés par durée. La pastille rose signale celui qui est réglé pour se répéter.</figcaption>
             </figure>
@@ -115,7 +115,7 @@ export default function MinuteursPage() {
             <h2 id="section-ordinary">Et les minuteurs ordinaires</h2>
             <p>Le reste, c&rsquo;est ce que le minuteur d&rsquo;une horloge sait déjà faire. Appuyez sur le plus et vous obtenez un clavier plein écran plutôt qu&rsquo;un cadran : tapez les chiffres, ils se remplissent par la droite, comme sur un four à micro-ondes. Quatre, zéro, zéro donne quatre minutes, et six chiffres vous mènent jusqu&rsquo;à <strong>quatre-vingt-dix-neuf heures</strong>.</p>
             <p>Les minuteurs prennent place dans une liste triée par la durée pour laquelle ils ont été réglés, le plus court d&rsquo;abord, et non dans l&rsquo;ordre où vous les avez créés. Ils tournent en parallèle — plusieurs décomptes indépendants à la fois, répétables ou non.</p>
-            <p>Chaque ligne porte la pause, et un bouton <strong>+1:00</strong> qui ajoute du temps à ce qui reste — une minute, sauf si vous la changez dans les Réglages. Mettez un minuteur en pause et ce bouton devient une remise à zéro. Le chevron ouvre la ligne sur <strong>Répéter</strong> et sur la suppression.</p>
+            <p>Chaque ligne porte la pause, et un bouton <strong>+1:00</strong> qui ajoute du temps à ce qui reste — une minute, sauf si vous la changez dans les Paramètres. Mettez un minuteur en pause et ce bouton devient une remise à zéro. Le chevron ouvre la ligne sur <strong>Répéter</strong> et sur la suppression.</p>
           </section>
 
           <section aria-labelledby="section-notification">
