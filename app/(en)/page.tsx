@@ -229,13 +229,19 @@ export default function HomePage() {
                 <figcaption>Pick your anchor and offset</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/dismiss-screen"
-                  darkBase="/assets/screenshots/dismiss-screen--dark"
-                  alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Wake gently</figcaption>
               </figure>
               <figure>

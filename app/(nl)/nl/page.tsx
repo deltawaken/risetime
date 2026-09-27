@@ -188,13 +188,19 @@ export default function HomePage() {
                 <figcaption>Kies het anker en het tijdsverschil</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/nl/dismiss-screen"
-                  darkBase="/assets/screenshots/nl/dismiss-screen--dark"
-                  alt="Het stopscherm van Risetime voor een afgaand alarm, van rand tot rand gevuld met een oudroze kleur ontleend aan de stand van de zon: de tijd 17:30, de datum donderdag 1 oktober, het woord Alarm, een grote ronde knop SLUIMEREN, en STOPPEN eronder."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/nl/dismiss-screen.webp 1x, /assets/screenshots/nl/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/nl/dismiss-screen.png" alt="Het stopscherm van Risetime voor een afgaand alarm, van rand tot rand gevuld met een oudroze kleur ontleend aan de stand van de zon: de tijd 17:30, de datum donderdag 1 oktober, het woord Alarm, een grote ronde knop SLUIMEREN, en STOPPEN eronder." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Een zachte wekker</figcaption>
               </figure>
               <figure>

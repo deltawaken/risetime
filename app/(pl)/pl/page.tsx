@@ -175,13 +175,19 @@ export default function StronaGlownaPage() {
                 <figcaption>Wybór kotwicy i przesunięcia</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/pl/dismiss-screen"
-                  darkBase="/assets/screenshots/pl/dismiss-screen--dark"
-                  alt="Ekran odrzucenia Risetime dla dzwoniącego alarmu, wypełniony od brzegu do brzegu przydymionym różem wziętym z pozycji słońca: godzina 17:30, data czwartek 1 października, słowo Alarm, duży okrągły przycisk DRZEMKA i ODRZUĆ poniżej."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/pl/dismiss-screen.webp 1x, /assets/screenshots/pl/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/pl/dismiss-screen.png" alt="Ekran odrzucenia Risetime dla dzwoniącego alarmu, wypełniony od brzegu do brzegu przydymionym różem wziętym z pozycji słońca: godzina 17:30, data czwartek 1 października, słowo Alarm, duży okrągły przycisk DRZEMKA i ODRZUĆ poniżej." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Łagodne budzenie</figcaption>
               </figure>
               <figure>

@@ -174,13 +174,19 @@ export default function InicioPage() {
                 <figcaption>Elige el ancla y el desplazamiento</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/es/dismiss-screen"
-                  darkBase="/assets/screenshots/es/dismiss-screen--dark"
-                  alt="La pantalla de descarte de Risetime para una alarma que está sonando, llena de borde a borde de un rosa viejo tomado de la posición del sol: la hora 17:30, la fecha jueves, 1 de octubre, la palabra Alarma, un gran botón circular POSPONER, y DESCARTAR debajo."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/es/dismiss-screen.webp 1x, /assets/screenshots/es/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/es/dismiss-screen.png" alt="La pantalla de descarte de Risetime para una alarma que está sonando, llena de borde a borde de un rosa viejo tomado de la posición del sol: la hora 17:30, la fecha jueves, 1 de octubre, la palabra Alarma, un gran botón circular POSPONER, y DESCARTAR debajo." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Un despertar suave</figcaption>
               </figure>
               <figure>

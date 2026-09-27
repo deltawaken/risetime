@@ -187,13 +187,19 @@ export default function HomePage() {
                 <figcaption>Scelga l&rsquo;ancora e lo scostamento</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/it/dismiss-screen"
-                  darkBase="/assets/screenshots/it/dismiss-screen--dark"
-                  alt="La schermata di arresto di Risetime per una sveglia che suona, riempita da un bordo all'altro di un vecchio rosa tratto dalla posizione del sole: l'orario 17:30, la data giovedì 1 ottobre, la parola Sveglia, un grande pulsante circolare POSTICIPA, e CHIUDI sotto."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/it/dismiss-screen.webp 1x, /assets/screenshots/it/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/it/dismiss-screen.png" alt="La schermata di arresto di Risetime per una sveglia che suona, riempita da un bordo all'altro di un vecchio rosa tratto dalla posizione del sole: l'orario 17:30, la data giovedì 1 ottobre, la parola Sveglia, un grande pulsante circolare POSTICIPA, e CHIUDI sotto." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Un risveglio dolce</figcaption>
               </figure>
               <figure>

@@ -186,13 +186,19 @@ export default function AccueilPage() {
                 <figcaption>Choisissez l&rsquo;ancre et le décalage</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/fr/dismiss-screen"
-                  darkBase="/assets/screenshots/fr/dismiss-screen--dark"
-                  alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/fr/dismiss-screen.webp 1x, /assets/screenshots/fr/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/fr/dismiss-screen.png" alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Un réveil en douceur</figcaption>
               </figure>
               <figure>

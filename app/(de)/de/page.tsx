@@ -194,13 +194,19 @@ export default function StartseitePage() {
                 <figcaption>Anker und Versatz wählen</figcaption>
               </figure>
               <figure>
-                <ThemedPicture
-                  lightBase="/assets/screenshots/de/dismiss-screen"
-                  darkBase="/assets/screenshots/de/dismiss-screen--dark"
-                  alt="Der Abweisbildschirm von Risetime für einen klingelnden Wecker, randlos gefüllt mit einem verstaubten Rosa aus der Sonnenposition: die Uhrzeit 17:30, das Datum Donnerstag, 1. Oktober, das Wort Wecker, eine große runde Taste SCHLUMMERN, und SCHLIESSEN darunter."
-                  width={360}
-                  height={706}
-                />
+                {/* ⛔ UN <picture> ORDINAIRE, PAS <ThemedPicture> — et c'est la vérité du
+                                  produit, pas une simplification : DANS L'APP, L'ÉCRAN D'ARRÊT NE SUIT
+                                  PAS LE THÈME (porteur, 2026-09-28). Son fond est calculé depuis la
+                                  couleur solaire de l'instant, en clair comme en sombre.
+                                  ⚠️ Il a porté une fausse variante `--dark` jusqu'au 2026-09-28 : les
+                                     deux fichiers différaient, mais la SEULE différence était l'encart
+                                     système « Viewing full screen » qui polluait les captures — donc le
+                                     bug lui-même. Sans lui, ils sont identiques, comme ils le sont
+                                     déjà en anglais. */}
+                <picture>
+                  <source srcSet={`/assets/screenshots/de/dismiss-screen.webp 1x, /assets/screenshots/de/dismiss-screen@2x.webp 2x`} type="image/webp" />
+                  <img src="/assets/screenshots/de/dismiss-screen.png" alt="Der Abweisbildschirm von Risetime für einen klingelnden Wecker, randlos gefüllt mit einem verstaubten Rosa aus der Sonnenposition: die Uhrzeit 17:30, das Datum Donnerstag, 1. Oktober, das Wort Wecker, eine große runde Taste SCHLUMMERN, und SCHLIESSEN darunter." width={360} height={706} loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Ein sanftes Aufwecken</figcaption>
               </figure>
               <figure>
