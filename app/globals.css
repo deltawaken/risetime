@@ -183,14 +183,31 @@ body {
   align-items: center;
   gap: var(--space-md);
   width: 100%;
+  /* ⚠️ DEUX GROUPES, PAS UNE MARGE AUTOMATIQUE (2026-09-27). L'alignement reposait
+     sur `margin-inline-end: auto` posé sur le seul logotype. En production, le
+     résultat observé était que TOUT se tassait à gauche — et je n'ai pas su
+     reproduire la cause en lisant le CSS servi, qui est pourtant correct.
+     `space-between` sur deux enfants explicites ne dépend d'aucune marge : il n'y
+     a plus qu'une seule façon de rendre cette barre. */
+  justify-content: space-between;
+}
+
+/* Le groupe de droite : les contrôles puis les pages, dans l'ordre voulu par le
+   porteur. Il existe pour que `space-between` ait exactement DEUX enfants à
+   séparer — sans lui, l'espace se répartirait entre tous les liens. */
+.site-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
 }
 .wordmark {
+  /* ⛔ Plus de `margin-inline-end: auto` ici : c'est `space-between` sur
+     `.site-header nav` qui écarte les deux groupes. Une seule mécanique. */
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.04em;
   text-decoration: none;
-  margin-inline-end: auto;
 }
 .site-header nav a {
   color: var(--muted);
@@ -702,11 +719,17 @@ code {
    ============================================ */
 
 /* ---- NARROW LAYOUT ---- */
-.layout-narrow .site-header {
-  max-width: var(--max-width);
-}
+
+/* ⚠️ `.layout-narrow` NE BORNE QUE LE CONTENU — porteur, 2026-09-27 : « .layout-narrow,
+   applique le au content, plutôt, pas au header/footer ».
+   Avant ce jour, cette classe faisait EXACTEMENT L'INVERSE : elle rétrécissait
+   l'en-tête et le pied à 680 px alors que le contenu était déjà borné par
+   `.page-header` et `.content-main`, qui portent leur propre `max-width`. La
+   charpente changeait donc de largeur d'une page à l'autre sans que rien ne le
+   veuille, et l'accueil ne ressemblait plus aux autres.
+   ⛔ Ne pas y remettre de `max-width` : en-tête et pied ont la MÊME largeur sur
+   toutes les pages, celle du trait de séparation du pied. */
 .layout-narrow .site-footer {
-  max-width: var(--max-width);
   margin-bottom: var(--space-lg);
   padding-bottom: 0;
 }

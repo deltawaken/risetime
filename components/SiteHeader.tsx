@@ -48,6 +48,16 @@ export default function SiteHeader(
             l'accueil : dans main il ne l'a jamais porté, et l'entrée courante
             reste signalée par la nav elle-même. */}
         <a href="/" className="wordmark">Risetime</a>
+
+        {/* LE GROUPE DE DROITE. Il existe pour que le `space-between` de
+            `.site-header nav` ait exactement DEUX enfants à écarter — sans lui,
+            l'espace se répartirait entre TOUS les liens.
+            ⛔ Il remplace le `margin-inline-end: auto` que portait le logotype :
+               en production tout se tassait à gauche, alors que le CSS servi était
+               correct. Je n'ai pas su reproduire la cause en le lisant ; deux
+               groupes explicites ne dépendent d'aucune marge, et il n'y a plus
+               qu'une seule façon de rendre cette barre. */}
+        <span className="site-header__end">
         {/* LES DEUX CONTRÔLES, À DROITE ET AVANT LES PAGES — porteur, 2026-09-27 :
             « aligne le menu lang à droite, avant les pages ». Le logotype porte
             `margin-inline-end: auto` : tout ce qui le suit est donc déjà collé à
@@ -83,7 +93,7 @@ export default function SiteHeader(
              navigation">, un repère imbriqué n'apprendrait rien. */
         />
         {navGroup('legal').map((e) => flat(e.href, e.label))}
-
+        </span>
       </nav>
     </header>
   )
