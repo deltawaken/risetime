@@ -42,25 +42,13 @@ export default function SiteFooter({ lang = 'en', page = '' }: { lang?: string; 
         </a>
       </nav>
 
-      {/* 9-31 §1 — LE SÉLECTEUR DE LANGUE, ici et pas en en-tête. Trois raisons,
-          toutes écrites dans la story : le CLAVIER (30 entrées avant le contenu si
-          on le met en haut ; fermé, un <details> ne coûte qu'un arrêt de
-          tabulation, son contenu replié n'étant pas focusable), la POUSSÉE (un
-          <details> ouvert est dans le flux — en pied il n'y a rien après), et la
-          DÉCOUVERTE.
-          ⚠️ Ce troisième argument a CHANGÉ le 2026-09-25 : le §1 disait « la
-          découverte passe par le bandeau, le sélecteur est le chemin délibéré » —
-          or le porteur a SUPPRIMÉ le bandeau. Le sélecteur est donc le seul chemin,
-          et c'est ce qui lui vaut son déclencheur permanent (globe + endonyme
-          courant, `SELECTOR_INLINE_MAX = 0`) plutôt qu'un lien nu au milieu des six
-          liens du pied. L'emplacement, lui, ne change pas : les deux premiers
-          arguments (clavier, poussée) tiennent seuls.
-
-          Avec `LOCALES = []` il ne rend RIEN — pas une balise, pas une mention — et
-          sans qu'aucune condition ne le masque ici : `DisclosureNav` retourne
-          `null` sur liste vide. Il n'y a donc aucun cas particulier à penser à
-          retirer le jour où une langue arrive. */}
-      <LanguageSelector lang={lang} page={page} />
+      {/* ⛔ PLUS DE SÉLECTEUR DE LANGUE ICI. Déménagé dans l'en-tête le 2026-09-27
+          (porteur : « mettons le menu dans le menu du haut »). Les trois raisons de
+          9-31 §1 qui le plaçaient en pied sont discutées une par une dans
+          components/SiteHeader.tsx, à l'endroit où il vit maintenant.
+          ⚠️ `lang` et `page` restent des props de ce composant : le pied n'en a plus
+          l'usage aujourd'hui, mais les retirer toucherait les huit appelants pour
+          rien, et un pied traduit en aura besoin. */}
     </footer>
   )
 }

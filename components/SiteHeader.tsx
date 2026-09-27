@@ -1,4 +1,5 @@
 import DisclosureNav from './DisclosureNav'
+import LanguageSelector from './LanguageSelector'
 import { navGroup } from '../lib/pages'
 
 // 9-31 (2026-09-25) — l'en-tête, factorisé. Décision du porteur, qui INVERSE le
@@ -25,7 +26,9 @@ import { navGroup } from '../lib/pages'
 // existaient déjà, toutes au sitemap. Un href de navigation n'est ni un <loc> ni
 // un canonical.
 
-export default function SiteHeader({ current }: { current: string }) {
+export default function SiteHeader(
+  { current, lang = 'en' }: { current: string; lang?: string },
+) {
   const flat = (href: string, label: string, className?: string) => (
     <a
       key={href + label}
@@ -58,6 +61,24 @@ export default function SiteHeader({ current }: { current: string }) {
              navigation">, un repère imbriqué n'apprendrait rien. */
         />
         {navGroup('legal').map((e) => flat(e.href, e.label))}
+
+        {/* LE SÉLECTEUR DE LANGUE, DÉMÉNAGÉ ICI LE 2026-09-27, à la demande du
+            porteur : « mettons le menu dans le menu du haut ». Il était en pied
+            depuis 9-31 §1, qui donnait TROIS raisons. Elles ne sont pas enterrées :
+
+            · DÉCOUVERTE — c'était déjà l'argument le plus faible depuis que le
+              bandeau a été supprimé le 2026-09-25 ; le haut de page la sert mieux
+              que le pied. La raison du déménagement.
+            · CLAVIER — « 30 entrées avant le contenu ». ⛔ Faux dans l'état actuel,
+              et le commentaire d'origine le disait lui-même : replié, un <details>
+              ne coûte QU'UN arrêt de tabulation, son contenu n'étant pas focusable.
+              `SELECTOR_INLINE_MAX = 0` le garde replié quel que soit le nombre de
+              langues. ⚠️ Cet argument redeviendrait vrai si quelqu'un remontait
+              cette constante : ne pas le faire sans rouvrir ce choix.
+            · POUSSÉE — un <details> ouvert pousse le contenu. C'est vrai, et c'est
+              déjà le cas du menu « Uses » juste à côté, accepté. Deux menus qui se
+              comportent pareil valent mieux qu'un raisonnement par emplacement. */}
+        <LanguageSelector lang={lang} page={current} />
       </nav>
     </header>
   )

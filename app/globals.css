@@ -210,6 +210,18 @@ body {
   color: var(--muted);
   text-decoration: none;
 }
+/* ESPACEMENT DES SÉPARATEURS DU PIED (porteur, 2026-09-27 : « il faudrait plus
+   d'espacement dans Home·Alarms·Timers·Privacy·Google Play, comme entre Risetime ·
+   A. Deltawaken »). Le défaut venait du site d'origine : les `&middot;` y sont des
+   nœuds de texte NUS, collés aux liens.
+   ⛔ Réglé en CSS et NON en ajoutant des espaces dans le JSX : une marge logique
+   suit le sens d'écriture, là où un espace dur serait à reprendre en RTL — et
+   surtout, le pied ne gagne AUCUNE balise, ce que son commentaire exige.
+   `margin-inline` et non `padding` : la zone cliquable ne grandit pas, deux liens
+   voisins ne se touchent donc jamais au doigt. */
+.site-footer nav a { margin-inline: 0.35em; }
+.site-footer nav a:first-child { margin-inline-start: 0; }
+.site-footer nav a:last-child { margin-inline-end: 0; }
 .site-footer a:hover {
   color: var(--accent);
   text-decoration: underline;
@@ -839,7 +851,13 @@ code {
   text-align: start;
 }
 
+/* ⚠️ Cette marge était faite pour le PIED, où le sélecteur venait sous la
+   navigation. Il vit dans l'EN-TÊTE depuis le 2026-09-27 : l'y garder le
+   décalerait seul, sous la ligne des autres entrées. Elle ne s'applique donc plus
+   qu'en dehors de l'en-tête — la règle reste écrite pour le jour où il redescend,
+   plutôt que supprimée puis redécouverte. */
 .lang-selector { margin-block-start: 1rem; }
+.site-header .lang-selector { margin-block-start: 0; }
 
 /* Des COLONNES, pas un défilement interne : le nombre de colonnes suit la largeur
    disponible sans point de rupture écrit à la main, et le sens de remplissage suit
