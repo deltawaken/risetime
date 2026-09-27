@@ -974,18 +974,30 @@ code {
    Ici l'échec est dans le bon sens : pas de JS ⇒ pas de bouton ⇒ le thème suit le
    système, ce qui est déjà la bonne réponse pour presque tout le monde. */
 .theme-selector { display: none; }
+/* ⚠️ HOMOGÉNÉITÉ AVEC LE RESTE DE LA BARRE (porteur, 2026-09-27 : « il faut que ça
+   soit homogène »). Un <button> n'hérite NI de la police NI de la couleur du
+   document : sans ces trois lignes, il s'affichait dans la police système, à la
+   taille par défaut du navigateur, à côté d'entrées à 0,9 rem. Les valeurs sont
+   celles de `.site-header nav a`, et pas des valeurs approchantes — si cette règle
+   change, celle-ci doit suivre. */
 :root[data-js] .theme-selector {
   display: inline-flex;
   align-items: center;
   background: none;
   border: 0;
   padding: 0;
-  margin-inline-start: 0.5rem;
-  color: inherit;
-  font: inherit;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: inherit;
   cursor: pointer;
 }
 :root[data-js] .theme-selector:hover { color: var(--accent); }
+/* Le globe du sélecteur de langue est à `1em` et se cale sur la hauteur d'x ; le
+   soleil et la lune reprennent exactement le même calage, faute de quoi les deux
+   contrôles voisins ne seraient pas alignés sur la même ligne de base. */
+.theme-selector__sun, .theme-selector__moon { vertical-align: -0.12em; }
 
 /* L'ICÔNE SUIT LE THÈME APPLIQUÉ, par les MÊMES sélecteurs que la palette — pas
    par une classe que le script poserait. Le bouton ne peut donc pas afficher un

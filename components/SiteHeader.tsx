@@ -48,6 +48,27 @@ export default function SiteHeader(
             l'accueil : dans main il ne l'a jamais porté, et l'entrée courante
             reste signalée par la nav elle-même. */}
         <a href="/" className="wordmark">Risetime</a>
+        {/* LES DEUX CONTRÔLES, À DROITE ET AVANT LES PAGES — porteur, 2026-09-27 :
+            « aligne le menu lang à droite, avant les pages ». Le logotype porte
+            `margin-inline-end: auto` : tout ce qui le suit est donc déjà collé à
+            droite, et l'ordre écrit ici EST l'ordre à l'écran.
+            ⛔ Toujours pas d'`order` en flex : MDN l'interdit pour cet usage —
+               « order is only meant to affect the visual order […] not their
+               logical or tab order », et il « will create a DISCONNECT between the
+               visual presentation of content and DOM order ».
+            Les deux restent côte à côte parce que ce sont des CONTRÔLES, quand ce
+            qui suit sont des PAGES.
+
+            Les trois raisons de 9-31 §1 qui plaçaient le sélecteur de langue en
+            PIED, relues : DÉCOUVERTE (affaiblie par la suppression du bandeau le
+            25/09 — c'est la raison du déménagement) · CLAVIER (« 30 entrées avant
+            le contenu » : ⛔ faux, replié un <details> ne coûte QU'UN arrêt de
+            tabulation ; ⚠️ redeviendrait vrai si quelqu'un remontait
+            `SELECTOR_INLINE_MAX`) · POUSSÉE (vraie, et déjà le cas du menu
+            « Uses » juste à côté, accepté). */}
+        <LanguageSelector lang={lang} page={current} />
+        <ThemeSelector />
+
         {navGroup('main').map((e) => flat(e.href, e.label))}
         <DisclosureNav
           label="Uses"
@@ -63,27 +84,6 @@ export default function SiteHeader(
         />
         {navGroup('legal').map((e) => flat(e.href, e.label))}
 
-        {/* LES DEUX SÉLECTEURS, EN FIN DE NAVIGATION — ordre voulu par le porteur
-            le 2026-09-27 : « menu items - theme-selector - lang-selector ».
-            ⛔ Leur place à l'écran est leur place dans le DOM. Le porteur avait
-               d'abord proposé `order` en flex pour les afficher ailleurs qu'ils ne
-               sont écrits ; MDN l'interdit pour cet usage — « order is only meant
-               to affect the visual order […] not their logical or tab order » et
-               « will create a DISCONNECT between the visual presentation of content
-               and DOM order ». Le focus suit donc exactement ce qu'on voit. */}
-        {/* Le sélecteur de langue a quitté le PIED le 2026-09-27, et les trois
-            raisons de 9-31 §1 qui l'y plaçaient valent d'être relues ici :
-            · DÉCOUVERTE — déjà affaiblie par la suppression du bandeau le 25/09 ;
-              le haut de page la sert mieux. La raison du déménagement.
-            · CLAVIER — « 30 entrées avant le contenu ». ⛔ Faux tel quel, et le
-              commentaire d'origine le disait : replié, un <details> ne coûte QU'UN
-              arrêt de tabulation. `SELECTOR_INLINE_MAX = 0` le garde replié quel
-              que soit le nombre de langues. ⚠️ L'argument redeviendrait vrai si
-              quelqu'un remontait cette constante.
-            · POUSSÉE — un <details> ouvert pousse le contenu. Vrai, et déjà le cas
-              du menu « Uses » à côté, accepté. */}
-        <ThemeSelector />
-        <LanguageSelector lang={lang} page={current} />
       </nav>
     </header>
   )
