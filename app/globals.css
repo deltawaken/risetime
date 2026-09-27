@@ -355,17 +355,23 @@ code {
 }
 
 /* ---- IMAGES QUI SUIVENT LE THÈME FORCÉ (voir components/ThemedImage.tsx) ---- */
-/* Le <picture> décide seul tant que l'utilisateur n'a rien forcé. Ces deux règles
-   ne s'arment QUE dans les deux cas de désaccord entre le système et le choix
-   explicite — c'est pourquoi elles ne coûtent aucun téléchargement au cas courant.
-   ⛔ Pas d'`image-set()` : il daterait la technique de 2023 (Safari 17), là où
-      `content: url()` sur un élément remplacé remonte à Safari 9 / Firefox 63. */
+/* Deux <picture>, un seul affiché. ⛔ Même patron de résolution que tout le reste
+   de ce fichier — la requête de média pour le système, `[data-theme]` pour le
+   choix explicite — et `:not([data-theme="light"])` n'y est pas décoratif : sans
+   lui, forcer le clair sur un système sombre ne reprendrait pas la main.
+   ⚠️ `display: none` retire aussi l'élément de l'arbre d'accessibilité : c'est ce
+      qui fait qu'un seul `alt` est annoncé, alors que les deux sont dans le DOM. */
+.themed-img--dark { display: none; }
+
 @media (prefers-color-scheme: dark) {
-  :root[data-theme="light"] .themed-img { content: var(--img-light); }
+  :root:not([data-theme="light"]) .themed-img--light { display: none; }
+  :root:not([data-theme="light"]) .themed-img--dark { display: inline; }
 }
-@media (prefers-color-scheme: light) {
-  :root[data-theme="dark"] .themed-img { content: var(--img-dark); }
-}
+
+:root[data-theme="dark"] .themed-img--light { display: none; }
+:root[data-theme="dark"] .themed-img--dark { display: inline; }
+:root[data-theme="light"] .themed-img--light { display: inline; }
+:root[data-theme="light"] .themed-img--dark { display: none; }
 
 /* ---- PLAY BADGE (CTA button — used everywhere) ---- */
 .play-badge {
