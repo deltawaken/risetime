@@ -62,22 +62,32 @@ function contentFiles() {
   return out
 }
 
-function declaredLocales() {
+function listFromPages(name) {
   const src = fs.readFileSync(path.join(ROOT, 'lib', 'pages.ts'), 'utf8')
-  const m = /export const LOCALES: string\[\] = \[([^\]]*)\]/.exec(src)
+  const m = new RegExp(`export const ${name}: string\\[\\] = \\[([^\\]]*)\\]`).exec(src)
   if (!m) {
-    console.error('tools-lang-routes: REFUS — `LOCALES` introuvable dans lib/pages.ts.')
+    console.error(`tools-lang-routes: REFUS — \`${name}\` introuvable dans lib/pages.ts.`)
     process.exit(1)
   }
   return [...m[1].matchAll(/['"]([\w-]+)['"]/g)].map((x) => x[1])
 }
 
+const declaredLocales = () => listFromPages('LOCALES')
+// ⛔ LES LANGUES À PAGES STATIQUES SONT EXCLUES DE LA ROUTE DYNAMIQUE (2026-09-27).
+//    Leurs URL existent déjà en dur sous `app/(<lang>)/` : les produire aussi ici
+//    en ferait DEUX exemplaires. Et si elles sont les seules langues du site, la
+//    route ne rendrait plus rien — ce que Next refuse en `output: export`, la
+//    contrainte même que ce fichier existe pour contourner.
+const staticLocales = () => listFromPages('STATIC_LOCALES')
+
 const preview = process.env.BUILD_TARGET === 'preview'
 const declared = declaredLocales()
 // Les MÊMES règles que lib/locales.ts : production = LOCALES seule et pages relues ;
 // preview = plus tout ce que content/ porte, relu ou non.
+const statiques = staticLocales()
 const files = contentFiles().filter(
-  (f) => f.lang !== 'en' && (preview || (declared.includes(f.lang) && f.reviewed)),
+  (f) => f.lang !== 'en' && !statiques.includes(f.lang) &&
+    (preview || (declared.includes(f.lang) && f.reviewed)),
 )
 const langs = [...new Set(files.filter((f) => preview || declared.includes(f.lang)).map((f) => f.lang))]
 const withSlug = files.filter((f) => f.slug)

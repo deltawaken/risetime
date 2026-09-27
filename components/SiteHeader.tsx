@@ -30,12 +30,13 @@ import { navEntriesFor, homeFor } from '../lib/locales'
 export default function SiteHeader(
   { current, lang = 'en' }: { current: string; lang?: string },
 ) {
-  const flat = (href: string, label: string, className?: string) => (
+  /** `page` est la clé ANGLAISE — c'est elle qui porte l'identité, pas l'adresse
+   *  traduite. Voir `navEntriesFor`. */
+  const flat = (href: string, label: string, page: string) => (
     <a
       key={href + label}
       href={href}
-      className={className}
-      {...(href === current ? { 'aria-current': 'page' as const } : {})}
+      {...(page === current ? { 'aria-current': 'page' as const } : {})}
     >
       {label}
     </a>
@@ -79,7 +80,7 @@ export default function SiteHeader(
         <LanguageSelector lang={lang} page={current} />
         <ThemeSelector />
 
-        {navEntriesFor('main', lang).map((e) => flat(e.href, e.label))}
+        {navEntriesFor('main', lang).map((e) => flat(e.href, e.label, e.page))}
         <DisclosureNav
           label="Uses"
           hint=" — pages for specific uses"
@@ -92,7 +93,7 @@ export default function SiteHeader(
           /* Pas d'`ariaLabel` : on est déjà dans <nav aria-label="Main
              navigation">, un repère imbriqué n'apprendrait rien. */
         />
-        {navEntriesFor('legal', lang).map((e) => flat(e.href, e.label))}
+        {navEntriesFor('legal', lang).map((e) => flat(e.href, e.label, e.page))}
         </span>
       </nav>
     </header>

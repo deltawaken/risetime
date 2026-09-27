@@ -21,7 +21,7 @@
 // (`lang_home_suffix`). Les `hreflang` suivent (3). Le §2 de la story tranche
 // explicitement que les deux règles diffèrent, et pourquoi.
 
-import { LOCALES, SITE_URL, navGroup } from './pages'
+import { LOCALES, SITE_URL, STATIC_LOCALES, navGroup } from './pages'
 import type { NavEntry } from './pages'
 import { allContent, contentFor, contentLocales, urlFor } from './content'
 
@@ -81,6 +81,10 @@ export const builtLocales = (): string[] =>
     ? [...new Set([...LOCALES, ...contentLocales()])]
     : [...LOCALES]
   )
+    // ⛔ Une langue à pages statiques est exclue de la route DYNAMIQUE : ses URL
+    //    existent déjà en dur, et Next refuserait de produire deux fois la même.
+    //    Elle reste dans le sélecteur et les hreflang — voir STATIC_LOCALES.
+    .filter((l) => !STATIC_LOCALES.includes(l))
     .filter((l) => builtPages(l).length > 0)
     .sort()
 
@@ -183,6 +187,13 @@ export const navEntriesFor = (group: NavEntry['group'], lang: string) =>
   navGroup(group).map((e) => ({
     href: urlFor(lang, e.href) ?? e.href,
     label: contentFor(lang, e.href)?.data.nav_label ?? e.label,
+    /** ⚠️ LA CLÉ ANGLAISE DE LA PAGE, conservée à côté de l'adresse traduite.
+     *  `aria-current` se déduit d'ELLE et jamais de `href` : sur une page
+     *  française, l'adresse est `/fr/confidentialite/` alors que l'identité de la
+     *  page reste `/privacy/`. Comparer les adresses ferait perdre `aria-current`
+     *  dans toutes les langues d'un coup, sans rien casser d'autre — donc sans
+     *  qu'on le remarque. */
+    page: e.href,
   }))
 
 /** L'adresse de l'accueil dans une langue — pour le logotype, qui ramenait

@@ -79,3 +79,24 @@ export const SITE_URL = 'https://risetime.app'
 // SANS autre modification de code. Aucune pour l'instant : les traductions
 // arrivent une par une, par PR relue sur la preview.
 export const LOCALES: string[] = []
+
+/** LES LANGUES DONT LES PAGES SONT ÉCRITES À LA MAIN, comme l'anglais.
+ *
+ *  ⚠️ AJOUTÉ le 2026-09-27, sur décision du porteur : « on ne fait plus de
+ *  markdown […] tu vas juste bien gentiment tout traduire toi-même ». Une page
+ *  traduite doit porter TOUT ce que porte l'anglaise — ses captures à direction
+ *  artistique et ses données structurées comprises — or le rendu Markdown des
+ *  pages traduites ne sait faire que titres, paragraphes, listes et emphase.
+ *
+ *  Une langue listée ici :
+ *    · garde son `content/<lang>/*.md` pour son EN-TÊTE seul (titre, description,
+ *      og, `nav_label`, clés de langue) — exactement comme `content/en/` le fait
+ *      pour les pages anglaises ;
+ *    · est donc dans le sélecteur, les `hreflang` et la navigation traduite ;
+ *    · ⛔ mais est RETIRÉE de la route dynamique `app/[lang]/`, sans quoi Next
+ *      produirait DEUX fois la même URL — une fois en statique, une fois en
+ *      dynamique.
+ *
+ *  Le corps de ses `.md` est donc vide, et c'est normal : la prose vit dans le
+ *  JSX, du même côté que l'anglaise. */
+export const STATIC_LOCALES: string[] = ['fr']
