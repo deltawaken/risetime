@@ -27,6 +27,18 @@
     "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "updated": "2026-09-24"
   },
+  "fr/alarms.md": {
+    "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "updated": "2026-09-19"
+  },
+  "fr/circadian-rhythm-alarm.md": {
+    "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "updated": "2026-09-20"
+  },
+  "fr/golden-hour-alarm.md": {
+    "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "updated": "2026-09-20"
+  },
   "fr/home.md": {
     "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "updated": "2026-09-20"
@@ -34,5 +46,13 @@
   "fr/privacy.md": {
     "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "updated": "2026-09-19"
+  },
+  "fr/sunrise-meditation-alarm.md": {
+    "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "updated": "2026-09-24"
+  },
+  "fr/timers.md": {
+    "body": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "updated": "2026-09-24"
   }
 }

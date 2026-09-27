@@ -32,7 +32,7 @@ const jsonLd = [
     { "@type": "Question", "name": "Fait-elle aussi les alarmes normales, à heure fixe ?",
       "acceptedAnswer": { "@type": "Answer", "text": "Oui. Les alarmes d’horloge et les alarmes ancrées sur le soleil vivent dans la même liste, et les minuteurs ont leur propre onglet, avec leur son et leur volume." } },
     { "@type": "Question", "name": "Puis-je régler une alarme sur l’aube, l’heure dorée ou la nuit noire ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Oui, par l’angle du soleil. Créez une ancre à −6° pour l’aube civile, +6° le soir pour l’heure dorée, −18° pour la nuit astronomique, puis réglez vos alarmes dessus. Là où un angle n’est jamais atteint pendant une partie de l’année, l’application le dit, et l’alarme saute ces jours-là au lieu de sonner à une heure inventée." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, par l’angle solaire. Créez une ancre à −6° pour l’aube civile, +6° le soir pour l’heure dorée, −18° pour la nuit astronomique, puis réglez vos alarmes dessus. Là où un angle n’est jamais atteint pendant une partie de l’année, l’application le dit, et l’alarme saute ces jours-là au lieu de sonner à une heure inventée." } },
     { "@type": "Question", "name": "L’alarme sonne-t-elle quand même en mode Doze ou en économie de batterie ?",
       "acceptedAnswer": { "@type": "Answer", "text": "Oui. Risetime utilise l’API setAlarmClock d’Android — le même mécanisme système que l’horloge livrée avec votre téléphone — et un écran de fiabilité vérifie les autorisations dont votre téléphone a besoin. Les alarmes sonnent même avant le premier déverrouillage après un redémarrage." } },
     { "@type": "Question", "name": "Risetime est-elle gratuite ?",
@@ -74,7 +74,7 @@ export default function AccueilPage() {
                 <source srcSet="/assets/screenshots/alarm-list--dark.webp 1x, /assets/screenshots/alarm-list--dark@2x.webp 2x" media="(prefers-color-scheme: dark)" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarm-list.webp 1x, /assets/screenshots/alarm-list@2x.webp 2x" type="image/webp" />
                 <source srcSet="/assets/screenshots/alarm-list--dark.png" media="(prefers-color-scheme: dark)" />
-                <img src="/assets/screenshots/alarm-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolue, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher ; et 23:02 aujourd'hui, 8 h avant le Lever, éteinte." width="360" height="706" loading="eager" fetchPriority="high" />
+                <img src="/assets/screenshots/alarm-list.png" alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher ; et 23:02 aujourd'hui, 8 h avant le Lever, éteinte." width="360" height="706" loading="eager" fetchPriority="high" />
               </picture>
             </div>
             <div className="cta-group">
@@ -113,7 +113,7 @@ export default function AccueilPage() {
               </article>
               <article className="feature-card">
                 <h3>Des minuteurs, dans la même application</h3>
-                <p>Un clavier, une liste triée par durée, et une répétition dont les cycles restent en phase — pour des intervalles, des séances, des blocs de révision. <a href="/timers/">Le guide des minuteurs</a></p>
+                <p>Un clavier, une liste triée par durée, et une répétition dont les cycles restent en phase — pour des intervalles, des séances, des blocs de révision. <a href="/fr/minuteurs/">Le guide des minuteurs</a></p>
               </article>
             </div>
           </section>
@@ -122,14 +122,14 @@ export default function AccueilPage() {
             <h2 id="use-cases-heading">Ce que vous pouvez en faire</h2>
             <p>Qui se sert d&rsquo;un réveil solaire, et ce qu&rsquo;il règle :</p>
             <ul className="use-case-list">
-              <li><strong>Une journée qui suit le soleil</strong> — se lever au lever, ralentir avant le coucher, et garder des alarmes à heure fixe pour les heures que les autres attendent de vous. <a href="/circadian-rhythm-alarm/">Réveil sur le rythme circadien</a></li>
-              <li><strong>Photographes et astronomes</strong> — l&rsquo;heure dorée, l&rsquo;heure bleue et la nuit astronomique sont des angles du soleil, pas des heures fixes. Réglez l&rsquo;angle une fois : il tient à toutes les latitudes et à toutes les saisons, hors ligne, sur le terrain. <a href="/golden-hour-alarm/">Heure dorée, heure bleue et ciel nocturne</a></li>
-              <li><strong>Méditation, yoga, une pratique à la première lumière</strong> — la salutation au soleil quand la lumière arrive, ou une assise avant elle. Ancrez sur le lever, sur l&rsquo;aube civile par son angle, ou sur une fraction de la nuit. <a href="/sunrise-meditation-alarm/">Réveil pour la méditation et le yoga</a></li>
-              <li><strong>Sortir avant la lumière</strong> — à l&rsquo;eau avant le jour, sur une alarme qui bouge avec la première lumière au lieu d&rsquo;une heure qu&rsquo;on réajuste toutes les trois semaines.</li>
+              <li><strong>Une journée qui suit le soleil</strong> — se lever au lever, ralentir avant le coucher, et garder des alarmes à heure fixe pour les heures que les autres attendent de vous. <a href="/fr/reveil-rythme-circadien/">Réveil sur le rythme circadien</a></li>
+              <li><strong>Photographes et astronomes</strong> — l&rsquo;heure dorée, l&rsquo;heure bleue et la nuit astronomique sont des angles du soleil, pas des heures fixes. Réglez l&rsquo;angle une fois : il tient à toutes les latitudes et à toutes les saisons, hors ligne, sur le terrain. <a href="/fr/heure-doree/">Heure dorée, heure bleue et ciel nocturne</a></li>
+              <li><strong>Méditation, yoga, une pratique à la première lumière</strong> — la salutation au soleil quand la lumière arrive, ou une assise avant elle. Ancrez sur le lever, sur l&rsquo;aube civile par son angle, ou sur une fraction de la nuit. <a href="/fr/meditation-lever-du-soleil/">Réveil pour la méditation et le yoga</a></li>
+              <li><strong>Sortir avant la lumière</strong> — à l&rsquo;eau avant le jour, sur une alarme qui bouge avec la première lumière au lieu d&rsquo;une heure qu&rsquo;on réajuste toutes les quelques semaines.</li>
               <li><strong>Se lever avant l&rsquo;aube</strong> — réglez une fois votre décalage avant le lever : il suit le lever chaque jour. Pour le moment exact, reportez-vous à votre propre calendrier ; l&rsquo;alarme, elle, ne dérive jamais.</li>
               <li><strong>Travail dehors, promenades, élevage</strong> — si votre journée commence avec le jour, votre alarme aussi.</li>
-              <li><strong>Intervalles, séances, blocs de révision</strong> — des minuteurs qui repartent tout seuls, dans la même application. <a href="/timers/">Minuteurs répétables</a></li>
-              <li><strong>Quiconque en a assez de rajuster toute l&rsquo;année</strong> — réglez une fois, ça reste juste. <a href="/alarms/">Régler une alarme au lever ou au coucher du soleil</a></li>
+              <li><strong>Intervalles, séances, blocs de révision</strong> — des minuteurs qui repartent tout seuls, dans la même application. <a href="/fr/minuteurs/">Minuteurs répétables</a></li>
+              <li><strong>Quiconque en a assez de rajuster toute l&rsquo;année</strong> — réglez une fois, ça reste juste. <a href="/fr/alarmes/">Régler une alarme au lever ou au coucher du soleil</a></li>
             </ul>
           </section>
 
@@ -199,7 +199,7 @@ export default function AccueilPage() {
               <dt>Fait-elle aussi les alarmes normales, à heure fixe ?</dt>
               <dd>Oui. Les alarmes d&rsquo;horloge et les alarmes ancrées sur le soleil vivent dans la même liste, et les minuteurs ont leur propre onglet, avec leur son et leur volume.</dd>
               <dt>Puis-je régler une alarme sur l&rsquo;aube, l&rsquo;heure dorée ou la nuit noire ?</dt>
-              <dd>Oui, par l&rsquo;angle du soleil. Créez une ancre à −6° pour l&rsquo;aube civile, +6° le soir pour l&rsquo;heure dorée, −18° pour la nuit astronomique, puis réglez vos alarmes dessus. Là où un angle n&rsquo;est jamais atteint pendant une partie de l&rsquo;année, l&rsquo;application le dit, et l&rsquo;alarme saute ces jours-là au lieu de sonner à une heure inventée.</dd>
+              <dd>Oui, par l&rsquo;angle solaire. Créez une ancre à −6° pour l&rsquo;aube civile, +6° le soir pour l&rsquo;heure dorée, −18° pour la nuit astronomique, puis réglez vos alarmes dessus. Là où un angle n&rsquo;est jamais atteint pendant une partie de l&rsquo;année, l&rsquo;application le dit, et l&rsquo;alarme saute ces jours-là au lieu de sonner à une heure inventée.</dd>
               <dt>L&rsquo;alarme sonne-t-elle quand même en mode Doze ou en économie de batterie ?</dt>
               <dd>Oui. Risetime utilise l&rsquo;API <code>setAlarmClock</code> d&rsquo;Android — le même mécanisme système que l&rsquo;horloge livrée avec votre téléphone — et un écran de fiabilité vérifie les autorisations dont votre téléphone a besoin. Les alarmes sonnent même avant le premier déverrouillage après un redémarrage.</dd>
               <dt>Risetime est-elle gratuite ?</dt>
