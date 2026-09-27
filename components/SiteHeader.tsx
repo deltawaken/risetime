@@ -1,7 +1,7 @@
 import DisclosureNav from './DisclosureNav'
 import LanguageSelector from './LanguageSelector'
 import ThemeSelector from './ThemeSelector'
-import { navGroup } from '../lib/pages'
+import { navEntriesFor, homeFor } from '../lib/locales'
 
 // 9-31 (2026-09-25) — l'en-tête, factorisé. Décision du porteur, qui INVERSE le
 // §5 de PORTAGE.md (« En-têtes et pieds de page ne sont PAS factorisés […] À faire
@@ -47,7 +47,7 @@ export default function SiteHeader(
         {/* Le logotype ramène à l'accueil. Il ne porte pas `aria-current` sur
             l'accueil : dans main il ne l'a jamais porté, et l'entrée courante
             reste signalée par la nav elle-même. */}
-        <a href="/" className="wordmark">Risetime</a>
+        <a href={homeFor(lang)} className="wordmark">Risetime</a>
 
         {/* LE GROUPE DE DROITE. Il existe pour que le `space-between` de
             `.site-header nav` ait exactement DEUX enfants à écarter — sans lui,
@@ -79,11 +79,11 @@ export default function SiteHeader(
         <LanguageSelector lang={lang} page={current} />
         <ThemeSelector />
 
-        {navGroup('main').map((e) => flat(e.href, e.label))}
+        {navEntriesFor('main', lang).map((e) => flat(e.href, e.label))}
         <DisclosureNav
           label="Uses"
           hint=" — pages for specific uses"
-          entries={navGroup('uses')}
+          entries={navEntriesFor('uses', lang)}
           current={current}
           /* 0 : ce menu reste replié même à trois entrées. Le seuil de 3 de
              9-31 §1 est un jugement sur la LARGEUR DU PIED DE PAGE ; il ne vaut
@@ -92,7 +92,7 @@ export default function SiteHeader(
           /* Pas d'`ariaLabel` : on est déjà dans <nav aria-label="Main
              navigation">, un repère imbriqué n'apprendrait rien. */
         />
-        {navGroup('legal').map((e) => flat(e.href, e.label))}
+        {navEntriesFor('legal', lang).map((e) => flat(e.href, e.label))}
         </span>
       </nav>
     </header>

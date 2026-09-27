@@ -1,6 +1,10 @@
 import { Fragment } from 'react'
-import { navGroup } from '../lib/pages'
-import LanguageSelector from './LanguageSelector'
+import { contentFor } from '../lib/content'
+
+/** Le libellé « Home » du pied, traduit s'il l'est. ⛔ Pas de table : il vit
+ *  dans la clé `nav_label` de l'accueil de la langue. */
+const homeLabel = (lang: string) => contentFor(lang, '/')?.data.nav_label ?? 'Home'
+import { navEntriesFor, homeFor } from '../lib/locales'
 
 // 9-31 (2026-09-25) — le pied de page, factorisé. Deux empreintes distinctes sur
 // 7 pages : le commun, et /alarms/ dont l'entrée « Alarms » pointait href="/" —
@@ -23,8 +27,11 @@ export default function SiteFooter({ lang = 'en', page = '' }: { lang?: string; 
     <footer className="site-footer" role="contentinfo">
       <p>Risetime &middot; A. Deltawaken</p>
       <nav aria-label="Footer navigation">
-        <a href="/">Home</a>
-        {[...navGroup('main'), ...navGroup('legal')].map((e) => (
+        {/* ⚠️ Le pied suit la même règle que l'en-tête depuis le 2026-09-27 :
+            libellés et adresses viennent du contenu de la langue, avec repli sur
+            l'anglais tant qu'une page n'est pas traduite. */}
+        <a href={homeFor(lang)}>{homeLabel(lang)}</a>
+        {[...navEntriesFor('main', lang), ...navEntriesFor('legal', lang)].map((e) => (
           /* Fragment et non <span> : il ne faut AUCUNE balise en plus — le HTML
              produit doit être celui de main, séparateurs compris. */
           <Fragment key={e.href}>

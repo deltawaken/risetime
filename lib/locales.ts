@@ -21,7 +21,8 @@
 // (`lang_home_suffix`). Les `hreflang` suivent (3). Le §2 de la story tranche
 // explicitement que les deux règles diffèrent, et pourquoi.
 
-import { LOCALES, SITE_URL } from './pages'
+import { LOCALES, SITE_URL, navGroup } from './pages'
+import type { NavEntry } from './pages'
 import { allContent, contentFor, contentLocales, urlFor } from './content'
 
 /** Au-delà de ce nombre d'entrées, la liste passe sous `<details>`. **0 = toujours
@@ -162,3 +163,28 @@ export function selectorEntries(currentLang: string, currentPage: string): Selec
  *    aucune donnée de langue inerte dans les pages — plus un seul bloc JSON hors
  *    JSON-LD. ⛔ Ne pas la ressusciter « au cas où » : avec une seule langue elle
  *    affirmait une disponibilité qui n'existe pas. */
+
+
+/** LA NAVIGATION, TRADUITE — libellés ET adresses (2026-09-27, porteur : « le menu
+ *  header devra être traduit lui aussi, avec les bonnes pages, bien sûr »).
+ *
+ *  Les deux moitiés viennent du CONTENU, jamais d'une table écrite à la main :
+ *    · l'adresse, de `urlFor(lang, page)` — donc du `slug:` de la langue ;
+ *    · le libellé, de la clé `nav_label` de l'en-tête de cette page.
+ *
+ *  ⚠️ LE REPLI EST DÉLIBÉRÉ ET IL SE VOIT. Tant qu'une page n'est pas traduite,
+ *  `urlFor` retourne `undefined` : l'entrée pointe alors la page ANGLAISE et garde
+ *  le libellé anglais du registre. ⛔ Pas d'entrée masquée, pas de lien mort : un
+ *  menu amputé cacherait l'état réel de la traduction, et un lien vers une page
+ *  inexistante serait pire. Le mélange de langues dans le menu EST l'information —
+ *  il disparaît à mesure que les pages arrivent.
+ */
+export const navEntriesFor = (group: NavEntry['group'], lang: string) =>
+  navGroup(group).map((e) => ({
+    href: urlFor(lang, e.href) ?? e.href,
+    label: contentFor(lang, e.href)?.data.nav_label ?? e.label,
+  }))
+
+/** L'adresse de l'accueil dans une langue — pour le logotype, qui ramenait
+ *  toujours à l'accueil ANGLAIS depuis une page traduite. */
+export const homeFor = (lang: string) => urlFor(lang, '/') ?? '/'
