@@ -110,7 +110,7 @@ export const LOCALES: string[] = []
  *
  *  Le corps de ses `.md` est donc vide, et c'est normal : la prose vit dans le
  *  JSX, du même côté que l'anglaise. */
-export const STATIC_LOCALES: string[] = ['fr', 'de', 'es', 'it', 'nl', 'pl']
+export const STATIC_LOCALES: string[] = ['fr', 'de', 'es', 'it', 'nl', 'pl', 'pt']
 /* ⚠️ Une langue n'entre ici QUE quand ses pages existent. Y figurer sans pages la
  *    retire de la route dynamique sans rien mettre à la place : elle DISPARAÎTRAIT
  *    du sélecteur au lieu d'y apparaître. `readableLocales()` la filtre sur
