@@ -77,14 +77,32 @@ export const builtPages = (lang: string): string[] =>
  *  exactement ce que le §9 interdit. Le défaut a été trouvé en construisant le cas,
  *  pas en relisant le code. */
 export const builtLocales = (): string[] =>
+  readableLocales()
+    // ⛔ Une langue à pages statiques est exclue de la route DYNAMIQUE : ses URL
+    //    existent déjà en dur, et Next refuserait de produire deux fois la même.
+    //    Elle reste LISIBLE — c'est `readableLocales()` qui la porte.
+    .filter((l) => !STATIC_LOCALES.includes(l))
+
+/** LE QUATRIÈME ENSEMBLE, et il fallait le nommer : les langues qu'on peut LIRE
+ *  dans ce build, quelle que soit la route qui les produit — dynamique `/xx/` ou
+ *  pages statiques écrites à la main.
+ *
+ *  ⛔ RÉGRESSION DU 2026-09-27, réparée ici, et la lire avant de toucher à ce
+ *  fichier : `selectorEntries()` lisait `builtLocales()`. Le français est entré
+ *  dans `STATIC_LOCALES`, donc il en est sorti — et avec `LOCALES = []`, le
+ *  sélecteur n'avait plus AUCUNE entrée : **le menu des langues a disparu de
+ *  toutes les pages de la preview**, alors que les sept pages françaises étaient
+ *  bien là. Personne ne pouvait plus les atteindre autrement qu'en tapant l'URL.
+ *
+ *  La faute est exactement celle que l'avertissement en tête de ce fichier décrit :
+ *  avoir confondu deux ensembles. « Ce que la route dynamique produit » et « ce
+ *  qu'un lecteur peut atteindre » ne sont pas la même chose, et la seconde est
+ *  toujours la plus large. Le sélecteur suit celle-ci, jamais l'autre. */
+export const readableLocales = (): string[] =>
   (isPreview()
     ? [...new Set([...LOCALES, ...contentLocales()])]
     : [...LOCALES]
   )
-    // ⛔ Une langue à pages statiques est exclue de la route DYNAMIQUE : ses URL
-    //    existent déjà en dur, et Next refuserait de produire deux fois la même.
-    //    Elle reste dans le sélecteur et les hreflang — voir STATIC_LOCALES.
-    .filter((l) => !STATIC_LOCALES.includes(l))
     .filter((l) => builtPages(l).length > 0)
     .sort()
 
@@ -145,7 +163,10 @@ export function selectorEntries(currentLang: string, currentPage: string): Selec
   //    sitemap, qui restent sur `LOCALES` SEULE dans les deux builds (règle L5).
   //    Le sélecteur est un chemin de lecture ; le `hreflang` est une déclaration
   //    au moteur de recherche. Les élargir ensemble serait la faute.
-  const disponibles = isPreview() ? builtLocales() : LOCALES
+  // ⛔ `readableLocales()`, PAS `builtLocales()` : voir la régression consignée
+  //    sur `readableLocales`. Une langue à pages statiques est lisible, donc elle
+  //    est dans le sélecteur, même si la route dynamique ne la produit pas.
+  const disponibles = isPreview() ? readableLocales() : LOCALES
   const entries = ['en', ...disponibles]
     .filter((l) => l !== currentLang)
     .map((l) => {

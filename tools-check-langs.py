@@ -352,7 +352,14 @@ def check(exp: Export, truth: dict, *, production: bool = True) -> None:
     for name, html in exp.content_pages().items():
         block = exp.selector(html)
         if block is None:
-            if selector_expected and production:
+            # ⛔ PAS de « and production » ici. Il y était, et il a coûté : le
+            #    2026-09-27 le sélecteur de langue a disparu de TOUTES les pages de la
+            #    preview, et ce contrôle est resté vert. La preview est précisément le
+            #    build qu'un humain relit ; y désarmer le contrôle du seul chemin vers
+            #    les pages traduites, c'est le désarmer là où il sert.
+            #    `selector_langs` porte déjà la différence entre les deux builds — il
+            #    n'y a rien de plus à conditionner.
+            if selector_expected:
                 fail("L8", f"{name} : AUCUN conteneur de sélecteur alors que les langues "
                            f"disponibles sont {sorted(selector_langs)}")
             continue
