@@ -240,7 +240,7 @@ export default function HomePage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, 1 October, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Wake gently</figcaption>
               </figure>

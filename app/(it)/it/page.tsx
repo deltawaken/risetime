@@ -198,7 +198,7 @@ export default function HomePage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/it/dismiss-screen.webp 1x, /assets/screenshots/it/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/it/dismiss-screen.png" alt="La schermata di arresto di Risetime per una sveglia che suona, riempita da un bordo all'altro di un vecchio rosa tratto dalla posizione del sole: l'orario 17:30, la data giovedì 1 ottobre, la parola Sveglia, un grande pulsante circolare POSTICIPA, e CHIUDI sotto." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/it/dismiss-screen.png" alt="La schermata di arresto di Risetime per una sveglia che suona, riempita da un bordo all'altro di un vecchio rosa tratto dalla posizione del sole: l'orario 17:30, la data giovedì 1 ottobre, la parola Sveglia, un grande pulsante circolare POSTICIPA, e SPEGNI sotto." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Un risveglio dolce</figcaption>
               </figure>

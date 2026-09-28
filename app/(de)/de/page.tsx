@@ -205,7 +205,7 @@ export default function StartseitePage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/de/dismiss-screen.webp 1x, /assets/screenshots/de/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/de/dismiss-screen.png" alt="Der Abweisbildschirm von Risetime für einen klingelnden Wecker, randlos gefüllt mit einem verstaubten Rosa aus der Sonnenposition: die Uhrzeit 17:30, das Datum Donnerstag, 1. Oktober, das Wort Wecker, eine große runde Taste SCHLUMMERN, und SCHLIESSEN darunter." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/de/dismiss-screen.png" alt="Der Weckbildschirm von Risetime für einen klingelnden Wecker, randlos gefüllt mit einem verstaubten Rosa aus der Sonnenposition: die Uhrzeit 17:30, das Datum Donnerstag, 1. Oktober, das Wort Wecker, eine große runde Taste SCHLUMMERN, und AUSSCHALTEN darunter." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Ein sanftes Aufwecken</figcaption>
               </figure>

@@ -197,7 +197,7 @@ export default function AccueilPage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/fr/dismiss-screen.webp 1x, /assets/screenshots/fr/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/fr/dismiss-screen.png" alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1er octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/fr/dismiss-screen.png" alt="L'écran d'arrêt de Risetime pour une alarme qui sonne, rempli d'un bord à l'autre d'un vieux rose tiré de la position du soleil : l'heure 17:30, la date jeudi 1 octobre, le mot Alarme, un grand bouton circulaire REPORTER, et IGNORER en dessous." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Un réveil en douceur</figcaption>
               </figure>

@@ -186,7 +186,7 @@ export default function StronaGlownaPage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/pl/dismiss-screen.webp 1x, /assets/screenshots/pl/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/pl/dismiss-screen.png" alt="Ekran odrzucenia Risetime dla dzwoniącego alarmu, wypełniony od brzegu do brzegu przydymionym różem wziętym z pozycji słońca: godzina 17:30, data czwartek 1 października, słowo Alarm, duży okrągły przycisk DRZEMKA i ODRZUĆ poniżej." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/pl/dismiss-screen.png" alt="Ekran wyłączania Risetime dla dzwoniącego alarmu, wypełniony od brzegu do brzegu przydymionym różem wziętym z pozycji słońca: godzina 17:30, data czwartek, 1 października, słowo Alarm, duży okrągły przycisk DRZEMKA i WYŁĄCZ poniżej." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Łagodne budzenie</figcaption>
               </figure>

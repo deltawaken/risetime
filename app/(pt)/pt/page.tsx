@@ -198,7 +198,7 @@ export default function PaginaInicial() {
                                      em inglês. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/pt/dismiss-screen.webp 1x, /assets/screenshots/pt/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/pt/dismiss-screen.png" alt="A tela de parar do Risetime para um alarme tocando, preenchida de ponta a ponta com um rosa antigo tirado da posição do sol: o horário 17:30, a data quinta-feira, 1º de outubro, a palavra Alarme, um grande botão circular SONECA, e DESCARTAR abaixo." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/pt/dismiss-screen.png" alt="A tela de encerramento do Risetime para um alarme tocando, preenchida de ponta a ponta com um rosa antigo tirado da posição do sol: o horário 17:30, a data quinta-feira, 1 de outubro, a palavra Alarme, um grande botão circular SONECA, e ENCERRAR abaixo." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Um despertar suave</figcaption>
               </figure>

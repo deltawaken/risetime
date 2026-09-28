@@ -199,7 +199,7 @@ export default function HomePage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/nl/dismiss-screen.webp 1x, /assets/screenshots/nl/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/nl/dismiss-screen.png" alt="Het stopscherm van Risetime voor een afgaand alarm, van rand tot rand gevuld met een oudroze kleur ontleend aan de stand van de zon: de tijd 17:30, de datum donderdag 1 oktober, het woord Alarm, een grote ronde knop SLUIMEREN, en STOPPEN eronder." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/nl/dismiss-screen.png" alt="Het stopscherm van Risetime voor een afgaand alarm, van rand tot rand gevuld met een oudroze kleur ontleend aan de stand van de zon: de tijd 17:30, de datum donderdag 1 oktober, het woord Wekker, een grote ronde knop SLUIMEREN, en UITZETTEN eronder." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Een zachte wekker</figcaption>
               </figure>
