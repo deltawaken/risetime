@@ -170,7 +170,7 @@ export default function PaginaAlarmeRitmoCircadiano() {
           <section aria-labelledby="section-privacy">
             <h2 id="section-privacy">Um alarme, não um monitoramento de sono</h2>
             <p>O Risetime não monitora seu sono. Ele não registra o momento em que você descarta um alarme, não tem conta, não tem nuvem e nenhuma ferramenta de medição. Ele não tem <strong>nenhuma permissão de internet</strong>: o próprio sistema operacional o impede, portanto, de se conectar. Os horários de nascer do sol são calculados no seu telefone, e sua localização nunca o deixa. É também por isso que ele funciona no modo avião, em um vale, em um barco. <a href="/pt/privacidade/" className="content-link">Política de privacidade</a></p>
-            <p>O Risetime é gratuito para até três alarmes e três temporizadores — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
+            <p>O Risetime é gratuito para até três alarmes e três timers — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
           </section>
 
           <div className="cta-section">

@@ -4,22 +4,22 @@ import SiteHeader from '../../../../components/SiteHeader'
 import ThemedPicture from '../../../../components/ThemedPicture'
 import SiteFooter from '../../../../components/SiteFooter'
 
-// A PÁGINA DE TEMPORIZADORES PORTUGUESA, ESCRITA À MÃO — decisão do porteur de
+// A PÁGINA DE TIMERS PORTUGUESA, ESCRITA À MÃO — decisão do porteur de
 // 2026-09-27: uma página traduzida carrega TUDO o que a inglesa carrega, suas
 // capturas e seus dados estruturados incluídos, do mesmo lado que ela: o JSX.
 //
 // ⚠️ SUAS STRINGS DE CABEÇALHO VIVEM EM content/pt/timers.md, em UM exemplar.
 // `langMetadata` lê ali título, descrição e og, acrescenta o canonical
-// PORTUGUÊS (/pt/temporizadores/, derivado de `slug:`) e os hreflang. ⛔ A CHAVE
+// PORTUGUÊS (/pt/timers/, derivado de `slug:`) e os hreflang. ⛔ A CHAVE
 // passada aqui continua sendo a da página INGLESA, `/timers/`: é a identidade
 // da página, não a sua URL.
 //
 // ⛔ `pt` está em `STATIC_LOCALES` (lib/pages.ts): a rota dinâmica
 // `app/[lang]/` portanto NÃO produz essa URL.
 //
-// Vocabulário decidido, e não é negociável: a coisa se chama "temporizador
+// Vocabulário decidido, e não é negociável: a coisa se chama "timer
 // repetível", o que ele faz é uma "repetição", e suas voltas são "ciclos". A
-// locução comum que junta "temporizador" ao nome do intervalo de tempo é
+// locução comum que junta "timer" ao nome do intervalo de tempo é
 // PROIBIDA aqui como na inglesa: ela designa no uso comum duas fases que se
 // alternam, o que o aplicativo não sabe fazer. O substantivo comum sozinho,
 // esse, continua correto — é exatamente o que se ajusta uma vez.
@@ -29,8 +29,8 @@ const jsonLd = [
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Um temporizador que reinicia sozinho",
-  "description": "O temporizador repetível do Risetime: uma duração, reiniciada em um intervalo fixo, cujos ciclos permanecem em fase, com um botão Parar o ciclo para encerrá-lo — e os temporizadores comuns que qualquer relógio já faz.",
+  "headline": "Um timer que reinicia sozinho",
+  "description": "O timer repetível do Risetime: uma duração, reiniciada em um intervalo fixo, cujos ciclos permanecem em fase, com um botão Parar o ciclo para encerrá-lo — e os timers comuns que qualquer relógio já faz.",
   "inLanguage": "pt-BR",
   "author": {
     "@type": "Organization",
@@ -41,7 +41,7 @@ const jsonLd = [
     "name": "Risetime",
     "url": "https://risetime.app/"
   },
-  "mainEntityOfPage": "https://risetime.app/pt/temporizadores/"
+  "mainEntityOfPage": "https://risetime.app/pt/timers/"
 },
 {
   "@context": "https://schema.org",
@@ -57,14 +57,14 @@ const jsonLd = [
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Temporizadores",
-      "item": "https://risetime.app/pt/temporizadores/"
+      "name": "Timers",
+      "item": "https://risetime.app/pt/timers/"
     }
   ]
 }
 ]
 
-export default function PaginaTemporizadores() {
+export default function PaginaTimers() {
   return (
     <div className="layout-narrow">
       {jsonLd.map((schema, i) => (
@@ -80,15 +80,15 @@ export default function PaginaTemporizadores() {
         <SiteHeader current="/timers/" lang="pt" />
 
         <div className="page-header">
-          <h1>Um temporizador que reinicia sozinho</h1>
-          <p className="subtitle">Ajuste a duração uma vez, e ele continua — além de tudo que o temporizador de um relógio já sabe fazer.</p>
+          <h1>Um timer que reinicia sozinho</h1>
+          <p className="subtitle">Ajuste a duração uma vez, e ele continua — além de tudo que o timer de um relógio já sabe fazer.</p>
         </div>
 
         <main id="main-content" className="content-main">
 
           <section aria-labelledby="section-loop">
             <h2 id="section-loop">Ele reinicia sozinho</h2>
-            <p>É a parte que o relógio do seu telefone provavelmente não sabe fazer. Abra a linha de um temporizador pelo ícone de seta e marque <strong>Repetir</strong>: ele vira um <strong>temporizador repetível</strong>. Ele chega a zero, toca brevemente, e reinicia pela mesma duração, até você parar a repetição. O que você ajusta uma vez é o intervalo entre dois toques.</p>
+            <p>É a parte que o relógio do seu telefone provavelmente não sabe fazer. Abra a linha de um timer pelo ícone de seta e marque <strong>Repetir</strong>: ele vira um <strong>timer repetível</strong>. Ele chega a zero, toca brevemente, e reinicia pela mesma duração, até você parar a repetição. O que você ajusta uma vez é o intervalo entre dois toques.</p>
             <p>Cada ciclo é ancorado no momento em que o anterior <em>venceu</em>, e não no momento em que você o silenciou: trinta minutos repetidos duas vezes dão sessenta minutos, não sessenta e um. Do contrário, cada toque deixado tocando deslocaria o resto do dia inteiro.</p>
 
             <div className="highlight-box">
@@ -99,47 +99,47 @@ export default function PaginaTemporizadores() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/timer-list"
                 darkBase="/assets/screenshots/pt/timer-list--dark"
-                alt="Lista de temporizadores do Risetime com três contagens regressivas: 3:00 e 10:00, ambas paradas, cada uma com um botão de play e um botão de redefinir, e uma mais longa ainda em andamento, com uma pastilha rosa de repetição, um botão de pausa e um botão +1:00. As abas Alarmes, Temporizadores e Configurações correm na parte inferior da tela."
+                alt="Lista de timers do Risetime com três contagens regressivas: 3:00 e 10:00, ambas paradas, cada uma com um botão de play e um botão de redefinir, e uma mais longa ainda em andamento, com uma pastilha rosa de repetição, um botão de pausa e um botão +1:00. As abas Alarmes, Timers e Configurações correm na parte inferior da tela."
                 width={360}
                 height={706}
               />
-              <figcaption>Três temporizadores, ordenados por duração. A pastilha rosa sinaliza o que está ajustado para se repetir.</figcaption>
+              <figcaption>Três timers, ordenados por duração. A pastilha rosa sinaliza o que está ajustado para se repetir.</figcaption>
             </figure>
           </section>
 
           <section aria-labelledby="section-ending">
             <h2 id="section-ending">Parar o ciclo</h2>
             <p>Uma repetição para com um botão chamado <strong>Parar o ciclo</strong>: na tela de toque, e também na notificação de toque, ao lado de <strong>Continuar</strong> e do botão que adiciona tempo.</p>
-            <p>Desmarcar <strong>Repetir</strong> enquanto um temporizador toca deixa mais um ciclo antes de parar: o ajuste é lido uma vez por ciclo, no momento em que o toque começa.</p>
+            <p>Desmarcar <strong>Repetir</strong> enquanto um timer toca deixa mais um ciclo antes de parar: o ajuste é lido uma vez por ciclo, no momento em que o toque começa.</p>
             <p>A tela de toque aparece a cada ciclo e vai embora sozinha depois dos cinco segundos — nada para tocar, nada para descartar entre um ciclo e outro.</p>
           </section>
 
           <section aria-labelledby="section-ordinary">
-            <h2 id="section-ordinary">E os temporizadores comuns</h2>
-            <p>O resto é o que o temporizador de um relógio já sabe fazer. Toque no mais e você obtém um teclado em tela cheia em vez de um mostrador: digite os números, eles se preenchem pela direita, como em um forno de micro-ondas. Quatro, zero, zero dá quatro minutos, e seis dígitos levam você até <strong>noventa e nove horas</strong>.</p>
-            <p>Os temporizadores ocupam um lugar em uma lista ordenada pela duração para a qual foram ajustados, o mais curto primeiro, e não na ordem em que você os criou. Eles rodam em paralelo — várias contagens independentes ao mesmo tempo, repetíveis ou não.</p>
-            <p>Cada linha tem a pausa, e um botão <strong>+1:00</strong> que adiciona tempo ao que resta — um minuto, a menos que você mude isso nas Configurações. Pause um temporizador e esse botão vira uma redefinição. O ícone de seta abre a linha para <strong>Repetir</strong> e para a exclusão.</p>
+            <h2 id="section-ordinary">E os timers comuns</h2>
+            <p>O resto é o que o timer de um relógio já sabe fazer. Toque no mais e você obtém um teclado em tela cheia em vez de um mostrador: digite os números, eles se preenchem pela direita, como em um forno de micro-ondas. Quatro, zero, zero dá quatro minutos, e seis dígitos levam você até <strong>noventa e nove horas</strong>.</p>
+            <p>Os timers ocupam um lugar em uma lista ordenada pela duração para a qual foram ajustados, o mais curto primeiro, e não na ordem em que você os criou. Eles rodam em paralelo — várias contagens independentes ao mesmo tempo, repetíveis ou não.</p>
+            <p>Cada linha tem a pausa, e um botão <strong>+1:00</strong> que adiciona tempo ao que resta — um minuto, a menos que você mude isso nas Configurações. Pause um timer e esse botão vira uma redefinição. O ícone de seta abre a linha para <strong>Repetir</strong> e para a exclusão.</p>
           </section>
 
           <section aria-labelledby="section-notification">
             <h2 id="section-notification">A notificação faz a contagem sozinha</h2>
             <p>A contagem regressiva no seu painel de notificações é desenhada pelo próprio Android, e não repintada pelo aplicativo. Ela continua avançando sem nenhum processo do Risetime vivo.</p>
-            <p>Existe um cartão para o que está rodando ou pausado, e um para o que está tocando — exatamente dois, nunca um por temporizador se empilhando no painel.</p>
-            <p>Deslizar esse cartão não para nada: ele volta na hora, reconstruído a partir do estado real, e um temporizador que está tocando continua tocando. Parar sempre passa por um botão, de propósito.</p>
+            <p>Existe um cartão para o que está rodando ou pausado, e um para o que está tocando — exatamente dois, nunca um por timer se empilhando no painel.</p>
+            <p>Deslizar esse cartão não para nada: ele volta na hora, reconstruído a partir do estado real, e um timer que está tocando continua tocando. Parar sempre passa por um botão, de propósito.</p>
           </section>
 
           <section aria-labelledby="section-settings">
             <h2 id="section-settings">Seu próprio som, seu próprio volume</h2>
-            <p>Os temporizadores não pegam emprestados os ajustes dos seus alarmes, e um temporizador repetível também não pega emprestados os do temporizador de uso único: dois perfis, escolhidos conforme Repetir esteja marcado ou não. Cada um tem seu som, seu volume, sua duração de toque e seu aumento de volume opcional.</p>
-            <p>As duas durações de toque estão em escalas propositalmente diferentes. Em repetição: <strong>5, 10, 15, 30, 60 ou 120 segundos</strong>. Para um temporizador de uso único: <strong>1, 5, 10, 15, 20 ou 25 minutos, ou nunca</strong>.</p>
-            <p>Nenhum som vem com o aplicativo: os sons são os do seu sistema, ou um arquivo seu. Dois ajustes continuam comuns em vez de duplicados — se os temporizadores vibram, e o que as teclas de volume fazem enquanto um temporizador toca.</p>
+            <p>Os timers não pegam emprestados os ajustes dos seus alarmes, e um timer repetível também não pega emprestados os do timer de uso único: dois perfis, escolhidos conforme Repetir esteja marcado ou não. Cada um tem seu som, seu volume, sua duração de toque e seu aumento de volume opcional.</p>
+            <p>As duas durações de toque estão em escalas propositalmente diferentes. Em repetição: <strong>5, 10, 15, 30, 60 ou 120 segundos</strong>. Para um timer de uso único: <strong>1, 5, 10, 15, 20 ou 25 minutos, ou nunca</strong>.</p>
+            <p>Nenhum som vem com o aplicativo: os sons são os do seu sistema, ou um arquivo seu. Dois ajustes continuam comuns em vez de duplicados — se os timers vibram, e o que as teclas de volume fazem enquanto um timer toca.</p>
           </section>
 
           <section aria-labelledby="section-not">
             <h2 id="section-not">O que ele não vai fazer</h2>
             <p>É uma contagem regressiva e uma repetição, nada mais:</p>
             <ul>
-              <li><strong>Sem alternância de esforço/descanso.</strong> Uma repetição tem apenas uma duração; trinta segundos de esforço e depois trinta de recuperação são dois, e nenhuma tela monta um temporizador a partir de vários.</li>
+              <li><strong>Sem alternância de esforço/descanso.</strong> Uma repetição tem apenas uma duração; trinta segundos de esforço e depois trinta de recuperação são dois, e nenhuma tela monta um timer a partir de vários.</li>
               <li><strong>Sem lembrete no meio de uma sessão</strong> — uma sessão sentada de trinta minutos não pode tocar aos dez e depois aos vinte.</li>
               <li><strong>Sem faixa de horário, sem horas de silêncio.</strong> Uma repetição roda até você pará-la.</li>
               <li><strong>Sem tocar na hora exata.</strong> A contagem parte do momento em que você o iniciou.</li>
@@ -148,13 +148,13 @@ export default function PaginaTemporizadores() {
 
           <section aria-labelledby="section-setup">
             <h2 id="section-setup">Ajustar um</h2>
-            <p>Abra a aba Temporizadores, toque no mais, digite a duração. Ele parte sozinho — nada para nomear, nada para classificar. Para que ele se repita, marque <strong>Repetir</strong> atrás do ícone de seta.</p>
+            <p>Abra a aba Timers, toque no mais, digite a duração. Ele parte sozinho — nada para nomear, nada para classificar. Para que ele se repita, marque <strong>Repetir</strong> atrás do ícone de seta.</p>
             <p>O <a href="/pt/alarmes/" className="content-link">guia dos alarmes</a> trata dos alarmes, que compartilham os mesmos ajustes de confiabilidade.</p>
           </section>
 
           <section aria-labelledby="section-price">
             <h2 id="section-price" className="sr-only">Quanto custa</h2>
-            <p>O Risetime é gratuito para até três temporizadores, a mesma contagem dos seus alarmes — para sempre. Ao atingi-la, o botão de adicionar simplesmente desaparece: sem caixa de diálogo, sem cadeado, sem faixa dizendo o que falta. Se o seu apoio parar, nada é excluído: cada temporizador que você criou continua funcionando, você só não pode mais adicionar outro. Precisa de mais de três? Veja se vale a pena o seu apoio — se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
+            <p>O Risetime é gratuito para até três timers, a mesma contagem dos seus alarmes — para sempre. Ao atingi-la, o botão de adicionar simplesmente desaparece: sem caixa de diálogo, sem cadeado, sem faixa dizendo o que falta. Se o seu apoio parar, nada é excluído: cada timer que você criou continua funcionando, você só não pode mais adicionar outro. Precisa de mais de três? Veja se vale a pena o seu apoio — se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
           </section>
 
           <div className="cta-section">

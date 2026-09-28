@@ -171,7 +171,7 @@ export default function PaginaMeditacaoNascerDoSol() {
             <h2 id="s-not">O que o Risetime não faz</h2>
             <p>Seus próprios rótulos continuam astronômicos — <em>Nascer do sol</em>, <em>um ângulo solar</em>, <em>Noite · 1/15</em> — enquanto o nome que você digita é o seu. É um despertador, nada mais:</p>
             <ul>
-              <li><strong>Nenhum sinal no meio de uma sessão</strong> — nenhuma tela monta um temporizador a partir de vários, então uma sessão sentada de trinta minutos não pode tocar aos dez e aos vinte.</li>
+              <li><strong>Nenhum sinal no meio de uma sessão</strong> — nenhuma tela monta um timer a partir de vários, então uma sessão sentada de trinta minutos não pode tocar aos dez e aos vinte.</li>
               <li><strong>Nenhum som de meditação, nada guiado.</strong> Ele toca; você o descarta.</li>
               <li><strong>Nada lunar</strong> — o Risetime não calcula a Lua: nem fase, nem data lunar.</li>
               <li><strong>Nenhum acompanhamento de sono, nenhuma conta, sem nuvem, nenhuma permissão de internet</strong> — sua localização nunca sai do telefone. <a href="/pt/privacidade/" className="content-link">Política de privacidade</a></li>
@@ -181,7 +181,7 @@ export default function PaginaMeditacaoNascerDoSol() {
 
           <section aria-labelledby="s-price">
             <h2 id="s-price" className="sr-only">Quanto custa</h2>
-            <p>O Risetime é gratuito para até três alarmes e três temporizadores — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
+            <p>O Risetime é gratuito para até três alarmes e três timers — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
           </section>
 
           <div className="cta-section">

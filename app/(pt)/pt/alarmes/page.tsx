@@ -248,9 +248,9 @@ export default function AlarmesPage() {
           </section>
 
           <section aria-labelledby="section-timers">
-            <h2 id="section-timers">Temporizadores também</h2>
-            <p>A aba <strong>Temporizadores</strong> reúne as contagens regressivas, incluindo as que reiniciam sozinhas para intervalos e blocos de estudo: <a href="/pt/temporizadores/" className="content-link">como funcionam os temporizadores repetíveis</a>.</p>
-            <p>O Risetime é gratuito para até três alarmes e três temporizadores — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
+            <h2 id="section-timers">Timers também</h2>
+            <p>A aba <strong>Timers</strong> reúne as contagens regressivas, incluindo as que reiniciam sozinhas para intervalos e blocos de estudo: <a href="/pt/timers/" className="content-link">como funcionam os timers repetíveis</a>.</p>
+            <p>O Risetime é gratuito para até três alarmes e três timers — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
           </section>
 
           <section aria-labelledby="section-guides">

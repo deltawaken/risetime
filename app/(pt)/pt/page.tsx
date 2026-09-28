@@ -32,7 +32,7 @@ const jsonLd = [
   /* As nove entradas da inglesa, na mesma ordem. ⛔ Os nomes dos ajustes vêm do
      .po e de nenhum outro lugar — "Um ângulo solar", "Um comprimento de sombra",
      "Uma fração do dia ou da noite", "Meio-dia solar", "Nadir", "Calibração" —
-     e "ciclos" para a repetição de um temporizador.
+     e "ciclos" para a repetição de um timer.
      ⚠️ Nunca "repetição" aqui: no app, "Repetir" é o mesmo termo usado para os
      dias de recorrência de um alarme. */
   "featureList": [
@@ -44,7 +44,7 @@ const jsonLd = [
     "Nenhuma medição de audiência, nenhum rastreamento, nenhuma coleta de dados",
     "Alarmes celestes e alarmes de horário fixo, tratados juntos",
     "A API de alarme do sistema — ela sobrevive ao modo Doze e a reinicializações",
-    "Temporizadores de contagem regressiva cujos ciclos permanecem em fase"
+    "Timers de contagem regressiva cujos ciclos permanecem em fase"
   ],
   /* ⛔ "Deltawaken", palavra por palavra como a inglesa, e a URL junto: dois nomes
      para uma única organização quebram a reconciliação de entidade.
@@ -63,17 +63,17 @@ const jsonLd = [
   "inLanguage": "pt-BR",
   "mainEntity": [
     { "@type": "Question", "name": "O que o Risetime faz, exatamente?",
-      "acceptedAnswer": { "@type": "Answer", "text": "O Risetime é um despertador que pode vincular um alarme a um momento do sol. Ajuste \"30 minutos antes do nascer do sol\" uma vez, e o alarme se recalcula todos os dias para o seu local: ele acompanha o sol o ano todo. Ele também faz os alarmes comuns de horário fixo, e os temporizadores." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "O Risetime é um despertador que pode vincular um alarme a um momento do sol. Ajuste \"30 minutos antes do nascer do sol\" uma vez, e o alarme se recalcula todos os dias para o seu local: ele acompanha o sol o ano todo. Ele também faz os alarmes comuns de horário fixo, e os timers." } },
     { "@type": "Question", "name": "O Risetime precisa de conexão com a internet?",
       "acceptedAnswer": { "@type": "Answer", "text": "Não. O Risetime não tem nenhuma permissão de internet — ele não consegue se conectar, mesmo que quisesse. Os horários de nascer e pôr do sol são calculados no seu aparelho. Ele funciona no modo avião, em campo, em qualquer lugar." } },
     { "@type": "Question", "name": "Ele também faz os alarmes comuns, de horário fixo?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Os alarmes de relógio e os alarmes ancorados ao sol vivem na mesma lista, e os temporizadores têm sua própria aba, com seu som e volume." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Os alarmes de relógio e os alarmes ancorados ao sol vivem na mesma lista, e os timers têm sua própria aba, com seu som e volume." } },
     { "@type": "Question", "name": "Posso ajustar um alarme para a aurora, a hora dourada ou a noite escura?",
       "acceptedAnswer": { "@type": "Answer", "text": "Sim, pelo ângulo solar. Crie uma âncora a −6° para a aurora civil, +6° à noite para a hora dourada, −18° para a noite astronômica, e ajuste seus alarmes nelas. Onde um ângulo nunca é alcançado durante parte do ano, o aplicativo avisa, e o alarme pula esses dias em vez de tocar em um horário inventado." } },
     { "@type": "Question", "name": "O alarme ainda toca no modo Doze ou na economia de bateria?",
       "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Risetime usa a API setAlarmClock do Android — o mesmo mecanismo do sistema usado pelo relógio que já vem no seu telefone — e uma tela de Confiabilidade verifica as permissões que o seu telefone precisa. Os alarmes tocam mesmo antes do primeiro desbloqueio depois de uma reinicialização." } },
     { "@type": "Question", "name": "O Risetime é gratuito?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Gratuito para até três alarmes e três temporizadores, para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez." } }
+      "acceptedAnswer": { "@type": "Answer", "text": "Gratuito para até três alarmes e três timers, para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez." } }
   ]
 }
 ]
@@ -152,8 +152,8 @@ export default function PaginaInicial() {
                 <p>O Risetime usa a mesma API do sistema que o relógio que já vem com o Android. Seu alarme sobrevive ao modo Doze, à otimização de bateria e a reinicializações. No horário certo, o telefone toca.</p>
               </article>
               <article className="feature-card">
-                <h3>Temporizadores, no mesmo aplicativo</h3>
-                <p>Um teclado, uma lista ordenada por duração, e uma repetição cujos ciclos permanecem em fase — para intervalos, sessões, blocos de estudo. <a href="/pt/temporizadores/">O guia dos temporizadores</a></p>
+                <h3>Timers, no mesmo aplicativo</h3>
+                <p>Um teclado, uma lista ordenada por duração, e uma repetição cujos ciclos permanecem em fase — para intervalos, sessões, blocos de estudo. <a href="/pt/timers/">O guia dos timers</a></p>
               </article>
             </div>
           </section>
@@ -168,7 +168,7 @@ export default function PaginaInicial() {
               <li><strong>Sair antes da luz</strong> — na água antes do dia, com um alarme que se move com a primeira luz em vez de um horário que se reajusta a cada poucas semanas.</li>
               <li><strong>Acordar antes do amanhecer</strong> — ajuste seu deslocamento antes do nascer do sol uma vez: ele acompanha o nascer do sol todos os dias. Para o horário exato, consulte seu próprio calendário; o alarme, esse, nunca desvia.</li>
               <li><strong>Trabalho ao ar livre, caminhadas, criação de animais</strong> — se o seu dia começa com o dia, seu alarme também.</li>
-              <li><strong>Intervalos, sessões, blocos de estudo</strong> — temporizadores que reiniciam sozinhos, no mesmo aplicativo. <a href="/pt/temporizadores/">Temporizadores repetíveis</a></li>
+              <li><strong>Intervalos, sessões, blocos de estudo</strong> — timers que reiniciam sozinhos, no mesmo aplicativo. <a href="/pt/timers/">Timers repetíveis</a></li>
               <li><strong>Quem está cansado de reajustar o ano todo</strong> — ajuste uma vez, continua certo. <a href="/pt/alarmes/">Ajustar um alarme para o nascer ou o pôr do sol</a></li>
             </ul>
           </section>
@@ -206,7 +206,7 @@ export default function PaginaInicial() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/pt/settings-screen"
                   darkBase="/assets/screenshots/pt/settings-screen--dark"
-                  alt="A tela de configurações do Risetime, com as linhas Alarmes, Âncoras, Temporizadores, Configurações do telefone, e Localização dos eventos celestes ajustada para London, Reino Unido. A linha Confiabilidade indica 8 de 8 verificações em verde e está aberta em Verificações sem relevância neste telefone e Está tudo certo (8). Apoiar o Risetime aparece abaixo, e o rodapé mostra Risetime."
+                  alt="A tela de configurações do Risetime, com as linhas Alarmes, Âncoras, Timers, Configurações do telefone, e Localização dos eventos celestes ajustada para London, Reino Unido. A linha Confiabilidade indica 8 de 8 verificações em verde e está aberta em Verificações sem relevância neste telefone e Está tudo certo (8). Apoiar o Risetime aparece abaixo, e o rodapé mostra Risetime."
                   width={360}
                   height={706}
                 />
@@ -233,7 +233,7 @@ export default function PaginaInicial() {
           <section className="support" aria-labelledby="support-heading">
             <h2 id="support-heading">Gratuito para até três alarmes. Ilimitado ao apoiar.</h2>
             <div className="callout-box" style={{"borderInlineStartColor": "var(--muted)"}}>
-              <p>O Risetime é gratuito para até três alarmes e três temporizadores — para sempre. <br />Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>. Isso está nas Configurações.</p>
+              <p>O Risetime é gratuito para até três alarmes e três timers — para sempre. <br />Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>. Isso está nas Configurações.</p>
               <p style={{"marginBottom": "0"}}>Nenhuma tela de cobrança, nenhuma contagem regressiva, nenhum "faça upgrade". Só uma proposta honesta, quando você estiver pronto.</p>
             </div>
           </section>
@@ -242,17 +242,17 @@ export default function PaginaInicial() {
             <h2 id="faq-heading">Perguntas frequentes</h2>
             <dl className="faq-list">
               <dt>O que o Risetime faz, exatamente?</dt>
-              <dd>O Risetime é um despertador que pode vincular um alarme a um momento do sol. Ajuste "30 minutos antes do nascer do sol" uma vez, e o alarme se recalcula todos os dias para o seu local: ele acompanha o sol o ano todo. Ele também faz os alarmes comuns de horário fixo, e os temporizadores.</dd>
+              <dd>O Risetime é um despertador que pode vincular um alarme a um momento do sol. Ajuste "30 minutos antes do nascer do sol" uma vez, e o alarme se recalcula todos os dias para o seu local: ele acompanha o sol o ano todo. Ele também faz os alarmes comuns de horário fixo, e os timers.</dd>
               <dt>O Risetime precisa de conexão com a internet?</dt>
               <dd>Não. O Risetime não tem nenhuma permissão de internet — ele não consegue se conectar, mesmo que quisesse. Os horários de nascer e pôr do sol são calculados no seu aparelho. Ele funciona no modo avião, em campo, em qualquer lugar.</dd>
               <dt>Ele também faz os alarmes comuns, de horário fixo?</dt>
-              <dd>Sim. Os alarmes de relógio e os alarmes ancorados ao sol vivem na mesma lista, e os temporizadores têm sua própria aba, com seu som e volume.</dd>
+              <dd>Sim. Os alarmes de relógio e os alarmes ancorados ao sol vivem na mesma lista, e os timers têm sua própria aba, com seu som e volume.</dd>
               <dt>Posso ajustar um alarme para a aurora, a hora dourada ou a noite escura?</dt>
               <dd>Sim, pelo ângulo solar. Crie uma âncora a −6° para a aurora civil, +6° à noite para a hora dourada, −18° para a noite astronômica, e ajuste seus alarmes nelas. Onde um ângulo nunca é alcançado durante parte do ano, o aplicativo avisa, e o alarme pula esses dias em vez de tocar em um horário inventado.</dd>
               <dt>O alarme ainda toca no modo Doze ou na economia de bateria?</dt>
               <dd>Sim. O Risetime usa a API <code>setAlarmClock</code> do Android — o mesmo mecanismo do sistema usado pelo relógio que já vem no seu telefone — e uma tela de Confiabilidade verifica as permissões que o seu telefone precisa. Os alarmes tocam mesmo antes do primeiro desbloqueio depois de uma reinicialização.</dd>
               <dt>O Risetime é gratuito?</dt>
-              <dd>Gratuito para até três alarmes e três temporizadores, para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e temporizadores sem limite, por ano ou de uma vez.</dd>
+              <dd>Gratuito para até três alarmes e três timers, para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez.</dd>
             </dl>
           </section>
 
