@@ -103,7 +103,7 @@ export default function BudzikRytmDobowyPage() {
               <li>W zakładce <strong>Alarmy</strong> nacisnąć <strong>+</strong>.</li>
               <li>W górnym menu wybrać <strong>Wschód słońca</strong>.</li>
               <li>Zostawić tarczę na miejscu, by wstawać o wschodzie, albo obrócić ją o wybraną odległość — 30 minut przed, godzinę przed.</li>
-              <li>Nacisnąć <strong>OK</strong>. Następnie otworzyć alarm na liście i zaznaczyć <strong>Powtarzaj</strong>, by wybrać dni.</li>
+              <li>Nacisnąć <strong>OK</strong>. Następnie otworzyć alarm na liście i zaznaczyć <strong>Powtarzanie</strong>, by wybrać dni.</li>
             </ol>
             <p>Ustawiona odległość nigdy się nie zmienia. Wschód słońca — owszem, zmienia się, a alarm podąża za nim — przez zrównania dnia z nocą, przesilenia i zmianę czasu na letni. <a href="/pl/alarmy/" className="content-link">Ustawianie alarmu o wschodzie lub zachodzie słońca</a></p>
 

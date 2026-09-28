@@ -108,7 +108,7 @@ export default function MedytacjaOWschodzieSloncaPage() {
               <li>W zakładce <strong>Alarmy</strong> nacisnąć <strong>+</strong>.</li>
               <li>W górnym menu wybrać <strong>Wschód słońca</strong>.</li>
               <li>Zostawić tarczę na środku, by dzwoniło o wschodzie, albo obrócić ją o wybraną różnicę, do <strong>11 godz. 59 min</strong> w jedną lub drugą stronę.</li>
-              <li>Nacisnąć <strong>OK</strong>, następnie otworzyć alarm na liście i zaznaczyć <strong>Powtarzaj</strong>.</li>
+              <li>Nacisnąć <strong>OK</strong>, następnie otworzyć alarm na liście i zaznaczyć <strong>Powtarzanie</strong>.</li>
             </ol>
             <p>A alarm, jakiego naprawdę potrzebują ranni ptaszkowie, to ten drugi: <strong>alarm na pójście spać</strong>, nie na obudzenie się. Wystarczy ustawić go na kotwicy <strong>Zachód słońca</strong> z przesunięciem, w powtarzaniu — te same cztery kroki. <a href="/pl/alarmy/" className="content-link">Ustawianie alarmu o wschodzie lub zachodzie słońca</a></p>
           </section>

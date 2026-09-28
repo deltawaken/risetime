@@ -52,7 +52,7 @@ export default function DatenschutzPage() {
             <h2 id="section-local-data">Die auf Ihrem Gerät gespeicherten Daten</h2>
             <p>Risetime speichert die folgenden Daten <strong>ausschließlich auf Ihrem Gerät</strong>, ohne sie jemals zu übertragen:</p>
             <ul>
-              <li><strong>Ihre Weckerkonfiguration</strong> — Uhrzeiten, Etiketten, Wiederholung und Ankertyp (Sonnenaufgang, Sonnenuntergang usw.). Gespeichert in einer lokalen Room-Datenbank.</li>
+              <li><strong>Ihre Weckerkonfiguration</strong> — Uhrzeiten, Namen, Wiederholung und Ankertyp (Sonnenaufgang, Sonnenuntergang usw.). Gespeichert in einer lokalen Room-Datenbank.</li>
               <li><strong>Der Standort</strong> — die Stadt oder die GPS-Koordinaten, die Sie für die Himmelsberechnungen wählen (Zeiten für Sonnenaufgang und Sonnenuntergang). Dient ausschließlich der lokalen Berechnung. Wird niemals übertragen.</li>
               <li><strong>Die App-Einstellungen</strong> — Einstellungen, einschließlich des Status Ihres Abonnements. Gespeichert in einem lokalen DataStore.</li>
             </ul>

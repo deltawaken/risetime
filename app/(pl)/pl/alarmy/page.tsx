@@ -165,7 +165,7 @@ export default function AlarmyPage() {
 
           <section aria-labelledby="section-days">
             <h2 id="section-days">Dni powtarzania, dźwięk i czas dzwonienia</h2>
-            <p>Rozwinięcie karty alarmu na liście, zaznaczenie <strong>Powtarzaj</strong> i wybór dni: karta czyta się wtedy tak, jak by się to powiedziało — <em>Pon–pt, 1 h przed Zachodem słońca</em>. Ta sama karta niesie etykietę, dźwięk, wibrację, czas dzwonienia i obraz wyświetlany podczas dzwonienia. Przełącznik ma trzy pozycje: środkowa pomija tylko najbliższe dzwonienie — na wolny dzień — i zostawia alarm aktywny.</p>
+            <p>Rozwinięcie karty alarmu na liście, zaznaczenie <strong>Powtarzanie</strong> i wybór dni: karta czyta się wtedy tak, jak by się to powiedziało — <em>Pon–pt, 1 h przed Zachodem słońca</em>. Ta sama karta niesie etykietę, dźwięk, wibrację, czas dzwonienia i obraz wyświetlany podczas dzwonienia. Przełącznik ma trzy pozycje: środkowa pomija tylko najbliższe dzwonienie — na wolny dzień — i zostawia alarm aktywny.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture

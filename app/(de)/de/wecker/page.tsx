@@ -173,7 +173,7 @@ export default function WeckerPage() {
 
           <section aria-labelledby="section-days">
             <h2 id="section-days">Wiederholungstage, Ton und Klingelwiederholung</h2>
-            <p>Öffnen Sie die Weckerkarte in der Liste. Aktivieren Sie <strong>Wiederholen</strong> und wählen Sie Ihre Tage: Die Karte liest sich dann so, wie Sie es sagen würden — <em>Montag–Freitag, 1 Std. vor Sonnenuntergang</em>. Dieselbe Karte trägt das Etikett, den Ton, die Vibration, die Klingeldauer und das während des Klingelns angezeigte Bild. Der Schalter hat drei Stellungen: die mittlere lässt nur das nächste Klingeln aus — für einen freien Tag — und lässt den Wecker aktiv.</p>
+            <p>Öffnen Sie die Weckerkarte in der Liste. Aktivieren Sie <strong>Wiederholen</strong> und wählen Sie Ihre Tage: Die Karte liest sich dann so, wie Sie es sagen würden — <em>Montag–Freitag, 1 Std. vor Sonnenuntergang</em>. Dieselbe Karte trägt das Name, den Ton, die Vibration, die Klingeldauer und das während des Klingelns angezeigte Bild. Der Schalter hat drei Stellungen: die mittlere lässt nur das nächste Klingeln aus — für einen freien Tag — und lässt den Wecker aktiv.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
