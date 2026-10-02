@@ -85,14 +85,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Am offenen Test von Risetime auf Google Play teilnehmen">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Risetime bei Google Play laden">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Offener Test</span>
+    <span className="badge-sub">Jetzt verfügbar</span>
   </a>
 )
 
@@ -110,14 +110,14 @@ export default function StartseitePage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> die Solarwecker-App für Android.</h1>
-            <p className="hero-celestial">Ihr himmlischer Wecker.</p>
-            <p className="hero-sub">Stellen Sie Ihren Wecker nach der Sonne. Er verschiebt sich jeden Tag, damit Sie es nicht tun müssen.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> Wecker und Timer.</h1>
+            <p className="hero-celestial">Er kann der Sonne folgen.</p>
+            <p className="hero-sub">Wecker bei Sonnenaufgang und Sonnenuntergang an Ihrem Ort, die mit den Jahreszeiten wandern — oder zu einer festen Uhrzeit. Und Timer, die in einer Schleife laufen können.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/de/alarm-list"
                 darkBase="/assets/screenshots/de/alarm-list--dark"
-                alt="Weckerliste von Risetime mit fünf Weckern: 05:10 am Samstag bei Astronomische Morgendämmerung, ein eigener Anker; 07:00 von Montag bis Freitag bei Genau, zu fester Uhrzeit; 07:02 morgen bei Sonnenaufgang; 17:38 von Montag bis Freitag, 1 Std. vor Sonnenuntergang; und 23:02 heute, 8 Std. vor Sonnenaufgang, ausgeschaltet."
+                alt="Weckerliste von Risetime mit fünf Weckern: 05:10 am Samstag, Astronomische Morgendämmerung (ein eigener Anker); 07:00 von Montag bis Freitag, zu fester Uhrzeit; 07:02 morgen bei Sonnenaufgang; 17:38 von Montag bis Freitag, 1 Std. vor Sonnenuntergang; und 23:02 heute, 8 Std. vor Sonnenaufgang, ausgeschaltet."
                 width={360}
                 height={706}
                 loading="eager"
@@ -126,7 +126,6 @@ export default function StartseitePage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime befindet sich im offenen Test: Sie treten zuerst dem Test bei und installieren dann über Play. Ohne diesen Schritt teilt Play Ihnen unter Umständen mit, dass die App in Ihrem Land nicht verfügbar ist.</p>
             </div>
           </section>
 
@@ -160,7 +159,7 @@ export default function StartseitePage() {
               </article>
               <article className="feature-card">
                 <h3>Timer, in derselben App</h3>
-                <p>Eine Tastatur, eine nach Dauer sortierte Liste, und eine Wiederholung, deren Zyklen in Phase bleiben — für Intervalle, Sitzungen, Lernblöcke. <a href="/de/timer/">Der Timer-Leitfaden</a></p>
+                <p>Eine Tastatur, eine nach Dauer sortierte Liste, und eine Schleife, deren Zyklen in Phase bleiben — für Intervalle, Sitzungen, Lernblöcke. <a href="/de/timer/">Der Timer-Leitfaden</a></p>
               </article>
             </div>
           </section>
@@ -175,7 +174,7 @@ export default function StartseitePage() {
               <li><strong>Vor dem Licht aufbrechen</strong> — ans Wasser vor dem Tag, mit einem Wecker, der sich mit dem ersten Licht mitbewegt, statt mit einer Uhrzeit, die man alle paar Wochen nachjustiert.</li>
               <li><strong>Vor der Morgendämmerung aufstehen</strong> — stellen Sie Ihren Versatz vor dem Sonnenaufgang einmal ein: Er folgt dem Sonnenaufgang jeden Tag. Für den genauen Zeitpunkt halten Sie sich an Ihren eigenen Kalender; der Wecker selbst driftet nie.</li>
               <li><strong>Arbeit im Freien, Spaziergänge, Tierhaltung</strong> — wenn Ihr Tag mit dem Tageslicht beginnt, Ihr Wecker auch.</li>
-              <li><strong>Intervalle, Sitzungen, Lernblöcke</strong> — Timer, die von selbst neu starten, in derselben App. <a href="/de/timer/">Wiederholende Timer</a></li>
+              <li><strong>Intervalle, Sitzungen, Lernblöcke</strong> — Timer, die von selbst neu starten, in derselben App. <a href="/de/timer/">Schleifen-Timer</a></li>
               <li><strong>Wer es satt hat, das ganze Jahr nachzujustieren</strong> — einmal einstellen, es bleibt richtig. <a href="/de/wecker/">Einen Wecker zum Sonnenaufgang oder Sonnenuntergang stellen</a></li>
             </ul>
           </section>
@@ -266,7 +265,6 @@ export default function StartseitePage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Bereit, mit der Sonne aufzustehen?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime befindet sich im offenen Test: Sie treten zuerst dem Test bei und installieren dann über Play. Ohne diesen Schritt teilt Play Ihnen unter Umständen mit, dass die App in Ihrem Land nicht verfügbar ist.</p>
           </section>
 
         </main>

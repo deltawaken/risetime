@@ -1,9 +1,9 @@
 ---
 page: /
 slug: 
-title: Risetime — Sonnenaufgangswecker für Android · Solarwecker
+title: Risetime — Wecker und Timer für Android · Folgt der Sonne
 description: Sonnenaufgangswecker-App für Android. Stellen Sie Ihren Wecker auf Sonnenaufgang, Sonnenuntergang oder Sonnenmittag — er verschiebt sich jeden Tag von selbst. Kein WLAN, kein Internet, keine Datenerfassung.
-og_title: Risetime — Sonnenaufgangswecker für Android
+og_title: Risetime — Wecker und Timer · Folgt der Sonne
 og_description: Stellen Sie Ihren Wecker auf den Sonnenaufgang. Einmal. Er verschiebt sich jeden Tag von selbst. Kein WLAN nötig.
 og_image: https://risetime.app/assets/screenshots/landscape-alarm-list.webp
 og_image_width: 854

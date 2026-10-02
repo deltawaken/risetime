@@ -118,7 +118,7 @@ export default function MeditationSonnenaufgangPage() {
               <li>Tippen Sie im Tab <strong>Wecker</strong> auf <strong>+</strong>.</li>
               <li>Wählen Sie im oberen Menü <strong>Sonnenaufgang</strong>.</li>
               <li>Belassen Sie das Ziffernblatt in der Mitte, um beim Sonnenaufgang zu klingeln, oder drehen Sie es auf den gewünschten Abstand, bis zu <strong>11 Std. 59 Min.</strong> auf jeder Seite.</li>
-              <li>Tippen Sie auf <strong>OK</strong>, öffnen Sie dann den Wecker in der Liste und stellen Sie die <strong>Wiederholung</strong> ein.</li>
+              <li>Tippen Sie auf <strong>OK</strong>, öffnen Sie dann den Wecker in der Liste und aktivieren Sie <strong>Wiederholen</strong>, um Ihre Tage zu wählen.</li>
             </ol>
             <p>Und der Wecker, den Frühaufsteher verlangen, ist der andere: <strong>ein Wecker fürs Zubettgehen</strong>, keiner zum Aufwachen. Stellen Sie ihn auf den Anker <strong>Sonnenuntergang</strong> mit einem Versatz, wiederholend — dieselben vier Schritte. <a href="/de/wecker/" className="content-link">Einen Wecker zum Sonnenaufgang oder Sonnenuntergang stellen</a></p>
           </section>
@@ -136,7 +136,7 @@ export default function MeditationSonnenaufgangPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/practice-angle-editor"
                 darkBase="/assets/screenshots/de/practice-angle-editor--dark"
-                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −6,0° am Morgen, benannt Bürgerliche Morgendämmerung, mit der Vorschau: Nächstes Mal: 06:29."
+                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −6,0° am Morgen, benannt Bürgerliche Morgendämmerung, mit der Vorschau Nächstes Mal: 06:29."
                 width={360}
                 height={706}
               />
@@ -185,14 +185,13 @@ export default function MeditationSonnenaufgangPage() {
 
           <div className="cta-section">
             <h2>Beginnen Sie mit dem Licht.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Am offenen Test von Risetime auf Google Play teilnehmen">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Risetime bei Google Play laden">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Offener Test</span>
+              <span className="badge-sub">Jetzt verfügbar</span>
             </a>
-            <p className="cta-note">Risetime befindet sich im offenen Test: Sie treten zuerst dem Test bei und installieren dann über Play. Ohne diesen Schritt teilt Play Ihnen unter Umständen mit, dass die App in Ihrem Land nicht verfügbar ist.</p>
           </div>
 
         </main>

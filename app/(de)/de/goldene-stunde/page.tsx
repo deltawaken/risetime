@@ -105,7 +105,7 @@ export default function GoldeneStundePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/sky-menu"
                 darkBase="/assets/screenshots/de/sky-menu--dark"
-                alt="Das Dialogfeld zum Erstellen eines Weckers, sein Anker-Menü geöffnet, mit Genau, Sonnenaufgang, Mittag, Goldene Stunde, Sonnenuntergang, Blaue Stunde, Nachthimmel und Nadir."
+                alt="Das Dialogfeld zum Erstellen eines Weckers auf 07:00, sein Anker-Menü geöffnet, von oben nach unten: Genau (ausgewählt), Sonnenaufgang, Mittag, Goldene Stunde, Sonnenuntergang, Blaue Stunde, Nachthimmel und Nadir."
                 width={360}
                 height={706}
               />
@@ -126,7 +126,7 @@ export default function GoldeneStundePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/sky-list"
                 darkBase="/assets/screenshots/de/sky-list--dark"
-                alt="Die Weckerliste von Risetime mit fünf Weckern: 06:45 und 08:10 von Montag bis Freitag bei Genau; 17:21 am Samstag und Sonntag, 30 Min. vor Goldene Stunde; 18:58 am Samstag und Sonntag bei Blaue Stunde; und 20:30 am Freitag und Samstag bei Nachthimmel."
+                alt="Die Weckerliste von Risetime mit fünf Weckern: 06:45 und 08:10, jeweils Montag bis Freitag, zu fester Uhrzeit; 17:21 am Samstag und Sonntag, 30 Min. vor Goldene Stunde; 18:58 am Samstag und Sonntag, Blaue Stunde; und 20:30 am Freitag und Samstag, Nachthimmel."
                 width={360}
                 height={706}
               />
@@ -167,7 +167,7 @@ export default function GoldeneStundePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/sky-night-editor"
                 darkBase="/assets/screenshots/de/sky-night-editor--dark"
-                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −18,0° am Abend, benannt Nachthimmel, mit der Vorschau: Nächstes Mal: 20:30. Die Sonne erreicht diesen Winkel hier vom 23. Mai 2027 bis zum 21. Juli 2027 nicht."
+                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −18,0° am Abend, benannt Nachthimmel, mit der Vorschau: Nächstes Mal: 20:30. Die Sonne erreicht diesen Winkel hier vom 23. Mai 2027 bis zum 21. Juli 2027 nicht. Darüber die Warnung Auf dieser Breite nicht jeden Tag erreicht."
                 width={360}
                 height={706}
               />
@@ -183,14 +183,13 @@ export default function GoldeneStundePage() {
 
           <div className="cta-section">
             <h2>Verpassen Sie nie wieder das Licht.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Am offenen Test von Risetime auf Google Play teilnehmen">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Risetime bei Google Play laden">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Offener Test</span>
+              <span className="badge-sub">Jetzt verfügbar</span>
             </a>
-            <p className="cta-note">Risetime befindet sich im offenen Test: Sie treten zuerst dem Test bei und installieren dann über Play. Ohne diesen Schritt teilt Play Ihnen unter Umständen mit, dass die App in Ihrem Land nicht verfügbar ist.</p>
           </div>
 
         </main>

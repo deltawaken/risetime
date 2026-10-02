@@ -91,7 +91,7 @@ export default function WeckerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/alarms-list"
                 darkBase="/assets/screenshots/de/alarms-list--dark"
-                alt="Weckerliste von Risetime mit fünf Weckern: 05:10 am Samstag bei Astronomische Morgendämmerung, ein eigener Anker; 07:00 von Montag bis Freitag bei Genau, zu fester Uhrzeit; 07:02 morgen bei Sonnenaufgang; 17:38 von Montag bis Freitag, 1 Std. vor Sonnenuntergang; und 23:02 heute, 8 Std. vor Sonnenaufgang, ausgeschaltet."
+                alt="Weckerliste von Risetime mit fünf Weckern: 05:10 am Samstag, Astronomische Morgendämmerung (ein eigener Anker); 07:00 von Montag bis Freitag, zu fester Uhrzeit; 07:02 morgen bei Sonnenaufgang; 17:38 von Montag bis Freitag, 1 Std. vor Sonnenuntergang; und 23:02 heute, 8 Std. vor Sonnenaufgang, ausgeschaltet."
                 width={360}
                 height={706}
               />
@@ -114,7 +114,7 @@ export default function WeckerPage() {
             <p>Risetime kennt von Haus aus vier Sonnenstände: den <strong>Sonnenaufgang</strong>, den <strong>Sonnenuntergang</strong>, <strong>Mittag</strong> — den Sonnenmittag, wenn die Sonne am höchsten steht, was fast nie 12:00 ist — und den <strong>Nadir</strong>, die Mitte der Nacht, wenn die Sonne am tiefsten steht.</p>
             <ol>
               <li>
-                <strong>Geben Sie beim ersten Mal Ihren Standort an.</strong> Die Sonnenzeiten hängen davon ab, wo Sie sich befinden. Ohne Standort zeigt das Weckerdialogfeld einfach <em>Standort in den Einstellungen festlegen</em>.
+                <strong>Geben Sie beim ersten Mal Ihren Standort an.</strong> Die Sonnenzeiten hängen davon ab, wo Sie sich befinden. Ohne Standort zeigt das Weckerdialogfeld einfach <em>Standort in Einstellungen festlegen</em>.
                 <details>
                   <summary>Drei Wege, ihn anzugeben</summary>
                   <p>Unter <strong>Einstellungen → Standort für Himmelsereignisse</strong>: Wählen Sie Ihre Stadt aus der Liste; oder nutzen Sie einmalig das GPS des Telefons; oder aktivieren Sie <strong>Standort automatisch aktualisieren</strong>, und er folgt Ihnen auf Reisen. Ihr Standort bleibt auf Ihrem Telefon: Risetime hat keine Internetberechtigung, es gibt also nirgendwohin, ihn zu senden.</p>
@@ -172,14 +172,14 @@ export default function WeckerPage() {
           </section>
 
           <section aria-labelledby="section-days">
-            <h2 id="section-days">Wiederholungstage, Ton und Klingelwiederholung</h2>
-            <p>Öffnen Sie die Weckerkarte in der Liste. Aktivieren Sie <strong>Wiederholen</strong> und wählen Sie Ihre Tage: Die Karte liest sich dann so, wie Sie es sagen würden — <em>Montag–Freitag, 1 Std. vor Sonnenuntergang</em>. Dieselbe Karte trägt das Name, den Ton, die Vibration, die Klingeldauer und das während des Klingelns angezeigte Bild. Der Schalter hat drei Stellungen: die mittlere lässt nur das nächste Klingeln aus — für einen freien Tag — und lässt den Wecker aktiv.</p>
+            <h2 id="section-days">Wiederholungstage, Ton und Schlummerdauer</h2>
+            <p>Öffnen Sie die Weckerkarte in der Liste. Aktivieren Sie <strong>Wiederholen</strong> und wählen Sie Ihre Tage: Die Karte liest sich dann so, wie Sie es sagen würden — <em>Montag bis Freitag, 1 Std. vor Sonnenuntergang</em>. Dieselbe Karte trägt den Namen, den Ton, die Vibration, die Schlummerdauer und das während des Klingelns angezeigte Bild. Der Schalter hat drei Stellungen: die mittlere lässt nur das nächste Klingeln aus — für einen freien Tag — und lässt den Wecker aktiv.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/de/alarms-card"
                 darkBase="/assets/screenshots/de/alarms-card--dark"
-                alt="Eine geöffnete Weckerkarte für 17:38, von Montag bis Freitag, 1 Std. vor Sonnenuntergang: ein leeres Etikett-Feld, Wiederholen mit ausgewähltem Montag bis Freitag, Ton eingestellt auf Telefonstandard, und aktivierte Vibration. Die Karte setzt sich unter dem Bildrand fort."
+                alt="Eine geöffnete Weckerkarte für 17:38, von Montag bis Freitag, 1 Std. vor Sonnenuntergang: ein leeres Feld Name, das Kontrollkästchen Wiederholen angekreuzt mit den Tagen Mo bis Fr ausgewählt (Sa und So nicht), und Ton auf Telefonstandard. Die Karte setzt sich unter dem Bildrand fort."
                 width={360}
                 height={706}
               />
@@ -209,7 +209,7 @@ export default function WeckerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/alarms-anchors"
                 darkBase="/assets/screenshots/de/alarms-anchors--dark"
-                alt="Die Einstellungen, Abschnitt Anker: zwei eigene Anker, Astronomische Morgendämmerung und Goldene Stunde, jeweils mit einer Bearbeiten- und einer Löschen-Schaltfläche, unter den werkseitigen Ankern Sonnenaufgang, Mittag, Sonnenuntergang und Nadir. Jede Zeile trägt einen Sichtbarkeitsschalter, alle aktiviert."
+                alt="Die Einstellungen, Abschnitt Anker mit sechs Ankern in dieser Reihenfolge: Astronomische Morgendämmerung, Sonnenaufgang, Mittag, Goldene Stunde, Sonnenuntergang und Nadir. Nur die beiden eigenen, Astronomische Morgendämmerung und Goldene Stunde, haben aktive Bearbeiten- und Löschen-Schaltflächen. Jede Zeile trägt einen Sichtbarkeitsschalter, alle aktiviert."
                 width={360}
                 height={706}
               />
@@ -223,7 +223,7 @@ export default function WeckerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/de/alarms-anchor-editor"
                 darkBase="/assets/screenshots/de/alarms-anchor-editor--dark"
-                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −18,0° am Morgen, benannt Astronomische Morgendämmerung, mit der Vorschau Nächstes Mal: 05:10. Die Sonne erreicht diesen Winkel hier vom 23. Mai 2027 bis zum 21. Juli 2027 nicht."
+                alt="Der Anker-Editor bei Ein Sonnenwinkel, eingestellt auf −18,0° am Morgen, benannt Astronomische Morgendämmerung, mit der Vorschau Nächstes Mal: 05:10 und der Warnung Auf dieser Breite nicht jeden Tag erreicht. Die Sonne erreicht diesen Winkel hier vom 23. Mai 2027 bis zum 21. Juli 2027 nicht."
                 width={360}
                 height={706}
               />
@@ -244,7 +244,7 @@ export default function WeckerPage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Auch Timer</h2>
-            <p>Der Tab <strong>Timer</strong> versammelt die Countdowns, einschließlich derer, die von selbst neu starten, für Intervalle und Lernblöcke: <a href="/de/timer/" className="content-link">wie wiederholende Timer funktionieren</a>.</p>
+            <p>Der Tab <strong>Timer</strong> versammelt die Countdowns, einschließlich derer, die von selbst neu starten, für Intervalle und Lernblöcke: <a href="/de/timer/" className="content-link">wie Schleifen-Timer funktionieren</a>.</p>
             <p>Risetime ist kostenlos bis zu drei Weckern und drei Timern — für immer. Brauchen Sie mehr? Nutzen Sie zuerst diese drei, und sehen Sie, ob es Ihre Unterstützung wert ist: Unterstützer haben unbegrenzt Wecker und Timer, im Jahresabo oder als Einmalkauf. Andernfalls lese ich Sie gerne <a href="mailto:contact@risetime.app">direkt</a>.</p>
           </section>
 
@@ -259,14 +259,13 @@ export default function WeckerPage() {
 
           <div className="cta-section">
             <h2>Einmal einstellen. Er folgt der Sonne.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Am offenen Test von Risetime auf Google Play teilnehmen">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Risetime bei Google Play laden">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Offener Test</span>
+              <span className="badge-sub">Jetzt verfügbar</span>
             </a>
-            <p className="cta-note">Risetime befindet sich im offenen Test: Sie treten zuerst dem Test bei und installieren dann über Play. Ohne diesen Schritt teilt Play Ihnen unter Umständen mit, dass die App in Ihrem Land nicht verfügbar ist.</p>
           </div>
 
         </main>
