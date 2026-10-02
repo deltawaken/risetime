@@ -1,9 +1,9 @@
 ---
 page: /
 slug: 
-title: Risetime — Budzik o wschodzie słońca na Androida · Alarmy słoneczne
+title: Risetime — Budzik i minutniki na Androida · Podąża za słońcem
 description: Aplikacja budzika o wschodzie słońca na Androida. Ustaw alarm na wschód, zachód słońca lub południe słoneczne — sam się przesuwa każdego dnia. Bez wifi, bez internetu, bez zbierania danych.
-og_title: Risetime — Budzik o wschodzie słońca na Androida
+og_title: Risetime — Budzik i minutniki · Podąża za słońcem
 og_description: Ustaw alarm na wschód słońca. Raz. Przesuwa się sam każdego dnia. Bez wifi.
 og_image: https://risetime.app/assets/screenshots/landscape-alarm-list.webp
 og_image_width: 854

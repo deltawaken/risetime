@@ -86,7 +86,7 @@ export default function MedytacjaOWschodzieSloncaPage() {
                 <tr><td>Wschód słońca</td><td>tarcza opuszcza horyzont</td><td>wbudowana kotwica <strong>Wschód słońca</strong></td></tr>
                 <tr><td>Świt cywilny</td><td><strong>6° pod</strong> horyzontem</td><td>kotwica kąta słonecznego, <strong>−6° rano</strong></td></tr>
                 <tr><td>Świt żeglarski</td><td><strong>12° pod</strong></td><td><strong>−12° rano</strong></td></tr>
-                <tr><td>Punkt wewnątrz nocy</td><td>część drogi od zachodu do wschodu</td><td>kotwica <strong>Podziału</strong>: Noc, na <em>N</em> części</td></tr>
+                <tr><td>Punkt wewnątrz nocy</td><td>część drogi od zachodu do wschodu</td><td>kotwica <strong>Część dnia lub nocy</strong>: Noc, na <em>N</em> części</td></tr>
               </tbody>
             </table>
             <p>Definicje się różnią; oto najczęstsze. Aplikacja trzyma ustawioną wartość na każdej szerokości geograficznej i w każdej porze roku — czego nie potrafi stałe „czterdzieści pięć minut przed wschodem”, bo długość świtu zmienia się wraz z obiema.</p>
@@ -139,7 +139,7 @@ export default function MedytacjaOWschodzieSloncaPage() {
             <p>Poranek można oprzeć na nocy zamiast na świcie: na punkcie leżącym w danej części ciemności.</p>
             <ol>
               <li><strong>Ustawienia → Kotwice → +</strong>, i przełączenie formy na <strong>Część dnia lub nocy</strong>.</li>
-              <li>Zakres <strong>Noc</strong>, następnie <strong>Liczba części</strong> i <strong>pozycja</strong> — od 2 do 48 części, dowolna granica pomiędzy.</li>
+              <li>Zakres <strong>Noc</strong>, następnie <strong>Liczba części</strong> i <strong>Pozycja</strong> — od 2 do 48 części, dowolna granica pomiędzy.</li>
               <li>Nadanie nazwy, wybór koloru, zapisanie. Świeży szkic nosi nazwę <strong>Noc · 1/15</strong>; podąża za tym, co się ustawi.</li>
               <li>Ustawienie na niej alarmu.</li>
             </ol>
@@ -175,14 +175,13 @@ export default function MedytacjaOWschodzieSloncaPage() {
 
           <div className="cta-section">
             <h2>Zacząć od światła.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Dołącz do testów otwartych Risetime w Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Pobierz Risetime z Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Testy otwarte</span>
+              <span className="badge-sub">Dostępne teraz</span>
             </a>
-            <p className="cta-note">Risetime jest w fazie testów otwartych: trzeba najpierw dołączyć do testów, a dopiero potem zainstalować z Play. Bez tego kroku Play może wskazywać, że aplikacja nie jest dostępna w danym kraju.</p>
           </div>
 
         </main>

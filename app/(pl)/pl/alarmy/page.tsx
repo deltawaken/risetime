@@ -109,12 +109,12 @@ export default function AlarmyPage() {
                 <strong>Za pierwszym razem trzeba wskazać lokalizację.</strong> Godziny słoneczne zależą od miejsca. Bez lokalizacji okno alarmu pokazuje po prostu <em>Ustaw lokalizację w Ustawieniach</em>.
                 <details>
                   <summary>Trzy sposoby, by ją wskazać</summary>
-                  <p>W <strong>Ustawienia → Lokalizacja zdarzeń astronomicznych</strong>: wybór miasta z listy; albo GPS telefonu, jednorazowo; albo włączenie <strong>Automatycznej aktualizacji lokalizacji</strong>, która śledzi w podróży. Pozycja pozostaje na telefonie: Risetime nie ma żadnego uprawnienia do internetu, więc nie ma dokąd jej wysłać.</p>
+                  <p>W <strong>Ustawienia → Lokalizacja zdarzeń astronomicznych</strong>: wybór miasta z listy; albo GPS telefonu, jednorazowo; albo zaznaczenie pola <strong>Automatyczna aktualizacja lokalizacji</strong>, która śledzi w podróży. Pozycja pozostaje na telefonie: Risetime nie ma żadnego uprawnienia do internetu, więc nie ma dokąd jej wysłać.</p>
                   <figure className="content-screenshot">
                     <ThemedPicture
                       lightBase="/assets/screenshots/pl/alarms-location"
                       darkBase="/assets/screenshots/pl/alarms-location--dark"
-                      alt="Ustawienia Risetime, otwarta sekcja Lokalizacja zdarzeń astronomicznych: wybrany Londyn, Wielka Brytania, przycisk GPS i odznaczone pole Automatyczna aktualizacja lokalizacji."
+                      alt="Ustawienia Risetime, otwarta sekcja Lokalizacja zdarzeń astronomicznych: wybrane London, Wielka Brytania, przycisk lokalizacji GPS i odznaczone pole Automatyczna aktualizacja lokalizacji."
                       width={360}
                       height={706}
                     />
@@ -164,14 +164,14 @@ export default function AlarmyPage() {
           </section>
 
           <section aria-labelledby="section-days">
-            <h2 id="section-days">Dni powtarzania, dźwięk i czas dzwonienia</h2>
-            <p>Rozwinięcie karty alarmu na liście, zaznaczenie <strong>Powtarzanie</strong> i wybór dni: karta czyta się wtedy tak, jak by się to powiedziało — <em>Pon–pt, 1 h przed Zachodem słońca</em>. Ta sama karta niesie etykietę, dźwięk, wibrację, czas dzwonienia i obraz wyświetlany podczas dzwonienia. Przełącznik ma trzy pozycje: środkowa pomija tylko najbliższe dzwonienie — na wolny dzień — i zostawia alarm aktywny.</p>
+            <h2 id="section-days">Dni powtarzania, dźwięk i długość drzemki</h2>
+            <p>Rozwinięcie karty alarmu na liście, zaznaczenie <strong>Powtarzanie</strong> i wybór dni: karta czyta się wtedy tak, jak by się to powiedziało — <em>Poniedziałek–piątek, 1 godz. przed Zachód słońca</em>. Ta sama karta niesie etykietę, dźwięk, wibrację, długość drzemki i obraz wyświetlany podczas dzwonienia. Przełącznik ma trzy pozycje: środkowa pomija tylko najbliższe dzwonienie — na wolny dzień — i zostawia alarm aktywny.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pl/alarms-card"
                 darkBase="/assets/screenshots/pl/alarms-card--dark"
-                alt="Rozwinięta karta alarmu na 17:38, od poniedziałku do piątku, 1 h przed Zachodem słońca: puste pole Etykieta, zaznaczone Powtarzaj z wybranym pon–pt, Dźwięk ustawiony na Domyślny telefonu i włączona Wibracja. Karta ciągnie się poniżej krawędzi obrazu."
+                alt="Rozwinięta karta alarmu na 17:38, od poniedziałku do piątku, 1 h przed Zachodem słońca: puste pole Etykieta, zaznaczone Powtarzanie z wybranymi dniami Pn–Pt oraz Dźwięk ustawiony na Domyślny telefonu. Karta ciągnie się poniżej krawędzi obrazu."
                 width={360}
                 height={706}
               />
@@ -236,7 +236,7 @@ export default function AlarmyPage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Minutniki też</h2>
-            <p>Zakładka <strong>Minutniki</strong> zbiera odliczania, w tym te, które same startują od nowa dla interwałów i bloków nauki: <a href="/pl/minutniki/" className="content-link">jak działają minutniki z powtarzaniem</a>.</p>
+            <p>Zakładka <strong>Minutniki</strong> zbiera odliczania, w tym te, które same startują od nowa dla interwałów i bloków nauki: <a href="/pl/minutniki/" className="content-link">jak działają minutniki w pętli</a>.</p>
             <p>Risetime jest darmowa do trzech alarmów i trzech minutników — na zawsze. Potrzeba więcej? Wystarczy najpierw skorzystać z tych trzech i sprawdzić, czy warto wesprzeć rozwój — wspierający mają nieograniczone alarmy i minutniki, rocznie lub raz na zawsze. W przeciwnym razie każda wiadomość na <a href="mailto:contact@risetime.app">ten adres</a> znajdzie chętnego czytelnika.</p>
           </section>
 
@@ -251,14 +251,13 @@ export default function AlarmyPage() {
 
           <div className="cta-section">
             <h2>Ustawić raz. Podąża za słońcem.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Dołącz do testów otwartych Risetime w Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Pobierz Risetime z Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Testy otwarte</span>
+              <span className="badge-sub">Dostępne teraz</span>
             </a>
-            <p className="cta-note">Risetime jest w fazie testów otwartych: trzeba najpierw dołączyć do testów, a dopiero potem zainstalować z Play. Bez tego kroku Play może wskazywać, że aplikacja nie jest dostępna w danym kraju.</p>
           </div>
 
         </main>

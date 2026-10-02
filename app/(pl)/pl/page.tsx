@@ -66,14 +66,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Dołącz do testów otwartych Risetime w Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Pobierz Risetime z Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Testy otwarte</span>
+    <span className="badge-sub">Dostępne teraz</span>
   </a>
 )
 
@@ -91,9 +91,9 @@ export default function StronaGlownaPage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> aplikacja alarmów słonecznych na Androida.</h1>
-            <p className="hero-celestial">Niebiański budzik.</p>
-            <p className="hero-sub">Alarm ustawiony na słońce. Przesuwa się każdego dnia, więc nie trzeba robić tego samemu.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> alarmy i minutniki.</h1>
+            <p className="hero-celestial">Potrafi podążać za słońcem.</p>
+            <p className="hero-sub">Alarmy o wschodzie i zachodzie słońca w danym miejscu, przesuwające się wraz z porami roku — albo o stałej porze. I minutniki, które potrafią działać w pętli.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pl/alarm-list"
@@ -107,7 +107,6 @@ export default function StronaGlownaPage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime jest w fazie testów otwartych: trzeba najpierw dołączyć do testów, a dopiero potem zainstalować z Play. Bez tego kroku Play może wskazywać, że aplikacja nie jest dostępna w danym kraju.</p>
             </div>
           </section>
 
@@ -141,7 +140,7 @@ export default function StronaGlownaPage() {
               </article>
               <article className="feature-card">
                 <h3>Minutniki, w tej samej aplikacji</h3>
-                <p>Klawiatura, lista posortowana według czasu trwania, i powtarzanie, którego cykle nie tracą rytmu — do interwałów, sesji, bloków nauki. <a href="/pl/minutniki/">Przewodnik po minutnikach</a></p>
+                <p>Klawiatura, lista posortowana według czasu trwania, i pętla, której cykle nie tracą rytmu — do interwałów, sesji, bloków nauki. <a href="/pl/minutniki/">Przewodnik po minutnikach</a></p>
               </article>
             </div>
           </section>
@@ -156,7 +155,7 @@ export default function StronaGlownaPage() {
               <li><strong>Wyjście przed świtem</strong> — na wodę przed dniem, z alarmem, który przesuwa się z pierwszym światłem zamiast trzymać godzinę poprawianą co kilka tygodni.</li>
               <li><strong>Wstawanie przed świtem</strong> — przesunięcie przed wschodem ustawione raz podąża za wschodem każdego dnia. Co do dokładnej pory — pozostaje własny kalendarz; alarm zaś nigdy nie dryfuje.</li>
               <li><strong>Praca na dworze, spacery, hodowla</strong> — jeśli dzień zaczyna się ze światłem, alarm też.</li>
-              <li><strong>Interwały, sesje, bloki nauki</strong> — minutniki, które same startują od nowa, w tej samej aplikacji. <a href="/pl/minutniki/">Minutniki z powtarzaniem</a></li>
+              <li><strong>Interwały, sesje, bloki nauki</strong> — minutniki, które same startują od nowa, w tej samej aplikacji. <a href="/pl/minutniki/">Minutniki w pętli</a></li>
               <li><strong>Dla każdego, kto ma dość poprawiania przez cały rok</strong> — ustawione raz, zostaje trafne. <a href="/pl/alarmy/">Ustawianie alarmu o wschodzie lub zachodzie słońca</a></li>
             </ul>
           </section>
@@ -194,7 +193,7 @@ export default function StronaGlownaPage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/pl/settings-screen"
                   darkBase="/assets/screenshots/pl/settings-screen--dark"
-                  alt="Ekran ustawień Risetime, z wierszami Alarmy, Kotwice, Minutniki, Ustawienia telefonu i Lokalizacja zdarzeń astronomicznych ustawioną na Londyn, Wielka Brytania. Wiersz Niezawodność pokazuje 8 z 8 testów na zielono i jest rozwinięty na Kontrole bez zastosowania w tym telefonie oraz Wszystko w porządku (8). Poniżej znajduje się Wsparcie dla Risetime, a stopka pokazuje Risetime."
+                  alt="Ekran ustawień Risetime, z wierszami Alarmy, Kotwice, Minutniki, Ustawienia telefonu i Lokalizacja zdarzeń astronomicznych ustawioną na London, Wielka Brytania. Wiersz Niezawodność pokazuje (8/8) i jest rozwinięty na Wszystko w porządku (8) oraz Kontrole bez zastosowania w tym telefonie. Poniżej znajduje się Wspieranie Risetime, a stopka pokazuje Risetime."
                   width={360}
                   height={706}
                 />
@@ -247,7 +246,6 @@ export default function StronaGlownaPage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Gotowi wstać ze słońcem?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime jest w fazie testów otwartych: trzeba najpierw dołączyć do testów, a dopiero potem zainstalować z Play. Bez tego kroku Play może wskazywać, że aplikacja nie jest dostępna w danym kraju.</p>
           </section>
 
         </main>
