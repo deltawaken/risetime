@@ -8,4 +8,5 @@ nav_label: Privacidad
 skip_link: Ir al contenido principal
 updated: 2026-09-19
 translated: 2026-09-27
+reviewed: 2026-10-02
 ---

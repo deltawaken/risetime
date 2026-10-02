@@ -10,4 +10,5 @@ nav_label: Złota godzina i nocne niebo
 skip_link: Przejdź do treści głównej
 updated: 2026-09-20
 translated: 2026-09-27
+reviewed: 2026-10-02
 ---

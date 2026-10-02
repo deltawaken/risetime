@@ -10,4 +10,5 @@ nav_label: Ora dorata e cielo notturno
 skip_link: Vai al contenuto principale
 updated: 2026-09-20
 translated: 2026-09-27
+reviewed: 2026-10-02
 ---

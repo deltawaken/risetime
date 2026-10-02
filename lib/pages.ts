@@ -78,7 +78,9 @@ export const SITE_URL = 'https://risetime.app'
 // une langue ajoutée ici apparaît dans les pages, le sitemap et les hreflang
 // SANS autre modification de code. Aucune pour l'instant : les traductions
 // arrivent une par une, par PR relue sur la preview.
-export const LOCALES: string[] = []
+export const LOCALES: string[] = ['fr', 'de', 'es', 'it', 'nl', 'pl', 'pt']
+/* ⭐ Rempli le 2026-10-02 : le porteur a validé les sept langues sur la preview (« le vieux
+ *    site, c'est fini, on passe en multilingue ») — toutes leurs pages portent `reviewed`. */
 /* ⛔ REMIS À VIDE le 2026-09-28. Rempli quelques heures plus tôt à la demande du
  *    porteur pour voir les sept langues, il FAIT ÉCHOUER LE BUILD : le §9 exige
  *    qu'une langue publiée ait toutes ses pages relues, et aucune ne l'est encore.

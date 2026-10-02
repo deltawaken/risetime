@@ -1,8 +1,8 @@
 ---
 page: /timers/
 slug: timers
-title: Timer in een lus voor Android — aftellen dat opnieuw begint | Risetime
-description: "Een timer in een lus voor Android: stel één duur in, en hij herstart zichzelf, cyclus na cyclus, tot u hem stopt. Plus de gewone timers. Zonder advertenties, zonder internet."
+title: Timer in een lus voor Android | Risetime
+description: "Een timer in een lus voor Android: stel één duur in en hij herstart zichzelf, cyclus na cyclus, tot u hem stopt. Zonder advertenties, zonder internet."
 og_title: Een timer die vanzelf opnieuw begint — Risetime
 og_description: Vink lus aan en de aftelling herstart zichzelf, cyclus na cyclus, met de duur die u instelde — tot u de lus stopt.
 h1: Een timer die vanzelf opnieuw begint
@@ -10,4 +10,5 @@ nav_label: Timers
 skip_link: Naar de hoofdinhoud
 updated: 2026-09-24
 translated: 2026-09-27
+reviewed: 2026-10-02
 ---
