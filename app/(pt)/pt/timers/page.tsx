@@ -18,7 +18,7 @@ import SiteFooter from '../../../../components/SiteFooter'
 // `app/[lang]/` portanto NÃO produz essa URL.
 //
 // Vocabulário decidido, e não é negociável: a coisa se chama "timer
-// repetível", o que ele faz é uma "repetição", e suas voltas são "ciclos". A
+// em ciclo" (msgid "Loop" = "ciclo"), o que ele faz é recomeçar sozinho, e suas voltas são "ciclos". Nunca "repetição"/"repetir" (= dias do alarme). A
 // locução comum que junta "timer" ao nome do intervalo de tempo é
 // PROIBIDA aqui como na inglesa: ela designa no uso comum duas fases que se
 // alternam, o que o aplicativo não sabe fazer. O substantivo comum sozinho,
@@ -30,7 +30,7 @@ const jsonLd = [
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Um timer que reinicia sozinho",
-  "description": "O timer repetível do Risetime: uma duração, reiniciada em um intervalo fixo, cujos ciclos permanecem em fase, com um botão Parar o ciclo para encerrá-lo — e os timers comuns que qualquer relógio já faz.",
+  "description": "O timer em ciclo do Risetime: uma duração, reiniciada em um intervalo fixo, cujos ciclos permanecem em fase, com um botão Parar o ciclo para encerrá-lo — e os timers comuns que qualquer relógio já faz.",
   "inLanguage": "pt-BR",
   "author": {
     "@type": "Organization",
@@ -88,37 +88,37 @@ export default function PaginaTimers() {
 
           <section aria-labelledby="section-loop">
             <h2 id="section-loop">Ele reinicia sozinho</h2>
-            <p>É a parte que o relógio do seu telefone provavelmente não sabe fazer. Abra a linha de um timer pelo ícone de seta e marque <strong>Repetir</strong>: ele vira um <strong>timer repetível</strong>. Ele chega a zero, toca brevemente, e reinicia pela mesma duração, até você parar a repetição. O que você ajusta uma vez é o intervalo entre dois toques.</p>
-            <p>Cada ciclo é ancorado no momento em que o anterior <em>venceu</em>, e não no momento em que você o silenciou: trinta minutos repetidos duas vezes dão sessenta minutos, não sessenta e um. Do contrário, cada toque deixado tocando deslocaria o resto do dia inteiro.</p>
+            <p>É a parte que o relógio do seu telefone provavelmente não sabe fazer. Abra a linha de um timer pelo ícone de seta e marque <strong>ciclo</strong>: ele vira um <strong>timer em ciclo</strong>. Ele chega a zero, toca brevemente, e recomeça pela mesma duração, até você parar o ciclo. O que você ajusta uma vez é o intervalo entre dois toques.</p>
+            <p>Cada ciclo é ancorado no momento em que o anterior <em>venceu</em>, e não no momento em que você o silenciou: dois ciclos de trinta minutos dão sessenta minutos, não sessenta e um. Do contrário, cada toque deixado tocando deslocaria o resto do dia inteiro.</p>
 
             <div className="highlight-box">
-              <p>Por padrão, um ciclo toca por <strong>cinco segundos</strong>, com o som de notificação do seu sistema em vez de um som de alarme. Os dois são seus. Não existe opção "nunca" para essa duração: um toque sem fim travaria a repetição já no primeiro ciclo.</p>
+              <p>Por padrão, um ciclo toca por <strong>cinco segundos</strong>, com o som de notificação do seu sistema em vez de um som de alarme. Os dois são seus. Não existe opção "nunca" para essa duração: um toque sem fim travaria o timer já no primeiro ciclo.</p>
             </div>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/timer-list"
                 darkBase="/assets/screenshots/pt/timer-list--dark"
-                alt="Lista de timers do Risetime com três contagens regressivas: 3:00 e 10:00, ambas paradas, cada uma com um botão de play e um botão de redefinir, e uma mais longa ainda em andamento, com uma pastilha rosa de repetição, um botão de pausa e um botão +1:00. As abas Alarmes, Timers e Configurações correm na parte inferior da tela."
+                alt="Lista de timers do Risetime com três contagens regressivas: 3:00 e 10:00, ambas paradas, cada uma com um botão de play e um botão de redefinir, e um terceiro, 24:45, em andamento, com um ícone de ciclo em rosa, um botão de pausa e um botão +1:00. As abas Alarmes, Timers e Configurações ficam na parte inferior da tela."
                 width={360}
                 height={706}
               />
-              <figcaption>Três timers, ordenados por duração. A pastilha rosa sinaliza o que está ajustado para se repetir.</figcaption>
+              <figcaption>Três timers, ordenados por duração. O ícone rosa sinaliza o timer ajustado em ciclo.</figcaption>
             </figure>
           </section>
 
           <section aria-labelledby="section-ending">
             <h2 id="section-ending">Parar o ciclo</h2>
-            <p>Uma repetição para com um botão chamado <strong>Parar o ciclo</strong>: na tela de toque, e também na notificação de toque, ao lado de <strong>Continuar</strong> e do botão que adiciona tempo.</p>
-            <p>Desmarcar <strong>Repetir</strong> enquanto um timer toca deixa mais um ciclo antes de parar: o ajuste é lido uma vez por ciclo, no momento em que o toque começa.</p>
+            <p>Um ciclo para com um botão chamado <strong>Parar o ciclo</strong>: na tela de toque, e também na notificação de toque, ao lado de <strong>Continuar</strong> e do botão que adiciona tempo.</p>
+            <p>Desmarcar <strong>ciclo</strong> enquanto um timer toca deixa mais um ciclo antes de parar: o ajuste é lido uma vez por ciclo, no momento em que o toque começa.</p>
             <p>A tela de toque aparece a cada ciclo e vai embora sozinha depois dos cinco segundos — nada para tocar, nada para descartar entre um ciclo e outro.</p>
           </section>
 
           <section aria-labelledby="section-ordinary">
             <h2 id="section-ordinary">E os timers comuns</h2>
             <p>O resto é o que o timer de um relógio já sabe fazer. Toque no mais e você obtém um teclado em tela cheia em vez de um mostrador: digite os números, eles se preenchem pela direita, como em um forno de micro-ondas. Quatro, zero, zero dá quatro minutos, e seis dígitos levam você até <strong>noventa e nove horas</strong>.</p>
-            <p>Os timers ocupam um lugar em uma lista ordenada pela duração para a qual foram ajustados, o mais curto primeiro, e não na ordem em que você os criou. Eles rodam em paralelo — várias contagens independentes ao mesmo tempo, repetíveis ou não.</p>
-            <p>Cada linha tem a pausa, e um botão <strong>+1:00</strong> que adiciona tempo ao que resta — um minuto, a menos que você mude isso nas Configurações. Pause um timer e esse botão vira uma redefinição. O ícone de seta abre a linha para <strong>Repetir</strong> e para a exclusão.</p>
+            <p>Os timers ocupam um lugar em uma lista ordenada pela duração para a qual foram ajustados, o mais curto primeiro, e não na ordem em que você os criou. Eles rodam em paralelo — várias contagens independentes ao mesmo tempo, em ciclo ou não.</p>
+            <p>Cada linha tem a pausa, e um botão <strong>+1:00</strong> que adiciona tempo ao que resta — um minuto, a menos que você mude isso nas Configurações. Pause um timer e esse botão vira uma redefinição. O ícone de seta abre a linha para <strong>ciclo</strong> e para a exclusão.</p>
           </section>
 
           <section aria-labelledby="section-notification">
@@ -130,25 +130,25 @@ export default function PaginaTimers() {
 
           <section aria-labelledby="section-settings">
             <h2 id="section-settings">Seu próprio som, seu próprio volume</h2>
-            <p>Os timers não pegam emprestados os ajustes dos seus alarmes, e um timer repetível também não pega emprestados os do timer de uso único: dois perfis, escolhidos conforme Repetir esteja marcado ou não. Cada um tem seu som, seu volume, sua duração de toque e seu aumento de volume opcional.</p>
-            <p>As duas durações de toque estão em escalas propositalmente diferentes. Em repetição: <strong>5, 10, 15, 30, 60 ou 120 segundos</strong>. Para um timer de uso único: <strong>1, 5, 10, 15, 20 ou 25 minutos, ou nunca</strong>.</p>
+            <p>Os timers não pegam emprestados os ajustes dos seus alarmes, e um timer em ciclo também não pega emprestados os do timer de uso único: dois perfis, escolhidos conforme ciclo esteja marcado ou não. Cada um tem seu som, seu volume, sua duração de toque e seu aumento de volume opcional.</p>
+            <p>As duas durações de toque estão em escalas propositalmente diferentes. Em ciclo: <strong>5, 10, 15, 30, 60 ou 120 segundos</strong>. Para um timer de uso único: <strong>1, 5, 10, 15, 20 ou 25 minutos, ou nunca</strong>.</p>
             <p>Nenhum som vem com o aplicativo: os sons são os do seu sistema, ou um arquivo seu. Dois ajustes continuam comuns em vez de duplicados — se os timers vibram, e o que as teclas de volume fazem enquanto um timer toca.</p>
           </section>
 
           <section aria-labelledby="section-not">
             <h2 id="section-not">O que ele não vai fazer</h2>
-            <p>É uma contagem regressiva e uma repetição, nada mais:</p>
+            <p>É uma contagem regressiva e um ciclo, nada mais:</p>
             <ul>
-              <li><strong>Sem alternância de esforço/descanso.</strong> Uma repetição tem apenas uma duração; trinta segundos de esforço e depois trinta de recuperação são dois, e nenhuma tela monta um timer a partir de vários.</li>
+              <li><strong>Sem alternância de esforço/descanso.</strong> Um ciclo tem apenas uma duração; trinta segundos de esforço e depois trinta de recuperação são dois, e nenhuma tela monta um timer a partir de vários.</li>
               <li><strong>Sem lembrete no meio de uma sessão</strong> — uma sessão sentada de trinta minutos não pode tocar aos dez e depois aos vinte.</li>
-              <li><strong>Sem faixa de horário, sem horas de silêncio.</strong> Uma repetição roda até você pará-la.</li>
+              <li><strong>Sem faixa de horário, sem horas de silêncio.</strong> Um ciclo roda até você pará-lo.</li>
               <li><strong>Sem tocar na hora exata.</strong> A contagem parte do momento em que você o iniciou.</li>
             </ul>
           </section>
 
           <section aria-labelledby="section-setup">
             <h2 id="section-setup">Ajustar um</h2>
-            <p>Abra a aba Timers, toque no mais, digite a duração. Ele parte sozinho — nada para nomear, nada para classificar. Para que ele se repita, marque <strong>Repetir</strong> atrás do ícone de seta.</p>
+            <p>Abra a aba Timers, toque no mais, digite a duração. Ele parte sozinho — nada para nomear, nada para classificar. Para que ele recomece sozinho, marque <strong>ciclo</strong> atrás do ícone de seta.</p>
             <p>O <a href="/pt/alarmes/" className="content-link">guia dos alarmes</a> trata dos alarmes, que compartilham os mesmos ajustes de confiabilidade.</p>
           </section>
 
@@ -159,14 +159,13 @@ export default function PaginaTimers() {
 
           <div className="cta-section">
             <h2>Ajuste a duração uma vez. Ele mantém o ritmo.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Entrar no teste aberto do Risetime no Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Baixe o Risetime no Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Teste aberto</span>
+              <span className="badge-sub">Disponível agora</span>
             </a>
-            <p className="cta-note">O Risetime está em teste aberto: você primeiro entra no teste, depois instala pela Play. Sem essa etapa, a Play pode dizer que o aplicativo não está disponível no seu país.</p>
           </div>
 
         </main>

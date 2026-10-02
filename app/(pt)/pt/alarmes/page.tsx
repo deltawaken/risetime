@@ -96,7 +96,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-list"
                 darkBase="/assets/screenshots/pt/alarms-list--dark"
-                alt="Lista de alarmes do Risetime com cinco alarmes: 05:10 no sábado em Aurora astronômica, uma âncora personalizada; 07:00 de segunda a sexta-feira em Absoluto, um horário fixo; 07:02 amanhã ao Nascer do sol; 17:38 de segunda a sexta-feira, 1 h antes do Pôr do sol; e 23:02 hoje, 8 h antes do Nascer do sol, desativado."
+                alt="Lista de alarmes do Risetime com cinco alarmes: 05:10 no sábado, Aurora astronômica; 07:00 de segunda-feira a sexta-feira, um horário fixo; 07:02 amanhã, Nascer do sol; 17:38 de seg a sex, 1 h antes de Pôr do sol; e 23:02 hoje, 8 h antes de Nascer do sol, desativado. As abas Alarmes, Timers e Configurações ficam na parte inferior."
                 width={360}
                 height={706}
               />
@@ -127,7 +127,7 @@ export default function AlarmesPage() {
                     <ThemedPicture
                       lightBase="/assets/screenshots/pt/alarms-location"
                       darkBase="/assets/screenshots/pt/alarms-location--dark"
-                      alt="As configurações do Risetime, seção Localização dos eventos celestes aberta: London, Reino Unido selecionado, um botão de GPS, e uma caixa de seleção Atualização automática de localização desmarcada."
+                      alt="As configurações do Risetime, com Localização dos eventos celestes aberta: London, Reino Unido em um seletor, um botão de localização, e a caixa Atualização automática de localização desmarcada. Abaixo, Confiabilidade (8/8) e Apoiando o Risetime."
                       width={360}
                       height={706}
                     />
@@ -145,7 +145,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-anchor-menu"
                 darkBase="/assets/screenshots/pt/alarms-anchor-menu--dark"
-                alt="A caixa de criação de alarme, com seu menu de âncoras aberto: Absoluto, Aurora astronômica, Nascer do sol, Meio-dia, Hora dourada, Pôr do sol e Nadir."
+                alt="A caixa de criação de alarme, com o menu de âncoras aberto: Absoluto (marcado), Aurora astronômica, Nascer do sol, Meio-dia, Hora dourada, Pôr do sol e Nadir."
                 width={360}
                 height={706}
               />
@@ -168,7 +168,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-offset"
                 darkBase="/assets/screenshots/pt/alarms-offset--dark"
-                alt="A caixa de criação de alarme ajustada para o Pôr do sol com um deslocamento de uma hora antes, o mostrador das horas em 1 e o dos minutos em 00, e a linha Hoje: 17:38."
+                alt="A caixa de criação de alarme ajustada para Pôr do sol com um deslocamento de −1:00, o campo das horas em 1 e o dos minutos em 00, e a linha Hoje: 17:38."
                 width={360}
                 height={706}
               />
@@ -177,14 +177,14 @@ export default function AlarmesPage() {
           </section>
 
           <section aria-labelledby="section-days">
-            <h2 id="section-days">Dias de repetição, som e repetição de toque</h2>
-            <p>Abra o cartão do alarme na lista. Marque <strong>Repetir</strong> e escolha seus dias: o cartão então se lê como você diria — <em>Segunda a sexta-feira, 1 h antes do Pôr do sol</em>. O mesmo cartão carrega o rótulo, o som, a vibração, a duração do toque e a imagem exibida durante o toque. O interruptor tem três posições: a do meio ignora só o próximo toque — para um dia de folga — e mantém o alarme ativo.</p>
+            <h2 id="section-days">Dias de repetição, som e duração da soneca</h2>
+            <p>Abra o cartão do alarme na lista. Marque <strong>Repetir</strong> e escolha seus dias: o cartão então se lê como você diria — <em>De seg a sex, 1 h antes de Pôr do sol</em>. O mesmo cartão carrega o marcador, o som, a vibração, a duração da soneca e a imagem exibida durante o toque. O interruptor tem três posições: a do meio ignora só o próximo toque — para um dia de folga — e mantém o alarme ativo.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-card"
                 darkBase="/assets/screenshots/pt/alarms-card--dark"
-                alt="Um cartão de alarme aberto para 17:38, de segunda a sexta-feira, 1 h antes do Pôr do sol: um campo Rótulo vazio, Repetir com de segunda a sexta-feira selecionado, Som ajustado para Padrão do telefone, e Vibração ativada. O cartão continua abaixo da borda da imagem."
+                alt="Um cartão de alarme aberto para 17:38, de seg a sex, 1 h antes de Pôr do sol: um campo Marcador vazio, a caixa Repetir marcada, uma fileira de dias D S T Q Q S S com os cinco do meio destacados, e Som em Padrão do telefone. O cartão continua abaixo da borda da imagem."
                 width={360}
                 height={706}
               />
@@ -214,7 +214,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-anchors"
                 darkBase="/assets/screenshots/pt/alarms-anchors--dark"
-                alt="As configurações, seção Âncoras: duas âncoras personalizadas, Aurora astronômica e Hora dourada, cada uma com um botão de edição e um botão de exclusão, entre as âncoras de fábrica Nascer do sol, Meio-dia, Pôr do sol e Nadir. Cada linha tem um interruptor de visibilidade, todos ativados."
+                alt="As configurações, seção Âncoras aberta, com um botão + no cabeçalho: Aurora astronômica, Nascer do sol, Meio-dia, Hora dourada, Pôr do sol e Nadir. Só Aurora astronômica e Hora dourada, as âncoras personalizadas, têm os botões de edição e de exclusão ativos. Cada linha tem um interruptor de visibilidade, todos ativados."
                 width={360}
                 height={706}
               />
@@ -228,7 +228,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarms-anchor-editor"
                 darkBase="/assets/screenshots/pt/alarms-anchor-editor--dark"
-                alt="O editor de âncora em Um ângulo solar, ajustado em −18,0° de manhã, chamado Aurora astronômica, com a prévia Próximo: 05:10. O sol não alcança esse ângulo aqui de 23 de maio de 2027 a 21 de julho de 2027."
+                alt="O editor de âncora em Um ângulo solar, ajustado em 18,0° abaixo do horizonte de manhã, com o aviso Não alcançado todos os dias nesta latitude, chamado Aurora astronômica, com a prévia Próximo: 05:10. O sol não alcança esse ângulo aqui de 23 de maio de 2027 a 21 de julho de 2027."
                 width={360}
                 height={706}
               />
@@ -249,7 +249,7 @@ export default function AlarmesPage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Timers também</h2>
-            <p>A aba <strong>Timers</strong> reúne as contagens regressivas, incluindo as que reiniciam sozinhas para intervalos e blocos de estudo: <a href="/pt/timers/" className="content-link">como funcionam os timers repetíveis</a>.</p>
+            <p>A aba <strong>Timers</strong> reúne as contagens regressivas, incluindo as que reiniciam sozinhas para intervalos e blocos de estudo: <a href="/pt/timers/" className="content-link">como funcionam os timers em ciclo</a>.</p>
             <p>O Risetime é gratuito para até três alarmes e três timers — para sempre. Precisa de mais? Use esses três primeiro, e veja se vale a pena o seu apoio: quem apoia tem alarmes e timers sem limite, por ano ou de uma vez. Se não, terei o maior prazer em <a href="mailto:contact@risetime.app">ler o que você escrever</a>.</p>
           </section>
 
@@ -264,14 +264,13 @@ export default function AlarmesPage() {
 
           <div className="cta-section">
             <h2>Ajuste uma vez. Ele acompanha o sol.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Entrar no teste aberto do Risetime no Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Baixe o Risetime no Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Teste aberto</span>
+              <span className="badge-sub">Disponível agora</span>
             </a>
-            <p className="cta-note">O Risetime está em teste aberto: você primeiro entra no teste, depois instala pela Play. Sem essa etapa, a Play pode dizer que o aplicativo não está disponível no seu país.</p>
           </div>
 
         </main>

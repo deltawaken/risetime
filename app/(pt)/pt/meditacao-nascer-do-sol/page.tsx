@@ -105,7 +105,7 @@ export default function PaginaMeditacaoNascerDoSol() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/practice-list"
                 darkBase="/assets/screenshots/pt/practice-list--dark"
-                alt="Lista de alarmes do Risetime com quatro alarmes, todos repetidos todos os dias: 05:29 em Última parte da noite, 05:50 em Aurora náutica, 06:29 em Aurora civil, e 07:02 ao Nascer do sol."
+                alt="Lista de alarmes do Risetime com quatro alarmes, todos os dias: 05:29, Última parte da noite; 05:50, Aurora náutica; 06:29, Aurora civil; e 07:02, Nascer do sol."
                 width={360}
                 height={706}
               />
@@ -137,7 +137,7 @@ export default function PaginaMeditacaoNascerDoSol() {
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/practice-angle-editor"
                 darkBase="/assets/screenshots/pt/practice-angle-editor--dark"
-                alt="O editor de âncora em Um ângulo solar, ajustado em −6,0° de manhã, chamado Aurora civil, com a prévia: Próximo: 06:29."
+                alt="O editor de âncora em Um ângulo solar, ajustado em 6,0° abaixo do horizonte de manhã, chamado Aurora civil, com a prévia: Próximo: 06:29."
                 width={360}
                 height={706}
               />
@@ -150,11 +150,11 @@ export default function PaginaMeditacaoNascerDoSol() {
             <p>Você pode ajustar a manhã pela noite em vez da aurora: um ponto situado em uma parte dada da escuridão.</p>
             <ol>
               <li><strong>Configurações → Âncoras → +</strong>, e mude a forma para <strong>Uma fração do dia ou da noite</strong>.</li>
-              <li>Alcance <strong>Noite</strong>, depois o <strong>Número de partes</strong> e a <strong>posição</strong> — de 2 a 48 partes, qualquer limite dentro.</li>
+              <li>Alcance <strong>Noite</strong>, depois o <strong>Número de partes</strong> e a <strong>Posição</strong> — de 2 a 48 partes, qualquer limite dentro.</li>
               <li>Dê um nome a ela, escolha uma cor, salve. Um rascunho novo se chama <strong>Noite · 1/15</strong>; ele acompanha o que você ajusta.</li>
               <li>Ajuste um alarme para ela.</li>
             </ol>
-            <p>A noite, aqui, é exatamente uma coisa: <strong>de um pôr do sol ao nascer seguinte</strong>, dividida em partes iguais. Dentro dos círculos polares, uma noite dessas pode não existir; a âncora então não tem nada para dividir, e o aplicativo avisa — sem o intervalo de datas que a forma por ângulo dá, e que esta forma não tem. Você se ajusta a um horário publicado? <strong>Avançado → Deslocar em N minutos</strong> move uma âncora que você criou, em até trinta minutos para qualquer um dos lados.</p>
+            <p>A noite, aqui, é exatamente uma coisa: <strong>de um pôr do sol ao nascer seguinte</strong>, dividida em partes iguais. Dentro dos círculos polares, uma noite dessas pode não existir; a âncora então não tem nada para dividir, e o aplicativo avisa — sem o intervalo de datas que a forma por ângulo dá, e que esta forma não tem. Você se ajusta a um horário publicado? <strong>Avançado → Deslocar N minutos</strong> move uma âncora que você criou, em até trinta minutos para qualquer um dos lados.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/practice-division-editor"
@@ -186,14 +186,13 @@ export default function PaginaMeditacaoNascerDoSol() {
 
           <div className="cta-section">
             <h2>Comece com a luz.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Entrar no teste aberto do Risetime no Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Baixe o Risetime no Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Teste aberto</span>
+              <span className="badge-sub">Disponível agora</span>
             </a>
-            <p className="cta-note">O Risetime está em teste aberto: você primeiro entra no teste, depois instala pela Play. Sem essa etapa, a Play pode dizer que o aplicativo não está disponível no seu país.</p>
           </div>
 
         </main>

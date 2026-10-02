@@ -1,9 +1,9 @@
 ---
 page: /
 slug: 
-title: Risetime — Despertador de nascer do sol para Android · Alarmes solares
+title: Risetime — Despertador e Timers para Android · Acompanha o sol
 description: Aplicativo despertador de nascer do sol para Android. Ajuste seu alarme para o nascer do sol, o pôr do sol ou o meio-dia solar — ele se ajusta sozinho, todos os dias. Sem wifi, sem internet, sem coleta de dados.
-og_title: Risetime — Despertador de nascer do sol para Android
+og_title: Risetime — Despertador e Timers · Acompanha o sol
 og_description: Ajuste seu alarme para o nascer do sol. Uma vez. Ele se ajusta sozinho todos os dias. Sem necessidade de wifi.
 og_image: https://risetime.app/assets/screenshots/landscape-alarm-list.webp
 og_image_width: 854

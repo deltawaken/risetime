@@ -32,8 +32,8 @@ const jsonLd = [
   /* As nove entradas da inglesa, na mesma ordem. ⛔ Os nomes dos ajustes vêm do
      .po e de nenhum outro lugar — "Um ângulo solar", "Um comprimento de sombra",
      "Uma fração do dia ou da noite", "Meio-dia solar", "Nadir", "Calibração" —
-     e "ciclos" para a repetição de um timer.
-     ⚠️ Nunca "repetição" aqui: no app, "Repetir" é o mesmo termo usado para os
+     e "ciclos" para o timer que recomeça sozinho.
+     ⚠️ Nunca "repetição"/"repetível" aqui: no app, "Repetir" é o mesmo termo usado para os
      dias de recorrência de um alarme. */
   "featureList": [
     "Alarmes ancorados ao nascer do sol, ao pôr do sol, ao meio-dia solar ou ao nadir",
@@ -78,14 +78,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Entrar no teste aberto do Risetime no Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Baixe o Risetime no Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Teste aberto</span>
+    <span className="badge-sub">Disponível agora</span>
   </a>
 )
 
@@ -103,14 +103,14 @@ export default function PaginaInicial() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> o aplicativo de alarmes solares para Android.</h1>
-            <p className="hero-celestial">Seu despertador celeste.</p>
-            <p className="hero-sub">Ajuste seu alarme para o sol. Ele se ajusta todos os dias para que você não precise.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> alarmes e timers.</h1>
+            <p className="hero-celestial">Ele pode acompanhar o sol.</p>
+            <p className="hero-sub">Alarmes no nascer e no pôr do sol onde você estiver, acompanhando as estações — ou em horário fixo. E timers que podem rodar em ciclo.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/pt/alarm-list"
                 darkBase="/assets/screenshots/pt/alarm-list--dark"
-                alt="Lista de alarmes do Risetime com cinco alarmes: 05:10 no sábado em Aurora astronômica, uma âncora personalizada; 07:00 de segunda a sexta-feira em Absoluto, um horário fixo; 07:02 amanhã ao Nascer do sol; 17:38 de segunda a sexta-feira, 1 h antes do Pôr do sol; e 23:02 hoje, 8 h antes do Nascer do sol, desativado."
+                alt="Lista de alarmes do Risetime com cinco alarmes: 05:10 no sábado, Aurora astronômica; 07:00 de segunda-feira a sexta-feira, um horário fixo; 07:02 amanhã, Nascer do sol; 17:38 de seg a sex, 1 h antes de Pôr do sol; e 23:02 hoje, 8 h antes de Nascer do sol, desativado. As abas Alarmes, Timers e Configurações ficam na parte inferior."
                 width={360}
                 height={706}
                 loading="eager"
@@ -119,7 +119,6 @@ export default function PaginaInicial() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">O Risetime está em teste aberto: você primeiro entra no teste, depois instala pela Play. Sem essa etapa, a Play pode dizer que o aplicativo não está disponível no seu país.</p>
             </div>
           </section>
 
@@ -153,7 +152,7 @@ export default function PaginaInicial() {
               </article>
               <article className="feature-card">
                 <h3>Timers, no mesmo aplicativo</h3>
-                <p>Um teclado, uma lista ordenada por duração, e uma repetição cujos ciclos permanecem em fase — para intervalos, sessões, blocos de estudo. <a href="/pt/timers/">O guia dos timers</a></p>
+                <p>Um teclado, uma lista ordenada por duração, e um timer em ciclo cujos ciclos permanecem em fase — para intervalos, sessões, blocos de estudo. <a href="/pt/timers/">O guia dos timers</a></p>
               </article>
             </div>
           </section>
@@ -168,7 +167,7 @@ export default function PaginaInicial() {
               <li><strong>Sair antes da luz</strong> — na água antes do dia, com um alarme que se move com a primeira luz em vez de um horário que se reajusta a cada poucas semanas.</li>
               <li><strong>Acordar antes do amanhecer</strong> — ajuste seu deslocamento antes do nascer do sol uma vez: ele acompanha o nascer do sol todos os dias. Para o horário exato, consulte seu próprio calendário; o alarme, esse, nunca desvia.</li>
               <li><strong>Trabalho ao ar livre, caminhadas, criação de animais</strong> — se o seu dia começa com o dia, seu alarme também.</li>
-              <li><strong>Intervalos, sessões, blocos de estudo</strong> — timers que reiniciam sozinhos, no mesmo aplicativo. <a href="/pt/timers/">Timers repetíveis</a></li>
+              <li><strong>Intervalos, sessões, blocos de estudo</strong> — timers que reiniciam sozinhos, no mesmo aplicativo. <a href="/pt/timers/">Timers em ciclo</a></li>
               <li><strong>Quem está cansado de reajustar o ano todo</strong> — ajuste uma vez, continua certo. <a href="/pt/alarmes/">Ajustar um alarme para o nascer ou o pôr do sol</a></li>
             </ul>
           </section>
@@ -180,7 +179,7 @@ export default function PaginaInicial() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/pt/alarm-picker"
                   darkBase="/assets/screenshots/pt/alarm-picker--dark"
-                  alt="A caixa de criação de alarme do Risetime, aberta sobre a lista: a pastilha da âncora Meio-dia, um deslocamento de menos 1 hora e 00 minuto com o campo das horas selecionado, e a linha Amanhã: 11:49. Um mostrador circular de horas com o 1 selecionado ocupa a metade inferior, com Cancelar e OK abaixo."
+                  alt="A caixa de criação de alarme do Risetime, aberta sobre a lista: o ícone da âncora Meio-dia, um deslocamento de −1:00 com o campo das horas selecionado, e a linha Amanhã: 11:49. Um mostrador circular de horas com o 1 selecionado ocupa a metade inferior, com Cancelar e OK abaixo."
                   width={360}
                   height={706}
                 />
@@ -198,7 +197,7 @@ export default function PaginaInicial() {
                                      em inglês. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/pt/dismiss-screen.webp 1x, /assets/screenshots/pt/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/pt/dismiss-screen.png" alt="A tela de encerramento do Risetime para um alarme tocando, preenchida de ponta a ponta com um rosa antigo tirado da posição do sol: o horário 17:30, a data quinta-feira, 1 de outubro, a palavra Alarme, um grande botão circular SONECA, e ENCERRAR abaixo." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/pt/dismiss-screen.png" alt="A tela de descarte do Risetime para um alarme tocando, preenchida de ponta a ponta com um rosa antigo tirado da posição do sol: o horário 17:30, a data quinta-feira, 1 de outubro, a palavra Alarme, um grande botão circular SONECA, e ENCERRAR abaixo." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Um despertar suave</figcaption>
               </figure>
@@ -206,7 +205,7 @@ export default function PaginaInicial() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/pt/settings-screen"
                   darkBase="/assets/screenshots/pt/settings-screen--dark"
-                  alt="A tela de configurações do Risetime, com as linhas Alarmes, Âncoras, Timers, Configurações do telefone, e Localização dos eventos celestes ajustada para London, Reino Unido. A linha Confiabilidade indica 8 de 8 verificações em verde e está aberta em Verificações sem relevância neste telefone e Está tudo certo (8). Apoiar o Risetime aparece abaixo, e o rodapé mostra Risetime."
+                  alt="A tela de configurações do Risetime, com as linhas Alarmes, Âncoras, Timers, Configurações do telefone e Localização dos eventos celestes, esta em London, Reino Unido. A linha Confiabilidade, aberta, mostra (8/8) e as duas linhas Tudo certo (8) e Verificações que este telefone não tem. Apoiando o Risetime aparece abaixo, e o rodapé mostra Risetime."
                   width={360}
                   height={706}
                 />
@@ -259,7 +258,6 @@ export default function PaginaInicial() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Pronto para acordar com o sol?</h2>
             <PlayBadge />
-            <p className="cta-note">O Risetime está em teste aberto: você primeiro entra no teste, depois instala pela Play. Sem essa etapa, a Play pode dizer que o aplicativo não está disponível no seu país.</p>
           </section>
 
         </main>
