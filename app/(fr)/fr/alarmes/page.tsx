@@ -96,7 +96,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/alarms-list"
                 darkBase="/assets/screenshots/fr/alarms-list--dark"
-                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
+                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi, Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi, une heure fixe avec une icône d'horloge ; 07:02 demain, Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant Lever du soleil, avec son interrupteur éteint."
                 width={360}
                 height={706}
               />
@@ -127,7 +127,7 @@ export default function AlarmesPage() {
                     <ThemedPicture
                       lightBase="/assets/screenshots/fr/alarms-location"
                       darkBase="/assets/screenshots/fr/alarms-location--dark"
-                      alt="Les paramètres de Risetime, section Lieu des événements célestes ouverte : Londres, Royaume-Uni sélectionné, un bouton GPS, et une case Mise à jour automatique du lieu décochée."
+                      alt="Les paramètres de Risetime, section Lieu des événements célestes ouverte : London, Royaume-Uni dans la liste de lieux, un bouton GPS, et une case Mise à jour automatique du lieu décochée ; en dessous, les lignes Fiabilité (8/8) et Tu soutiens Risetime ⭐."
                       width={360}
                       height={706}
                     />
@@ -158,9 +158,9 @@ export default function AlarmesPage() {
             <p><strong>Une ancre est un moment du soleil que Risetime recalcule chaque jour ; votre alarme se tient à distance fixe de lui.</strong> Cette distance, c&rsquo;est le décalage, jusqu&rsquo;à 11 h 59 min avant ou après. Le moment solaire bouge un peu chaque jour ; le décalage que vous avez choisi, jamais.</p>
             <ul>
               <li><strong>Lever du soleil</strong>, sans décalage — avec la première lumière.</li>
-              <li><strong>30 min avant le Lever du soleil</strong> — debout avant le jour.</li>
-              <li><strong>1 h avant le Coucher du soleil</strong> — une alarme de fin de journée qui vous laisse le temps de sortir tant qu&rsquo;il fait encore jour.</li>
-              <li><strong>8 h avant le Lever du soleil</strong> — <a href="/fr/reveil-rythme-circadien/" className="content-link">un rappel de coucher qui suit le soleil</a>.</li>
+              <li><strong>30 min avant Lever du soleil</strong> — debout avant le jour.</li>
+              <li><strong>1 h avant Coucher du soleil</strong> — une alarme de fin de journée qui vous laisse le temps de sortir tant qu&rsquo;il fait encore jour.</li>
+              <li><strong>8 h avant Lever du soleil</strong> — <a href="/fr/reveil-rythme-circadien/" className="content-link">un rappel de coucher qui suit le soleil</a>.</li>
             </ul>
             <p>Une ligne sous le cadran annonce la prochaine sonnerie, par exemple <em>Demain : 18:03</em>.</p>
 
@@ -168,7 +168,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/alarms-offset"
                 darkBase="/assets/screenshots/fr/alarms-offset--dark"
-                alt="La boîte de création d'alarme réglée sur le Coucher du soleil avec un décalage d'une heure avant, le cadran des heures sur 1 et celui des minutes sur 00, et la ligne Aujourd'hui : 17:38."
+                alt="La boîte de création d'alarme réglée sur Coucher du soleil avec un décalage de moins 1 heure et 00 minute, le cadran des heures sur 1, et la ligne Aujourd'hui : 17:38."
                 width={360}
                 height={706}
               />
@@ -178,13 +178,13 @@ export default function AlarmesPage() {
 
           <section aria-labelledby="section-days">
             <h2 id="section-days">Jours de répétition, son et répétition de sonnerie</h2>
-            <p>Ouvrez la carte de l&rsquo;alarme dans la liste. Cochez <strong>Répéter</strong> et choisissez vos jours : la carte se lit alors comme vous le diriez — <em>Lundi–vendredi, 1 h avant le Coucher du soleil</em>. La même carte porte le libellé, le son, la vibration, la durée de répétition et l&rsquo;image affichée pendant la sonnerie. L&rsquo;interrupteur a trois positions : celle du milieu ignore la seule prochaine sonnerie — pour un jour de congé — et laisse l&rsquo;alarme active.</p>
+            <p>Ouvrez la carte de l&rsquo;alarme dans la liste. Cochez <strong>Répéter</strong> et choisissez vos jours : la carte se lit alors comme vous le diriez — <em>Du lundi au vendredi, 1 h avant Coucher du soleil</em>. La même carte porte le titre, le son, la vibration, la durée de répétition et l&rsquo;image affichée pendant la sonnerie. L&rsquo;interrupteur a trois positions : celle du milieu ignore la seule prochaine sonnerie — pour un jour de congé — et laisse l&rsquo;alarme active.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/alarms-card"
                 darkBase="/assets/screenshots/fr/alarms-card--dark"
-                alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Libellé vide, Répéter avec du lundi au vendredi sélectionné, Son réglé sur Par défaut du téléphone, et Vibration activée. La carte se poursuit sous le bord de l'image."
+                alt="Une carte d'alarme ouverte pour 17:38, du lundi au vendredi, 1 h avant le Coucher du soleil : un champ Titre vide, Répéter coché avec les jours L, M, M, J et V sélectionnés, S et D non, et Son réglé sur Par défaut du téléphone. La carte se poursuit sous le bord de l'image."
                 width={360}
                 height={706}
               />
@@ -228,7 +228,7 @@ export default function AlarmesPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/alarms-anchor-editor"
                 darkBase="/assets/screenshots/fr/alarms-anchor-editor--dark"
-                alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
+                alt="L'éditeur d'ancre sur Un angle solaire, réglé à −18,0° le matin, nommé Aube astronomique, avec l'aperçu Prochain : 05:10. Pas atteint tous les jours à cette latitude, en rouge ; le soleil n'atteint pas cet angle ici du 23 mai 2027 au 21 juillet 2027."
                 width={360}
                 height={706}
               />
@@ -249,7 +249,7 @@ export default function AlarmesPage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Des minuteurs aussi</h2>
-            <p>L&rsquo;onglet <strong>Minuteurs</strong> réunit les comptes à rebours, y compris ceux qui repartent tout seuls pour des intervalles et des blocs de révision : <a href="/fr/minuteurs/" className="content-link">comment fonctionnent les minuteurs répétables</a>.</p>
+            <p>L&rsquo;onglet <strong>Minuteurs</strong> réunit les comptes à rebours, y compris ceux qui repartent tout seuls pour des intervalles et des blocs de révision : <a href="/fr/minuteurs/" className="content-link">comment fonctionnent les minuteurs en boucle</a>.</p>
             <p>Risetime est gratuite jusqu&rsquo;à trois alarmes et trois minuteurs — pour toujours. Il vous en faut plus ? Servez-vous d&rsquo;abord de ces trois-là, et voyez si ça vaut votre soutien : les soutiens ont les alarmes et les minuteurs sans limite, à l&rsquo;année ou une fois pour toutes. Sinon, je serai heureux de <a href="mailto:contact@risetime.app">vous lire</a>.</p>
           </section>
 
@@ -264,14 +264,13 @@ export default function AlarmesPage() {
 
           <div className="cta-section">
             <h2>Réglez-la une fois. Elle suit le soleil.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Rejoindre le test ouvert de Risetime sur Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Télécharger Risetime sur Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Test ouvert</span>
+              <span className="badge-sub">Disponible</span>
             </a>
-            <p className="cta-note">Risetime est en test ouvert : vous rejoignez d&rsquo;abord le test, puis vous installez depuis Play. Sans cette étape, Play peut vous dire que l&rsquo;application n&rsquo;est pas disponible dans votre pays.</p>
           </div>
 
         </main>

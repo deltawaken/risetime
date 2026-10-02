@@ -118,9 +118,9 @@ export default function MeditationLeverDuSoleilPage() {
               <li>Dans l&rsquo;onglet <strong>Alarmes</strong>, appuyez sur <strong>+</strong>.</li>
               <li>Dans le menu du haut, choisissez <strong>Lever du soleil</strong>.</li>
               <li>Laissez le cadran au centre pour sonner au lever, ou tournez-le jusqu&rsquo;à l&rsquo;écart que vous voulez, jusqu&rsquo;à <strong>11 h 59 min</strong> d&rsquo;un côté comme de l&rsquo;autre.</li>
-              <li>Appuyez sur <strong>OK</strong>, puis ouvrez l&rsquo;alarme dans la liste et réglez la <strong>Répétition</strong>.</li>
+              <li>Appuyez sur <strong>OK</strong>, puis ouvrez l&rsquo;alarme dans la liste et cochez <strong>Répéter</strong> pour choisir vos jours.</li>
             </ol>
-            <p>Et l&rsquo;alarme que les lève-tôt réclament, c&rsquo;est l&rsquo;autre : <strong>une alarme pour aller se coucher</strong>, pas une pour se réveiller. Mettez-la sur l&rsquo;ancre <strong>Coucher</strong> avec un décalage, en répétition — les quatre mêmes étapes. <a href="/fr/alarmes/" className="content-link">Régler une alarme au lever ou au coucher du soleil</a></p>
+            <p>Et l&rsquo;alarme que les lève-tôt réclament, c&rsquo;est l&rsquo;autre : <strong>une alarme pour aller se coucher</strong>, pas une pour se réveiller. Mettez-la sur l&rsquo;ancre <strong>Coucher du soleil</strong> avec un décalage, répétée chaque jour — les quatre mêmes étapes. <a href="/fr/alarmes/" className="content-link">Régler une alarme au lever ou au coucher du soleil</a></p>
           </section>
 
           <section aria-labelledby="s-angle">
@@ -168,7 +168,7 @@ export default function MeditationLeverDuSoleilPage() {
 
           <section aria-labelledby="s-not">
             <h2 id="s-not">Ce que Risetime ne fait pas</h2>
-            <p>Ses propres libellés restent astronomiques — <em>Lever du soleil</em>, <em>un angle solaire</em>, <em>Nuit · 1/15</em> — tandis que le nom que vous saisissez est le vôtre. C&rsquo;est un réveil, rien de plus :</p>
+            <p>Ses propres libellés restent astronomiques — <em>Lever du soleil</em>, <em>Un angle solaire</em>, <em>Nuit · 1/15</em> — tandis que le nom que vous saisissez est le vôtre. C&rsquo;est une alarme, rien de plus :</p>
             <ul>
               <li><strong>Aucun signal au milieu d&rsquo;une séance</strong> — aucun écran ne fabrique un minuteur à partir de plusieurs, donc une assise de trente minutes ne peut pas sonner à dix et à vingt.</li>
               <li><strong>Aucun son de méditation, rien de guidé.</strong> Elle sonne ; vous l&rsquo;arrêtez.</li>
@@ -185,14 +185,13 @@ export default function MeditationLeverDuSoleilPage() {
 
           <div className="cta-section">
             <h2>Commencez avec la lumière.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Rejoindre le test ouvert de Risetime sur Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Télécharger Risetime sur Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Test ouvert</span>
+              <span className="badge-sub">Disponible</span>
             </a>
-            <p className="cta-note">Risetime est en test ouvert : vous rejoignez d&rsquo;abord le test, puis vous installez depuis Play. Sans cette étape, Play peut vous dire que l&rsquo;application n&rsquo;est pas disponible dans votre pays.</p>
           </div>
 
         </main>

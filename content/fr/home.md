@@ -1,9 +1,9 @@
 ---
 page: /
 slug: 
-title: Risetime — Réveil au lever du soleil pour Android · Alarmes solaires
+title: Risetime — Réveil et minuteurs pour Android · Suit le soleil
 description: Application de réveil au lever du soleil pour Android. Réglez votre alarme sur le lever, le coucher ou le midi solaire : elle se décale toute seule, chaque jour. Sans wifi, sans Internet, sans collecte de données.
-og_title: Risetime — Réveil au lever du soleil pour Android
+og_title: Risetime — Réveil et minuteurs · Suit le soleil
 og_description: Réglez votre alarme sur le lever du soleil. Une fois. Elle se décale chaque jour, toute seule. Sans wifi.
 og_image: https://risetime.app/assets/screenshots/landscape-alarm-list.webp
 og_image_width: 854

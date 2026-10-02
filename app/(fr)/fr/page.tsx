@@ -77,14 +77,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Rejoindre le test ouvert de Risetime sur Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Télécharger Risetime sur Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Test ouvert</span>
+    <span className="badge-sub">Disponible</span>
   </a>
 )
 
@@ -102,14 +102,14 @@ export default function AccueilPage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> l&rsquo;application d&rsquo;alarmes solaires pour Android.</h1>
-            <p className="hero-celestial">Votre réveil céleste.</p>
-            <p className="hero-sub">Réglez votre alarme sur le soleil. Elle se décale chaque jour, pour que vous n&rsquo;ayez pas à le faire.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> alarmes et minuteurs.</h1>
+            <p className="hero-celestial">Elle peut suivre le soleil.</p>
+            <p className="hero-sub">Des alarmes au lever et au coucher du soleil, là où vous êtes, qui suivent les saisons — ou à heure fixe. Et des minuteurs qui peuvent tourner en boucle.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/alarm-list"
                 darkBase="/assets/screenshots/fr/alarm-list--dark"
-                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi sur Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi sur Absolu, une heure fixe ; 07:02 demain au Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant le Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant le Lever du soleil, éteinte."
+                alt="Liste d'alarmes de Risetime avec cinq alarmes : 05:10 le samedi, Aube astronomique, une ancre personnalisée ; 07:00 du lundi au vendredi, une heure fixe avec une icône d'horloge ; 07:02 demain, Lever du soleil ; 17:38 du lundi au vendredi, 1 h avant Coucher du soleil ; et 23:02 aujourd'hui, 8 h avant Lever du soleil, avec son interrupteur éteint."
                 width={360}
                 height={706}
                 loading="eager"
@@ -118,7 +118,6 @@ export default function AccueilPage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime est en test ouvert : vous rejoignez d&rsquo;abord le test, puis vous installez depuis Play. Sans cette étape, Play peut vous dire que l&rsquo;application n&rsquo;est pas disponible dans votre pays.</p>
             </div>
           </section>
 
@@ -152,14 +151,14 @@ export default function AccueilPage() {
               </article>
               <article className="feature-card">
                 <h3>Des minuteurs, dans la même application</h3>
-                <p>Un clavier, une liste triée par durée, et une répétition dont les cycles restent en phase — pour des intervalles, des séances, des blocs de révision. <a href="/fr/minuteurs/">Le guide des minuteurs</a></p>
+                <p>Un clavier, une liste triée par durée, et une boucle dont les cycles restent en phase — pour des intervalles, des séances, des blocs de révision. <a href="/fr/minuteurs/">Le guide des minuteurs</a></p>
               </article>
             </div>
           </section>
 
           <section className="use-cases" id="uses" aria-labelledby="use-cases-heading">
             <h2 id="use-cases-heading">Ce que vous pouvez en faire</h2>
-            <p>Qui se sert d&rsquo;un réveil solaire, et ce qu&rsquo;il règle :</p>
+            <p>Qui se sert d&rsquo;une alarme solaire, et ce qu&rsquo;il règle :</p>
             <ul className="use-case-list">
               <li><strong>Une journée qui suit le soleil</strong> — se lever au lever, ralentir avant le coucher, et garder des alarmes à heure fixe pour les heures que les autres attendent de vous. <a href="/fr/reveil-rythme-circadien/">Réveil sur le rythme circadien</a></li>
               <li><strong>Photographes et astronomes</strong> — l&rsquo;heure dorée, l&rsquo;heure bleue et la nuit astronomique sont des angles du soleil, pas des heures fixes. Réglez l&rsquo;angle une fois : il tient à toutes les latitudes et à toutes les saisons, hors ligne, sur le terrain. <a href="/fr/heure-doree/">Heure dorée, heure bleue et ciel nocturne</a></li>
@@ -167,7 +166,7 @@ export default function AccueilPage() {
               <li><strong>Sortir avant la lumière</strong> — à l&rsquo;eau avant le jour, sur une alarme qui bouge avec la première lumière au lieu d&rsquo;une heure qu&rsquo;on réajuste toutes les quelques semaines.</li>
               <li><strong>Se lever avant l&rsquo;aube</strong> — réglez une fois votre décalage avant le lever : il suit le lever chaque jour. Pour le moment exact, reportez-vous à votre propre calendrier ; l&rsquo;alarme, elle, ne dérive jamais.</li>
               <li><strong>Travail dehors, promenades, élevage</strong> — si votre journée commence avec le jour, votre alarme aussi.</li>
-              <li><strong>Intervalles, séances, blocs de révision</strong> — des minuteurs qui repartent tout seuls, dans la même application. <a href="/fr/minuteurs/">Minuteurs répétables</a></li>
+              <li><strong>Intervalles, séances, blocs de révision</strong> — des minuteurs qui repartent tout seuls, dans la même application. <a href="/fr/minuteurs/">Minuteurs en boucle</a></li>
               <li><strong>Quiconque en a assez de rajuster toute l&rsquo;année</strong> — réglez une fois, ça reste juste. <a href="/fr/alarmes/">Régler une alarme au lever ou au coucher du soleil</a></li>
             </ul>
           </section>
@@ -205,7 +204,7 @@ export default function AccueilPage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/fr/settings-screen"
                   darkBase="/assets/screenshots/fr/settings-screen--dark"
-                  alt="L'écran des paramètres de Risetime, avec les lignes Alarmes, Ancres, Minuteurs, Paramètres du téléphone, et Lieu des événements célestes réglé sur Londres, Royaume-Uni. La ligne Fiabilité indique 8 vérifications sur 8 au vert et est ouverte sur Contrôles sans objet sur ce téléphone et Tout va bien (8). Soutenir Risetime figure en dessous, et le pied de page indique Risetime."
+                  alt="L'écran Paramètres de Risetime, avec les lignes Alarmes, Ancres, Minuteurs, Paramètres du téléphone, et Lieu des événements célestes réglé sur London, Royaume-Uni. La ligne Fiabilité affiche (8/8) et est dépliée sur Tout va bien (8) et Contrôles sans objet sur ce téléphone. La ligne Tu soutiens Risetime ⭐, Aider le développement à continuer, figure en dessous, puis le nom Risetime en pied de page."
                   width={360}
                   height={706}
                 />
@@ -258,7 +257,6 @@ export default function AccueilPage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Prêt à vous lever avec le soleil ?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime est en test ouvert : vous rejoignez d&rsquo;abord le test, puis vous installez depuis Play. Sans cette étape, Play peut vous dire que l&rsquo;application n&rsquo;est pas disponible dans votre pays.</p>
           </section>
 
         </main>

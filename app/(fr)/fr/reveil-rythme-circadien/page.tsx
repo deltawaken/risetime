@@ -117,7 +117,7 @@ export default function ReveilRythmeCircadienPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/circadian-list"
                 darkBase="/assets/screenshots/fr/circadian-list--dark"
-                alt="Liste d'alarmes de Risetime avec trois alarmes, toutes répétées chaque jour : 07:02 au lever du soleil, 20:38 deux heures après le coucher du soleil, et 23:02 huit heures avant le lever du soleil."
+                alt="Liste d'alarmes de Risetime avec trois alarmes, toutes réglées sur Tous les jours : 07:02 Lever du soleil, 20:38 2 h après Coucher du soleil, et 23:02 8 h avant Lever du soleil."
                 width={360}
                 height={706}
               />
@@ -158,7 +158,7 @@ export default function ReveilRythmeCircadienPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/fr/circadian-offset"
                 darkBase="/assets/screenshots/fr/circadian-offset--dark"
-                alt="La boîte de dialogue de nouvelle alarme réglée sur le lever du soleil avec un décalage de huit heures avant, le cadran des heures sur 8 et celui des minutes sur 00, et la ligne Aujourd'hui : 23:02."
+                alt="La boîte de dialogue de nouvelle alarme réglée sur Lever du soleil avec un décalage de moins 8 heures et 00 minute, le cadran des heures sur 8 et celui des minutes sur 00, et la ligne Aujourd'hui : 23:02."
                 width={360}
                 height={706}
               />
@@ -174,14 +174,13 @@ export default function ReveilRythmeCircadienPage() {
 
           <div className="cta-section">
             <h2>Levez-vous avec le soleil. Gardez l&rsquo;horloge pour le reste.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Rejoindre le test ouvert de Risetime sur Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Télécharger Risetime sur Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Test ouvert</span>
+              <span className="badge-sub">Disponible</span>
             </a>
-            <p className="cta-note">Risetime est en test ouvert : vous rejoignez d&rsquo;abord le test, puis vous installez depuis Play. Sans cette étape, Play peut vous dire que l&rsquo;application n&rsquo;est pas disponible dans votre pays.</p>
           </div>
 
         </main>
