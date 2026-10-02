@@ -1,0 +1,1090 @@
+/* ============================================
+   RISETIME DESIGN SYSTEM — tokens, reset, base
+   ============================================ */
+
+:root {
+  /* Shared tokens */
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 680px;
+  --max-width-wide: 960px;
+  --base-font: 1rem;
+  --line-height: 1.7;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-xxl: 6rem;
+  --focus-offset: 2px;
+
+  /* ── LES DEUX PALETTES, chacune écrite UNE SEULE FOIS ────────────────────
+     Restructuré le 2026-09-27 pour le sélecteur de thème. Avant, les valeurs
+     sombres vivaient dans un `@media (prefers-color-scheme: dark)` ; permettre
+     un override manuel aurait demandé de les RECOPIER dans un second sélecteur,
+     et deux copies d'une palette dérivent — c'est le mode de panne de ce dépôt.
+     Ici les valeurs sont déclarées une fois ; seule la RÉSOLUTION (quelle palette
+     s'applique) est écrite deux fois, et une erreur y est visible au premier coup
+     d'œil au lieu d'être une teinte fausse quelque part. */
+  --light-bg: #faf8f5;
+  --light-bg-elevated: #ffffff;
+  --light-surface: #f0ede8;
+  --light-accent: #9e5c2c;
+  --light-accent-hover: #884e24;
+  --light-accent-muted: #9e5c2c1a;
+  --light-text: #2c2c2c;
+  --light-text-strong: #1a1a1a;
+  --light-muted: #6b6b6b;
+  --light-border: #d9d4cc;
+  --light-border-accent: #9e5c2c40;
+  --light-code-bg: #eae6e0;
+  --light-screenshot-bg: #f0ede8;
+  --light-screenshot-border: #d9d4cc;
+
+  --dark-bg: #0f1117;
+  --dark-bg-elevated: #161824;
+  --dark-surface: #1a1a2e;
+  --dark-accent: #e8a87c;
+  --dark-accent-hover: #f0b88e;
+  --dark-accent-muted: #e8a87c33;
+  --dark-text: #e8e8e8;
+  --dark-text-strong: #ffffff;
+  --dark-muted: #9a9a9a;
+  --dark-border: #2a2a3e;
+  --dark-border-accent: #e8a87c40;
+  --dark-code-bg: #1e1e32;
+  --dark-screenshot-bg: #1a1a2e;
+  --dark-screenshot-border: #2a2a3e;
+
+  /* Résolution par défaut : clair. `color-scheme` fait suivre les contrôles
+     natifs et les barres de défilement — sans lui, un formulaire reste clair
+     sur une page sombre. */
+  color-scheme: light;
+  --bg: var(--light-bg);
+  --bg-elevated: var(--light-bg-elevated);
+  --surface: var(--light-surface);
+  --accent: var(--light-accent);
+  --accent-hover: var(--light-accent-hover);
+  --accent-muted: var(--light-accent-muted);
+  --text: var(--light-text);
+  --text-strong: var(--light-text-strong);
+  --muted: var(--light-muted);
+  --border: var(--light-border);
+  --border-accent: var(--light-border-accent);
+  --code-bg: var(--light-code-bg);
+  --screenshot-bg: var(--light-screenshot-bg);
+  --screenshot-border: var(--light-screenshot-border);
+}
+
+/* ── RÉSOLUTION DU THÈME ─────────────────────────────────────────────────────
+   Deux chemins vers la palette sombre, et c'est voulu :
+     · le système la demande ET l'utilisateur n'a pas forcé le clair ;
+     · l'utilisateur a forcé le sombre, quel que soit le système.
+   ⛔ `:not([data-theme="light"])` n'est pas décoratif : sans lui, forcer le clair
+      sur un système sombre ne ferait rien. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--dark-bg);
+    --bg-elevated: var(--dark-bg-elevated);
+    --surface: var(--dark-surface);
+    --accent: var(--dark-accent);
+    --accent-hover: var(--dark-accent-hover);
+    --accent-muted: var(--dark-accent-muted);
+    --text: var(--dark-text);
+    --text-strong: var(--dark-text-strong);
+    --muted: var(--dark-muted);
+    --border: var(--dark-border);
+    --border-accent: var(--dark-border-accent);
+    --code-bg: var(--dark-code-bg);
+    --screenshot-bg: var(--dark-screenshot-bg);
+    --screenshot-border: var(--dark-screenshot-border);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--dark-bg);
+  --bg-elevated: var(--dark-bg-elevated);
+  --surface: var(--dark-surface);
+  --accent: var(--dark-accent);
+  --accent-hover: var(--dark-accent-hover);
+  --accent-muted: var(--dark-accent-muted);
+  --text: var(--dark-text);
+  --text-strong: var(--dark-text-strong);
+  --muted: var(--dark-muted);
+  --border: var(--dark-border);
+  --border-accent: var(--dark-border-accent);
+  --code-bg: var(--dark-code-bg);
+  --screenshot-bg: var(--dark-screenshot-bg);
+  --screenshot-border: var(--dark-screenshot-border);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+
+/* ---- RESET ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- BASE ---- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-stack);
+  font-size: var(--base-font);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- SKIP LINK ---- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  inset-inline-start: var(--space-sm);
+  background: var(--accent);
+  color: var(--bg);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* ---- FOCUS ---- */
+*:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---- REDUCED MOTION ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---- HEADER / NAV ---- */
+.site-header {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-sm);
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  /* ⚠️ DEUX GROUPES, PAS UNE MARGE AUTOMATIQUE (2026-09-27). L'alignement reposait
+     sur `margin-inline-end: auto` posé sur le seul logotype. En production, le
+     résultat observé était que TOUT se tassait à gauche — et je n'ai pas su
+     reproduire la cause en lisant le CSS servi, qui est pourtant correct.
+     `space-between` sur deux enfants explicites ne dépend d'aucune marge : il n'y
+     a plus qu'une seule façon de rendre cette barre. */
+  justify-content: space-between;
+}
+
+/* Le groupe de droite : les contrôles puis les pages, dans l'ordre voulu par le
+   porteur. Il existe pour que `space-between` ait exactement DEUX enfants à
+   séparer — sans lui, l'espace se répartirait entre tous les liens. */
+.site-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.wordmark {
+  /* ⛔ Plus de `margin-inline-end: auto` ici : c'est `space-between` sur
+     `.site-header nav` qui écarte les deux groupes. Une seule mécanique. */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.site-header nav a:hover {
+  color: var(--accent);
+}
+
+/* ---- DISCLOSURE NAV ----
+   9-31 — la liste de liens repliable. Sert aujourd'hui au menu « Uses » de
+   l'en-tête ; servira au sélecteur de langue du pied (9-31 § ⟶ 2026-09-25 §1)
+   sans nouvelle classe. Toutes les propriétés sont LOGIQUES : ce bloc doit
+   survivre tel quel à l'arrivée d'une langue RTL. */
+.disclosure-nav {
+  position: relative;
+}
+.disclosure-nav > summary {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none; /* le marqueur natif est remplacé par le chevron ci-dessous */
+}
+.disclosure-nav > summary::-webkit-details-marker {
+  display: none;
+}
+.disclosure-nav > summary::after {
+  /* ▾ / ▴ — glyphes de l'axe de BLOC, donc justes en RTL comme en LTR.
+     ⛔ Ni « → » ni « ▸ » : ce sont des glyphes d'axe inline (9-31 §1). */
+  /* ⚠️ U+25BC (▼) et non U+25BE (▾) depuis le 2026-09-27 — porteur : « le chevron
+     est 10 fois trop petit ». Le glyphe « SMALL » d'Unicode est dessiné petit DANS
+     son cadratin : l'agrandir à la taille du texte ne suffisait pas, il fallait
+     changer de caractère. Les deux sont des glyphes d'axe de BLOC, donc justes en
+     RTL comme en LTR — ⛔ ni « → » ni « ▸ », qui sont d'axe inline. */
+  content: '\25BC';
+  margin-inline-start: 0.35em;
+  font-size: 0.62em;
+  vertical-align: 0.1em;
+}
+.disclosure-nav[open] > summary::after {
+  content: '\25B2';
+}
+.disclosure-nav > summary:hover {
+  color: var(--accent);
+}
+.disclosure-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Le panneau du menu d'en-tête flotte au-dessus du contenu plutôt que de le
+   pousser : ouvert dans le flux, il décalerait toute la page d'un cran.
+   ⚠️ Ce choix vaut POUR L'EN-TÊTE seulement. Le sélecteur de langue, lui, reste
+   dans le flux (9-31 §1 : « le <details> étant dans le flux et en fin de page,
+   la page elle-même défile ») — d'où la portée `.site-header` sur cette règle. */
+.site-header .disclosure-nav__list {
+  position: absolute;
+  inset-block-start: calc(100% + var(--space-xs));
+  inset-inline-start: 0;
+  z-index: 10;
+  min-width: max-content;
+  padding: var(--space-xs);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.site-header .disclosure-nav__list li + li {
+  margin-block-start: var(--space-xs);
+}
+.site-header .disclosure-nav__list a {
+  display: block;
+  /* ⚠️ AJOUTÉ le 2026-09-27 (porteur : « corrige les marges dans les items, menu
+     ouvert: moche »). Un `display: block` nu donnait un texte collé aux bords du
+     panneau et une cible de clic réduite à la hauteur du texte. Le padding fait
+     les deux : il aère, et il agrandit la zone cliquable au doigt. */
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+}
+.site-header .disclosure-nav__list a:hover,
+.site-header .disclosure-nav__list a:focus-visible {
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+/* ---- FOOTER ---- */
+.site-footer {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.site-footer nav {
+  margin-top: var(--space-xs);
+}
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+/* ESPACEMENT DES SÉPARATEURS DU PIED (porteur, 2026-09-27 : « il faudrait plus
+   d'espacement dans Home·Alarms·Timers·Privacy·Google Play, comme entre Risetime ·
+   A. Deltawaken »). Le défaut venait du site d'origine : les `&middot;` y sont des
+   nœuds de texte NUS, collés aux liens.
+   ⛔ Réglé en CSS et NON en ajoutant des espaces dans le JSX : une marge logique
+   suit le sens d'écriture, là où un espace dur serait à reprendre en RTL — et
+   surtout, le pied ne gagne AUCUNE balise, ce que son commentaire exige.
+   `margin-inline` et non `padding` : la zone cliquable ne grandit pas, deux liens
+   voisins ne se touchent donc jamais au doigt. */
+.site-footer nav a { margin-inline: 0.35em; }
+.site-footer nav a:first-child { margin-inline-start: 0; }
+.site-footer nav a:last-child { margin-inline-end: 0; }
+.site-footer a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ---- LINKS (global) ---- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* Inline links inside body text must be underlined for accessibility */
+p a, li a, dd a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+/* ---- CODE ---- */
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* ---- IMAGES QUI SUIVENT LE THÈME FORCÉ (voir components/ThemedImage.tsx) ---- */
+/* Deux <picture>, un seul affiché. ⛔ Même patron de résolution que tout le reste
+   de ce fichier — la requête de média pour le système, `[data-theme]` pour le
+   choix explicite — et `:not([data-theme="light"])` n'y est pas décoratif : sans
+   lui, forcer le clair sur un système sombre ne reprendrait pas la main.
+   ⚠️ `display: none` retire aussi l'élément de l'arbre d'accessibilité : c'est ce
+      qui fait qu'un seul `alt` est annoncé, alors que les deux sont dans le DOM. */
+.themed-img--dark { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .themed-img--light { display: none; }
+  :root:not([data-theme="light"]) .themed-img--dark { display: inline; }
+}
+
+:root[data-theme="dark"] .themed-img--light { display: none; }
+:root[data-theme="dark"] .themed-img--dark { display: inline; }
+:root[data-theme="light"] .themed-img--light { display: inline; }
+:root[data-theme="light"] .themed-img--dark { display: none; }
+
+/* ---- PLAY BADGE (CTA button — used everywhere) ---- */
+.play-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  /* INVERSÉ le 2026-09-27 (porteur : « peut-on inverser les couleurs du bouton
+     Play ? »). Il portait `--text-strong` sur `--bg` : un pavé blanc sur la page
+     sombre, un pavé noir sur la page claire — le bouton était le point le plus
+     contrasté de la page, avant le titre.
+     ⚠️ La bordure n'est pas décorative : sans elle, un fond `--bg-elevated` sur
+        `--bg` ne se distingue que de deux à six points de luminosité, et le bouton
+        cesse de se lire comme un bouton. C'est elle qui porte l'affordance
+        maintenant que le contraste ne la porte plus. */
+  background: var(--bg-elevated);
+  color: var(--text-strong);
+  border: 1px solid var(--border);
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-height: 44px;
+  min-width: 44px;
+  transition: opacity 0.15s ease;
+}
+.play-badge:hover {
+  opacity: 0.85;
+  text-decoration: none;
+  color: var(--text-strong);
+  border-color: var(--border-accent);
+}
+.play-badge svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.play-badge .badge-sub {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.play-badge .badge-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* ---- CTA NOTE (explains the open-testing opt-in under each badge) ---- */
+.cta-note {
+  margin-top: var(--space-sm);
+  margin-inline: auto;
+  max-width: 34rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---- HIGHLIGHT BOX (used on content + privacy pages) ---- */
+.highlight-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-inline-start: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+}
+.highlight-box p {
+  margin: 0;
+}
+.highlight-box p + p {
+  margin-top: 0.5rem;
+}
+
+/* ---- SCREEN READER ONLY ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   LANDING PAGE — homepage-only components
+   ============================================ */
+
+/* ---- SECTION DEFAULTS ---- */
+.landing section {
+  padding: var(--space-xl) var(--space-sm);
+}
+.landing section > * {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+/* ---- SECTION HEADING (reusable) ---- */
+.section-heading {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-strong);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* ---- HERO ---- */
+.hero {
+  text-align: center;
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xl);
+}
+.hero > * {
+  max-width: var(--max-width-wide);
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.hero-brand {
+  color: var(--accent);
+  font-weight: 700;
+}
+.hero-sep {
+  color: var(--muted);
+  font-weight: 300;
+}
+.hero-celestial {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-xs);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--muted);
+  margin-top: var(--space-sm);
+  max-width: 540px;
+  margin-inline: auto;
+}
+.hero-screenshot {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+.hero-screenshot img {
+  display: block;
+  width: 280px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-screenshot img {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+:root[data-theme="dark"] .hero-screenshot img { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
+.cta-group {
+  margin-top: var(--space-md);
+}
+
+/* ---- HOW IT WORKS ---- */
+.how-it-works > * {
+  max-width: var(--max-width-wide);
+}
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  list-style: none;
+  counter-reset: step-counter;
+}
+.steps li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-inline-start: 3.5rem;
+}
+.steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.steps li strong {
+  display: block;
+  color: var(--text-strong);
+  font-size: 1.05rem;
+}
+.steps li span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---- FEATURES ---- */
+.features > * {
+  max-width: var(--max-width-wide);
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+.feature-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+.feature-card p {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* ---- USE CASES ---- */
+.use-cases > * {
+  max-width: var(--max-width-wide);
+}
+.use-case-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+.use-case-list li {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.use-case-list li strong {
+  color: var(--text-strong);
+}
+
+/* ---- SCREENSHOT SHOWCASE ---- */
+.screenshots > * {
+  max-width: var(--max-width-wide);
+}
+.screenshot-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+.screenshot-row figure {
+  text-align: center;
+  margin: 0;
+}
+.screenshot-row img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .screenshot-row img {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] .screenshot-row img { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
+.screenshot-row figcaption {
+  margin-top: var(--space-xs);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* ---- CALLOUT BOX ---- */
+.callout-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.callout-box p {
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+.callout-box ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--space-sm);
+}
+.callout-box li {
+  padding-block: 0.4rem;
+  padding-inline: 1.6rem 0;
+  position: relative;
+  color: var(--text);
+}
+.callout-box li::before {
+  content: "\2713";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.privacy-link {
+  display: inline-block;
+  margin-top: var(--space-xs);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.privacy-link:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* ---- FAQ ---- */
+.faq-list dt {
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-top: var(--space-md);
+  font-size: 1.05rem;
+}
+.faq-list dd {
+  color: var(--text);
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
+  padding-inline-start: 0;
+}
+
+/* ---- FINAL CTA ---- */
+.final-cta {
+  text-align: center;
+  padding: var(--space-xxl) var(--space-sm);
+}
+
+/* ---- RESPONSIVE: TABLET+ ---- */
+@media (min-width: 640px) {
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .use-case-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .screenshot-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .steps li {
+    text-align: center;
+    padding-inline-start: 0;
+    padding-top: 3.5rem;
+  }
+  .steps li::before {
+    /* CENTRAGE, pas une direction : left 50% + translateX(-50%) centre
+       identiquement en LTR et en RTL. Le passer en inset-inline-start le
+       casserait en RTL, la translation restant physique. Ne pas « corriger ». */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+}
+
+/* ============================================
+   CONTENT PAGES — narrow-layout article pages
+   ============================================ */
+
+/* ---- NARROW LAYOUT ---- */
+
+/* ⚠️ `.layout-narrow` NE BORNE QUE LE CONTENU — porteur, 2026-09-27 : « .layout-narrow,
+   applique le au content, plutôt, pas au header/footer ».
+   Avant ce jour, cette classe faisait EXACTEMENT L'INVERSE : elle rétrécissait
+   l'en-tête et le pied à 680 px alors que le contenu était déjà borné par
+   `.page-header` et `.content-main`, qui portent leur propre `max-width`. La
+   charpente changeait donc de largeur d'une page à l'autre sans que rien ne le
+   veuille, et l'accueil ne ressemblait plus aux autres.
+   ⛔ Ne pas y remettre de `max-width` : en-tête et pied ont la MÊME largeur sur
+   toutes les pages, celle du trait de séparation du pied. */
+.layout-narrow .site-footer {
+  margin-bottom: var(--space-lg);
+  padding-bottom: 0;
+}
+
+/* ---- PAGE HEADER ---- */
+.page-header {
+  max-width: var(--max-width);
+  margin: var(--space-lg) auto var(--space-md);
+  padding: 0 var(--space-sm);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-md);
+}
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-top: 0.4rem;
+  line-height: 1.2;
+}
+.page-header .subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.page-header .meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+/* ---- CONTENT MAIN ---- */
+.content-main {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-sm);
+}
+.content-main section {
+  margin-top: var(--space-lg);
+}
+.content-main h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.75rem;
+}
+.content-main h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.content-main p {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* ---- CONTENT LISTS ---- */
+.content-main ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+.content-main ul li {
+  padding-block: 0.3rem;
+  padding-inline: 1.4rem 0;
+  position: relative;
+  color: var(--text);
+}
+.content-main ul li::before {
+  content: "\2022";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--accent);
+}
+
+/* Ordered steps: a real <ol>, so the steps stay a list for search engines */
+.content-main ol {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+.content-main ol > li {
+  counter-increment: step;
+  position: relative;
+  padding-block: 0.3rem;
+  padding-inline: 2.25rem 0;
+  color: var(--text);
+}
+.content-main ol > li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- DISCLOSURE ---- */
+.content-main details {
+  margin: 0.4rem 0 0.25rem;
+}
+.content-main summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 500;
+}
+.content-main details[open] summary {
+  margin-bottom: 0.4rem;
+}
+
+/* ---- TIMING TABLE (golden-hour page) ---- */
+.timing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-size: 0.95rem;
+}
+.timing-table th,
+.timing-table td {
+  text-align: start;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.timing-table th {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.timing-table td {
+  color: var(--text);
+}
+.timing-table td:first-child {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---- CTA SECTION (bottom of content pages) ---- */
+.cta-section {
+  text-align: center;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+.cta-section h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* ---- CONTENT SCREENSHOT ---- */
+.content-screenshot {
+  text-align: center;
+  margin: var(--space-lg) 0;
+}
+.content-screenshot img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .content-screenshot img {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] .content-screenshot img { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
+.content-screenshot figcaption {
+  margin-top: var(--space-xs);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* ---- CONTENT LINK ---- */
+.content-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.content-link:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* 9-31 §8 — le sélecteur de langue et le bandeau.
+   ⛔ AUCUNE déclaration directionnelle physique ici : ni margin-left/right, ni
+   padding-left/right, ni left/right, ni border-left/right, ni text-align: left.
+   Tout est en propriétés logiques, pour que l'arabe et le malais ne demandent pas
+   de rouvrir ce fichier. */
+
+#rt-banner[hidden] { display: none; }
+/* ⚠️ Le conteneur du bandeau n'a AUCUNE hauteur réservée tant qu'il est `hidden` :
+   JavaScript absent, il ne coûte pas un pixel et l'AC6 reste vraie. */
+#rt-banner {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-block-end: 1px solid var(--border, #d8d2c8);
+  text-align: start;
+}
+
+/* ⚠️ Cette marge était faite pour le PIED, où le sélecteur venait sous la
+   navigation. Il vit dans l'EN-TÊTE depuis le 2026-09-27 : l'y garder le
+   décalerait seul, sous la ligne des autres entrées. Elle ne s'applique donc plus
+   qu'en dehors de l'en-tête — la règle reste écrite pour le jour où il redescend,
+   plutôt que supprimée puis redécouverte. */
+.lang-selector { margin-block-start: 1rem; }
+.site-header .lang-selector { margin-block-start: 0; }
+
+/* Des COLONNES, pas un défilement interne : le nombre de colonnes suit la largeur
+   disponible sans point de rupture écrit à la main, et le sens de remplissage suit
+   `direction` — donc RTL gratuit. Trente entrées sur trois colonnes font dix lignes.
+   ⛔ Aucun conteneur à défilement interne : ce serait un piège au clavier et à la
+   molette. Le <details> est dans le flux et en fin de page — c'est la PAGE qui
+   défile. */
+/* ⛔ LES RÈGLES DE COLONNES SONT PARTIES AVEC LE PIED DE PAGE (2026-09-27).
+   Elles disaient `columns: 1; column-width: 10rem; padding-inline: 0;
+   margin-block: 0.5rem` — écrites quand le sélecteur vivait en pied, sur toute la
+   largeur, et qu'il fallait ranger trente langues en colonnes. Dans un panneau
+   déroulant d'en-tête, elles produisaient exactement ce que le porteur a vu :
+   une boîte de 10 rem pour UNE entrée, avec le texte collé au bord gauche parce
+   que `padding-inline: 0` écrasait le padding du panneau.
+   ⚠️ LE BESOIN D'ORIGINE RESTE ENTIER et n'est pas traité ici : à ~30 langues,
+   une colonne unique fera un panneau plus haut que l'écran. C'est un report daté,
+   pas un oubli — il se rouvrira à la quatrième ou cinquième langue, bien avant la
+   trentième. */
+.lang-selector .disclosure-nav__list {
+  list-style: none;
+  text-align: start;
+}
+
+/* `unicode-bidi: isolate` + le `dir` porté par chaque <a> : un endonyme RTL ne peut
+   pas désordonner la liste autour de lui. */
+.lang-selector .disclosure-nav__list a { unicode-bidi: isolate; }
+
+/* Le marqueur de divulgation est sur l'axe de BLOC. ⛔ Ni `→` ni `▸` : ce sont des
+   glyphes d'axe inline, faux en RTL. Le chevron natif du <summary> convient. */
+.lang-selector summary { cursor: pointer; }
+
+/* LE GLOBE du déclencheur (décision du porteur, 2026-09-25 — ⛔ jamais un drapeau :
+   un drapeau désigne un pays, pas une langue). SVG inline, donc `currentColor` le
+   teinte comme le texte et `1em` le dimensionne comme lui.
+   ⛔ AUCUNE déclaration directionnelle physique : `margin-inline-end` seule. Le
+   globe est le premier enfant inline du <summary> — en RTL le flux le place donc à
+   DROITE du texte, et sa marge logique bascule avec lui, sans une ligne de plus.
+   `vertical-align: -0.12em` : optique, pour aligner le cercle sur la hauteur d'x. */
+.lang-selector__globe {
+  margin-inline-end: 0.4em;
+  vertical-align: -0.12em;
+}
+
+/* ── LE SÉLECTEUR DE THÈME ───────────────────────────────────────────────────
+   ⛔ INVISIBLE SANS JAVASCRIPT. Le bloc inline pose `data-js` sur <html> ; tant
+   qu'il n'a pas tourné, le bouton n'existe pas à l'écran. Un contrôle affiché qui
+   ne fait rien est un mensonge — et c'est le défaut exact que le portage a
+   supprimé, où l'affichage dépendait du JS pour se RÉVÉLER au lieu de se cacher.
+   Ici l'échec est dans le bon sens : pas de JS ⇒ pas de bouton ⇒ le thème suit le
+   système, ce qui est déjà la bonne réponse pour presque tout le monde. */
+.theme-selector { display: none; }
+/* ⚠️ HOMOGÉNÉITÉ AVEC LE RESTE DE LA BARRE (porteur, 2026-09-27 : « il faut que ça
+   soit homogène »). Un <button> n'hérite NI de la police NI de la couleur du
+   document : sans ces trois lignes, il s'affichait dans la police système, à la
+   taille par défaut du navigateur, à côté d'entrées à 0,9 rem. Les valeurs sont
+   celles de `.site-header nav a`, et pas des valeurs approchantes — si cette règle
+   change, celle-ci doit suivre. */
+:root[data-js] .theme-selector {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: inherit;
+  cursor: pointer;
+}
+:root[data-js] .theme-selector:hover { color: var(--accent); }
+/* Le globe du sélecteur de langue est à `1em` et se cale sur la hauteur d'x ; le
+   soleil et la lune reprennent exactement le même calage, faute de quoi les deux
+   contrôles voisins ne seraient pas alignés sur la même ligne de base. */
+.theme-selector__sun, .theme-selector__moon { vertical-align: -0.12em; }
+
+/* L'ICÔNE SUIT LE THÈME APPLIQUÉ, par les MÊMES sélecteurs que la palette — pas
+   par une classe que le script poserait. Le bouton ne peut donc pas afficher un
+   soleil sur une page sombre : les deux sortent de la même condition CSS.
+   ⚠️ `display: none` retire aussi du calcul du nom accessible : le lecteur d'écran
+   n'annonce jamais les deux icônes à la fois. */
+.theme-selector__moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-selector__sun { display: none; }
+  :root:not([data-theme="light"]) .theme-selector__moon { display: inline; }
+}
+:root[data-theme="dark"] .theme-selector__sun { display: none; }
+:root[data-theme="dark"] .theme-selector__moon { display: inline; }
+:root[data-theme="light"] .theme-selector__sun { display: inline; }
+:root[data-theme="light"] .theme-selector__moon { display: none; }

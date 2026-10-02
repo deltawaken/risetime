@@ -1,0 +1,265 @@
+import type { Metadata } from 'next'
+import { enMetadata } from '../../../lib/metadata'
+import SiteHeader from '../../../components/SiteHeader'
+import ThemedPicture from '../../../components/ThemedPicture'
+import SiteFooter from '../../../components/SiteFooter'
+
+// Porté depuis alarms/index.html (commit 967c17d) — recopie, pas réécriture.
+// Voir le rapport de portage : references/nextjs-port-report.md
+
+// 9-31 — les chaînes de cette page vivent dans content/en/alarms.md, en UN seul
+// exemplaire. `enMetadata` y lit title/description/og et y ajoute les
+// `hreflang` dérivés de LOCALES : une langue qui entre change le jeu
+// d'alternates de CETTE page sans que ce fichier soit rouvert.
+export const metadata: Metadata = enMetadata('/alarms/')
+
+const jsonLd = [
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to set a sunrise or sunset alarm on Android",
+  "description": "How to set an Android alarm on sunrise, sunset, solar noon or a sun angle you choose, with an offset such as 1 hour before sunset, using Risetime. The alarm follows the sun every day, offline.",
+  "author": {
+    "@type": "Organization",
+    "name": "A. Deltawaken"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Risetime",
+    "url": "https://risetime.app/"
+  },
+  "mainEntityOfPage": "https://risetime.app/alarms/"
+},
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Risetime",
+      "item": "https://risetime.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Alarms",
+      "item": "https://risetime.app/alarms/"
+    }
+  ]
+}
+]
+
+export default function AlarmsPage() {
+  return (
+    <div className="layout-narrow">
+      {jsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
+        <SiteHeader current="/alarms/" />
+
+        <div className="page-header">
+          <h1>How to set a sunrise or sunset alarm on Android</h1>
+          <p className="subtitle">A Risetime alarm is set like any other alarm, in a few seconds. The difference is what you can set it on.</p>
+        </div>
+
+        <main id="main-content" className="content-main">
+
+          <section aria-labelledby="section-intro">
+            <h2 id="section-intro" className="sr-only">Alarms that follow the sun</h2>
+            <p>Instead of a clock time, you can set an alarm on a moment of the sun — sunrise, sunset, solar noon. The alarm then follows that moment every day, as the seasons move it.</p>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-list"
+                darkBase="/assets/screenshots/alarms-list--dark"
+                alt="Risetime alarm list with five alarms: 05:10 on Saturday at Astronomical dawn; 07:00 Monday–Friday at a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday–Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off."
+                width={360}
+                height={706}
+              />
+              <figcaption>Regular alarms and sun alarms, in one list.</figcaption>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-regular">
+            <h2 id="section-regular">Set a regular alarm</h2>
+            <ol>
+              <li>On the <strong>Alarms</strong> tab, press <strong>+</strong>.</li>
+              <li>Set the time on the dial, or type it.</li>
+              <li>Press <strong>OK</strong>.</li>
+            </ol>
+            <p>That's a regular alarm, and it doesn't need anything else.</p>
+          </section>
+
+          <section aria-labelledby="section-sun">
+            <h2 id="section-sun">Set an alarm for sunrise or sunset</h2>
+            <p>Risetime knows four moments of the sun out of the box: <strong>Sunrise</strong>, <strong>Sunset</strong>, <strong>Noon</strong> — solar noon, when the sun is at its highest, which is rarely 12:00 — and <strong>Nadir</strong>, the middle of the night, when the sun is at its lowest.</p>
+            <ol>
+              <li>
+                <strong>The first time, set your location.</strong> Sun times depend on where you are. Without a location, the alarm dialog simply says <em>Set location in Settings</em>.
+                <details>
+                  <summary>Three ways to set it</summary>
+                  <p>In <strong>Settings → Celestial events location</strong>: pick your city from the list; or use your phone's GPS, once; or turn on <strong>Auto-update location</strong>, and it follows you when you travel. Your position stays on your phone: Risetime has no internet permission, so there is nowhere to send it.</p>
+                  <figure className="content-screenshot">
+                    <ThemedPicture
+                      lightBase="/assets/screenshots/alarms-location"
+                      darkBase="/assets/screenshots/alarms-location--dark"
+                      alt="Risetime settings with the Celestial events location section open: London, United Kingdom selected, a GPS button, and an unticked Auto-update location box. The Reliability row below reads 8/8."
+                      width={360}
+                      height={706}
+                    />
+                    <figcaption>The location setting, with its GPS button and auto-update box.</figcaption>
+                  </figure>
+                </details>
+              </li>
+              <li>On the <strong>Alarms</strong> tab, press <strong>+</strong>.</li>
+              <li>In the menu at the top, pick <strong>Sunrise</strong>, <strong>Sunset</strong>, <strong>Noon</strong> or <strong>Nadir</strong>.</li>
+              <li>On the dial, set how long before or after it the alarm rings — or leave it at <em>No offset</em>.</li>
+              <li>Press <strong>OK</strong>.</li>
+            </ol>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchor-menu"
+                darkBase="/assets/screenshots/alarms-anchor-menu--dark"
+                alt="The new-alarm dialog with its anchor menu open: Absolute (ticked, with the time 07:00 behind it), Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir."
+                width={360}
+                height={706}
+              />
+              <figcaption>The menu at the top of the alarm dialog: a clock time, or a moment of the sun.</figcaption>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-offset">
+            <h2 id="section-offset">The offset: "1 hour before sunset"</h2>
+            <p><strong>An anchor is a moment of the sun that Risetime recomputes every day; your alarm stays at a fixed distance from it.</strong> That distance is the offset, up to 11 hr 59 min before or after. The sun moment moves a little every day; the offset you chose does not.</p>
+            <ul>
+              <li><strong>Sunrise</strong>, no offset — with the first light of the sun.</li>
+              <li><strong>30 min before Sunrise</strong> — up before the light.</li>
+              <li><strong>1 hr before Sunset</strong> — a sunset alarm that leaves you time to head out while there is still daylight.</li>
+              <li><strong>8 hr before Sunrise</strong> — <a href="/circadian-rhythm-alarm/" className="content-link">a bedtime reminder that follows the sun</a>.</li>
+            </ul>
+            <p>A line under the dial shows the next ring, for example <em>Tomorrow: 18:03</em>.</p>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-offset"
+                darkBase="/assets/screenshots/alarms-offset--dark"
+                alt="The new-alarm dialog set on the Sunset anchor with an offset of minus one hour, the hours dial on 1 and the minutes on 00, and the line Today: 17:38."
+                width={360}
+                height={706}
+              />
+              <figcaption>One hour before sunset. The line under the offset says when it rings next.</figcaption>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-days">
+            <h2 id="section-days">Repeat days, sound and snooze</h2>
+            <p>Open the alarm's card in the list. Tick <strong>Repeat</strong> and choose your days, and the card reads the way you would say it: <em>Monday–Friday, 1 hr before Sunset</em>. The same card holds the label, the sound, vibration, snooze length and the image shown while it rings. The switch has three positions: the middle one skips only the next ring — for a day off — and keeps the alarm on.</p>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-card"
+                darkBase="/assets/screenshots/alarms-card--dark"
+                alt="An open alarm card for 17:38, Monday to Friday, 1 hr before Sunset: an empty Label field, Repeat ticked with Monday to Friday selected, and Sound set to Phone default. The card carries on below the edge of the image."
+                width={360}
+                height={706}
+              />
+              <figcaption>An open alarm card: repeat days and everything else about the alarm.</figcaption>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-custom">
+            <h2 id="section-custom">Custom anchors: twilight, sun angles, shadows</h2>
+            <p>The sun marks more moments than four. You can make your own, of three kinds:</p>
+            <ul>
+              <li><strong>A solar angle</strong> — the moment the sun reaches a given height above or below the horizon, in the morning or the evening. −6° is civil dawn or dusk, −12° nautical, −18° astronomical: full night. +6° in the evening is low, warm light.</li>
+              <li><strong>A shadow length</strong> — the moment an object's shadow reaches a given multiple of its height, before or after noon.</li>
+              <li><strong>A fraction of the day or night</strong> — the night (sunset to sunrise) or the day, cut into equal parts; you choose how many, and which boundary. The last sixth of the night, for example, starts at the same point of the night whatever its length that season.</li>
+            </ul>
+            <p>To create one:</p>
+            <ol>
+              <li>Open <strong>Settings → Anchors</strong>, then press <strong>+</strong>.</li>
+              <li>Choose the kind, and set its value.</li>
+              <li>Give it a name, or keep the automatic one.</li>
+              <li>Pick a colour — <strong>Save</strong> waits for one.</li>
+              <li>Press <strong>Save</strong>.</li>
+            </ol>
+            <p>It now appears in the alarm dialog next to Sunrise and Sunset, and takes an offset like any other. A switch in the anchor list hides the ones you don't use from that menu.</p>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchors"
+                darkBase="/assets/screenshots/alarms-anchors--dark"
+                alt="Settings, Anchors section: six anchors in order: Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir. Only the two custom ones, Astronomical dawn and Golden hour, have active edit and delete buttons. Every row carries a visibility switch, all of them on."
+                width={360}
+                height={706}
+              />
+              <figcaption>A custom anchor takes its place among the others, in the order of the day.</figcaption>
+            </figure>
+
+            <p>An anchor can also be <strong>calibrated</strong> — shifted by up to 30 minutes so it matches a timetable you follow, such as a local calendar.</p>
+            <p>Far from the equator, some angles are never reached for part of the year. The editor tells you the dates — in London, the sun does not sink to −18° from late May to late July — and on those days the alarm stays silent rather than ring at an invented time.</p>
+
+            <figure className="content-screenshot">
+              <ThemedPicture
+                lightBase="/assets/screenshots/alarms-anchor-editor"
+                darkBase="/assets/screenshots/alarms-anchor-editor--dark"
+                alt="The anchor editor on A solar angle, set to −18.0° on the morning side, with a red warning, Not reached every day at this latitude, named Astronomical dawn, with the preview: Next: 05:10. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
+                width={360}
+                height={706}
+              />
+              <figcaption>−18° in the morning, set for London: the editor names the weeks it never happens.</figcaption>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-calculation">
+            <h2 id="section-calculation">How sunrise and sunset times are calculated, offline</h2>
+            <p>Every sunrise and sunset time is computed on the device by an astronomical library, <a href="https://shredzone.org/maven/commons-suncalc/" className="content-link">commons-suncalc</a>, based on Jean Meeus' <em>Astronomical Algorithms</em>. Sunrise and sunset are measured for the sun's upper edge, with atmospheric refraction — what your eyes see; solar angles for the sun's centre, the convention twilight tables use. No web lookup, no server: it works in airplane mode, at sea, or in a valley without signal.</p>
+            <p>Risetime doesn't run all the time. It recalculates after an alarm rings, during a short check every few hours, or when the phone restarts or its clock or time zone changes; Android's own alarm clock — the one your built-in clock app uses — does the rest.</p>
+          </section>
+
+          <section aria-labelledby="section-reliability">
+            <h2 id="section-reliability">Make sure it rings</h2>
+            <p>Some phones stop apps in the background to save battery, and that can silence any alarm. <strong>Settings → Reliability</strong> checks what your phone needs and gives each missing item a <strong>Fix</strong> button. After a restart, alarms ring even before you first unlock the phone.</p>
+          </section>
+
+          <section aria-labelledby="section-timers">
+            <h2 id="section-timers">Timers, too</h2>
+            <p>The <strong>Timers</strong> tab holds countdown timers, including ones that restart themselves for intervals and study blocks: <a href="/timers/" className="content-link">how the repeating timers work</a>.</p>
+            <p>Risetime is free for up to three alarms and three timers — for good. Need more? Use those three first, and see if it's worth your support: supporters get unlimited alarms and timers, yearly or once. If not, I'll be happy to <a href="mailto:contact@risetime.app">hear you out</a>.</p>
+          </section>
+
+          <section aria-labelledby="section-guides">
+            <h2 id="section-guides">Guides for specific uses</h2>
+            <ul>
+              <li><a href="/circadian-rhythm-alarm/" className="content-link">A wake-up and bedtime rhythm that follows sunrise</a></li>
+              <li><a href="/golden-hour-alarm/" className="content-link">Golden hour, blue hour and the night sky, for photographers and astronomers</a></li>
+              {/* Add the Muslim prayer times and morning practice guides here once those pages are published. */}
+            </ul>
+          </section>
+
+          <div className="cta-section">
+            <h2>Set it once. It follows the sun.</h2>
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
+              <span className="badge-main">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
+                Google Play
+              </span>
+              <span className="badge-sub">Available now</span>
+            </a>
+          </div>
+
+        </main>
+
+        <SiteFooter page="/alarms/" />
+    </div>
+  )
+}

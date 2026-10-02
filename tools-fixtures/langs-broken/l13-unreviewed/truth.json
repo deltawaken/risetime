@@ -1,0 +1,21 @@
+{
+  "site": "https://example.test",
+  "locales": [
+    "fr"
+  ],
+  "pages": [
+    "/"
+  ],
+  "files": {
+    "fr/home.md": {
+      "lang": "fr",
+      "data": {
+        "page": "/",
+        "slug": "",
+        "translated": "2026-09-24"
+      },
+      "body": ""
+    }
+  },
+  "digests": {}
+}

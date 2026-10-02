@@ -1,0 +1,33 @@
+{
+  "site": "https://example.test",
+  "locales": [
+    "fr"
+  ],
+  "pages": [
+    "/",
+    "/autre/"
+  ],
+  "files": {
+    "fr/home.md": {
+      "lang": "fr",
+      "data": {
+        "page": "/",
+        "slug": "",
+        "translated": "2026-09-24",
+        "reviewed": "2026-09-25"
+      },
+      "body": ""
+    },
+    "fr/autre.md": {
+      "lang": "fr",
+      "data": {
+        "page": "/autre/",
+        "slug": "autre",
+        "translated": "2026-09-24",
+        "reviewed": "2026-09-25"
+      },
+      "body": ""
+    }
+  },
+  "digests": {}
+}
