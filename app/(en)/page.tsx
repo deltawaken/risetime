@@ -43,7 +43,7 @@ const jsonLd = [
     "No analytics, no tracking, no data collection",
     "Supports both celestial and fixed-time alarms",
     "OS-level alarm API — survives Doze mode and restarts",
-    "Countdown timers with repeat cycles that stay in phase"
+    "Countdown timers with loop cycles that stay in phase"
   ],
   "author": {
     "@type": "Organization",
@@ -126,14 +126,14 @@ export default function HomePage() {
 
           {/* HERO */}
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> Sunrise alarm app for Android.</h1>
-            <p className="hero-celestial">Your celestial alarm clock.</p>
-            <p className="hero-sub">Set your alarm to the sun. It shifts every day so you don't have to.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> Alarm clock and timers.</h1>
+            <p className="hero-celestial">It can follow the sun.</p>
+            <p className="hero-sub">Alarms at sunrise and sunset where you are, shifting with the seasons — or at a fixed time. And timers that can loop.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/alarm-list"
                 darkBase="/assets/screenshots/alarm-list--dark"
-                alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off."
+                alt="Risetime alarm list with five alarms: 05:10 on Saturday at Astronomical dawn; 07:00 Monday–Friday at a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday–Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off. The Alarms, Timers and Settings tabs run along the bottom."
                 width={360}
                 height={706}
                 loading="eager"
@@ -141,14 +141,13 @@ export default function HomePage() {
               />
             </div>
             <div className="cta-group">
-              <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+              <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
                 <span className="badge-main">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                   Google Play
                 </span>
-                <span className="badge-sub">Open testing</span>
+                <span className="badge-sub">Available now</span>
               </a>
-              <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
             </div>
           </section>
 
@@ -193,7 +192,7 @@ export default function HomePage() {
               </article>
               <article className="feature-card">
                 <h3>Countdown timers, in the same app</h3>
-                <p>A keypad, a list sorted by duration, and a repeat mode whose cycles stay in phase — for intervals, workouts and study blocks. <a href="/timers/">Timers guide</a></p>
+                <p>A keypad, a list sorted by duration, and a loop mode whose cycles stay in phase — for intervals, workouts and study blocks. <a href="/timers/">Timers guide</a></p>
               </article>
             </div>
           </section>
@@ -209,7 +208,7 @@ export default function HomePage() {
               <li><strong>Dawn patrol</strong> — out in the water before the light, on an alarm that moves with first light instead of a time you reset every few weeks.</li>
               <li><strong>Pre-dawn risers</strong> — set your offset before sunrise once and it tracks sunrise every day. Check your own timetable for the exact moment; the alarm is the part that never drifts.</li>
               <li><strong>Outdoor workers, dog walkers, farmers</strong> — if your day starts with daylight, your alarm should too.</li>
-              <li><strong>Intervals, workouts, study blocks</strong> — countdown timers that restart themselves, in the same app. <a href="/timers/">Repeating countdown timers</a></li>
+              <li><strong>Intervals, workouts, study blocks</strong> — countdown timers that restart themselves, in the same app. <a href="/timers/">Looping countdown timers</a></li>
               <li><strong>Anyone tired of adjusting throughout the year</strong> — set it once. It stays right. <a href="/alarms/">How to set a sunrise or sunset alarm on Android</a></li>
             </ul>
           </section>
@@ -222,7 +221,7 @@ export default function HomePage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/alarm-picker"
                   darkBase="/assets/screenshots/alarm-picker--dark"
-                  alt="Risetime's create-alarm dialog open over the alarm list: the Noon anchor chip, an offset of minus 1 hour and 00 minutes with the hours field selected, and the line Tomorrow: 11:49. A circular hours dial with 1 selected fills the lower half, with Cancel and OK beneath it."
+                  alt="Risetime's create-alarm dialog open over the alarm list: the sun-shaped Noon anchor icon, an offset of minus 1 hour and 00 minutes with the hours field selected, and the line Tomorrow: 11:49. A circular hours dial with 1 selected fills the lower half, with Cancel and OK beneath it."
                   width={360}
                   height={706}
                 />
@@ -240,7 +239,7 @@ export default function HomePage() {
                                      déjà en anglais. */}
                 <picture>
                   <source srcSet={`/assets/screenshots/dismiss-screen.webp 1x, /assets/screenshots/dismiss-screen@2x.webp 2x`} type="image/webp" />
-                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, 1 October, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width={360} height={706} loading="lazy" decoding="async" />
+                  <img src="/assets/screenshots/dismiss-screen.png" alt="Risetime's dismiss screen for a ringing alarm, filled edge to edge with a dusty rose colour taken from the sun's position: the time 17:30, the date Thursday, October 1, the word Alarm, a large circular SNOOZE button, and DISMISS below it." width={360} height={706} loading="lazy" decoding="async" />
                 </picture>
                 <figcaption>Wake gently</figcaption>
               </figure>
@@ -248,7 +247,7 @@ export default function HomePage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/settings-screen"
                   darkBase="/assets/screenshots/settings-screen--dark"
-                  alt="Risetime settings screen with rows for Alarms, Anchors, Timers, Phone's settings, and Celestial events location set to London, United Kingdom. The Reliability row reads 8 of 8 checks passing and is open on Checks this phone doesn't have and All good (8). Supporting Risetime sits below, and the footer reads Risetime."
+                  alt="Risetime settings screen with rows for Alarms, Anchors, Timers, Phone's settings and Celestial events location, set to London, United Kingdom. The Reliability row, marked 8/8, is unfolded onto All good (8) and Checks this phone doesn't have. Supporting Risetime sits below, and the footer reads Risetime."
                   width={360}
                   height={706}
                 />
@@ -304,14 +303,13 @@ export default function HomePage() {
           {/* FINAL CTA */}
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Ready to rise with the sun?</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open testing</span>
+              <span className="badge-sub">Available now</span>
             </a>
-            <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
           </section>
 
         </main>

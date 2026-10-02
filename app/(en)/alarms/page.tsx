@@ -80,7 +80,7 @@ export default function AlarmsPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-list"
                 darkBase="/assets/screenshots/alarms-list--dark"
-                alt="Risetime alarm list with five alarms: 05:10 on Saturday on Astronomical dawn, a custom anchor; 07:00 Monday to Friday on Absolute, a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday to Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off."
+                alt="Risetime alarm list with five alarms: 05:10 on Saturday at Astronomical dawn; 07:00 Monday–Friday at a fixed time; 07:02 Tomorrow at Sunrise; 17:38 Monday–Friday, 1 hr before Sunset; and 23:02 Today, 8 hr before Sunrise, switched off."
                 width={360}
                 height={706}
               />
@@ -111,7 +111,7 @@ export default function AlarmsPage() {
                     <ThemedPicture
                       lightBase="/assets/screenshots/alarms-location"
                       darkBase="/assets/screenshots/alarms-location--dark"
-                      alt="Risetime settings with the Celestial events location section open: London, United Kingdom selected, a GPS button, and an unticked Auto-update location box."
+                      alt="Risetime settings with the Celestial events location section open: London, United Kingdom selected, a GPS button, and an unticked Auto-update location box. The Reliability row below reads 8/8."
                       width={360}
                       height={706}
                     />
@@ -129,7 +129,7 @@ export default function AlarmsPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-anchor-menu"
                 darkBase="/assets/screenshots/alarms-anchor-menu--dark"
-                alt="The new-alarm dialog with its anchor menu open: Absolute, Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir."
+                alt="The new-alarm dialog with its anchor menu open: Absolute (ticked, with the time 07:00 behind it), Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir."
                 width={360}
                 height={706}
               />
@@ -139,12 +139,12 @@ export default function AlarmsPage() {
 
           <section aria-labelledby="section-offset">
             <h2 id="section-offset">The offset: "1 hour before sunset"</h2>
-            <p><strong>An anchor is a moment of the sun that Risetime recomputes every day; your alarm stays at a fixed distance from it.</strong> That distance is the offset, up to 11 h 59 min before or after. The sun moment moves a little every day; the offset you chose does not.</p>
+            <p><strong>An anchor is a moment of the sun that Risetime recomputes every day; your alarm stays at a fixed distance from it.</strong> That distance is the offset, up to 11 hr 59 min before or after. The sun moment moves a little every day; the offset you chose does not.</p>
             <ul>
               <li><strong>Sunrise</strong>, no offset — with the first light of the sun.</li>
               <li><strong>30 min before Sunrise</strong> — up before the light.</li>
-              <li><strong>1 h before Sunset</strong> — a sunset alarm that leaves you time to head out while there is still daylight.</li>
-              <li><strong>8 h before Sunrise</strong> — <a href="/circadian-rhythm-alarm/" className="content-link">a bedtime reminder that follows the sun</a>.</li>
+              <li><strong>1 hr before Sunset</strong> — a sunset alarm that leaves you time to head out while there is still daylight.</li>
+              <li><strong>8 hr before Sunrise</strong> — <a href="/circadian-rhythm-alarm/" className="content-link">a bedtime reminder that follows the sun</a>.</li>
             </ul>
             <p>A line under the dial shows the next ring, for example <em>Tomorrow: 18:03</em>.</p>
 
@@ -152,7 +152,7 @@ export default function AlarmsPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-offset"
                 darkBase="/assets/screenshots/alarms-offset--dark"
-                alt="The new-alarm dialog set on Sunset with an offset of one hour before, the hours dial on 1 and the minutes on 00, and the line Today: 17:38."
+                alt="The new-alarm dialog set on the Sunset anchor with an offset of minus one hour, the hours dial on 1 and the minutes on 00, and the line Today: 17:38."
                 width={360}
                 height={706}
               />
@@ -162,13 +162,13 @@ export default function AlarmsPage() {
 
           <section aria-labelledby="section-days">
             <h2 id="section-days">Repeat days, sound and snooze</h2>
-            <p>Open the alarm's card in the list. Tick <strong>Repeat</strong> and choose your days, and the card reads the way you would say it: <em>Monday–Friday, 1h before Sunset</em>. The same card holds the label, the sound, vibration, snooze length and the image shown while it rings. The switch has three positions: the middle one skips only the next ring — for a day off — and keeps the alarm on.</p>
+            <p>Open the alarm's card in the list. Tick <strong>Repeat</strong> and choose your days, and the card reads the way you would say it: <em>Monday–Friday, 1 hr before Sunset</em>. The same card holds the label, the sound, vibration, snooze length and the image shown while it rings. The switch has three positions: the middle one skips only the next ring — for a day off — and keeps the alarm on.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-card"
                 darkBase="/assets/screenshots/alarms-card--dark"
-                alt="An open alarm card for 17:38, Monday to Friday, 1 hr before Sunset: an empty Label field, Repeat with Monday to Friday selected, Sound set to Phone default, and Vibrate on. The card carries on below the edge of the image."
+                alt="An open alarm card for 17:38, Monday to Friday, 1 hr before Sunset: an empty Label field, Repeat ticked with Monday to Friday selected, and Sound set to Phone default. The card carries on below the edge of the image."
                 width={360}
                 height={706}
               />
@@ -198,7 +198,7 @@ export default function AlarmsPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-anchors"
                 darkBase="/assets/screenshots/alarms-anchors--dark"
-                alt="Settings, Anchors section: two custom anchors, Astronomical dawn and Golden hour, each with an edit and a delete button, among the factory anchors Sunrise, Noon, Sunset and Nadir. Every row carries a visibility switch, all of them on."
+                alt="Settings, Anchors section: six anchors in order: Astronomical dawn, Sunrise, Noon, Golden hour, Sunset and Nadir. Only the two custom ones, Astronomical dawn and Golden hour, have active edit and delete buttons. Every row carries a visibility switch, all of them on."
                 width={360}
                 height={706}
               />
@@ -212,7 +212,7 @@ export default function AlarmsPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/alarms-anchor-editor"
                 darkBase="/assets/screenshots/alarms-anchor-editor--dark"
-                alt="The anchor editor on A solar angle, set to −18.0° in the morning, named Astronomical dawn, with the preview: Next: 05:10. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
+                alt="The anchor editor on A solar angle, set to −18.0° on the morning side, with a red warning, Not reached every day at this latitude, named Astronomical dawn, with the preview: Next: 05:10. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
                 width={360}
                 height={706}
               />
@@ -248,14 +248,13 @@ export default function AlarmsPage() {
 
           <div className="cta-section">
             <h2>Set it once. It follows the sun.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open testing</span>
+              <span className="badge-sub">Available now</span>
             </a>
-            <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
           </div>
 
         </main>

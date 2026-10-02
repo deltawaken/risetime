@@ -108,29 +108,12 @@ EXCLUDED_DIRS = {"404"}  # la page 404 n'est ni indexée ni servie comme résult
 # Autrement dit une exemption gèle un défaut connu ; elle n'autorise pas à
 # l'empirer. C'est exactement le trou par lequel 609 px est devenu 669 px.
 WAIVED = {
-    ("/", "title"): {
-        "story": "9-21 — le site mesure ses métadonnées en pixels",
-        "since": "165b019",
-        "raison": "582,4 px : conforme à la limite dure, au-dessus du budget ANGLAIS de "
-                  "520 px. En traduction ×1,146 il ressort à 667 px et se fait tronquer. "
-                  "Titre d'accueil, arbitrage de marque — AC 12.",
-        "frozen": 582.4,
-    },
     ("/alarms/", "title"): {
         "story": "9-21 — le site mesure ses métadonnées en pixels",
         "since": "165b019",
         "raison": "531,1 px, soit +11 px sur le budget anglais. Sort à 609 px en "
                   "traduction. Arbitrage de marque — AC 12.",
         "frozen": 531.1,
-    },
-    ("/timers/", "title"): {
-        "story": "9-21 — le site mesure ses métadonnées en pixels",
-        "since": "165b019",
-        "raison": "525,5 px, soit +5,5 px sur le budget anglais. La page a été réécrite "
-                  "par 9-24 pendant la rédaction de 9-21 et n'était pas mesurable alors ; "
-                  "elle passe le contrôle comme les autres, sans régime particulier "
-                  "(AC 14). Aucun libellé réécrit ici — AC 12.",
-        "frozen": 525.5,
     },
 }
 

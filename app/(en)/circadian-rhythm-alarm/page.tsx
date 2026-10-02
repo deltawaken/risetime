@@ -110,7 +110,7 @@ export default function CircadianRhythmAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/circadian-list"
                 darkBase="/assets/screenshots/circadian-list--dark"
-                alt="Risetime alarm list with three alarms, all repeating every day: 07:02 at Sunrise, 20:38 two hours after Sunset, and 23:02 eight hours before Sunrise."
+                alt="Risetime alarm list with three alarms, each labelled Every day: 07:02 at Sunrise, 20:38 two hours after Sunset, and 23:02 eight hours before Sunrise."
                 width={360}
                 height={706}
               />
@@ -167,14 +167,13 @@ export default function CircadianRhythmAlarmPage() {
 
           <div className="cta-section">
             <h2>Wake with the sun. Keep the clock for the rest.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open testing</span>
+              <span className="badge-sub">Available now</span>
             </a>
-            <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
           </div>
 
         </main>

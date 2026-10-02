@@ -96,7 +96,7 @@ export default function SunriseMeditationAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/practice-list"
                 darkBase="/assets/screenshots/practice-list--dark"
-                alt="Risetime alarm list with four alarms, all repeating every day: 05:29 on Last part of the night, 05:50 on Nautical dawn, 06:29 on Civil dawn, and 07:02 at Sunrise."
+                alt="Risetime alarm list with four alarms, each labelled Every day: 05:29 on Last part of the night, 05:50 on Nautical dawn, 06:29 on Civil dawn, and 07:02 at Sunrise."
                 width={360}
                 height={706}
               />
@@ -109,7 +109,7 @@ export default function SunriseMeditationAlarmPage() {
             <ol>
               <li>On the <strong>Alarms</strong> tab, press <strong>+</strong>.</li>
               <li>In the top menu, choose <strong>Sunrise</strong>.</li>
-              <li>Leave the dial centred to ring at sunrise, or turn it to the gap you want, up to <strong>11 h 59 min</strong> either way.</li>
+              <li>Leave the dial centred to ring at sunrise, or turn it to the gap you want, up to <strong>11 hr 59 min</strong> either way.</li>
               <li>Press <strong>OK</strong>, then open the alarm in the list and set <strong>Repeat</strong>.</li>
             </ol>
             <p>And the alarm early risers keep asking for is the other one: <strong>an alarm to go to bed</strong>, not one to wake up. Put it on the <strong>Sunset</strong> anchor with an offset, repeating — the same four steps. <a href="/alarms/" className="content-link">How to set a sunrise or sunset alarm</a></p>
@@ -128,7 +128,7 @@ export default function SunriseMeditationAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/practice-angle-editor"
                 darkBase="/assets/screenshots/practice-angle-editor--dark"
-                alt="The anchor editor on A solar angle, set to −6.0° in the morning, named Civil dawn, with the preview: Next: 06:29."
+                alt="The anchor editor on A solar angle, set to −6.0° on the morning side, named Civil dawn, with the preview: Next: 06:29."
                 width={360}
                 height={706}
               />
@@ -141,7 +141,7 @@ export default function SunriseMeditationAlarmPage() {
             <p>You can time the morning by the night rather than the dawn: a point a given way through the dark.</p>
             <ol>
               <li><strong>Settings → Anchors → +</strong>, and switch the shape to <strong>Division</strong>.</li>
-              <li>Scope <strong>Night</strong>, then the <strong>number of parts</strong> and the <strong>position</strong> — 2 to 48 parts, any boundary inside them.</li>
+              <li>Scope <strong>Night</strong>, then the <strong>Number of parts</strong> and the <strong>Position</strong> — 2 to 48 parts, any boundary inside them.</li>
               <li>Name it, pick a colour, save. A fresh draft's title reads <strong>Night · 1/15</strong>; it follows whatever you set.</li>
               <li>Put an alarm on it.</li>
             </ol>
@@ -177,14 +177,13 @@ export default function SunriseMeditationAlarmPage() {
 
           <div className="cta-section">
             <h2>Begin with the light.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open testing</span>
+              <span className="badge-sub">Available now</span>
             </a>
-            <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
           </div>
 
         </main>

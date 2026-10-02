@@ -115,7 +115,7 @@ export default function GoldenHourAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/sky-list"
                 darkBase="/assets/screenshots/sky-list--dark"
-                alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday to Friday on Absolute; 17:21 on Saturday and Sunday, 30 min before Golden hour; 18:58 on Saturday and Sunday at Blue hour; and 20:30 on Friday and Saturday at Night sky."
+                alt="The Risetime alarm list with five alarms: 06:45 and 08:10 Monday–Friday at fixed times; 17:21 on Sunday and Saturday, 30 min before Golden hour; 18:58 on Sunday and Saturday at Blue hour; and 20:30 on Friday and Saturday at Night sky."
                 width={360}
                 height={706}
               />
@@ -156,7 +156,7 @@ export default function GoldenHourAlarmPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/sky-night-editor"
                 darkBase="/assets/screenshots/sky-night-editor--dark"
-                alt="The anchor editor on A solar angle, set to −18.0° in the evening, named Night sky, with the preview: Next: 20:30. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
+                alt="The anchor editor on A solar angle, set to −18.0° on the evening side, with a red warning, Not reached every day at this latitude, named Night sky, with the preview: Next: 20:30. The sun does not reach this angle here from May 23, 2027 to July 21, 2027."
                 width={360}
                 height={706}
               />
@@ -172,14 +172,13 @@ export default function GoldenHourAlarmPage() {
 
           <div className="cta-section">
             <h2>Never miss the light again.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Join the Risetime open test on Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Get Risetime on Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open testing</span>
+              <span className="badge-sub">Available now</span>
             </a>
-            <p className="cta-note">Risetime is in open testing, so you join the test first and install from Play afterwards. Without that step Play may tell you the app isn't available in your country.</p>
           </div>
 
         </main>
