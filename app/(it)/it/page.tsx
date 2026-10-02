@@ -78,14 +78,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Unisciti al test aperto di Risetime su Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Scarica Risetime su Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Test aperto</span>
+    <span className="badge-sub">Disponibile ora</span>
   </a>
 )
 
@@ -103,14 +103,14 @@ export default function HomePage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> l&rsquo;app di sveglie solari per Android.</h1>
-            <p className="hero-celestial">La sua sveglia celeste.</p>
-            <p className="hero-sub">Imposti la sveglia sul sole. Si sposta ogni giorno, così non deve farlo lei.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> sveglia e timer.</h1>
+            <p className="hero-celestial">Può seguire il sole.</p>
+            <p className="hero-sub">Sveglie all&rsquo;alba e al tramonto dove si trova, che si spostano con le stagioni — oppure a un&rsquo;ora fissa. E timer che possono andare in ciclo.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/it/alarm-list"
                 darkBase="/assets/screenshots/it/alarm-list--dark"
-                alt="Elenco delle sveglie di Risetime con cinque sveglie: 05:10 di sabato su Alba astronomica, un'ancora personalizzata; 07:00 dal lunedì al venerdì su Esatto, un orario fisso; 07:02 domani all'Alba; 17:38 dal lunedì al venerdì, 1 h prima del Tramonto; e 23:02 oggi, 8 h prima dell'Alba, spenta."
+                alt="Elenco delle sveglie di Risetime con cinque sveglie: 05:10 di sabato su Alba astronomica, un'ancora personalizzata; 07:00 dal lunedì al venerdì, un orario fisso; 07:02 domani all'Alba; 17:38 dal lunedì al venerdì, 1 h prima del Tramonto; e 23:02 oggi, 8 h prima dell'Alba, spenta."
                 width={360}
                 height={706}
                 loading="eager"
@@ -119,7 +119,6 @@ export default function HomePage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime è in fase di test aperto: si iscriva prima al test, poi installi da Play. Senza questo passaggio, Play potrebbe dirle che l&rsquo;app non è disponibile nel suo paese.</p>
             </div>
           </section>
 
@@ -153,7 +152,7 @@ export default function HomePage() {
               </article>
               <article className="feature-card">
                 <h3>Timer, nella stessa app</h3>
-                <p>Una tastiera, un elenco ordinato per durata, e una ripetizione i cui cicli restano in fase — per intervalli, sessioni, blocchi di studio. <a href="/it/timer/">La guida ai timer</a></p>
+                <p>Una tastiera, un elenco ordinato per durata, e un ciclo i cui giri restano in fase — per intervalli, sessioni, blocchi di studio. <a href="/it/timer/">La guida ai timer</a></p>
               </article>
             </div>
           </section>
@@ -168,7 +167,7 @@ export default function HomePage() {
               <li><strong>Uscire prima della luce</strong> — in acqua prima del giorno, con una sveglia che si muove con la prima luce invece di un orario che si riaggiusta ogni poche settimane.</li>
               <li><strong>Alzarsi prima dell&rsquo;alba</strong> — imposti una volta il suo scostamento prima dell&rsquo;alba: segue l&rsquo;alba ogni giorno. Per l&rsquo;orario esatto, faccia riferimento al proprio calendario; la sveglia, invece, non va mai alla deriva.</li>
               <li><strong>Lavoro all&rsquo;aperto, passeggiate, allevamento</strong> — se la sua giornata inizia con il giorno, anche la sua sveglia.</li>
-              <li><strong>Intervalli, sessioni, blocchi di studio</strong> — timer che ripartono da soli, nella stessa app. <a href="/it/timer/">Timer ripetibili</a></li>
+              <li><strong>Intervalli, sessioni, blocchi di studio</strong> — timer che ripartono da soli, nella stessa app. <a href="/it/timer/">Timer in ciclo</a></li>
               <li><strong>Chiunque sia stanco di riaggiustare tutto l&rsquo;anno</strong> — imposti una volta, resta giusto. <a href="/it/sveglie/">Impostare una sveglia all&rsquo;alba o al tramonto</a></li>
             </ul>
           </section>
@@ -206,7 +205,7 @@ export default function HomePage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/it/settings-screen"
                   darkBase="/assets/screenshots/it/settings-screen--dark"
-                  alt="La schermata delle impostazioni di Risetime, con le righe Sveglie, Ancore, Timer, Impostazioni del telefono, e Posizione eventi celesti impostata su London, Regno Unito. La riga Affidabilità indica 8 verifiche su 8 in verde ed è aperta su Controlli senza effetto su questo telefono e Tutto a posto (8). Supportando Risetime compare sotto, e il piè di pagina indica Risetime."
+                  alt="La schermata delle impostazioni di Risetime, con le righe Sveglie, Ancore, Timer, Impostazioni del telefono, e Posizione eventi celesti impostata su London, Regno Unito. La riga Affidabilità indica 8/8 ed è aperta su Tutto a posto (8) e Controlli senza effetto su questo telefono. Supportando Risetime ⭐ compare sotto, e il piè di pagina indica Risetime."
                   width={360}
                   height={706}
                 />
@@ -259,7 +258,6 @@ export default function HomePage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Pronto ad alzarsi con il sole?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime è in fase di test aperto: si iscriva prima al test, poi installi da Play. Senza questo passaggio, Play potrebbe dirle che l&rsquo;app non è disponibile nel suo paese.</p>
           </section>
 
         </main>

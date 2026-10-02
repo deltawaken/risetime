@@ -93,7 +93,7 @@ export default function SveglieePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/it/alarms-list"
                 darkBase="/assets/screenshots/it/alarms-list--dark"
-                alt="Elenco delle sveglie di Risetime con cinque sveglie: 05:10 di sabato su Alba astronomica, un'ancora personalizzata; 07:00 dal lunedì al venerdì su Esatto, un orario fisso; 07:02 domani all'Alba; 17:38 dal lunedì al venerdì, 1 h prima del Tramonto; e 23:02 oggi, 8 h prima dell'Alba, spenta."
+                alt="Elenco delle sveglie di Risetime con cinque sveglie: 05:10 di sabato su Alba astronomica, un'ancora personalizzata; 07:00 dal lunedì al venerdì, un orario fisso; 07:02 domani all'Alba; 17:38 dal lunedì al venerdì, 1 h prima del Tramonto; e 23:02 oggi, 8 h prima dell'Alba, spenta."
                 width={360}
                 height={706}
               />
@@ -174,14 +174,14 @@ export default function SveglieePage() {
           </section>
 
           <section aria-labelledby="section-days">
-            <h2 id="section-days">Giorni di ripetizione, suono e ripetizione della suoneria</h2>
-            <p>Apra la scheda della sveglia nell&rsquo;elenco. Spunti <strong>Ripeti</strong> e scelga i suoi giorni: la scheda si legge allora come lo direbbe lei — <em>Da lunedì a venerdì, 1 h prima del Tramonto</em>. La stessa scheda porta l&rsquo;etichetta, il suono, la vibrazione, la durata della suoneria e l&rsquo;immagine mostrata durante la sveglia. L&rsquo;interruttore ha tre posizioni: quella centrale salta solo la prossima suoneria — per un giorno di ferie — e lascia la sveglia attiva.</p>
+            <h2 id="section-days">Giorni di ripetizione, suono e durata posticipo</h2>
+            <p>Apra la scheda della sveglia nell&rsquo;elenco. Spunti <strong>Ripeti</strong> e scelga i suoi giorni: la scheda si legge allora come lo direbbe lei — <em>Da lunedì a venerdì, 1 h prima del Tramonto</em>. La stessa scheda porta l&rsquo;etichetta, il suono, la vibrazione, la durata posticipo e l&rsquo;immagine mostrata durante la sveglia. L&rsquo;interruttore ha tre posizioni: quella centrale salta solo la prossima suoneria — per un giorno di ferie — e lascia la sveglia attiva.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/it/alarms-card"
                 darkBase="/assets/screenshots/it/alarms-card--dark"
-                alt="Una scheda sveglia aperta per le 17:38, dal lunedì al venerdì, 1 h prima del Tramonto: un campo Etichetta vuoto, Ripeti con dal lunedì al venerdì selezionato, Suono impostato su Predefinito del telefono, e Vibrazione attivata. La scheda continua sotto il bordo dell'immagine."
+                alt="Una scheda sveglia aperta per le 17:38, dal lunedì al venerdì, 1 h prima del Tramonto: un campo Etichetta vuoto, la casella Ripeti spuntata con i giorni da L a V selezionati e S e D no, e Suono impostato su Predefinito del telefono. La scheda continua sotto il bordo dell'immagine."
                 width={360}
                 height={706}
               />
@@ -211,7 +211,7 @@ export default function SveglieePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/it/alarms-anchors"
                 darkBase="/assets/screenshots/it/alarms-anchors--dark"
-                alt="Le impostazioni, sezione Ancore: due ancore personalizzate, Alba astronomica e Ora dorata, ciascuna con un pulsante di modifica e un pulsante di eliminazione, tra le ancore di fabbrica Alba, Mezzogiorno, Tramonto e Nadir. Ogni riga porta un interruttore di visibilità, tutti attivati."
+                alt="Le impostazioni, sezione Ancore aperta, con il pulsante +: Alba astronomica, Alba, Mezzogiorno, Ora dorata, Tramonto e Nadir. Solo Alba astronomica e Ora dorata, le due ancore personalizzate, hanno i pulsanti di modifica e di eliminazione attivi; sulle altre sono spenti. Ogni riga porta un interruttore di visibilità, tutti attivati."
                 width={360}
                 height={706}
               />
@@ -225,7 +225,7 @@ export default function SveglieePage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/it/alarms-anchor-editor"
                 darkBase="/assets/screenshots/it/alarms-anchor-editor--dark"
-                alt="L'editor di ancora su Un angolo solare, impostato a −18,0° al mattino, chiamato Alba astronomica, con l'anteprima Prossimo: 05:10. Il sole non raggiunge questo angolo qui dal 23 maggio 2027 al 21 luglio 2027."
+                alt="L'editor di ancora su Un angolo solare, impostato a −18,0° al mattino, chiamato Alba astronomica, con l'avviso rosso Non raggiunto ogni giorno a questa latitudine e l'anteprima Prossimo: 05:10. Il sole non raggiunge questo angolo qui dal 23 maggio 2027 al 21 luglio 2027."
                 width={360}
                 height={706}
               />
@@ -246,7 +246,7 @@ export default function SveglieePage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Anche i timer</h2>
-            <p>La scheda <strong>Timer</strong> riunisce i conti alla rovescia, compresi quelli che ripartono da soli per intervalli e blocchi di studio: <a href="/it/timer/" className="content-link">come funzionano i timer ripetibili</a>.</p>
+            <p>La scheda <strong>Timer</strong> riunisce i conti alla rovescia, compresi quelli che ripartono da soli per intervalli e blocchi di studio: <a href="/it/timer/" className="content-link">come funzionano i timer in ciclo</a>.</p>
             <p>Risetime è gratuita fino a tre sveglie e tre timer — per sempre. Gliene servono di più? Provi prima queste tre, e veda se vale il suo sostegno: i sostenitori hanno sveglie e timer illimitati, all&rsquo;anno o una volta per sempre. In caso contrario, sarò felice di <a href="mailto:contact@risetime.app">leggerla</a>.</p>
           </section>
 
@@ -261,14 +261,13 @@ export default function SveglieePage() {
 
           <div className="cta-section">
             <h2>La imposti una volta. Segue il sole.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unisciti al test aperto di Risetime su Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Scarica Risetime su Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Test aperto</span>
+              <span className="badge-sub">Disponibile ora</span>
             </a>
-            <p className="cta-note">Risetime è in fase di test aperto: si iscriva prima al test, poi installi da Play. Senza questo passaggio, Play potrebbe dirle che l&rsquo;app non è disponibile nel suo paese.</p>
           </div>
 
         </main>

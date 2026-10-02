@@ -117,7 +117,7 @@ export default function MeditazioneAlbaPage() {
               <li>Nella scheda <strong>Sveglie</strong>, tocchi <strong>+</strong>.</li>
               <li>Nel menu in alto, scelga <strong>Alba</strong>.</li>
               <li>Lasci il quadrante al centro per suonare all&rsquo;alba, o lo giri fino alla distanza che vuole, fino a <strong>11 h 59 min</strong> da un lato come dall&rsquo;altro.</li>
-              <li>Tocchi <strong>OK</strong>, poi apra la sveglia nell&rsquo;elenco e imposti la <strong>Ripetizione</strong>.</li>
+              <li>Tocchi <strong>OK</strong>, poi apra la sveglia nell&rsquo;elenco e imposti <strong>Ripeti</strong>.</li>
             </ol>
             <p>E la sveglia che i mattinieri chiedono è l&rsquo;altra: <strong>una sveglia per andare a dormire</strong>, non una per svegliarsi. La imposti sull&rsquo;ancora <strong>Tramonto</strong> con uno scostamento, in ripetizione — gli stessi quattro passaggi. <a href="/it/sveglie/" className="content-link">Impostare una sveglia all&rsquo;alba o al tramonto</a></p>
           </section>
@@ -148,7 +148,7 @@ export default function MeditazioneAlbaPage() {
             <p>Può ancorare il mattino alla notte invece che all&rsquo;alba: un punto situato a una data parte dell&rsquo;oscurità.</p>
             <ol>
               <li><strong>Impostazioni → Ancore → +</strong>, e passi la forma a <strong>Una frazione del giorno o della notte</strong>.</li>
-              <li>Ambito <strong>Notte</strong>, poi il <strong>Numero di parti</strong> e la <strong>posizione</strong> — da 2 a 48 parti, qualsiasi limite all&rsquo;interno.</li>
+              <li>Ambito <strong>Notte</strong>, poi il <strong>Numero di parti</strong> e la <strong>Posizione</strong> — da 2 a 48 parti, qualsiasi limite all&rsquo;interno.</li>
               <li>Le dia un nome, scelga un colore, salvi. Una nuova bozza si intitola <strong>Notte · 1/15</strong>; segue ciò che imposta.</li>
               <li>Imposti una sveglia su di essa.</li>
             </ol>
@@ -184,14 +184,13 @@ export default function MeditazioneAlbaPage() {
 
           <div className="cta-section">
             <h2>Inizi con la luce.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unisciti al test aperto di Risetime su Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Scarica Risetime su Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Test aperto</span>
+              <span className="badge-sub">Disponibile ora</span>
             </a>
-            <p className="cta-note">Risetime è in fase di test aperto: si iscriva prima al test, poi installi da Play. Senza questo passaggio, Play potrebbe dirle che l&rsquo;app non è disponibile nel suo paese.</p>
           </div>
 
         </main>
