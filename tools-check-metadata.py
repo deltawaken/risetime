@@ -452,8 +452,12 @@ for path in sitemap_paths:
     tw = F_TITLE.getlength(title)
     dl = desc_lines(desc)
 
-    rows = [("title", tw, HARD_TITLE_PX, EN_TITLE_PX, "px", 1),
-            ("desc", dl, HARD_DESC_LINES, EN_DESC_LINES, "ligne", 2)]
+    # Le budget ANGLAIS (520 px, 1,74 ligne) existe pour laisser la place à la
+    # traduction (×1,146). Une page DÉJÀ traduite ne sera pas retraduite : elle ne
+    # répond qu'à la limite dure, celle où Google tronque. Porteur, 2026-10-02.
+    translated = re.match(r"^/[a-z]{2}(-[a-z]{2})?/", path) is not None
+    rows = [("title", tw, HARD_TITLE_PX, HARD_TITLE_PX if translated else EN_TITLE_PX, "px", 1),
+            ("desc", dl, HARD_DESC_LINES, HARD_DESC_LINES if translated else EN_DESC_LINES, "ligne", 2)]
 
     lines_out = []
     page_state = "✅"

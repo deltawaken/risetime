@@ -101,7 +101,10 @@ const withHome = files.filter((f) => !f.slug)
 // la cause et envoie chercher un bug de routage là où il y a une langue mal déclarée.
 // Un contrôle qui rougit pour la bonne raison mais avec le mauvais mot coûte une heure.
 if (!preview) {
-  for (const lang of declared) {
+  // Les langues à pages statiques ont leur accueil sous app/(<lang>)/, hors de `files` :
+  // ce refus ne vaut que pour la route dynamique (trouvé le 2026-10-02, premier build
+  // de production avec LOCALES rempli).
+  for (const lang of declared.filter((l) => !statiques.includes(l))) {
     if (!withHome.some((f) => f.lang === lang)) {
       console.error(`⛔ tools-lang-routes: « ${lang} » est dans LOCALES, donc PUBLIÉE, mais son`)
       console.error(`   accueil n'est pas construit — content/${lang}/ n'a pas de page sans slug`)
