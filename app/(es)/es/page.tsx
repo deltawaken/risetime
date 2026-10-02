@@ -35,7 +35,7 @@ const jsonLd = [
     "Ninguna estadística de uso, ningún rastreo, ninguna recopilación de datos",
     "Alarmas celestes y alarmas a hora fija, compatibles juntas",
     "La API de alarma del sistema — sobrevive al modo Doze y a los reinicios",
-    "Temporizadores con ciclos de repetición que se mantienen en fase"
+    "Temporizadores con ciclos en bucle que se mantienen en fase"
   ],
   "author": {
     "@type": "Organization",
@@ -65,14 +65,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Unirse a las pruebas abiertas de Risetime en Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Consigue Risetime en Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Pruebas abiertas</span>
+    <span className="badge-sub">Disponible ya</span>
   </a>
 )
 
@@ -90,14 +90,14 @@ export default function InicioPage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> la aplicación de alarmas solares para Android.</h1>
-            <p className="hero-celestial">Tu despertador celeste.</p>
-            <p className="hero-sub">Configura tu alarma con el sol. Se desplaza cada día, para que tú no tengas que hacerlo.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> alarmas y temporizadores.</h1>
+            <p className="hero-celestial">Puede seguir al sol.</p>
+            <p className="hero-sub">Alarmas al amanecer y al atardecer donde estés, que se desplazan con las estaciones — o a una hora fija. Y temporizadores que pueden funcionar en bucle.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarm-list"
                 darkBase="/assets/screenshots/es/alarm-list--dark"
-                alt="Lista de alarmas de Risetime con cinco alarmas: 05:10 el sábado en Alba astronómica, un ancla personalizada; 07:00 de lunes a viernes en Exacta, una hora fija; 07:02 mañana en Amanecer; 17:38 de lunes a viernes, 1 h antes de Atardecer; y 23:02 hoy, 8 h antes de Amanecer, apagada."
+                alt="Lista de alarmas de Risetime con cinco alarmas: 5:10 el sábado en Alba astronómica, un ancla personalizada; 7:00 de lunes a viernes, una hora fija; 7:02 mañana en Amanecer; 17:38 de lunes a viernes, 1 h antes de Atardecer; y 23:02 hoy, 8 h antes de Amanecer, apagada."
                 width={360}
                 height={706}
                 loading="eager"
@@ -106,7 +106,6 @@ export default function InicioPage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
             </div>
           </section>
 
@@ -140,7 +139,7 @@ export default function InicioPage() {
               </article>
               <article className="feature-card">
                 <h3>Temporizadores, en la misma aplicación</h3>
-                <p>Un teclado, una lista ordenada por duración, y una repetición cuyos ciclos se mantienen en fase — para intervalos, sesiones de entrenamiento y bloques de estudio. <a href="/es/temporizadores/">La guía de los temporizadores</a></p>
+                <p>Un teclado, una lista ordenada por duración, y un bucle cuyos ciclos se mantienen en fase — para intervalos, sesiones de entrenamiento y bloques de estudio. <a href="/es/temporizadores/">La guía de los temporizadores</a></p>
               </article>
             </div>
           </section>
@@ -167,7 +166,7 @@ export default function InicioPage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/es/alarm-picker"
                   darkBase="/assets/screenshots/es/alarm-picker--dark"
-                  alt="El cuadro de creación de alarma de Risetime, abierto sobre la lista de alarmas: la pastilla de ancla Mediodía, un desplazamiento de menos 1 hora y 00 minutos con el campo de las horas seleccionado, y la línea Mañana: 11:49. Un disco de horas circular con el 1 seleccionado ocupa la mitad inferior, con Cancelar y OK debajo."
+                  alt="El cuadro de creación de alarma de Risetime, abierto sobre la lista de alarmas: el botón de ancla con el icono de Mediodía, un desplazamiento de menos 1 hora y 00 minutos con el campo de las horas seleccionado, y la línea Mañana: 11:49. Un disco de horas circular con el 1 seleccionado ocupa la mitad inferior, con Cancelar y OK debajo."
                   width={360}
                   height={706}
                 />
@@ -193,7 +192,7 @@ export default function InicioPage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/es/settings-screen"
                   darkBase="/assets/screenshots/es/settings-screen--dark"
-                  alt="La pantalla de ajustes de Risetime, con las líneas Alarmas, Anclas, Temporizadores, Ajustes del teléfono, y Ubicación de eventos celestiales configurada en Londres, Reino Unido. La línea Fiabilidad indica 8 de 8 comprobaciones correctas y está desplegada, mostrando Comprobaciones sin efecto en este teléfono y Todo correcto (8). Apoyar Risetime figura debajo, y el pie de página indica Risetime."
+                  alt="La pantalla de ajustes de Risetime, con las líneas Alarmas, Anclas, Temporizadores, Ajustes del teléfono, y Ubicación de eventos celestiales, que indica London, Reino Unido. La línea Fiabilidad indica (8/8) y está desplegada, con las filas plegadas Todo correcto (8) y Comprobaciones sin efecto en este teléfono. Apoyando Risetime figura debajo, y el pie de página indica Risetime."
                   width={360}
                   height={706}
                 />
@@ -246,7 +245,6 @@ export default function InicioPage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">¿Listo para levantarte con el sol?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
           </section>
 
         </main>

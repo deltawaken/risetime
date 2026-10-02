@@ -1,9 +1,9 @@
 ---
 page: /
 slug: 
-title: Risetime — Alarma al amanecer para Android · Alarmas solares
+title: Risetime — Alarmas y temporizadores para Android · Sigue al sol
 description: Aplicación de alarma al amanecer para Android. Configura tu alarma según el amanecer, el atardecer o el mediodía solar: se desplaza automáticamente cada día. Sin wifi, sin Internet, sin recopilación de datos.
-og_title: Risetime — Alarma al amanecer para Android
+og_title: Risetime — Alarmas y temporizadores · Sigue al sol
 og_description: Configura tu alarma con el amanecer. Una vez. Se desplaza cada día, sola. Sin wifi.
 og_image: https://risetime.app/assets/screenshots/landscape-alarm-list.webp
 og_image_width: 854

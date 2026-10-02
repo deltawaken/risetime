@@ -92,7 +92,7 @@ export default function AlarmasPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-list"
                 darkBase="/assets/screenshots/es/alarms-list--dark"
-                alt="Lista de alarmas de Risetime con cinco alarmas: 05:10 el sábado en Alba astronómica, un ancla personalizada; 07:00 de lunes a viernes en Exacta, una hora fija; 07:02 mañana en Amanecer; 17:38 de lunes a viernes, 1 h antes de Atardecer; y 23:02 hoy, 8 h antes de Amanecer, apagada."
+                alt="Lista de alarmas de Risetime con cinco alarmas: 5:10 el sábado en Alba astronómica, un ancla personalizada; 7:00 de lunes a viernes, una hora fija; 7:02 mañana en Amanecer; 17:38 de lunes a viernes, 1 h antes de Atardecer; y 23:02 hoy, 8 h antes de Amanecer, apagada."
                 width={360}
                 height={706}
               />
@@ -115,7 +115,7 @@ export default function AlarmasPage() {
             <p>Risetime conoce de entrada cuatro momentos del sol: el <strong>Amanecer</strong>, el <strong>Atardecer</strong>, <strong>Mediodía</strong> — el mediodía solar, cuando el sol está más alto, lo que casi nunca son las 12:00 — y el <strong>Nadir</strong>, la mitad de la noche, cuando el sol está más bajo.</p>
             <ol>
               <li>
-                <strong>La primera vez, indica tu ubicación.</strong> Las horas solares dependen del lugar en el que estás. Sin ubicación, el cuadro de la alarma muestra simplemente <em>Configura la ubicación en Ajustes</em>.
+                <strong>La primera vez, indica tu ubicación.</strong> Las horas solares dependen del lugar en el que estás. Sin ubicación, el cuadro de la alarma muestra simplemente <em>Configurar ubicación en Ajustes</em>.
                 <details>
                   <summary>Tres formas de indicarla</summary>
                   <p>En <strong>Ajustes → Ubicación de eventos celestiales</strong>: elige tu ciudad en la lista; o usa el GPS del teléfono, una vez; o activa la <strong>Actualización automática de ubicación</strong>, y te sigue de viaje. Tu ubicación permanece en tu teléfono: Risetime no tiene ningún permiso de Internet, así que no hay ningún sitio al que enviarla.</p>
@@ -123,7 +123,7 @@ export default function AlarmasPage() {
                     <ThemedPicture
                       lightBase="/assets/screenshots/es/alarms-location"
                       darkBase="/assets/screenshots/es/alarms-location--dark"
-                      alt="Los ajustes de Risetime, con la sección Ubicación de eventos celestiales abierta: Londres, Reino Unido seleccionado, un botón de GPS, y una casilla Actualización automática de ubicación sin marcar."
+                      alt="Los ajustes de Risetime, con la sección Ubicación de eventos celestiales abierta: London, Reino Unido seleccionado, un botón de localización, y una casilla Actualización automática de ubicación sin marcar."
                       width={360}
                       height={706}
                     />
@@ -141,7 +141,7 @@ export default function AlarmasPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-anchor-menu"
                 darkBase="/assets/screenshots/es/alarms-anchor-menu--dark"
-                alt="El cuadro de creación de alarma, con su menú de anclas abierto: Exacta, Alba astronómica, Amanecer, Mediodía, Hora dorada, Atardecer y Nadir."
+                alt="El cuadro de creación de alarma, con su menú de anclas abierto: Exacta (marcada), Alba astronómica, Amanecer, Mediodía, Hora dorada, Atardecer y Nadir."
                 width={360}
                 height={706}
               />
@@ -164,7 +164,7 @@ export default function AlarmasPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-offset"
                 darkBase="/assets/screenshots/es/alarms-offset--dark"
-                alt="El cuadro de creación de alarma configurado en Atardecer con un desplazamiento de una hora antes, el disco de las horas en 1 y el de los minutos en 00, y la línea Hoy: 17:38."
+                alt="El cuadro de creación de alarma configurado en Atardecer con un desplazamiento de menos 1 hora y 00 minutos, el disco de las horas en 1, y la línea Hoy: 17:38."
                 width={360}
                 height={706}
               />
@@ -173,14 +173,14 @@ export default function AlarmasPage() {
           </section>
 
           <section aria-labelledby="section-days">
-            <h2 id="section-days">Días de repetición, sonido y duración de sonería</h2>
-            <p>Abre la tarjeta de la alarma en la lista. Marca <strong>Repetir</strong> y elige tus días: la tarjeta se lee entonces como la dirías tú — <em>De lunes a viernes, 1 h antes de Atardecer</em>. La misma tarjeta lleva la etiqueta, el sonido, la vibración, la duración de sonería y la imagen mostrada mientras suena. El interruptor tiene tres posiciones: la del medio omite solo la próxima sonería — para un día libre — y deja la alarma activa.</p>
+            <h2 id="section-days">Días de repetición, sonido y duración de posposición</h2>
+            <p>Abre la tarjeta de la alarma en la lista. Marca <strong>Repetir</strong> y elige tus días: la tarjeta se lee entonces como la dirías tú — <em>De lunes a viernes, 1 h antes de Atardecer</em>. La misma tarjeta lleva la etiqueta, el sonido, la vibración, la duración de posposición y la imagen mostrada mientras suena. El interruptor tiene tres posiciones: la del medio omite solo la próxima sonería — para un día libre — y deja la alarma activa.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-card"
                 darkBase="/assets/screenshots/es/alarms-card--dark"
-                alt="Una tarjeta de alarma abierta para las 17:38, de lunes a viernes, 1 h antes de Atardecer: un campo Etiqueta vacío, Repetir con de lunes a viernes seleccionado, Sonido configurado en Predeterminado del teléfono, y Vibración activada. La tarjeta continúa bajo el borde de la imagen."
+                alt="Una tarjeta de alarma abierta para las 17:38, de lunes a viernes, 1 h antes de Atardecer: un campo Nombre vacío, Repetir marcado con los días L, M, X, J y V seleccionados y S y D sin marcar, y Sonido en Predeterminado del teléfono. La tarjeta continúa bajo el borde de la imagen."
                 width={360}
                 height={706}
               />
@@ -210,7 +210,7 @@ export default function AlarmasPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-anchors"
                 darkBase="/assets/screenshots/es/alarms-anchors--dark"
-                alt="Los ajustes, sección Anclas: dos anclas personalizadas, Alba astronómica y Hora dorada, cada una con un botón de edición y un botón de eliminación, entre las anclas de fábrica Amanecer, Mediodía, Atardecer y Nadir. Cada fila lleva un interruptor de visibilidad, todos activados."
+                alt="Los ajustes, sección Anclas desplegada, con un botón + : Alba astronómica, Amanecer, Mediodía, Hora dorada, Atardecer y Nadir. Solo Alba astronómica y Hora dorada, las anclas personalizadas, tienen activos los botones de edición y de eliminación; cada fila lleva un interruptor de visibilidad, todos activados."
                 width={360}
                 height={706}
               />
@@ -224,7 +224,7 @@ export default function AlarmasPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/alarms-anchor-editor"
                 darkBase="/assets/screenshots/es/alarms-anchor-editor--dark"
-                alt="El editor de ancla en Un ángulo solar, configurado a −18,0° por la mañana, llamado Alba astronómica, con la vista previa Próximo: 05:10. El sol no alcanza este ángulo aquí del 23 de mayo de 2027 al 21 de julio de 2027."
+                alt="El editor Editar ancla en Un ángulo solar, con 18,0° y el icono de la mañana, llamado Alba astronómica, con la vista previa Próximo: 5:10. El sol no alcanza este ángulo aquí del 23 de mayo de 2027 al 21 de julio de 2027, y un aviso en rojo dice No se alcanza todos los días en esta latitud."
                 width={360}
                 height={706}
               />
@@ -260,14 +260,13 @@ export default function AlarmasPage() {
 
           <div className="cta-section">
             <h2>Configúrala una vez. Sigue al sol.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unirse a las pruebas abiertas de Risetime en Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Consigue Risetime en Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Pruebas abiertas</span>
+              <span className="badge-sub">Disponible ya</span>
             </a>
-            <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
           </div>
 
         </main>

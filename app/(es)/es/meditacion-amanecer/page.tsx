@@ -105,7 +105,7 @@ export default function MeditacionAmanecerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/practice-list"
                 darkBase="/assets/screenshots/es/practice-list--dark"
-                alt="Lista de alarmas de Risetime con cuatro alarmas, todas repetidas cada día: 05:29 en Última parte de la noche, 05:50 en Alba náutica, 06:29 en Alba civil, y 07:02 en Amanecer."
+                alt="Lista de alarmas de Risetime con cuatro alarmas, todas con Todos los días: 5:29 en Última parte de la noche, 5:50 en Alba náutica, 6:29 en Alba civil, y 7:02 en Amanecer."
                 width={360}
                 height={706}
               />
@@ -119,7 +119,7 @@ export default function MeditacionAmanecerPage() {
               <li>En la pestaña <strong>Alarmas</strong>, toca <strong>+</strong>.</li>
               <li>En el menú superior, elige <strong>Amanecer</strong>.</li>
               <li>Deja el disco en el centro para sonar con el amanecer, o gíralo hasta la distancia que quieras, hasta <strong>11 h 59 min</strong> en un sentido u otro.</li>
-              <li>Toca <strong>OK</strong>, y luego abre la alarma en la lista y ajusta la <strong>Repetición</strong>.</li>
+              <li>Toca <strong>OK</strong>, y luego abre la alarma en la lista y marca <strong>Repetir</strong>.</li>
             </ol>
             <p>Y la alarma que piden los madrugadores es la otra: <strong>una alarma para irse a dormir</strong>, no para despertar. Ponla sobre el ancla <strong>Atardecer</strong> con un desplazamiento, en repetición — los mismos cuatro pasos. <a href="/es/alarmas/" className="content-link">Cómo poner una alarma al amanecer o al atardecer</a></p>
           </section>
@@ -137,7 +137,7 @@ export default function MeditacionAmanecerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/practice-angle-editor"
                 darkBase="/assets/screenshots/es/practice-angle-editor--dark"
-                alt="El editor de ancla en Un ángulo solar, configurado a −6,0° por la mañana, llamado Alba civil, con la vista previa: Próximo: 06:29."
+                alt="El editor Editar ancla en Un ángulo solar, con 6,0° y el icono de la mañana, llamado Alba civil, con la vista previa Próximo: 6:29. Avanzado está plegado y Guardar arriba a la derecha."
                 width={360}
                 height={706}
               />
@@ -159,7 +159,7 @@ export default function MeditacionAmanecerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/practice-division-editor"
                 darkBase="/assets/screenshots/es/practice-division-editor--dark"
-                alt="El editor de ancla en Una fracción del día o de la noche, con Noche seleccionado, Número de partes ajustado a 8 y Posición en 7/8, llamado Última parte de la noche, con la vista previa: Próximo: 05:29."
+                alt="El editor Editar ancla en Una fracción del día o de la noche, con Noche seleccionado, Número de partes en 8 y Posición en 7/8, llamado Última parte de la noche, con la vista previa Próximo: 5:29."
                 width={360}
                 height={706}
               />
@@ -186,14 +186,13 @@ export default function MeditacionAmanecerPage() {
 
           <div className="cta-section">
             <h2>Empieza con la luz.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unirse a las pruebas abiertas de Risetime en Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Consigue Risetime en Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Pruebas abiertas</span>
+              <span className="badge-sub">Disponible ya</span>
             </a>
-            <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
           </div>
 
         </main>

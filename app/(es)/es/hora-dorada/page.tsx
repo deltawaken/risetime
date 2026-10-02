@@ -105,7 +105,7 @@ export default function HoraDoradaPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/sky-menu"
                 darkBase="/assets/screenshots/es/sky-menu--dark"
-                alt="El cuadro de creación de alarma, con su menú de anclas abierto, listando Exacta, Amanecer, Mediodía, Hora dorada, Atardecer, Hora azul, Cielo nocturno y Nadir."
+                alt="El cuadro de creación de alarma, con su menú de anclas abierto: Exacta (marcada), Amanecer, Mediodía, Hora dorada, Atardecer, Hora azul, Cielo nocturno y Nadir."
                 width={360}
                 height={706}
               />
@@ -126,7 +126,7 @@ export default function HoraDoradaPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/sky-list"
                 darkBase="/assets/screenshots/es/sky-list--dark"
-                alt="La lista de alarmas de Risetime con cinco alarmas: 06:45 y 08:10 de lunes a viernes en Exacta; 17:21 el sábado y el domingo, 30 min antes de Hora dorada; 18:58 el sábado y el domingo en Hora azul; y 20:30 el viernes y el sábado en Cielo nocturno."
+                alt="La lista de alarmas de Risetime con cinco alarmas: 6:45 y 8:10 de lunes a viernes; 17:21 sábado y domingo, 30 min antes de Hora dorada; 18:58 sábado y domingo en Hora azul; y 20:30 viernes y sábado en Cielo nocturno."
                 width={360}
                 height={706}
               />
@@ -167,7 +167,7 @@ export default function HoraDoradaPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/sky-night-editor"
                 darkBase="/assets/screenshots/es/sky-night-editor--dark"
-                alt="El editor de ancla en Un ángulo solar, configurado a −18,0° por la tarde, llamado Cielo nocturno, con la vista previa: Próximo: 20:30. El sol no alcanza este ángulo aquí del 23 de mayo de 2027 al 21 de julio de 2027."
+                alt="El editor Editar ancla en Un ángulo solar, con 18,0° y el icono de la tarde, llamado Cielo nocturno, con la vista previa Próximo: 20:30. El sol no alcanza este ángulo aquí del 23 de mayo de 2027 al 21 de julio de 2027, y un aviso en rojo dice No se alcanza todos los días en esta latitud."
                 width={360}
                 height={706}
               />
@@ -183,14 +183,13 @@ export default function HoraDoradaPage() {
 
           <div className="cta-section">
             <h2>No te pierdas nunca más la luz.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unirse a las pruebas abiertas de Risetime en Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Consigue Risetime en Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Pruebas abiertas</span>
+              <span className="badge-sub">Disponible ya</span>
             </a>
-            <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
           </div>
 
         </main>

@@ -118,7 +118,7 @@ export default function AlarmaRitmoCircadianoPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/circadian-list"
                 darkBase="/assets/screenshots/es/circadian-list--dark"
-                alt="Lista de alarmas de Risetime con tres alarmas, todas repetidas cada día: 07:02 al amanecer, 20:38 dos horas después del atardecer, y 23:02 ocho horas antes del amanecer."
+                alt="Lista de alarmas de Risetime con tres alarmas, las tres con Todos los días: 7:02 en Amanecer, 20:38 a 2 h después de Atardecer, y 23:02 a 8 h antes de Amanecer."
                 width={360}
                 height={706}
               />
@@ -159,7 +159,7 @@ export default function AlarmaRitmoCircadianoPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/es/circadian-offset"
                 darkBase="/assets/screenshots/es/circadian-offset--dark"
-                alt="El cuadro de diálogo de nueva alarma configurado en Amanecer con un desplazamiento de ocho horas antes, el disco de las horas en 8 y el de los minutos en 00, y la línea Hoy: 23:02."
+                alt="El cuadro de creación de alarma configurado en Amanecer con un desplazamiento de menos 8 horas y 00 minutos, el disco de las horas en 8, y la línea Hoy: 23:02."
                 width={360}
                 height={706}
               />
@@ -175,14 +175,13 @@ export default function AlarmaRitmoCircadianoPage() {
 
           <div className="cta-section">
             <h2>Levántate con el sol. Guarda el reloj para el resto.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Unirse a las pruebas abiertas de Risetime en Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Consigue Risetime en Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Pruebas abiertas</span>
+              <span className="badge-sub">Disponible ya</span>
             </a>
-            <p className="cta-note">Risetime está en pruebas abiertas: primero te unes a las pruebas y luego instalas desde Play. Sin ese paso, Play puede decirte que la aplicación no está disponible en tu país.</p>
           </div>
 
         </main>
