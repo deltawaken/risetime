@@ -104,7 +104,7 @@ export default function GoudenUurWekkerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/sky-menu"
                 darkBase="/assets/screenshots/nl/sky-menu--dark"
-                alt="Het dialoogvenster voor een nieuw alarm, met het geopende ankermenu, met Absoluut, Zonsopkomst, Middag, Gouden uur, Zonsondergang, Blauw uur, Nachthemel en Nadir."
+                alt="Het dialoogvenster voor een nieuwe wekker, met het ankermenu open: Absoluut (aangevinkt), Zonsopkomst, Middag, Gouden uur, Zonsondergang, Blauw uur, Nachthemel en Nadir."
                 width={360}
                 height={706}
               />
@@ -118,14 +118,14 @@ export default function GoudenUurWekkerPage() {
               <li>Open <strong>Instellingen → Ankers</strong> en tik op <strong>+</strong>.</li>
               <li>Laat het type op <strong>Een zonshoek</strong> staan en stel uw hoek in — tik op de waarde om hem in te voeren, en kies <strong>ochtend</strong> of <strong>avond</strong>.</li>
               <li>Geef het een naam — <em>Gouden uur</em>, <em>Blauw uur</em>, <em>Nachthemel</em> —, kies een kleur en sla op.</li>
-              <li>Stel in het tabblad <strong>Alarmen</strong> een alarm in op dit anker: op het anker zelf, of dertig minuten ervoor om er op tijd te zijn.</li>
+              <li>Stel in het tabblad <strong>Wekkers</strong> een alarm in op dit anker: op het anker zelf, of dertig minuten ervoor om er op tijd te zijn.</li>
             </ol>
             <p><a href="/nl/alarmen/#section-custom" className="content-link">Hoe ankers en tijdsverschillen werken</a></p>
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/sky-list"
                 darkBase="/assets/screenshots/nl/sky-list--dark"
-                alt="De alarmenlijst van Risetime met vijf alarmen: 06:45 en 08:10 van maandag tot en met vrijdag bij Absoluut; 17:21 op zaterdag en zondag, 30 min voor Gouden uur; 18:58 op zaterdag en zondag bij Blauw uur; en 20:30 op vrijdag en zaterdag bij Nachthemel."
+                alt="De wekkerlijst van Risetime met vijf wekkers: 06:45 en 08:10 van maandag tot en met vrijdag, met een klokpictogram; 17:21 op zaterdag en zondag, 30 min voor Gouden uur; 18:58 op zaterdag en zondag bij Blauw uur; en 20:30 op vrijdag en zaterdag bij Nachthemel."
                 width={360}
                 height={706}
               />
@@ -166,7 +166,7 @@ export default function GoudenUurWekkerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/sky-night-editor"
                 darkBase="/assets/screenshots/nl/sky-night-editor--dark"
-                alt="De ankereditor op Een zonshoek, ingesteld op −18,0° &rsquo;s avonds, genoemd Nachthemel, met de voorbeeldregel: Volgende: 20:30. De zon bereikt deze hoek hier niet van 23 mei 2027 tot en met 21 juli 2027."
+                alt="Het scherm Anker bewerken op Een zonshoek, 18,0° onder de horizon in de avond, met de melding Niet elke dag bereikt op deze breedte, de naam Nachthemel en de voorbeeldregel: Volgende: 20:30. De zon bereikt deze hoek hier niet van 23 mei 2027 tot en met 21 juli 2027."
                 width={360}
                 height={706}
               />
@@ -182,14 +182,13 @@ export default function GoudenUurWekkerPage() {
 
           <div className="cta-section">
             <h2>Mis het licht nooit meer.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Meedoen aan de open test van Risetime op Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Download Risetime in Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open test</span>
+              <span className="badge-sub">Nu beschikbaar</span>
             </a>
-            <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
           </div>
 
         </main>

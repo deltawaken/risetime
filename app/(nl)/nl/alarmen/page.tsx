@@ -90,7 +90,7 @@ export default function AlarmenPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-list"
                 darkBase="/assets/screenshots/nl/alarms-list--dark"
-                alt="Alarmenlijst van Risetime met vijf alarmen: 05:10 op zaterdag bij Astronomische dageraad, een aangepast anker; 07:00 van maandag tot en met vrijdag bij Absoluut, een vaste tijd; 07:02 morgen bij Zonsopkomst; 17:38 van maandag tot en met vrijdag, 1 uur voor Zonsondergang; en 23:02 vandaag, 8 uur voor Zonsopkomst, uitgeschakeld."
+                alt="Wekkerlijst van Risetime met vijf wekkers: 05:10 op zaterdag bij Astronomische dageraad; 07:00 van maandag tot en met vrijdag, met een klokpictogram; 07:02 morgen bij Zonsopkomst; 17:38 van maandag tot en met vrijdag, 1 uur voor Zonsondergang; en 23:02 vandaag, 8 uur voor Zonsopkomst, uitgeschakeld. Onderaan de tabbladen Wekkers, Timers en Instellingen."
                 width={360}
                 height={706}
               />
@@ -101,7 +101,7 @@ export default function AlarmenPage() {
           <section aria-labelledby="section-regular">
             <h2 id="section-regular">Een gewoon alarm instellen</h2>
             <ol>
-              <li>Tik in het tabblad <strong>Alarmen</strong> op <strong>+</strong>.</li>
+              <li>Tik in het tabblad <strong>Wekkers</strong> op <strong>+</strong>.</li>
               <li>Stel de tijd in op de wijzerplaat, of typ hem in.</li>
               <li>Tik op <strong>OK</strong>.</li>
             </ol>
@@ -121,7 +121,7 @@ export default function AlarmenPage() {
                     <ThemedPicture
                       lightBase="/assets/screenshots/nl/alarms-location"
                       darkBase="/assets/screenshots/nl/alarms-location--dark"
-                      alt="De instellingen van Risetime, sectie Locatie voor hemelgebeurtenissen geopend: Londen, Verenigd Koninkrijk geselecteerd, een gps-knop, en een uitgevinkt vakje Locatie automatisch bijwerken."
+                      alt="De instellingen van Risetime met Locatie voor hemelgebeurtenissen geopend: London, Verenigd Koninkrijk geselecteerd in een keuzelijst, een gps-knop ernaast, en een niet aangevinkt vakje Locatie automatisch bijwerken."
                       width={360}
                       height={706}
                     />
@@ -129,7 +129,7 @@ export default function AlarmenPage() {
                   </figure>
                 </details>
               </li>
-              <li>Tik in het tabblad <strong>Alarmen</strong> op <strong>+</strong>.</li>
+              <li>Tik in het tabblad <strong>Wekkers</strong> op <strong>+</strong>.</li>
               <li>Kies in het bovenste menu <strong>Zonsopkomst</strong>, <strong>Zonsondergang</strong>, <strong>Middag</strong> of <strong>Nadir</strong>.</li>
               <li>Stel op de wijzerplaat in hoeveel tijd ervoor of erna het alarm moet afgaan — of laat het op <em>Geen tijdsverschil</em> staan.</li>
               <li>Tik op <strong>OK</strong>.</li>
@@ -139,7 +139,7 @@ export default function AlarmenPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-anchor-menu"
                 darkBase="/assets/screenshots/nl/alarms-anchor-menu--dark"
-                alt="Het dialoogvenster voor een nieuw alarm, met het geopende ankermenu: Absoluut, Astronomische dageraad, Zonsopkomst, Middag, Gouden uur, Zonsondergang en Nadir."
+                alt="Het dialoogvenster voor een nieuwe wekker, met het ankermenu open: Absoluut (aangevinkt), Astronomische dageraad, Zonsopkomst, Middag, Gouden uur, Zonsondergang en Nadir."
                 width={360}
                 height={706}
               />
@@ -162,7 +162,7 @@ export default function AlarmenPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-offset"
                 darkBase="/assets/screenshots/nl/alarms-offset--dark"
-                alt="Het dialoogvenster voor een nieuw alarm, ingesteld op Zonsondergang met een tijdsverschil van een uur ervoor, de wijzerplaat voor uren op 1 en die voor minuten op 00, en de regel Vandaag: 17:38."
+                alt="Het dialoogvenster voor een nieuwe wekker, ingesteld op het anker Zonsondergang met een tijdsverschil van −1:00, de wijzerplaat voor uren op 1, en de regel Vandaag: 17:38."
                 width={360}
                 height={706}
               />
@@ -172,13 +172,13 @@ export default function AlarmenPage() {
 
           <section aria-labelledby="section-days">
             <h2 id="section-days">Herhalingsdagen, geluid en de duur ervan</h2>
-            <p>Open de alarmkaart in de lijst. Vink <strong>Herhalen</strong> aan en kies uw dagen: de kaart leest dan als u het zou zeggen — <em>Maandag–vrijdag, 1 uur voor Zonsondergang</em>. Dezelfde kaart bevat het label, het geluid, de trilling, de duur van het alarmgeluid en de afbeelding die tijdens het afgaan wordt getoond. De schakelaar heeft drie standen: de middelste slaat alleen de eerstvolgende keer over — voor een vrije dag — en laat het alarm actief.</p>
+            <p>Open de alarmkaart in de lijst. Vink <strong>Herhalen</strong> aan en kies uw dagen: de kaart leest dan als u het zou zeggen — <em>Ma tot en met vr, 1 uur voor Zonsondergang</em>. Dezelfde kaart bevat het label, het geluid, de trilling, de sluimerduur en de afbeelding die tijdens het afgaan wordt getoond. De schakelaar heeft drie standen: de middelste slaat alleen de eerstvolgende keer over — voor een vrije dag — en laat het alarm actief.</p>
 
             <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-card"
                 darkBase="/assets/screenshots/nl/alarms-card--dark"
-                alt="Een geopende alarmkaart voor 17:38, van maandag tot en met vrijdag, 1 uur voor Zonsondergang: een leeg veld Label, Herhalen met maandag tot en met vrijdag geselecteerd, Geluid ingesteld op Telefoonstandaard, en Trillen ingeschakeld. De kaart loopt door onder de rand van de afbeelding."
+                alt="De opengeklapte wekker van 17:38, van maandag tot en met vrijdag, 1 uur voor Zonsondergang: een leeg veld Label, Herhalen aangevinkt met Ma, Di, Wo, Do en Vr geselecteerd, en Geluid met Telefoonstandaard. De kaart loopt door onder de rand van de afbeelding."
                 width={360}
                 height={706}
               />
@@ -208,7 +208,7 @@ export default function AlarmenPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-anchors"
                 darkBase="/assets/screenshots/nl/alarms-anchors--dark"
-                alt="De instellingen, sectie Ankers: twee aangepaste ankers, Astronomische dageraad en Gouden uur, elk met een bewerkknop en een verwijderknop, tussen de standaardankers Zonsopkomst, Middag, Zonsondergang en Nadir. Elke regel heeft een zichtbaarheidsschakelaar, allemaal ingeschakeld."
+                alt="De instellingen met Ankers opengeklapt en een plusknop ernaast: Astronomische dageraad, Zonsopkomst, Middag, Gouden uur, Zonsondergang en Nadir. Alleen Astronomische dageraad en Gouden uur, de aangepaste ankers, hebben een actieve bewerkknop en verwijderknop. Elke regel heeft een schakelaar, alle ingeschakeld."
                 width={360}
                 height={706}
               />
@@ -222,7 +222,7 @@ export default function AlarmenPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarms-anchor-editor"
                 darkBase="/assets/screenshots/nl/alarms-anchor-editor--dark"
-                alt="De ankereditor op Een zonshoek, ingesteld op −18,0° &rsquo;s ochtends, genoemd Astronomische dageraad, met de voorbeeldregel Volgende: 05:10. De zon bereikt deze hoek hier niet van 23 mei 2027 tot en met 21 juli 2027."
+                alt="Het scherm Anker bewerken op Een zonshoek, 18,0° onder de horizon in de ochtend, met de melding Niet elke dag bereikt op deze breedte, de naam Astronomische dageraad en de voorbeeldregel Volgende: 05:10. De zon bereikt deze hoek hier niet van 23 mei 2027 tot en met 21 juli 2027. Rechtsboven staat Opslaan."
                 width={360}
                 height={706}
               />
@@ -243,7 +243,7 @@ export default function AlarmenPage() {
 
           <section aria-labelledby="section-timers">
             <h2 id="section-timers">Ook timers</h2>
-            <p>Het tabblad <strong>Timers</strong> verzamelt de aftellingen, inclusief de timers die vanzelf opnieuw beginnen voor intervallen en studieblokken: <a href="/nl/timers/" className="content-link">hoe herhalende timers werken</a>.</p>
+            <p>Het tabblad <strong>Timers</strong> verzamelt de aftellingen, inclusief de timers die vanzelf opnieuw beginnen voor intervallen en studieblokken: <a href="/nl/timers/" className="content-link">hoe timers in een lus werken</a>.</p>
             <p>Risetime is gratis tot drie alarmen en drie timers — voor altijd. Heeft u er meer nodig? Gebruik eerst deze drie, en kijk of het uw steun waard is: wie steunt krijgt onbeperkt alarmen en timers, per jaar of eenmalig voor altijd. Anders hoor ik graag <a href="mailto:contact@risetime.app">van u</a>.</p>
           </section>
 
@@ -258,14 +258,13 @@ export default function AlarmenPage() {
 
           <div className="cta-section">
             <h2>Stel het eenmalig in. Het volgt de zon.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Meedoen aan de open test van Risetime op Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Download Risetime in Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open test</span>
+              <span className="badge-sub">Nu beschikbaar</span>
             </a>
-            <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
           </div>
 
         </main>

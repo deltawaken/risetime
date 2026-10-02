@@ -105,7 +105,7 @@ export default function CircadiaansRitmeWekkerPage() {
           <section aria-labelledby="section-how">
             <h2 id="section-how">Hoe u een alarm instelt op het circadiaans ritme</h2>
             <ol>
-              <li>Tik in het tabblad <strong>Alarmen</strong> op <strong>+</strong>.</li>
+              <li>Tik in het tabblad <strong>Wekkers</strong> op <strong>+</strong>.</li>
               <li>Kies in het bovenste menu <strong>Zonsopkomst</strong>.</li>
               <li>Laat de wijzerplaat staan om op te staan bij zonsopkomst, of draai hem naar de afstand die u wilt — 30 minuten ervoor, een uur ervoor.</li>
               <li>Tik op <strong>OK</strong>. Open vervolgens het alarm in de lijst en vink <strong>Herhalen</strong> aan om uw dagen te kiezen.</li>
@@ -116,7 +116,7 @@ export default function CircadiaansRitmeWekkerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/circadian-list"
                 darkBase="/assets/screenshots/nl/circadian-list--dark"
-                alt="Alarmenlijst van Risetime met drie alarmen, allemaal elke dag herhaald: 07:02 bij Zonsopkomst, 20:38 twee uur na Zonsondergang, en 23:02 acht uur voor Zonsopkomst."
+                alt="Wekkerlijst van Risetime met drie wekkers, alle drie elke dag: 07:02 bij Zonsopkomst, 20:38 2 uur na Zonsondergang, en 23:02 8 uur voor Zonsopkomst."
                 width={360}
                 height={706}
               />
@@ -157,7 +157,7 @@ export default function CircadiaansRitmeWekkerPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/circadian-offset"
                 darkBase="/assets/screenshots/nl/circadian-offset--dark"
-                alt="Het dialoogvenster voor een nieuw alarm, ingesteld op zonsopkomst met een tijdsverschil van acht uur ervoor, de wijzerplaat voor uren op 8 en die voor minuten op 00, en de regel Vandaag: 23:02."
+                alt="Het dialoogvenster voor een nieuwe wekker, ingesteld op het anker Zonsopkomst met een tijdsverschil van −8:00, de wijzerplaat voor uren op 8, en de regel Vandaag: 23:02."
                 width={360}
                 height={706}
               />
@@ -173,14 +173,13 @@ export default function CircadiaansRitmeWekkerPage() {
 
           <div className="cta-section">
             <h2>Sta op met de zon. Houd de klok voor de rest.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Meedoen aan de open test van Risetime op Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Download Risetime in Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open test</span>
+              <span className="badge-sub">Nu beschikbaar</span>
             </a>
-            <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
           </div>
 
         </main>

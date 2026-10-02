@@ -34,8 +34,8 @@ const jsonLd = [
   /* De negen items van de Engelse, in dezelfde volgorde. ⛔ De namen van
      instellingen komen uit de .po en nergens anders vandaan — "Een zonshoek",
      "Een schaduwlengte", "Een fractie van de dag of de nacht", "Zonnemiddag",
-     "Nadir", "Kalibratie" — en "lus" voor de herhaling van een timer.
-     ⚠️ Nooit "herhaling" hier: in de app is dat het uitstellen van een alarm. */
+     "Nadir", "Kalibratie" — en "lus" voor een timer die vanzelf opnieuw begint.
+     ⚠️ Nooit "herhalen" daarvoor: in de app zijn dat de weekdagen van een alarm. */
   "featureList": [
     "Alarmen verankerd aan zonsopkomst, zonsondergang, zonnemiddag of nadir",
     "Ankers op maat: een zonshoek, een schaduwlengte, een fractie van de dag of de nacht",
@@ -79,14 +79,14 @@ const jsonLd = [
 }
 ]
 
-const PLAY = "https://play.google.com/apps/testing/com.deltawaken.risetime"
+const PLAY = "https://play.google.com/store/apps/details?id=com.deltawaken.risetime"
 const PlayBadge = () => (
-  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Meedoen aan de open test van Risetime op Google Play">
+  <a className="play-badge" href={PLAY} target="_blank" rel="noopener" aria-label="Download Risetime in Google Play">
     <span className="badge-main">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
       Google Play
     </span>
-    <span className="badge-sub">Open test</span>
+    <span className="badge-sub">Nu beschikbaar</span>
   </a>
 )
 
@@ -104,14 +104,14 @@ export default function HomePage() {
         <main id="main-content">
 
           <section className="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> de app met zonnealarmen voor Android.</h1>
-            <p className="hero-celestial">Uw hemelse wekker.</p>
-            <p className="hero-sub">Stel uw alarm in op de zon. Het schuift elke dag mee, zodat u dat niet zelf hoeft te doen.</p>
+            <h1 id="hero-heading"><span className="hero-brand">Risetime</span> <span className="hero-sep" aria-hidden="true">&mdash;</span> wekker en timers.</h1>
+            <p className="hero-celestial">Hij kan de zon volgen.</p>
+            <p className="hero-sub">Wekkers bij zonsopkomst en zonsondergang waar u zich bevindt, die meeschuiven met de seizoenen — of op een vast tijdstip. En timers die in een lus kunnen lopen.</p>
             <div className="hero-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/alarm-list"
                 darkBase="/assets/screenshots/nl/alarm-list--dark"
-                alt="Alarmenlijst van Risetime met vijf alarmen: 05:10 op zaterdag bij Astronomische dageraad, een aangepast anker; 07:00 van maandag tot en met vrijdag bij Absoluut, een vaste tijd; 07:02 morgen bij Zonsopkomst; 17:38 van maandag tot en met vrijdag, 1 uur voor Zonsondergang; en 23:02 vandaag, 8 uur voor Zonsopkomst, uitgeschakeld."
+                alt="Wekkerlijst van Risetime met vijf wekkers: 05:10 op zaterdag bij Astronomische dageraad; 07:00 van maandag tot en met vrijdag, met een klokpictogram; 07:02 morgen bij Zonsopkomst; 17:38 van maandag tot en met vrijdag, 1 uur voor Zonsondergang; en 23:02 vandaag, 8 uur voor Zonsopkomst, uitgeschakeld. Onderaan de tabbladen Wekkers, Timers en Instellingen."
                 width={360}
                 height={706}
                 loading="eager"
@@ -120,7 +120,6 @@ export default function HomePage() {
             </div>
             <div className="cta-group">
               <PlayBadge />
-              <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
             </div>
           </section>
 
@@ -154,7 +153,7 @@ export default function HomePage() {
               </article>
               <article className="feature-card">
                 <h3>Timers, in dezelfde app</h3>
-                <p>Een toetsenbord, een lijst gesorteerd op duur, en een herhaling waarvan de cycli in de pas blijven — voor intervallen, sessies, studieblokken. <a href="/nl/timers/">De gids voor timers</a></p>
+                <p>Een toetsenbord, een lijst gesorteerd op duur, en een lus waarvan de cycli in de pas blijven — voor intervallen, sessies, studieblokken. <a href="/nl/timers/">De gids voor timers</a></p>
               </article>
             </div>
           </section>
@@ -169,7 +168,7 @@ export default function HomePage() {
               <li><strong>Erop uit vóór het licht</strong> — het water op voor de dag begint, met een alarm dat meebeweegt met het eerste licht in plaats van een tijd die u om de paar weken moet bijstellen.</li>
               <li><strong>Opstaan vóór de dageraad</strong> — stel uw tijdsverschil vóór zonsopkomst eenmalig in: het volgt de zonsopkomst elke dag. Voor het precieze moment raadpleegt u uw eigen kalender; het alarm zelf loopt nooit uit de pas.</li>
               <li><strong>Werk buiten, wandelingen, veehouderij</strong> — als uw dag begint met de dag, doet uw alarm dat ook.</li>
-              <li><strong>Intervallen, sessies, studieblokken</strong> — timers die vanzelf opnieuw beginnen, in dezelfde app. <a href="/nl/timers/">Herhalende timers</a></li>
+              <li><strong>Intervallen, sessies, studieblokken</strong> — timers die vanzelf opnieuw beginnen, in dezelfde app. <a href="/nl/timers/">Timers in een lus</a></li>
               <li><strong>Iedereen die het beu is om het hele jaar bij te stellen</strong> — eenmalig instellen, en het blijft juist. <a href="/nl/alarmen/">Een wekker instellen op zonsopkomst of zonsondergang</a></li>
             </ul>
           </section>
@@ -181,7 +180,7 @@ export default function HomePage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/nl/alarm-picker"
                   darkBase="/assets/screenshots/nl/alarm-picker--dark"
-                  alt="Het dialoogvenster voor een nieuw alarm van Risetime, geopend boven de lijst: het ankerbadge Middag, een tijdsverschil van min 1 uur en 00 minuten met het urenveld geselecteerd, en de regel Morgen: 11:49. Een rond urenwijzerplaat met 1 geselecteerd vult de onderste helft, met Annuleren en OK eronder."
+                  alt="Het dialoogvenster voor een nieuwe wekker van Risetime, geopend boven de lijst: een geel ankerpictogram met een zon (Middag), een tijdsverschil van −1:00 met het urenveld geselecteerd, en de regel Morgen: 11:49. Een ronde wijzerplaat voor uren met 1 geselecteerd vult de onderste helft, met Annuleren en OK eronder."
                   width={360}
                   height={706}
                 />
@@ -207,7 +206,7 @@ export default function HomePage() {
                 <ThemedPicture
                   lightBase="/assets/screenshots/nl/settings-screen"
                   darkBase="/assets/screenshots/nl/settings-screen--dark"
-                  alt="Het instellingenscherm van Risetime, met de regels Alarmen, Ankers, Timers, Telefooninstellingen, en Locatie voor hemelgebeurtenissen ingesteld op Londen, Verenigd Koninkrijk. De regel Betrouwbaarheid toont 8 van de 8 controles groen en is opengeklapt op Controles zonder betekenis voor deze telefoon en Alles in orde (8). Risetime steunen staat eronder, en de voettekst toont Risetime."
+                  alt="Het scherm Instellingen van Risetime, met de regels Wekkers, Ankers, Timers, Telefooninstellingen, en Locatie voor hemelgebeurtenissen met London, Verenigd Koninkrijk. De regel Betrouwbaarheid, (8/8), is opengeklapt op Alles in orde (8) en Controles zonder betekenis voor deze telefoon. Eronder staat Je steunt Risetime met een ster, en onderaan het woord Risetime."
                   width={360}
                   height={706}
                 />
@@ -260,7 +259,6 @@ export default function HomePage() {
           <section className="final-cta" aria-labelledby="cta-heading">
             <h2 id="cta-heading">Klaar om op te staan met de zon?</h2>
             <PlayBadge />
-            <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
           </section>
 
         </main>

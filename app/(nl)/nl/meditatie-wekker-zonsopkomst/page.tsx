@@ -104,7 +104,7 @@ export default function MeditatieWekkerZonsopkomstPage() {
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/practice-list"
                 darkBase="/assets/screenshots/nl/practice-list--dark"
-                alt="Alarmenlijst van Risetime met vier alarmen, allemaal elke dag herhaald: 05:29 bij Laatste deel van de nacht, 05:50 bij Nautische dageraad, 06:29 bij Burgerlijke dageraad, en 07:02 bij Zonsopkomst."
+                alt="Wekkerlijst van Risetime met vier wekkers, alle vier elke dag: 05:29 bij Laatste deel van de nacht, 05:50 bij Nautische dageraad, 06:29 bij Burgerlijke dageraad, en 07:02 bij Zonsopkomst."
                 width={360}
                 height={706}
               />
@@ -115,10 +115,10 @@ export default function MeditatieWekkerZonsopkomstPage() {
           <section aria-labelledby="s-sunrise">
             <h2 id="s-sunrise">De praktijk instellen op zonsopkomst</h2>
             <ol>
-              <li>Tik in het tabblad <strong>Alarmen</strong> op <strong>+</strong>.</li>
+              <li>Tik in het tabblad <strong>Wekkers</strong> op <strong>+</strong>.</li>
               <li>Kies in het bovenste menu <strong>Zonsopkomst</strong>.</li>
               <li>Laat de wijzerplaat in het midden staan om bij zonsopkomst af te gaan, of draai hem naar het verschil dat u wilt, tot <strong>11 uur en 59 minuten</strong> aan beide kanten.</li>
-              <li>Tik op <strong>OK</strong>, open dan het alarm in de lijst en stel de <strong>Herhaling</strong> in.</li>
+              <li>Tik op <strong>OK</strong>, open dan het alarm in de lijst en stel de <strong>Herhalen</strong> in.</li>
             </ol>
             <p>En het alarm dat vroege vogels vragen, is het andere: <strong>een alarm om te gaan slapen</strong>, geen om wakker te worden. Zet het op het anker <strong>Zonsondergang</strong> met een tijdsverschil, met herhaling — dezelfde vier stappen. <a href="/nl/alarmen/" className="content-link">Een wekker instellen op zonsopkomst of zonsondergang</a></p>
           </section>
@@ -129,14 +129,14 @@ export default function MeditatieWekkerZonsopkomstPage() {
               <li>Open <strong>Instellingen → Ankers</strong> en tik op <strong>+</strong> (die verschijnt zodra de sectie is opengeklapt).</li>
               <li>Laat het type op <strong>Een zonshoek</strong> staan. Voer <strong>&minus;6°</strong> in voor de burgerlijke dageraad of <strong>&minus;12°</strong> voor de nautische dageraad, richting <strong>ochtend</strong>. Dit verschuift telkens een tiende graad, tussen &minus;30° en +30°.</li>
               <li>Geef het een naam, <strong>kies een kleur</strong> — zonder kleur wordt het niet opgeslagen — en sla op.</li>
-              <li>Zet in het tabblad <strong>Alarmen</strong> een alarm op dit anker.</li>
+              <li>Zet in het tabblad <strong>Wekkers</strong> een alarm op dit anker.</li>
             </ol>
             <p>Ver naar het noorden of naar het zuiden daalt de zon gedurende een deel van het jaar nooit zo laag. De editor zegt dit op het moment dat u het anker aanmaakt — <em>&bdquo;De zon bereikt deze hoek hier niet, van X tot Y&rdquo;</em>, met uw eigen data — en op die dagen blijft het alarm stil in plaats van af te gaan op een moment dat de hemel nooit heeft voortgebracht. Er wordt niets verzonnen.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/practice-angle-editor"
                 darkBase="/assets/screenshots/nl/practice-angle-editor--dark"
-                alt="De ankereditor op Een zonshoek, ingesteld op −6,0° &rsquo;s ochtends, genoemd Burgerlijke dageraad, met de voorbeeldregel: Volgende: 06:29."
+                alt="Het scherm Anker bewerken op Een zonshoek, 6,0° onder de horizon in de ochtend, met de naam Burgerlijke dageraad en de voorbeeldregel: Volgende: 06:29."
                 width={360}
                 height={706}
               />
@@ -149,16 +149,16 @@ export default function MeditatieWekkerZonsopkomstPage() {
             <p>U kunt de ochtend afstemmen op de nacht in plaats van op de dageraad: een punt op een bepaald deel van de duisternis.</p>
             <ol>
               <li><strong>Instellingen → Ankers → +</strong>, en zet de vorm op <strong>Een fractie van de dag of de nacht</strong>.</li>
-              <li>Bereik <strong>Nacht</strong>, dan het <strong>Aantal delen</strong> en de <strong>positie</strong> — van 2 tot 48 delen, elke grens ertussen.</li>
+              <li>Bereik <strong>Nacht</strong>, dan het <strong>Aantal delen</strong> en de <strong>Positie</strong> — van 2 tot 48 delen, elke grens ertussen.</li>
               <li>Geef het een naam, kies een kleur, sla op. Een nieuw ontwerp heet <strong>Nacht · 1/15</strong>; het volgt wat u instelt.</li>
               <li>Zet er een alarm op.</li>
             </ol>
-            <p>De nacht is hier precies één ding: <strong>van een zonsondergang tot de volgende zonsopkomst</strong>, verdeeld in gelijke delen. Binnen de poolcirkels bestaat zo&rsquo;n nacht mogelijk niet; het anker heeft dan niets te delen, en de app zegt dat — zonder de reeks data die de hoekvorm wel geeft, die deze vorm niet heeft. Stemt u af op een gepubliceerd tijdschema? <strong>Geavanceerd → Verschuiven met N minuten</strong> verplaatst een anker dat u zelf hebt gemaakt, tot dertig minuten aan beide kanten.</p>
+            <p>De nacht is hier precies één ding: <strong>van een zonsondergang tot de volgende zonsopkomst</strong>, verdeeld in gelijke delen. Binnen de poolcirkels bestaat zo&rsquo;n nacht mogelijk niet; het anker heeft dan niets te delen, en de app zegt dat — zonder de reeks data die de hoekvorm wel geeft, die deze vorm niet heeft. Stemt u af op een gepubliceerd tijdschema? <strong>Geavanceerd</strong> → <strong>N minuten verschuiven</strong> verplaatst een anker dat u zelf hebt gemaakt, tot dertig minuten aan beide kanten.</p>
                         <figure className="content-screenshot">
               <ThemedPicture
                 lightBase="/assets/screenshots/nl/practice-division-editor"
                 darkBase="/assets/screenshots/nl/practice-division-editor--dark"
-                alt="De ankereditor op Een fractie van de dag of de nacht, met Nacht geselecteerd, Aantal delen ingesteld op 8 en Positie op 7/8, genoemd Laatste deel van de nacht, met de voorbeeldregel: Volgende: 05:29."
+                alt="Het scherm Anker bewerken op Een fractie van de dag of de nacht, met Nacht geselecteerd, Aantal delen op 8 en Positie op 7/8, met de naam Laatste deel van de nacht en de voorbeeldregel: Volgende: 05:29."
                 width={360}
                 height={706}
               />
@@ -185,14 +185,13 @@ export default function MeditatieWekkerZonsopkomstPage() {
 
           <div className="cta-section">
             <h2>Begin met het licht.</h2>
-            <a className="play-badge" href="https://play.google.com/apps/testing/com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Meedoen aan de open test van Risetime op Google Play">
+            <a className="play-badge" href="https://play.google.com/store/apps/details?id=com.deltawaken.risetime" target="_blank" rel="noopener" aria-label="Download Risetime in Google Play">
               <span className="badge-main">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.593-2.302 2.593-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" /></svg>
                 Google Play
               </span>
-              <span className="badge-sub">Open test</span>
+              <span className="badge-sub">Nu beschikbaar</span>
             </a>
-            <p className="cta-note">Risetime is in open test: u meldt zich eerst aan voor de test en installeert daarna vanuit Play. Zonder die stap kan Play zeggen dat de app niet beschikbaar is in uw land.</p>
           </div>
 
         </main>
